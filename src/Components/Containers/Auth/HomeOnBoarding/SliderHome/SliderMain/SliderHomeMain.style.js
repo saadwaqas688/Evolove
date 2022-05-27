@@ -5,7 +5,6 @@ import { Colors } from "../../../../../../config/palette";
 export const HeroText = styled(Typography)(({ theme }) => ({
  fontFamily: '"Poppins", "sans-serif"',
  color:Colors.light,
- variant:"h5",
   mt: "30px", fontWeight: "bold" ,fontSize:"36px",paddingRight:"50px",paddingTop:"70px",
 
 [theme.breakpoints.down("md")]: {
@@ -22,9 +21,8 @@ paddingTop:"10px"
 
 
 export const HeroSubText = styled(Typography)(({ theme }) => ({
- color:Colors.light,
+ color:"#B7C6D9",
  fontFamily: '"Poppins", "sans-serif"',
- variant:"h6",
  mt: "20px",fontSize:"25px",paddingRight:"100px",
 
 [theme.breakpoints.down("md")]: {

@@ -4,7 +4,6 @@ import { Colors } from "../../../../../../config/palette";
 export const HomeAboutUsHeading = styled(Typography)(({ theme }) => ({
   fontFamily: '"Poppins", "sans-serif"',
   color:Colors.light,
-  variant:"h6",
   mt: "20px",fontSize:"25px",paddingRight:"10px",
 
 [theme.breakpoints.down("md")]: {
@@ -19,10 +18,10 @@ export const HomeAboutUsHeading = styled(Typography)(({ theme }) => ({
 
 
 export const HomeAboutUs = styled(Typography)(({ theme }) => ({
+  
   fontFamily: '"Poppins", "sans-serif"',
-  color:Colors.light,
-  variant:"h6",
-  mt: "20px",fontSize:"18px",paddingRight:"10px",marginBottom:"50px",
+  color:"#B7C6D9",
+  mt: "20px",fontSize:"18px",paddingRight:"10px",marginBottom:"15px",
 
 [theme.breakpoints.down("md")]: {
  fontSize: "20px",

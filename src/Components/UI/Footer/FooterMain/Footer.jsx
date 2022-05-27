@@ -18,9 +18,6 @@ export default function Footer() {
       sx={{
         background: Colors.dark,
         color: Colors.light,
-        // p: { xs: 4, md: 10 },
-        // pt: 12,
-        // pb: 12,
         fontSize: { xs: "12px", md: "14px" },
       }}
     >
@@ -28,7 +25,7 @@ export default function Footer() {
         <Grid item xs={12} md={3}>
         <List>
 <ListItem>
-    <ListItemText primary="About Us" sx={{ color: Colors.light ,textAlign: { xs: "center" ,md:"left"}}} />
+    <ListItemText primary="About Us" sx={{ color: Colors.light ,textAlign: { xs: "center" ,md:"left"},  fontFamily: '"Poppins", "sans-serif"'}} />
   </ListItem>
 </List>
 <List>
@@ -37,7 +34,7 @@ export default function Footer() {
     <Typography
             lineHeight={2}
             variant="body1"
-            sx={{ textAlign: { xs: "center" ,md:"left"} }}
+            sx={{ textAlign: { xs: "center" ,md:"left"},fontFamily: '"Poppins", "sans-serif"'           }}
           >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor
             auctor nec at feugiat.
@@ -46,54 +43,46 @@ export default function Footer() {
 
   </ListItem>
 </List>
-          {/* <Typography
-            lineHeight={2}
-            variant="body1"
-            sx={{ textAlign: { xs: "center" }, paddingLeft: "30px" }}
-          >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Auctor
-            auctor nec at feugiat.
-          </Typography> */}
         </Grid>
         <Grid item sm={4} md={3}>
           <List>
           <ListItem>
-              <ListItemText primary="Website" sx={{ color: Colors.light }} />
+              <ListItemText primary="Website" sx={{ color: Colors.light,  fontFamily: '"Poppins", "sans-serif"' }} disableTypography />
             </ListItem>
             <ListItem component="a" href="/contactUs">
-              <ListItemText primary="Contact Us" sx={{ color: Colors.light }} />
+              <ListItemText primary="Contact Us" sx={{ color: Colors.light,  fontFamily: '"Poppins", "sans-serif"' }} disableTypography/>
             </ListItem>
             <ListItem component="a" href="/aboutUs">
-              <ListItemText primary="About Us" sx={{padding:"0" ,color: Colors.light ,textDecoration:'none'}} />
+              <ListItemText primary="About Us" sx={{padding:"0" ,color: Colors.light ,fontFamily: '"Poppins", "sans-serif"'}}  disableTypography/>
             </ListItem>
           </List>
         </Grid>
         <Grid item sm={4} md={3}>
           <List>
           <ListItem>
-              <ListItemText primary="Search" sx={{ color: Colors.light }} />
+              <ListItemText primary="Search" sx={{ color: Colors.light,  fontFamily: '"Poppins", "sans-serif"' }}  disableTypography/>
             </ListItem>
               <ListItem>
-              <ListItemText primary=" Browse Categories" sx={{ color: Colors.light }} />
+              <ListItemText primary=" Browse Categories" sx={{ color: Colors.light,  fontFamily: '"Poppins", "sans-serif"' }}  disableTypography/>
             </ListItem>
             <ListItem component="a" href="/contactUs">
-              <ListItemText primary=" Browse Courses" sx={{ color: Colors.light }} />
+              <ListItemText primary=" Browse Courses" sx={{ color: Colors.light,  fontFamily: '"Poppins", "sans-serif"'}}  disableTypography/>
             </ListItem>
             <ListItem component="a" href="/">
-              <ListItemText primary="Browse Products" sx={{padding:"0" ,color: Colors.light ,textDecoration:'none'}} />
+              <ListItemText primary="Browse Products" sx={{padding:"0" ,color: Colors.light ,  fontFamily: '"Poppins", "sans-serif"'}}  disableTypography/>
             </ListItem>
           </List>
         </Grid>
         <Grid item sm={4} md={3}>
              <List>
               <ListItem>
-              <ListItemText primary="Support" sx={{ color: Colors.light }} />
+              <ListItemText primary="Support" sx={{ color: Colors.light,  fontFamily: '"Poppins", "sans-serif"'}}  disableTypography/>
             </ListItem>
             <ListItem component="a" href="/contactUs">
-              <ListItemText primary="Contact Us" sx={{ color: Colors.light }} />
+              <ListItemText primary="Contact Us" sx={{ color: Colors.light,  fontFamily: '"Poppins", "sans-serif"' }}  disableTypography/>
             </ListItem>
             <ListItem component="a" href="/">
-              <ListItemText primary="Share With Friends" sx={{padding:"0" ,color: Colors.light ,textDecoration:'none'}} />
+              <ListItemText primary="Share With Friends" sx={{padding:"0" ,color: Colors.light ,  fontFamily: '"Poppins", "sans-serif"'}} disableTypography />
             </ListItem>
           </List>
         </Grid>
@@ -109,22 +98,10 @@ export default function Footer() {
         <TwitterIcon sx={{ mr: 1 }} />
         <InstagramIcon />
       </Box>
-      <Typography variant="body1" sx={{ textAlign: "center", mt: "34px" }}>
+      <Typography variant="body1" sx={{ textAlign: "center", mt: "34px",  fontFamily: '"Poppins", "sans-serif"' }}>
         © 2022 Evolove All Rights Reserved. Terms of Use | Privacy Policy
       </Typography>
     </Box>
   );
 }
-
-// <ListItem  >
-// <ListItemButton component="a" href="/shop" selected={pathname==='/shop'?true:false}>
-//   <ListItemIcon>
-//     <ShoppingBasketRounded sx={{color:'#ff6699' , fontSize:'40px'}}/>
-//   </ListItemIcon>
-//   <ListItemText sx={{color:"purple"}} primary="Shop" />
-// </ListItemButton>
-// </ListItem>
-
-
-
 

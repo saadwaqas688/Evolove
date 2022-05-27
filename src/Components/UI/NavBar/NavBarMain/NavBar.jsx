@@ -13,6 +13,7 @@ import {
 import DrawerComp from "../NavBarDrawer/Drawer";
 import MainLogo from "../NavBarLogo/mainLogo";
 import {useLocation} from 'react-router';
+import { Colors } from "../../../../config/palette";
 
 const NavBar = () => {
   const theme = useTheme();
@@ -34,27 +35,27 @@ console.log("pathname",pathname)
           ) : (                
             <List sx={{display:"flex",alignItems:"center",justifyContent:"center",paddingRight:"100px"}}>
               <ListItemButton  component="a" href="/"   >
-                <ListItemIcon sx={{ color:pathname==='/'?'#E63369':"#DADAF7",fontSize:"36px"}}>
+                <ListItemIcon sx={{ color:pathname==='/'?'#E63369':Colors.grey,fontSize:"36px"}}>
                   <ListItemText sx={{ fontSize: "20px",fontWeight:"bold" , fontFamily: '"Poppins", "sans-serif"',}} primary="Home" disableTypography/>
                 </ListItemIcon>
               </ListItemButton>
               <ListItemButton  component="a" href="/aboutUs"   >
-                <ListItemIcon sx={{ color:pathname==='/aboutUs'?'#E63369':"#DADAF7",fontSize:"36px"}}>
+                <ListItemIcon sx={{ color:pathname==='/aboutUs'?'#E63369':Colors.grey,fontSize:"36px"}}>
                   <ListItemText sx={{ fontSize: "20px",fontWeight:"bold", fontFamily: '"Poppins", "sans-serif"', }} primary="ABout Us" disableTypography/>
                 </ListItemIcon>
               </ListItemButton>
               <ListItemButton  component="a" href="/contactUs"   >
-                <ListItemIcon sx={{ color:pathname==='/contactUs'?'#E63369':"#DADAF7",fontSize:"36px"}}>
+                <ListItemIcon sx={{ color:pathname==='/contactUs'?'#E63369':Colors.grey,fontSize:"36px"}}>
                   <ListItemText sx={{ fontSize: "20px",fontWeight:"bold", fontFamily: '"Poppins", "sans-serif"', }} primary="Contact Us" disableTypography/>
                 </ListItemIcon>
               </ListItemButton>
               <ListItemButton  component="a" href="/login"   >
-                <ListItemIcon sx={{ color:pathname==='/login'?'#E63369':"#DADAF7",fontSize:"36px"}}>
+                <ListItemIcon sx={{ color:pathname==='/login'?'#E63369':Colors.grey,fontSize:"36px"}}>
                   <ListItemText sx={{ fontSize: "20px",fontWeight:"bold", fontFamily: '"Poppins", "sans-serif"', }} primary="LogIn" disableTypography/>
                 </ListItemIcon>
               </ListItemButton>
               <ListItemButton  component="a" href="/signUp"   >
-                <ListItemIcon sx={{ color:pathname==='/signUp'?'#E63369':"#DADAF7",fontSize:"36px"}}>
+                <ListItemIcon sx={{ color:pathname==='/signUp'?'#E63369':Colors.grey,fontSize:"36px"}}>
                   <ListItemText sx={{ fontSize: "20px",fontWeight:"bold", fontFamily: '"Poppins", "sans-serif"', }} primary="SignUp" disableTypography/>
                 </ListItemIcon>
               </ListItemButton>

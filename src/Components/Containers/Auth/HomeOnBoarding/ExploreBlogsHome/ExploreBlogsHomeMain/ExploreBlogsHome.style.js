@@ -1,4 +1,4 @@
-import { styled, Typography } from "@mui/material";
+import { colors, styled, Typography } from "@mui/material";
 import { Colors } from "../../../../../../config/palette";
 
 export const ExploreBlogsImage = styled("img")(({ src, theme }) => ({
@@ -18,21 +18,17 @@ export const ExploreBlogsImage = styled("img")(({ src, theme }) => ({
   
   
   export const ExploreBlogsHeading = styled(Typography)(({ theme }) => ({
+    fontFamily: '"Poppins", "sans-serif"',
     color:Colors.light,
     marginTop:"20px",
     [theme.breakpoints.down("md")]: {
       textAlign:"center"
       },
-  
-  // [theme.breakpoints.down("sm")]: {
-  //   textAlign:"center",
-  //   paddingLeft:"10px",
-  //   paddingRight:"10px"
-  //  },
   }));
   
   export const ExploreBlogsText = styled(Typography)(({ theme }) => ({
-    color:Colors.light,
+    fontFamily: '"Poppins", "sans-serif"',
+    color:Colors.darkGrey,
     textAlign:"flexstart",
     paddingLeft:"30px",
     paddingRight:"30px",
@@ -40,11 +36,5 @@ export const ExploreBlogsImage = styled("img")(({ src, theme }) => ({
     [theme.breakpoints.down("md")]: {
       textAlign:"center"
       },
-  
-  // [theme.breakpoints.down("sm")]: {
-  //   textAlign:"center",
-  //   paddingLeft:"10px",
-  //   paddingRight:"10px"
-  //  },
   }));
   

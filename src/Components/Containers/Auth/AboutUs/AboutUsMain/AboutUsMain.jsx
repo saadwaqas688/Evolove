@@ -15,7 +15,7 @@ function AboutUs() {
   <NavBar />
   <Container style={{padding:'0px'}}>
   <Paper elevation={6} square={true} style={{background:Colors.secondary}}>
-        <Typography sx={{color:Colors.light,textAlign:"center" ,paddingTop:"50px", fontSize: "36px",fontWeight:'bold'}}>
+        <Typography sx={{color:Colors.light,textAlign:"center" ,paddingTop:"50px", fontSize: "36px",fontWeight:'bold',fontFamily: '"Poppins", "sans-serif"'}}>
         About Us
       </Typography>
     <Grid container spacing={1} sx={{ paddingTop: "50px",paddingBottom:"50px"}}>
@@ -25,10 +25,10 @@ function AboutUs() {
       </Grid>
   
     <Grid item  xs={12} >
-      <Typography sx={{color:Colors.light ,paddingTop:"50px", fontSize: "25px"}}>
+      <Typography sx={{color:Colors.light ,paddingTop:"50px", fontSize: "25px",fontFamily: '"Poppins", "sans-serif"' }}>
       Lorem ipsum dolor sit amet, consectetur
       </Typography>
-    <Typography sx={{color:Colors.light ,paddingTop:"50px", fontSize: "18px"}}>
+    <Typography sx={{color:Colors.light ,paddingTop:"50px", fontSize: "18px",fontFamily: '"Poppins", "sans-serif"'}}>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lacus, tristique elementum a gravida ultricies nisi. Commodo nibh sed sodales est nulla eget nibh. Tempus viverra et, dolor odio. Cras viverra sit facilisis ornare leo, eget. Diam lobortis nisi, elit sed nunc mattis molestie.
 Egestas nec cras tortor orci euismod morbi sed. Id ridiculus in non tortor cras bibendum. At proin sit nibh facilisis elementum. Aliquam nibh cras neque sed at malesuada. Amet, diam vel integer quam metus.
 Eget dolor enim aliquet ac orci. Urna, nec arcu vestibulum viverra risus. Pretium at morbi ipsum adipiscing lobortis nullam nec neque. Eget vitae bibendum dictum amet nibh. Nec ipsum neque, nullam tincidunt sed lectus at. Cursus pulvinar purus risus malesuada tellus, suspendisse habitasse. Leo in rutrum sed ullamcorper amet arcu. Volutpat libero sollicitudin dictumst non.

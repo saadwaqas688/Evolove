@@ -4,7 +4,7 @@ import { Colors } from "../../../../../../config/palette";
 
 export const HomeAvatarOccupation = styled(Typography)(({ theme }) => ({
   fontFamily: '"Poppins", "sans-serif"',
-  color:Colors.light,
+  color:Colors.darkGrey,
   [theme.breakpoints.down("md")]: {
     textAlign:"center"
     },

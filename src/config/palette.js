@@ -4,6 +4,8 @@ export const Colors = {
     secondary: "#131315",
     success: "#4CAF50",
     info: "#E63369",
+    grey:"#DADAF7",
+    darkGrey:"#8D98AF", 
     danger: "#FF5722",
     warning: "#FFC107",
     dark: "#1A1A1C",

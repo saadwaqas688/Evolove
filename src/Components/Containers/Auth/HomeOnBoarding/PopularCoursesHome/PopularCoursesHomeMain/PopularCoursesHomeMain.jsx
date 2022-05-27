@@ -10,7 +10,7 @@ import PopularImage from"../../../../../../assets/images/homeOnBoarding/mackbok.
 const PopularCoursesHome = () => {
   return (
     <Paper elevation={0} square={true} style={{background:Colors.secondary}}>
-        <Typography sx={{color:Colors.light,textAlign:"center" ,paddingTop:"50px", fontSize: "32.69px",fontWeight:'bold'}}>
+        <Typography sx={{color:Colors.light,textAlign:"center" ,paddingTop:"50px", fontSize: "32.69px",fontWeight:'bold',  fontFamily: '"Poppins", "sans-serif"',}}>
        Popular Courses
       </Typography>
     <Grid container spacing={1} sx={{ paddingTop: "50px",paddingBottom:"50px"}}>
