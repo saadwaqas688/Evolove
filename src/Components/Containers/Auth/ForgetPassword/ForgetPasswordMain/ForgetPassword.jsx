@@ -31,7 +31,7 @@ function ForgetPassword() {
                <Grid container spacing={1} >
                   <GridItem item xs={12} > 
                   <TextfieldComp
-                  height="80px"
+                  height="60px"
                   width="70%"
                   autoComplete="false"
                   placeholder="Email"

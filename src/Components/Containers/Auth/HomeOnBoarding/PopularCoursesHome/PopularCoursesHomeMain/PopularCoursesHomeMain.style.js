@@ -4,7 +4,7 @@ import { Colors } from "../../../../../../config/palette";
 export const PopularCoursesImage = styled("img")(({ src, theme }) => ({
     src: `url(${src})`,
     marginTop:"45px",
-    width: "80%", 
+    width: "100%", 
     height:"auto",
     borderRadius:"20px",
     [theme.breakpoints.down("md")]: {

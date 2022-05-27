@@ -11,7 +11,7 @@ export const Heading = styled(Typography)(({ theme }) => ({
  alignItems:"center",
  justifyContent:"center",
 fontWeight: "bold" ,
-fontSize:"36px",
+fontSize:"30px",
 paddingTop:"60px",
 
 [theme.breakpoints.down("md")]: {
@@ -31,7 +31,7 @@ export const FormContainer = styled(Box)(({ theme }) => ({
 
 
  export const GridItem = styled(GridWrapper)(({ theme }) => ({
-    paddingBottom:"15px",
+    paddingBottom:"10px",
  [theme.breakpoints.down("md")]: {
  
  },

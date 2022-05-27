@@ -10,7 +10,7 @@ export const Heading = styled(Typography)(({ theme }) => ({
  alignItems:"center",
  justifyContent:"center",
 fontWeight: "bold" ,
-fontSize:"36px",
+fontSize:"30px",
 paddingTop:"60px",
 paddingBottom:"60px",
 

@@ -11,7 +11,7 @@ export const Heading = styled(Typography)(({ theme }) => ({
  alignItems:"center",
  justifyContent:"center",
 fontWeight: "bold" ,
-fontSize:"36px",
+fontSize:"30px",
 paddingTop:"60px",
 [theme.breakpoints.down("sm")]: {
 fontSize: "20px",

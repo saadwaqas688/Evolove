@@ -40,17 +40,17 @@ function SignUp() {
          <FormContainer >
                <Grid container spacing={1} >
                   <Grid item xs={12} > 
-                  <TextfieldComp placeholder="Full Name" onChange={handleChange} name="fullName" value={fullName}/>
+                  <TextfieldComp height="60px" placeholder="Full Name" onChange={handleChange} name="fullName" value={fullName}/>
                   </Grid>
                   <Grid item xs={12} > 
-                  <TextfieldComp placeholder="Email" onChange={handleChange} name="email" value={email}/>
+                  <TextfieldComp height="60px" placeholder="Email" onChange={handleChange} name="email" value={email}/>
                   </Grid>
                   <Grid item xs={12} > 
-                  <TextfieldComp placeholder="PhoneNumber" onChange={handleChange} name="phoneNumber" value={phoneNumber}/>
+                  <TextfieldComp height="60px"placeholder="PhoneNumber" onChange={handleChange} name="phoneNumber" value={phoneNumber}/>
 
                   </Grid>
                   <Grid item xs={12} > 
-                  <TextfieldComp placeholder="Password" onChange={handleChange} name="password" value={password}/>
+                  <TextfieldComp height="60px" placeholder="Password" onChange={handleChange} name="password" value={password}/>
 
                   </Grid>
                   <Grid item xs={12} sx={{display:"flex",alignItems:"center",justifyContent:"center",marginTop:"30px"}}> 

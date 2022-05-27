@@ -35,15 +35,15 @@ function ContactUs() {
          <FormContainer>
                <Grid container spacing={0} >
                   <GridItem item xs={12} > 
-                  <TextfieldComp placeholder="Full Name" onChange={handleChange} name="fullName" value={fullName}
+                  <TextfieldComp height="60px" placeholder="Full Name" onChange={handleChange} name="fullName" value={fullName}
            />
                   </GridItem>
                   <GridItem item xs={12} > 
-                  <TextfieldComp placeholder="Email" onChange={handleChange} name="email" value={email}
+                  <TextfieldComp height="60px" placeholder="Email" onChange={handleChange} name="email" value={email}
            />
                   </GridItem>
                   <GridItem item xs={12} > 
-                  <TextfieldComp placeholder="Subject" onChange={handleChange} name="subject" value={subject}
+                  <TextfieldComp height="60px" placeholder="Subject" onChange={handleChange} name="subject" value={subject}
            />
                   </GridItem>
                   <GridItem item xs={12} > 

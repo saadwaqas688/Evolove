@@ -1,4 +1,4 @@
-import { Box,colors,Typography } from "@mui/material";
+import { Box,Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { Colors } from "../../../../../config/palette";
 import GridWrapper from "../../../../UI/Grid/GridWrapper";
@@ -11,7 +11,7 @@ export const Heading = styled(Typography)(({ theme }) => ({
  alignItems:"center",
  justifyContent:"center",
 fontWeight: "bold" ,
-fontSize:"36px",
+fontSize:"30px",
 paddingTop:"60px",
 
 [theme.breakpoints.down("md")]: {
@@ -32,7 +32,7 @@ export const FormContainer = styled(Box)(({ theme }) => ({
 
 
  export const GridItem = styled(GridWrapper)(({ theme }) => ({
-  padding:"15px",
+  padding:"10px",
  [theme.breakpoints.down("md")]: {
  
  },
@@ -41,7 +41,7 @@ export const FormContainer = styled(Box)(({ theme }) => ({
 
  export const PaperContainer = styled( PaperWrapper
   )(() => ({
-     background:'Black',
+     background:Colors.secondary,
      display:"flex",
   alignItems:"center",
   justifyContent:"center",
@@ -52,15 +52,15 @@ export const FormContainer = styled(Box)(({ theme }) => ({
 
  export const ImageContainer = styled("img")(({ src}) => ({
    src: `url(${src})`,
-   width: "50px", 
-   height:"50px",
+   width: "40px", 
+   height:"40px",
    background: Colors.dark,
    border:`1px solid ${Colors.grey}`,
    borderRadius:"15px",
-   paddingTop: '5px',
-   paddingBottom: '5px',
-   paddingRight:"30px",
-   paddingLeft:"30px",
+   paddingTop: '10px',
+   paddingBottom: '10px',
+   paddingRight:"40px",
+   paddingLeft:"40px",
  }));
 
 

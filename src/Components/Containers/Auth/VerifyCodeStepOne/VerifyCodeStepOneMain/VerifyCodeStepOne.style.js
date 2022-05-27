@@ -15,7 +15,7 @@ export const Heading = styled(Typography)(({ theme }) => ({
  alignItems:"center",
  justifyContent:"center",
 fontWeight: "bold" ,
-fontSize:"36px",
+fontSize:"30px",
 paddingTop:"60px",
 [theme.breakpoints.down("sm")]: {
 fontSize: "20px",
@@ -26,10 +26,10 @@ fontSize: "20px",
 export const FormContainer = styled(Box)(({ theme }) => ({
  paddingTop: "50px",
  paddingBottom:"50px",
-  width: "60%",
+  width: "50%",
   height:550, 
  [theme.breakpoints.down("md")]: {
-  width: "80%", 
+  width: "100%", 
  },
  }));
 
@@ -46,7 +46,9 @@ export const FormContainer = styled(Box)(({ theme }) => ({
 
  export const PaperContainer = styled( PaperWrapper
   )(() => ({
+     height:"100vh",
      background:Colors.secondary,
+     margin:"0px",
      display:"flex",
   alignItems:"center",
   justifyContent:"center",
@@ -73,12 +75,10 @@ export const SubHeading = styled(Typography)(({ theme }) => ({
 
 
   export const VerificationCodeField = styled(  TextfieldComp )(({ theme }) => ({
-   // marginLeft:"40px",
-   // height:"80px",
-   // width:"100%",
+   height:"60px",
+   width:"100%",
   [theme.breakpoints.down("md")]: {
-   // width: '10%',
-
+   width:"100%",
   },
   [theme.breakpoints.down("xs")]: {
    // width: '20%',

@@ -1,6 +1,5 @@
-import { Box, Container, Grid, Typography } from "@mui/material";
+import { Box, Container, Grid } from "@mui/material";
 import React from "react";
-import { Colors } from "../../../../../config/palette";
 import Button from "../../../../UI/Button/Button";
 import NavBar from "../../../../UI/NavBar/NavBarMain/NavBar";
 import TextfieldComp from "../../../../UI/TextFieldCom/Textfield";
@@ -34,7 +33,7 @@ function Login() {
             <Grid container spacing={1}>
               <GridItem item xs={12}>
                 <TextfieldComp
-                  height="80px"
+                  height="60px"
                   width="70%"
                   autoComplete="false"
                   placeholder="Email"
@@ -45,7 +44,7 @@ function Login() {
               </GridItem>
               <GridItem item xs={12}>
                 <TextfieldComp
-                  height="80px"
+                  height="60px"
                   width="70%"
                   placeholder="Password"
                   onChange={(e) => setPassword(e.target.value)}
@@ -94,7 +93,7 @@ function Login() {
             <ImageContainer style={{ marginLeft: "15px" }} src={appleImage} />
           </ImageContainerMain>
           <LinkContainer sx={{width:"50%",textAlign:"center"}}>
-            New to Evo Love ?
+            New to Evo Love ?&nbsp;
             <a
               href="/signUp"
               style={{ color: "#295BE0", textDecoration: "none" }}

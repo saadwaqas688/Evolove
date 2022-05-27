@@ -11,7 +11,7 @@ fontFamily: '"Poppins", "sans-serif"',
  alignItems:"center",
  justifyContent:"center",
 fontWeight: "bold" ,
-fontSize:"36px",
+fontSize:"30px",
 paddingTop:"60px",
 
 [theme.breakpoints.down("md")]: {

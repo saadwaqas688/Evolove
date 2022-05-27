@@ -1,4 +1,4 @@
-import { colors, styled, Typography } from "@mui/material";
+import { styled, Typography } from "@mui/material";
 import { Colors } from "../../../../../../config/palette";
 
 export const ExploreBlogsImage = styled("img")(({ src, theme }) => ({
@@ -29,9 +29,9 @@ export const ExploreBlogsImage = styled("img")(({ src, theme }) => ({
   export const ExploreBlogsText = styled(Typography)(({ theme }) => ({
     fontFamily: '"Poppins", "sans-serif"',
     color:Colors.darkGrey,
-    textAlign:"flexstart",
-    paddingLeft:"30px",
-    paddingRight:"30px",
+    // textAlign:"flexstart",
+    // paddingLeft:"30px",
+    // paddingRight:"30px",
   
     [theme.breakpoints.down("md")]: {
       textAlign:"center"

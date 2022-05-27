@@ -10,7 +10,7 @@ import { Colors } from '../../../config/palette';
                                                      customHovercolor})=>({
                  margin: theme.spacing(0.5),
                  color:customcolor,
-                 width:"237px",
+                 width:"230px",
                  height:"62px",
                  fontWeight:"bold",
                  borderRadius:'32.36px',

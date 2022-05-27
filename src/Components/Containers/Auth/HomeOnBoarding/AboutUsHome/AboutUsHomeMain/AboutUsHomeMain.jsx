@@ -10,7 +10,7 @@ import AboutUsImage from"../../../../../../assets/images/homeOnBoarding/mackbok.
 const AboutUsHome = () => {
   return (
     <Paper elevation={0} square={true} style={{background:Colors.secondary}}>
-        <Typography sx={{color:Colors.light,textAlign:"center" ,paddingTop:"50px", fontSize: "32px",fontWeight:'bold', fontFamily: '"Poppins", "sans-serif"',}}>
+        <Typography sx={{color:Colors.light,textAlign:"center" ,paddingRight:"5px",paddingTop:"50px", fontSize: "32px",fontWeight:'bold', fontFamily: '"Poppins", "sans-serif"',}}>
         About Us
       </Typography>
     <Grid container spacing={1} sx={{ paddingTop: "50px",paddingBottom:"50px"}}>
@@ -23,7 +23,7 @@ const AboutUsHome = () => {
     <HomeAboutUsHeading >
     Lorem ipsum dolor sit amet, consectetur
       </HomeAboutUsHeading> 
-      <HomeAboutUs variant="body2" sx={{paddingRight:"100px",paddingTop:"20px",paddingBottom:"20px",fontSize:'20px'}} >
+      <HomeAboutUs variant="body2" sx={{paddingRight:"100px",paddingTop:"20px",paddingBottom:"20px",fontSize:'18px'}} >
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus varius amet, 
       donec sit pellentesque sit. Imperdiet porttitor eget in dolor senectus placerat. 
       Fermentum id tellus purus varius arcu varius. Sed vitae pulvinar ornare ac ligula 
@@ -31,7 +31,7 @@ const AboutUsHome = () => {
       Pretium aenean quis sit volutpat consectetur leo habitant sed. Nibh massa porttitor
       sed dolor ut waqas khan. 
       </HomeAboutUs> 
-      <div style={{display:'flex',justifyContent:"space-even"}}>
+      <div style={{display:'flex',justifyContent:"space-even",marginTop:"10%"}}>
 <ProductAddToCart  >
   Read More
 </ProductAddToCart>

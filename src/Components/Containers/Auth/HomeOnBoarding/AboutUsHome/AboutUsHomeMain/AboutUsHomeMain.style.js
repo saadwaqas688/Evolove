@@ -41,7 +41,6 @@ export const HomeAboutUs = styled(Typography)(({ theme }) => ({
 
 export const ProductAddToCart = styled(Button)(({ theme }) => ({
   fontFamily: '"Poppins", "sans-serif"',
-  margin: theme.spacing(0.5),
   color:Colors.light,
   width:"237px",
   height:"62px",
@@ -67,7 +66,7 @@ export const ProductAddToCartSecond = styled(Button)(({ theme }) => ({
   fontSize: "20px",
   display:'none',
   [theme.breakpoints.down("md")]: {
-    width: "300px",
+    width: "100%",
     padding: "10px 5px",
     display:'inline',
   },

@@ -23,7 +23,7 @@ paddingTop:"10px"
 export const HeroSubText = styled(Typography)(({ theme }) => ({
  color:"#B7C6D9",
  fontFamily: '"Poppins", "sans-serif"',
- mt: "20px",fontSize:"25px",paddingRight:"100px",
+ mt: "20px",fontSize:"18px",paddingRight:"190px",
 
 [theme.breakpoints.down("md")]: {
 textAlign:"center",
