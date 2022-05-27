@@ -10,7 +10,7 @@ import ExploreBlogImage from"../../../../../../assets/images/homeOnBoarding/Home
 
 const HomeExploreBlogs = () => {
   return (
-    <Paper elevation={6} square={true} style={{background:Colors.secondary}}>
+    <Paper elevation={0} square={true} style={{background:Colors.secondary}}>
         <Typography sx={{color:Colors.light,textAlign:"center" ,paddingTop:"50px", fontSize: "36px",fontWeight:'bold'}}>
          Explore Blogs
       </Typography>

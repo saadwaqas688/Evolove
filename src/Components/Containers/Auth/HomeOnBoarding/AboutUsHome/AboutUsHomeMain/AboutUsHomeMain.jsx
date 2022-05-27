@@ -9,19 +9,16 @@ import AboutUsImage from"../../../../../../assets/images/homeOnBoarding/mackbok.
 
 const AboutUsHome = () => {
   return (
-    <Paper elevation={6} square={true} style={{background:Colors.secondary}}>
-        <Typography sx={{color:Colors.light,textAlign:"center" ,paddingTop:"50px", fontSize: "36px",fontWeight:'bold'}}>
+    <Paper elevation={0} square={true} style={{background:Colors.secondary}}>
+        <Typography sx={{color:Colors.light,textAlign:"center" ,paddingTop:"50px", fontSize: "32px",fontWeight:'bold', fontFamily: '"Poppins", "sans-serif"',}}>
         About Us
       </Typography>
     <Grid container spacing={1} sx={{ paddingTop: "50px",paddingBottom:"50px"}}>
-      <Grid item xs={12}  md={6} style={{display:'flex',alignItems:"center",justifyContent:'center'}}>
-             {/* <ImageWrapper> */}
+      <Grid item xs={12}  md={5.2} style={{display:'flex',alignItems:"center",justifyContent:"center"}}>
               <ProductImage src={AboutUsImage}/>
-              {/* </ImageWrapper> */}
-
       </Grid>
   
-    <Grid item sm={12}  md={6} >
+    <Grid item sm={12}  md={6.8} >
   
     <HomeAboutUsHeading >
     Lorem ipsum dolor sit amet, consectetur

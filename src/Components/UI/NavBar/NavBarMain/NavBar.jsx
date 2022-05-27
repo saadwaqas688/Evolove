@@ -1,57 +1,65 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   AppBar,
   Box,
-  Tab,
-  Tabs,
+  List,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
   Toolbar,
   useMediaQuery,
   useTheme,
 } from "@mui/material";
 import DrawerComp from "../NavBarDrawer/Drawer";
 import MainLogo from "../NavBarLogo/mainLogo";
+import {useLocation} from 'react-router';
+
 const NavBar = () => {
-  const [value, setValue] = useState(0);
   const theme = useTheme();
-  console.log(theme);
-  const isMatch = useMediaQuery(theme.breakpoints.down("md"));
-  console.log(isMatch);
-console.log('value',value)
+   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
+   const { pathname } = useLocation();
+console.log("pathname",pathname)
   return (
-      <AppBar sx={{ background: "#1A1A1C",position:'sticky' }}>
+      <AppBar sx={{ background: "#1A1A1C",position:'sticky'}}>
         <Box >
 
         <Toolbar sx={{display:'flex',justifyContent:'space-between'}}>
-          {/* <AddBusinessRoundedIcon sx={{ transform: "scale(2)", ml:"100px"}} /> */}
           <Box sx={{ml:"100px"}}>
           <MainLogo/>
           </Box>
           {isMatch ? (
             <>
-              {/* <Typography sx={{ fontSize: "2rem", paddingLeft: "10%" }}>
-                Shoppee
-              </Typography> */}
               <DrawerComp/>
             </>
-          ) : (
-              <Tabs
-              sx={{paddingRight:"130px" }}
-                // indicatorColor="secondary"
-                textColor="pink"
+          ) : (                
+            <List sx={{display:"flex",alignItems:"center",justifyContent:"center",paddingRight:"100px"}}>
+              <ListItemButton  component="a" href="/"   >
+                <ListItemIcon sx={{ color:pathname==='/'?'#E63369':"#DADAF7",fontSize:"36px"}}>
+                  <ListItemText sx={{ fontSize: "20px",fontWeight:"bold" , fontFamily: '"Poppins", "sans-serif"',}} primary="Home" disableTypography/>
+                </ListItemIcon>
+              </ListItemButton>
+              <ListItemButton  component="a" href="/aboutUs"   >
+                <ListItemIcon sx={{ color:pathname==='/aboutUs'?'#E63369':"#DADAF7",fontSize:"36px"}}>
+                  <ListItemText sx={{ fontSize: "20px",fontWeight:"bold", fontFamily: '"Poppins", "sans-serif"', }} primary="ABout Us" disableTypography/>
+                </ListItemIcon>
+              </ListItemButton>
+              <ListItemButton  component="a" href="/contactUs"   >
+                <ListItemIcon sx={{ color:pathname==='/contactUs'?'#E63369':"#DADAF7",fontSize:"36px"}}>
+                  <ListItemText sx={{ fontSize: "20px",fontWeight:"bold", fontFamily: '"Poppins", "sans-serif"', }} primary="Contact Us" disableTypography/>
+                </ListItemIcon>
+              </ListItemButton>
+              <ListItemButton  component="a" href="/login"   >
+                <ListItemIcon sx={{ color:pathname==='/login'?'#E63369':"#DADAF7",fontSize:"36px"}}>
+                  <ListItemText sx={{ fontSize: "20px",fontWeight:"bold", fontFamily: '"Poppins", "sans-serif"', }} primary="LogIn" disableTypography/>
+                </ListItemIcon>
+              </ListItemButton>
+              <ListItemButton  component="a" href="/signUp"   >
+                <ListItemIcon sx={{ color:pathname==='/signUp'?'#E63369':"#DADAF7",fontSize:"36px"}}>
+                  <ListItemText sx={{ fontSize: "20px",fontWeight:"bold", fontFamily: '"Poppins", "sans-serif"', }} primary="SignUp" disableTypography/>
+                </ListItemIcon>
+              </ListItemButton>
               
-                value={value}
-                onChange={(e, value) => setValue(value)}
-              >
-             
-                <Tab sx={{color:value===0?'#E63369':"#DADAF7",fontWeight:"bold"}} label="Home" />
-                <Tab sx={{color:value===1?'#E63369':"#DADAF7",fontWeight:"bold"}} label="About Us" />
-                <Tab sx={{color:value===2?'#E63369':"#DADAF7",fontWeight:"bold"}} label="Contact Us" />
-                <Tab sx={{color:value===3?'#E63369':"#DADAF7",fontWeight:"bold"}} label="Login In" />
-                <Tab sx={{color:value===4?'#E63369':"#DADAF7",fontWeight:"bold"}} label="Sign Up" />
-              </Tabs>
-              
-          
-          )}
+          </List>)}
         </Toolbar>
         </Box>
 

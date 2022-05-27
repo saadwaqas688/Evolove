@@ -10,9 +10,7 @@ import SliderImage from"../../../../../../assets/images/homeOnBoarding/homeTop.p
 const messages = [
   "1 off on your  Image",
   "2 off on your  Image!",
-
   "3 off on your  Image",
-
 ];
 export default function Slider() {
   const containerRef = useRef();
@@ -60,28 +58,24 @@ export default function Slider() {
         
         <Box display="flex" justifyContent="center" alignItems="center">
           <SlideImage src={SliderImage}/>
-          {/* <MessageText>
-            {messages[messageIndex]}
-          </MessageText> */}
         </Box>
       </Slide>
       <Box display="flex" justifyContent="center" alignItems="center">
       <Radio
+            size="small"
       sx={{color:Colors.light}}
       checkedIcon={<Lens sx={{color:Colors.info}}/>}
 
   checked={messageIndex===0?true:false}
   onChange={()=>setMessageIndex(0)}
-  // value="a"
   name="radio-buttons"
   inputProps={{ 'aria-label': 'A' }}
 />
 <Radio
+     size="small"
       sx={{color:Colors.light}}
 
   checked={messageIndex===1?true:false}
-
-  // checked={selectedValue === 'b'}
   checkedIcon={<Lens sx={{color:Colors.info}}/>}
 
   onChange={()=>setMessageIndex(1)}
@@ -91,12 +85,9 @@ export default function Slider() {
 />
 <Radio
       sx={{color:Colors.light}}
-
+      size="small"
   checked={messageIndex===2?true:false}
-  // checkedIcon={<Lens sx={{color:"red"}}/>}
   checkedIcon={<Lens sx={{color:Colors.info}}/>}
-
-  // checked={selectedValue === 'b'}
   onChange={()=>setMessageIndex(2)}
   value="b"
   name="radio-buttons"
