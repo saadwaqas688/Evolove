@@ -1,58 +1,54 @@
 import { styled } from "@mui/system";
+import { Colors } from "../../../config/palette";
 import PaperWrapper from "../Paper/PaperWrapper";
 
-export const Wrapper = styled("label")(({ theme, width }) => ({
+export const Wrapper = styled("label")(({ theme, width,height }) => ({
   fontFamily: '"Poppins", "sans-serif"',
   display: "flex",
+  justifyContent:"center",
+  alignItems:'center',
   flexDirection: "column",
   width,
+  height,
   gap: theme.spacing(1),
-  color:"white"
+  color:Colors.dimGrey
 }));
 
-export const StyledPaper = styled(PaperWrapper)(({ theme, error }) => ({
+export const StyledPaper = styled(PaperWrapper)(({ theme, error,width}) => (
+    {
+  width:width,
   fontFamily: '"Poppins", "sans-serif"',
   borderRadius: "10px",
   border: `${error ? "2px" : "1px"} solid ${
-    error ? "red" : "white"
+    error ? "red" : Colors.grey
   }`,
-  background: "black",
+  background: Colors.grey,
   // height: theme.spacing(6.25),
   display: "flex",
   alignItems: "center",
   fontWeight: 400,
   fontSize: "14px",
+  [theme.breakpoints.down("md")]: {
+    width: "100%", 
+   },
 }));
 
-export const Input = styled("input")(({ theme, value, error }) => {
+export const InputMultiLine = styled("textArea")(({ theme, value, error,height}) => {
   return {
-        width: "100%",
-    height: "150px",
+    width: "100%",
+    height,
     padding: "12px 20px",
     boxSizing: "border-box",
-    border: "2px solid #ccc",
-    borderRadius: "4px",
-    fontSize: "16px",
-    // resize: none;
-    rows:4,
-     cols:50,
+    border: "1px solid",
+    borderRadius: "10px",
+    fontSize: "20px",
      resize: 'none',
-    // paddingLeft: theme.spacing(2.5),
-    background: "black",
-    // border: "none",
+    background: Colors.secondary,
     outline: "none",
-    // height: "70%",
-    // width: "100%",
-    color: "white",
+    color: Colors.dimGrey,
     fontFamily: '"Poppins", "sans-serif"',
     "&:focus": {
-      color: "white",
-      // borderLeft: `${
-      //   !error
-      //     ? `${value.length > 0 ? "2px" : "1px"} solid black
-      //       `
-      //     : "none"
-      // }`,
+      color: Colors.dimGrey,
     },
   };
 });
@@ -61,7 +57,6 @@ export const HelperText = styled("p")(({ theme, error }) => ({
   fontFamily: '"Poppins", "sans-serif"',
   fontSize: "12px",
   lineHeight: "10px",
-  // height: "10px",
   color: error ? "red": "inherit",
   fontWeight: 400,
 }));
@@ -69,5 +64,26 @@ export const HelperText = styled("p")(({ theme, error }) => ({
 export const LabelText = styled("span")(({ theme }) => ({
   fontFamily: '"Poppins", "sans-serif"',
   fontSize: "16px",
-  color: "#4A5568",
+  color: Colors.dimGrey,
 }));
+
+
+export const Input = styled("input")(({ theme, value, error,height}) => {
+  return {
+    width:"100%",
+    height,
+    padding: "12px 20px",
+    boxSizing: "border-box",
+    border: "1px",
+    borderRadius: "10px",
+    fontSize:"20px",
+    paddingLeft: theme.spacing(2.5),
+    background: Colors.secondary,
+    outline: "none",
+    color: Colors.dimGrey,
+    fontFamily: '"Poppins", "sans-serif"',
+        "&:focus": {
+          color: Colors.dimGrey,
+    },
+  };
+});

@@ -6,6 +6,7 @@ import {
   LabelText,
   StyledPaper,
   Wrapper,
+  InputMultiLine
 } from "./Textfield.style";
 
 const TextfieldComp = ({
@@ -17,14 +18,20 @@ const TextfieldComp = ({
   showHelper,
   fullWidth,
   placeholder,
+  multiLine,
+  height,
   ...inputProps
 }) => {
   return (
     <>
-      <Wrapper width={fullWidth ? "100%" : width}>
+      <Wrapper width={fullWidth ? "100%" : width} height={height}>
         <LabelText>{label}</LabelText>
-        <StyledPaper elevation={0} error={+error}>
-          <Input autoComplete="new-password" rows="4" cols="50" {...inputProps} error={+error} placeholder={placeholder} />
+        <StyledPaper elevation={0} error={+error} width={width} >{ multiLine?
+                              <InputMultiLine height={height} autoComplete="new-password"  {...inputProps} error={+error} placeholder={placeholder} />
+                              :
+
+                      <Input autoComplete="new-password" height={height}  {...inputProps} error={+error} placeholder={placeholder} />
+        }
         </StyledPaper>
       </Wrapper>
       {showHelper && <HelperText error={+error}>{helperText}</HelperText>}
@@ -43,14 +50,18 @@ TextfieldComp.propTypes = {
   width: PropTypes.string,
   placeholder: PropTypes.string,
   fullWidth: PropTypes.bool,
+  multiLine:PropTypes.bool,
+  height: PropTypes.string,
 };
 
 TextfieldComp.defaultProps = {
-  label: "No label given",
-  width: "5rem",
+  height:"80px",
+  label: "",
+  width:"80%",
   error: false,
   fullWidth: true,
   helperText: " ",
   placeholder: "",
   showHelper: true,
+  multiLine:false,
 };

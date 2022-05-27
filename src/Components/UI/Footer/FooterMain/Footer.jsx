@@ -25,7 +25,7 @@ export default function Footer() {
         <Grid item xs={12} md={3}>
         <List>
 <ListItem>
-    <ListItemText primary="About Us" sx={{ color: Colors.light ,textAlign: { xs: "center" ,md:"left"},  fontFamily: '"Poppins", "sans-serif"'}} />
+    <ListItemText primary="About Us" sx={{ color: Colors.light ,textAlign: { xs: "center" ,md:"left"},fontSize:"30px",  fontFamily: '"Poppins", "sans-serif"'}} disableTypography/>
   </ListItem>
 </List>
 <List>
@@ -47,7 +47,7 @@ export default function Footer() {
         <Grid item sm={4} md={3}>
           <List>
           <ListItem>
-              <ListItemText primary="Website" sx={{ color: Colors.light,  fontFamily: '"Poppins", "sans-serif"' }} disableTypography />
+              <ListItemText primary="Website" sx={{ color: Colors.light, fontSize:"30px",fontFamily: '"Poppins", "sans-serif"' }} disableTypography />
             </ListItem>
             <ListItem component="a" href="/contactUs">
               <ListItemText primary="Contact Us" sx={{ color: Colors.light,  fontFamily: '"Poppins", "sans-serif"' }} disableTypography/>
@@ -60,7 +60,7 @@ export default function Footer() {
         <Grid item sm={4} md={3}>
           <List>
           <ListItem>
-              <ListItemText primary="Search" sx={{ color: Colors.light,  fontFamily: '"Poppins", "sans-serif"' }}  disableTypography/>
+              <ListItemText primary="Search" sx={{ color: Colors.light,fontSize:"30px", fontFamily: '"Poppins", "sans-serif"' }}  disableTypography/>
             </ListItem>
               <ListItem>
               <ListItemText primary=" Browse Categories" sx={{ color: Colors.light,  fontFamily: '"Poppins", "sans-serif"' }}  disableTypography/>
@@ -76,7 +76,7 @@ export default function Footer() {
         <Grid item sm={4} md={3}>
              <List>
               <ListItem>
-              <ListItemText primary="Support" sx={{ color: Colors.light,  fontFamily: '"Poppins", "sans-serif"'}}  disableTypography/>
+              <ListItemText primary="Support" sx={{ color: Colors.light, fontSize:"30px", fontFamily: '"Poppins", "sans-serif"'}}  disableTypography/>
             </ListItem>
             <ListItem component="a" href="/contactUs">
               <ListItemText primary="Contact Us" sx={{ color: Colors.light,  fontFamily: '"Poppins", "sans-serif"' }}  disableTypography/>

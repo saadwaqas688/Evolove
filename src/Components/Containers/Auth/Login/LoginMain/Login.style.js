@@ -1,4 +1,4 @@
-import { Box,Typography } from "@mui/material";
+import { Box,colors,Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { Colors } from "../../../../../config/palette";
 import GridWrapper from "../../../../UI/Grid/GridWrapper";
@@ -6,8 +6,7 @@ import PaperWrapper from "../../../../UI/Paper/PaperWrapper";
 
 export const Heading = styled(Typography)(({ theme }) => ({
    fontFamily: '"Poppins", "sans-serif"',
-   color:Colors.secondary,
- variant:"h5",
+   color:Colors.light,
  display:"flex",
  alignItems:"center",
  justifyContent:"center",
@@ -23,9 +22,8 @@ fontSize: "20px",
 
 export const FormContainer = styled(Box)(({ theme }) => ({
  paddingTop: "50px",
- paddingBottom:"50px",
   width: "60%",
-  height:550, 
+  height:450, 
  [theme.breakpoints.down("md")]: {
   width: "80%", 
  },
@@ -49,4 +47,41 @@ export const FormContainer = styled(Box)(({ theme }) => ({
   justifyContent:"center",
   flexDirection:"column",
 
+ }));
+
+
+ export const ImageContainer = styled("img")(({ src}) => ({
+   src: `url(${src})`,
+   width: "50px", 
+   height:"50px",
+   background: Colors.dark,
+   border:`1px solid ${Colors.grey}`,
+   borderRadius:"15px",
+   paddingTop: '5px',
+   paddingBottom: '5px',
+   paddingRight:"30px",
+   paddingLeft:"30px",
+ }));
+
+
+export const ImageContainerMain = styled(Box)(() => ({
+   dixplay:'flex',
+   alignItems:"center",
+   justifyContent:"center",
+   marginTop:"20px",
+   marginBottom:"30px"
+ }));
+
+export const LinkContainer = styled(Typography)(() => ({
+   paddingBottom:"150px",
+   color:Colors.darkGrey,
+   fontSize:"20px",
+   fontFamily: '"Poppins", "sans-serif"',
+   fontWeight:"bold"
+ }));
+
+ export const OrWithText = styled(Typography)(() => ({
+   color:Colors.darkGrey,
+   fontSize:"30px",
+   fontFamily: '"Poppins", "sans-serif"' 
  }));

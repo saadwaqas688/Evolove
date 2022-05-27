@@ -41,7 +41,7 @@ console.log("pathname",pathname)
               </ListItemButton>
               <ListItemButton  component="a" href="/aboutUs"   >
                 <ListItemIcon sx={{ color:pathname==='/aboutUs'?'#E63369':Colors.grey,fontSize:"36px"}}>
-                  <ListItemText sx={{ fontSize: "20px",fontWeight:"bold", fontFamily: '"Poppins", "sans-serif"', }} primary="ABout Us" disableTypography/>
+                  <ListItemText sx={{ fontSize: "20px",fontWeight:"bold", fontFamily: '"Poppins", "sans-serif"', }} primary="About Us" disableTypography/>
                 </ListItemIcon>
               </ListItemButton>
               <ListItemButton  component="a" href="/contactUs"   >

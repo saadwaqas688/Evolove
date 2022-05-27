@@ -3,6 +3,8 @@ import Button from "../../../../UI/Button/Button";
 import Footer from "../../../../UI/Footer/FooterMain/Footer";
 import NavBar from "../../../../UI/NavBar/NavBarMain/NavBar";
 import TextFieldWrapper from "../../../../UI/TextField/TextFieldWrapper";
+import TextfieldComp from "../../../../UI/TextFieldCom/Textfield";
+import React from "react";
 
 
 
@@ -11,6 +13,8 @@ import {FormContainer, GridItem, Heading, PaperContainer } from "./ForgetPasswor
 
 
 function ForgetPassword() {
+  const [email, setEmail] = React.useState("");
+
   return (
     
     <Box sx={{background:"#131315"}}>
@@ -26,11 +30,19 @@ function ForgetPassword() {
          <FormContainer>
                <Grid container spacing={1} >
                   <GridItem item xs={12} > 
-                  <TextFieldWrapper name="fullName" label="Full Name" />
+                  <TextfieldComp
+                  height="80px"
+                  width="70%"
+                  autoComplete="false"
+                  placeholder="Email"
+                  onChange={(e) => setEmail(e.target.value)}
+                  name="email"
+                  value={email}
+                />
                   </GridItem>
                   <GridItem item xs={12} sx={{display:"flex",alignItems:"center",justifyContent:"center",marginTop:"50px"}}> 
                   <Button variant="contained" href="/verifyCode" >
-                    Sign up
+                    Send
                     </Button>
                   </GridItem>
                      </Grid>

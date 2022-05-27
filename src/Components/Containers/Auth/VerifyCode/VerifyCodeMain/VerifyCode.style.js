@@ -6,8 +6,7 @@ import PaperWrapper from "../../../../UI/Paper/PaperWrapper";
 
 export const Heading = styled(Typography)(({ theme }) => ({
    fontFamily: '"Poppins", "sans-serif"',
-   color:Colors.secondary,
- variant:"h5",
+   color:Colors.light,
  display:"flex",
  alignItems:"center",
  justifyContent:"center",
@@ -42,6 +41,8 @@ export const FormContainer = styled(Box)(({ theme }) => ({
 
  export const PaperContainer = styled( PaperWrapper
   )(() => ({
+     height:"100vh",
+     background:Colors.secondary,
      display:"flex",
   alignItems:"center",
   justifyContent:"center",

@@ -4,10 +4,12 @@ import { Colors } from "../../../../../config/palette";
 import GridWrapper from "../../../../UI/Grid/GridWrapper";
 import PaperWrapper from "../../../../UI/Paper/PaperWrapper";
 import TextFieldWrapper from "../../../../UI/TextField/TextFieldWrapper";
+import TextfieldComp from "../../../../UI/TextFieldCom/Textfield";
 
 export const Heading = styled(Typography)(({ theme }) => ({
+   background:Colors.secondary,
    fontFamily: '"Poppins", "sans-serif"',
-   color:Colors.secondary,
+   color:Colors.light,
  variant:"h5",
  display:"flex",
  alignItems:"center",
@@ -44,6 +46,7 @@ export const FormContainer = styled(Box)(({ theme }) => ({
 
  export const PaperContainer = styled( PaperWrapper
   )(() => ({
+     background:Colors.secondary,
      display:"flex",
   alignItems:"center",
   justifyContent:"center",
@@ -57,7 +60,7 @@ export const SubHeading = styled(Typography)(({ theme }) => ({
    fontSize:"18px",
    display:"flex",
    textAlign:"center",
-   width:"420px",
+   width:"40%",
    flexDirection:"column",
   [theme.breakpoints.down("sm")]: {
    width:"300px",
@@ -69,15 +72,27 @@ export const SubHeading = styled(Typography)(({ theme }) => ({
   }));
 
 
-  export const VerificationCodeField = styled(  TextFieldWrapper )(({ theme }) => ({
+  export const VerificationCodeField = styled(  TextfieldComp )(({ theme }) => ({
    // marginLeft:"40px",
-   width: '5%',
+   // height:"80px",
+   // width:"100%",
   [theme.breakpoints.down("md")]: {
-   width: '10%',
+   // width: '10%',
 
   },
   [theme.breakpoints.down("xs")]: {
-   width: '20%',
+   // width: '20%',
 
   },
   }));
+
+
+//   <TextfieldComp
+//   height="80px"
+//   width="70%"
+//   autoComplete="false"
+//   placeholder="Email"
+//   onChange={(e) => setName(e.target.value)}
+//   name="name2"
+//   value={name}
+// />
