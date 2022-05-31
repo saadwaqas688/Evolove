@@ -12,6 +12,7 @@ import Login from "../Components/Containers/Auth/Login/LoginMain/Login";
 import ForgetPassword from "../Components/Containers/Auth/ForgetPassword/ForgetPasswordMain/ForgetPassword";
 import VerifyCode from "../Components/Containers/Auth/VerifyCode/VerifyCodeMain/VerifyCode";
 import VerifyCodeStepOne from "../Components/Containers/Auth/VerifyCodeStepOne/VerifyCodeStepOneMain/VerifyCodeStepOne";
+import Test from "../Test/Test";
 
 const ApplicationRoutes = () => {
   return (
@@ -26,6 +27,10 @@ const ApplicationRoutes = () => {
 <Route path="/forgotPassword" element={<ForgetPassword/>} />
 <Route path="/VerifyCode" element={<VerifyCode/>} />
 <Route path="/verifyCodeStepOne" element={<VerifyCodeStepOne/>} />
+<Route path="/test" element={<Test/>} />
+
+
+
 
 
 

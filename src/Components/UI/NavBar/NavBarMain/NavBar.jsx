@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   AppBar,
   Box,
@@ -11,26 +11,29 @@ import {
   useTheme,
 } from "@mui/material";
 import DrawerComp from "../NavBarDrawer/Drawer";
-import MainLogo from "../NavBarLogo/mainLogo";
 import {useLocation} from 'react-router';
 import { Colors } from "../../../../config/palette";
+import NavBarLinks from "../NavBarLinks/NavBarLinks";
+import { EvoloveIcon } from "../../../../assets/icons/EvoloveIcon";
 
 const NavBar = () => {
+  const [openDrawer, setOpenDrawer] = useState(false);
   const theme = useTheme();
    const isMatch = useMediaQuery(theme.breakpoints.down("md"));
    const { pathname } = useLocation();
-console.log("pathname",pathname)
   return (
       <AppBar sx={{ background: "#1A1A1C",position:'sticky',boxShadow:"none"}}>
         <Box >
 
         <Toolbar sx={{display:'flex',justifyContent:'space-between'}}>
-          <Box sx={{ml:"100px"}}>
-          <MainLogo/>
+          <Box sx={{ml:"100px",mt:"10px"}}>
+          <EvoloveIcon/>
           </Box>
           {isMatch ? (
             <>
-              <DrawerComp/>
+            <DrawerComp anchor="left" type="temporary" openDrawer={openDrawer} setOpenDrawer={setOpenDrawer}>
+              <NavBarLinks/>
+            </DrawerComp>
             </>
           ) : (                
             <List sx={{display:"flex",alignItems:"center",justifyContent:"center",paddingRight:"100px"}}>
