@@ -16,7 +16,7 @@ const DrawerComp = ({anchor,type,isOpen,openDrawer,setOpenDrawer,children}) => {
         variant={type}
         onClose={() => setOpenDrawer(false)}
       >
-        <Box sx={{bgcolor:'#1A1A1C',minHeight:'100vh',width:'211px'}}>
+        <Box sx={{bgcolor:'#1A1A1C',height:'100vh',width:'211px',overflow:"hidden"}}>
           {children}
         </Box>
       </Drawer >

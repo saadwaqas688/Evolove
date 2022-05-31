@@ -2,8 +2,6 @@ import React from "react";
 import {
   List,
   ListItemButton,
-  ListItemIcon,
-  ListItemText,
 } from "@mui/material";
 import {useLocation} from 'react-router';
 import { Colors } from "../../../../config/palette";
@@ -15,62 +13,72 @@ import FavoriteIcon from "../../../../assets/icons/FavoriteIcon";
 import { TodoIcon } from "../../../../assets/icons/TodoIcon";
 import ShopIcon from "../../../../assets/icons/ShopIcon";
 import WalletIcon from "../../../../assets/icons/WalletIcon";
+import {LogOutIcon} from "../../../../assets/icons/LogOutIcon";
+
 import { MoonCalanderIcon } from "../../../../assets/icons/MoonCalanderIcon";
+import {ListItemTextContainer,ListItemIconContainer} from "./SideBarLinks.style";
+
 const SideBarLinks = () => {
 
   const { pathname } = useLocation();
   return (
-    <React.Fragment>
+    <>
         <BoxCom sx={{textAlign:"center",marginTop:"20px"}}>
         <EvoloveIcon/>
         </BoxCom>
 
-        <List sx={{display:"flex",alignItems:"center",justifyContent:"center",flexDirection:"column",marginTop:"20px"}}>
-              <ListItemButton  component="a" href="/"   >
-                <ListItemIcon sx={{ color:pathname==='/'?'#E63369':Colors.grey,fontSize:"36px"}}>
-                    <HomeIcon/>
-                  <ListItemText sx={{ fontSize: "20px",fontWeight:"bold", fontFamily: '"Poppins", "sans-serif"' }} primary="Home" disableTypography/>
-                </ListItemIcon>
+        <List sx={{display:"flex",alignItems:"left",flexDirection:"column",marginTop:"20px",marginLeft:"40px"}}>
+              <ListItemButton  component="a" href="/home"   >
+                <ListItemIconContainer  sx={{color:pathname==='/home'?'#E63369':Colors.grey}}>
+                    <HomeIcon color={pathname==='/home'?'#E63369':Colors.grey}/>
+                  <ListItemTextContainer  primary="Home" disableTypography/>
+                </ListItemIconContainer>
               </ListItemButton>
               <ListItemButton  component="a" href="/blogs"   >
-                <ListItemIcon sx={{ color:pathname==='/blogs'?'#E63369':Colors.grey,fontSize:"36px"}}>
-                  <BlogIcon/>
-                  <ListItemText sx={{ fontSize: "20px",fontWeight:"bold", fontFamily: '"Poppins", "sans-serif"' }} primary="Blogs" disableTypography/>
-                </ListItemIcon>
+                <ListItemIconContainer sx={{color:pathname==='/blogs'?'#E63369':Colors.grey}}>
+                  <BlogIcon color={pathname==='/blogs'?'#E63369':Colors.grey}/>
+                  <ListItemTextContainer primary="Blogs" disableTypography/>
+                </ListItemIconContainer>
               </ListItemButton>
               <ListItemButton  component="a" href="/shop"   >
-                <ListItemIcon sx={{ color:pathname==='/shop'?'#E63369':Colors.grey,fontSize:"36px"}}>
-                  <ShopIcon/>
-                  <ListItemText sx={{ fontSize: "20px",fontWeight:"bold", fontFamily: '"Poppins", "sans-serif"' }} primary="Shop" disableTypography/>
-                </ListItemIcon>
+                <ListItemIconContainer  sx={{color:pathname==='/shop'?'#E63369':Colors.grey}}>
+                  <ShopIcon color={pathname==='/shop'?'#E63369':Colors.grey}/>
+                  <ListItemTextContainer  primary="Shop" disableTypography/>
+                </ListItemIconContainer>
               </ListItemButton>
               <ListItemButton  component="a" href="/todo"   >
-                <ListItemIcon sx={{ color:pathname==='/todo'?'#E63369':Colors.grey,fontSize:"36px"}}>
-                 <TodoIcon/>
-                  <ListItemText sx={{ fontSize: "20px",fontWeight:"bold" , fontFamily: '"Poppins", "sans-serif"'}} primary="TO-DO" disableTypography/>
-                </ListItemIcon>
+                <ListItemIconContainer sx={{color:pathname==='/todo'?'#E63369':Colors.grey}} >
+                 <TodoIcon color={pathname==='/todo'?'#E63369':Colors.grey}/>
+                  <ListItemTextContainer primary="TO-DO" disableTypography/>
+                </ListItemIconContainer>
               </ListItemButton>
               <ListItemButton  component="a" href="/favorite"   >
-                <ListItemIcon sx={{ color:pathname==='/favorite'?'#E63369':Colors.grey,fontSize:"36px"}}>
-                  <FavoriteIcon/>
-                  <ListItemText sx={{ fontSize: "20px",fontWeight:"bold", fontFamily: '"Poppins", "sans-serif"' }}  disableTypography/>
-                </ListItemIcon>
+                <ListItemIconContainer>
+                  <FavoriteIcon color={pathname==='/favorite'?'#E63369':Colors.grey}/>
+                  <ListItemTextContainer   disableTypography/>
+                </ListItemIconContainer>
               </ListItemButton>
               <ListItemButton  component="a" href="/wallet"   >
-                <ListItemIcon sx={{ color:'#E63369',fontSize:"36px"}}>
-                  <WalletIcon style={{ color:'#E63369',fontSize:"36px"}}/>
-                  <ListItemText sx={{ fontSize: "20px",fontWeight:"bold", fontFamily: '"Poppins", "sans-serif"' }}  disableTypography/>
-                </ListItemIcon>
+                <ListItemIconContainer >
+                  <WalletIcon color={pathname==='/wallet'?'#E63369':Colors.grey}/>
+                  <ListItemTextContainer   disableTypography/>
+                </ListItemIconContainer>
               </ListItemButton>
               <ListItemButton  component="a" href="/moonCalender"   >
-                <ListItemIcon sx={{ color:pathname==='/moonCalender'?'#E63369':Colors.grey,fontSize:"36px"}}>
-                  <MoonCalanderIcon/>
-                  <ListItemText sx={{ fontSize: "20px",fontWeight:"bold", fontFamily: '"Poppins", "sans-serif"' }}  disableTypography/>
-                </ListItemIcon>
+                <ListItemIconContainer>
+                  <MoonCalanderIcon color={pathname==='/moonCalender'?'#E63369':Colors.grey}/>
+                  <ListItemTextContainer   disableTypography/>
+                </ListItemIconContainer>
+              </ListItemButton>
+              <ListItemButton  component="a" href="/"   >
+                <ListItemIconContainer sx={{ color:Colors.grey,marginTop:"80px"}}>
+                  <LogOutIcon/>
+                  <ListItemTextContainer  primary="LogOut" disableTypography/>
+                </ListItemIconContainer>
               </ListItemButton>
               
           </List>
-    </React.Fragment>
+    </>
   );
 };
 

@@ -28,6 +28,20 @@ const ApplicationRoutes = () => {
 <Route path="/VerifyCode" element={<VerifyCode/>} />
 <Route path="/verifyCodeStepOne" element={<VerifyCodeStepOne/>} />
 <Route path="/test" element={<Test/>} />
+<Route path="/wallet" element={<Test/>} />
+<Route path="/shop" element={<Test/>} />
+
+<Route path="/home" element={<Test/>} />
+
+<Route path="/blogs" element={<Test/>} />
+<Route path="/todo" element={<Test/>} />
+<Route path="/favorite" element={<Test/>} />
+<Route path="/moonCalender" element={<Test/>} />
+
+
+
+
+
 
 
 
