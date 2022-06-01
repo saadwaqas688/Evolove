@@ -15,11 +15,9 @@ import { Colors } from "../../../../config/palette";
 import SideBarCategoriesAccordion from "../../SideBarCategoriesAccordion/SideBarCategoriesAccordion";
 import BoxCom from "../../BoxCom/BoxCom";
 import SearchBar from "../../SearchBar/SearchBarMain/SearchBar";
-import PopularCoursesHome from "../../../Containers/Auth/HomeOnBoarding/PopularCoursesHome/PopularCoursesHomeMain/PopularCoursesHomeMain";
-import TopCoachesHome from "../../../Containers/Auth/HomeOnBoarding/TopCoachesHome/TopCoachesHomeMain/TopCoachesHome";
-import HomeExploreBlogs from "../../../Containers/Auth/HomeOnBoarding/ExploreBlogsHome/ExploreBlogsHomeMain/ExploreBlogsHomeMain";
+import { Outlet } from "react-router-dom";
 
-const AppWrapper = () => {
+const AppWrapper = ({children}) => {
   const [openDrawerLeft, setOpenDrawerLeft] = useState(false);
   const [openDrawerRight, setOpenDrawerRight] = useState(false);
 
@@ -45,10 +43,7 @@ const AppWrapper = () => {
 
 <BoxCom sx={{background:Colors.secondary,minHeight:"100vh",marginRight:{xs:"10px",md:"290px"},marginLeft:{xs:"10px",md:"285px"}}}>
           <SearchBar/>
-          <TopCoachesHome/>
-          <PopularCoursesHome/>
-          <HomeExploreBlogs/>
-
+          <Outlet />
           </BoxCom>
      {  isMatch  && <>
             <DrawerComp  anchor="left" width="211px" type="persistent" isOpen={true}>

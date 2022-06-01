@@ -13,6 +13,7 @@ import ForgetPassword from "../Components/Containers/Auth/ForgetPassword/ForgetP
 import VerifyCode from "../Components/Containers/Auth/VerifyCode/VerifyCodeMain/VerifyCode";
 import VerifyCodeStepOne from "../Components/Containers/Auth/VerifyCodeStepOne/VerifyCodeStepOneMain/VerifyCodeStepOne";
 import Test from "../Test/Test";
+import AppWrapper from "../Components/UI/AppWrapper/AppWrapperMain/AppWrapper";
 
 const ApplicationRoutes = () => {
   return (
@@ -27,18 +28,21 @@ const ApplicationRoutes = () => {
 <Route path="/forgotPassword" element={<ForgetPassword/>} />
 <Route path="/VerifyCode" element={<VerifyCode/>} />
 <Route path="/verifyCodeStepOne" element={<VerifyCodeStepOne/>} />
+<Route element={<AppWrapper />}>
 <Route path="/test" element={<Test/>} />
-<Route path="/wallet" element={<Test/>} />
+{/*<Route path="/wallet" element={<Test/>} />
 <Route path="/shop" element={<Test/>} />
 
-<Route path="/home" element={<Test/>} />
+<Route path="/home" element={<Test/>} /> 
 
-<Route path="/blogs" element={<Test/>} />
+ <Route path="/blogs" element={<Test/>} />
 <Route path="/todo" element={<Test/>} />
 <Route path="/favorite" element={<Test/>} />
 <Route path="/moonCalender" element={<Test/>} />
 <Route path="/categories/consciousbusiness" element={<Test/>} />
-<Route path="/categories/naturalmedicine" element={<Test/>} />
+<Route path="/categories/naturalmedicine" element={<Test/>} /> */}
+
+</Route>
 
 
 
