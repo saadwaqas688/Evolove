@@ -14,7 +14,6 @@ export const SearchField = styled(  TextfieldComp )(({ theme,width }) => ({
    }));
 
    export const SearchBarWrapper = styled(  BoxCom )(({ theme}) => ({
-       background:"red",
     width:"65%",
    [theme.breakpoints.down("md")]: {
     width:"100%",

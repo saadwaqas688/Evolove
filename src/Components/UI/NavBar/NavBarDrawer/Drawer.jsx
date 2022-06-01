@@ -19,16 +19,19 @@ const DrawerComp = ({anchor,type,isOpen,openDrawer,setOpenDrawer,children,width}
         variant={type}
         onClose={() => setOpenDrawer(false)}
       >
-        <Box sx={{bgcolor:Colors.dark,height:'100vh',width:width ,overflow:"hidden"}}>
+        <Box sx={{bgcolor:Colors.dark,height:'100%',width:width }}>
           {children}
         </Box>
       </Drawer >
+      
+
       <IconButton
-        sx={{ color: Colors.light, marginLeft: "auto" }}
+        sx={{ color: Colors.light,margin:"auto"}}
         onClick={() => setOpenDrawer(!openDrawer)}
         >
         <MenuIcon color={Colors.light} />
       </IconButton>
+      
     </React.Fragment>
   );
 };
