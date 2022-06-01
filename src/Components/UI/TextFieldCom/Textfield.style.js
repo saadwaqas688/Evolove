@@ -14,15 +14,15 @@ export const Wrapper = styled("label")(({ theme, width,height }) => ({
   color:Colors.dimGrey
 }));
 
-export const StyledPaper = styled(PaperWrapper)(({ theme, error,width}) => (
+export const StyledPaper = styled(PaperWrapper)(({ theme, error,width,color}) => (
     {
   width:width,
   fontFamily: '"Poppins", "sans-serif"',
   borderRadius: "10px",
   border: `${error ? "2px" : "1px"} solid ${
-    error ? "red" : Colors.grey
+    error ? "red" : color
   }`,
-  background: Colors.grey,
+  background: Colors.dark,
   // height: theme.spacing(6.25),
   display: "flex",
   alignItems: "center",
@@ -33,7 +33,7 @@ export const StyledPaper = styled(PaperWrapper)(({ theme, error,width}) => (
    },
 }));
 
-export const InputMultiLine = styled("textArea")(({ theme, value, error,height}) => {
+export const InputMultiLine = styled("textArea")(({ theme, value, error,height,placeholderColor}) => {
   return {
     width: "100%",
     height,
@@ -47,6 +47,9 @@ export const InputMultiLine = styled("textArea")(({ theme, value, error,height})
     outline: "none",
     color: Colors.dimGrey,
     fontFamily: '"Poppins", "sans-serif"',
+    "&::-webkit-input-placeholder": {
+      color: placeholderColor,
+    },
     "&:focus": {
       color: Colors.dimGrey,
     },
@@ -68,7 +71,7 @@ export const LabelText = styled("span")(({ theme }) => ({
 }));
 
 
-export const Input = styled("input")(({ theme, value, error,height}) => {
+export const Input = styled("input")(({ theme, value, error,height,placeholderColor}) => {
   return {
     width:"100%",
     height,
@@ -82,6 +85,9 @@ export const Input = styled("input")(({ theme, value, error,height}) => {
     outline: "none",
     color: Colors.dimGrey,
     fontFamily: '"Poppins", "sans-serif"',
+    "&::-webkit-input-placeholder": {
+      color: placeholderColor,
+    },
         "&:focus": {
           color: Colors.dimGrey,
     },

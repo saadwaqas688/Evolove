@@ -37,6 +37,9 @@ const ApplicationRoutes = () => {
 <Route path="/todo" element={<Test/>} />
 <Route path="/favorite" element={<Test/>} />
 <Route path="/moonCalender" element={<Test/>} />
+<Route path="/categories/consciousbusiness" element={<Test/>} />
+<Route path="/categories/naturalmedicine" element={<Test/>} />
+
 
 
 

@@ -6,17 +6,20 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Colors } from "../../../../config/palette";
-const DrawerComp = ({anchor,type,isOpen,openDrawer,setOpenDrawer,children}) => {
+const DrawerComp = ({anchor,type,isOpen,openDrawer,setOpenDrawer,children,width}) => {
 
   return (
     <React.Fragment>
       <Drawer
+            
+            
+        PaperProps={{style: {border: 'none'}}}
         anchor={anchor}
         open={isOpen?isOpen:openDrawer}
         variant={type}
         onClose={() => setOpenDrawer(false)}
       >
-        <Box sx={{bgcolor:'#1A1A1C',height:'100vh',width:'211px',overflow:"hidden"}}>
+        <Box sx={{bgcolor:Colors.dark,height:'100vh',width:width ,overflow:"hidden"}}>
           {children}
         </Box>
       </Drawer >

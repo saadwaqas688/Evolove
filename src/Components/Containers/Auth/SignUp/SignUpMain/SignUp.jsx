@@ -1,9 +1,8 @@
-import { Box, Container, Grid, Typography} from "@mui/material";
+import { Box, Container, Grid} from "@mui/material";
 import React from "react";
 import Button from "../../../../UI/Button/Button";
 import Footer from "../../../../UI/Footer/FooterMain/Footer";
 import NavBar from "../../../../UI/NavBar/NavBarMain/NavBar";
-import TextFieldWrapper from "../../../../UI/TextField/TextFieldWrapper";
 import TextfieldComp from "../../../../UI/TextFieldCom/Textfield";
 import { ImageContainer, ImageContainerMain, LinkContainer, OrWithText } from "../../Login/LoginMain/Login.style";
 import googleImage from "../../../../../assets/images/homeOnBoarding/googleImage.png";
@@ -12,7 +11,7 @@ import appleImage from "../../../../../assets/images/homeOnBoarding/appleImage.p
 
 
 
-import {FormContainer, GridItem, Heading, PaperContainer } from "./SignUp.style";
+import {FormContainer, Heading, PaperContainer } from "./SignUp.style";
 
 
 function SignUp() {
