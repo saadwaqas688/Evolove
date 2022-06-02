@@ -13,10 +13,23 @@ export const PopularCourseHeading = styled(Typography)(({ theme }) => ({
     },
 }));
 
-
 export const LinkContainer = styled(Typography)(() => ({
   color:"#9E8B91",
    fontSize:"14px",
    fontFamily: '"Poppins", "sans-serif"',
    fontWeight:"bold",
  }));
+
+ export const MainContainer = styled(Typography)(({ theme }) => ({
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    [theme.breakpoints.down("lg")]: {
+      justifyContent: "space-around",
+
+      },
+  [theme.breakpoints.down("md")]: {
+    flexDirection:"column",
+    marginBottom:"20px",
+    },
+}));

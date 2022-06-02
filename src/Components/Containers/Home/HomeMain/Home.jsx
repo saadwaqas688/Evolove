@@ -18,7 +18,7 @@ const Home = () => {
     </PopularCourseHeading>
     <LinkContainer >
             <a
-              href="/signUp"
+              href="/allCourses"
               style={{ color: "#9E8B91", textDecoration: "none" }}
             >
               See All
@@ -32,11 +32,11 @@ const Home = () => {
     <BoxCom sx={{marginTop:"60px"}}>
     <BoxCom sx={{display:"flex",alignItems:"center",justifyContent:"space-between"}}>
     <PopularCourseHeading>
-      Popular Courses
+      Top Coaches
     </PopularCourseHeading>
     <LinkContainer >
             <a
-              href="/signUp"
+              href="/allCoaches"
               style={{ color: "#9E8B91", textDecoration: "none" }}
             >
               See All
