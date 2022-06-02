@@ -29,8 +29,10 @@ const ApplicationRoutes = () => {
 <Route path="/VerifyCode" element={<VerifyCode/>} />
 <Route path="/verifyCodeStepOne" element={<VerifyCodeStepOne/>} />
 <Route element={<AppWrapper />}>
-<Route path="/test" element={<Test/>} />
-{/*<Route path="/wallet" element={<Test/>} />
+<Route path="/test" element={<Test/>} /> 
+
+{/* <Route path="/test" element={<Test/>} />
+<Route path="/wallet" element={<Test/>} />
 <Route path="/shop" element={<Test/>} />
 
 <Route path="/home" element={<Test/>} /> 

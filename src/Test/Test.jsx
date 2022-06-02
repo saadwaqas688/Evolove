@@ -1,27 +1,22 @@
 import React from 'react'
-import TextField from '@mui/material/TextField';
+import PopularCoursesHome from '../Components/Containers/Auth/HomeOnBoarding/PopularCoursesHome/PopularCoursesHomeMain/PopularCoursesHomeMain'
+import HomeCourseCard from '../Components/Containers/Home/HomeCourseCard/HomeCourseCard'
+import HomeTopCard from '../Components/Containers/Home/HomeTopCard/HomeTopCard'
 import AppWrapper from '../Components/UI/AppWrapper/AppWrapperMain/AppWrapper'
-import { InputAdornment } from '@mui/material';
-import { Search } from '@mui/icons-material';
-import SearchIcon from '../assets/icons/SearchIcon';
-import TextFieldWrapper from '../Components/UI/TextField/TextFieldWrapper';
+import TopCoachesHome from "../Components/Containers/Auth/HomeOnBoarding/TopCoachesHome/TopCoachesHomeMain/TopCoachesHome"
+import HomeCoachcom from '../Components/Containers/Home/HomeCoachCom/HomeCoachCom'
+import Home from '../Components/Containers/Home/HomeMain/Home'
+
+
 const Test = () => {
   return (
-    // <div style={{height:"100vh",background:"white"}}>
     <div>
-      {/* <TextFieldWrapper/> */}
       {/* <AppWrapper/> */}
-      {/* <TextField id="outlined-basic" 
-      label="Outlined"
-       variant="outlined" 
-       InputProps={{
-        startAdornment:(
-          <InputAdornment position='start'>
-            <SearchIcon/>
-          </InputAdornment>
-        )
-       }}
-       /> */}
+   <Home/>
+      {/* <TopCoachesHome/> */}
+      {/* <PopularCoursesHome/> */}
+      
+      
     </div>
   )
 }
