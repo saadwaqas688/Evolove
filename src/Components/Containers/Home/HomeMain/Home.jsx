@@ -3,7 +3,7 @@ import HomeTopCard from '../HomeTopCard/HomeTopCard'
 import CoursesContainer from '../HomeCourseContainer/HomeCourseContainer';
 import { HomeCoachesContainer } from '../HomeCoachesContainer/HomeCoachesContainer';
 import BoxCom from '../../../UI/BoxCom/BoxCom';
-import { LinkContainer, PopularCourseHeading } from '../HomeCoachesContainer/HomeCoachesContainer.style';
+import { LinkContainer, MainContainer, PopularCourseHeading } from '../HomeCoachesContainer/HomeCoachesContainer.style';
 
 const Home = () => {
   return (
@@ -11,8 +11,8 @@ const Home = () => {
     <BoxCom sx={{marginTop:"60px"}}>
     <HomeTopCard/>
     </BoxCom>
-    <BoxCom sx={{marginTop:"33px"}}>
-      <BoxCom sx={{display:"flex",alignItems:"center",justifyContent:"space-between"}}>
+    < BoxCom sx={{marginTop:"33px"}}>
+      <MainContainer>
     <PopularCourseHeading>
       Popular Courses
     </PopularCourseHeading>
@@ -24,13 +24,11 @@ const Home = () => {
               See All
             </a>
           </LinkContainer>
-      </BoxCom>
-
-
+      </MainContainer>
     <CoursesContainer/> 
      </BoxCom>
     <BoxCom sx={{marginTop:"60px"}}>
-    <BoxCom sx={{display:"flex",alignItems:"center",justifyContent:"space-between"}}>
+    <MainContainer >
     <PopularCourseHeading>
       Top Coaches
     </PopularCourseHeading>
@@ -42,7 +40,7 @@ const Home = () => {
               See All
             </a>
           </LinkContainer>
-      </BoxCom>
+      </MainContainer>
     <HomeCoachesContainer/>
     </BoxCom>
 
