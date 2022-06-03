@@ -27,7 +27,7 @@ const AppWrapper = ({children}) => {
       <>
      {  !isMatch &&    <BoxCom>
         <Toolbar>
-            <DrawerComp anchor="left" width="211px" type="temporary" isOpen={false} openDrawer={openDrawerLeft} setOpenDrawer={setOpenDrawerLeft}>
+            <DrawerComp anchor="left"  width="211px" type="temporary" isOpen={false} openDrawer={openDrawerLeft} setOpenDrawer={setOpenDrawerLeft}>
             <SideBarLinks/>
             </DrawerComp>
             <DrawerComp anchor="right" width="268px"  type="temporary" isOpen={false} openDrawer={openDrawerRight} setOpenDrawer={setOpenDrawerRight}>

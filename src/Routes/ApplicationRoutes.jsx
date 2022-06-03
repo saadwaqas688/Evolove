@@ -14,6 +14,9 @@ import VerifyCode from "../Components/Containers/Auth/VerifyCode/VerifyCodeMain/
 import VerifyCodeStepOne from "../Components/Containers/Auth/VerifyCodeStepOne/VerifyCodeStepOneMain/VerifyCodeStepOne";
 import Test from "../Test/Test";
 import AppWrapper from "../Components/UI/AppWrapper/AppWrapperMain/AppWrapper";
+import AllCourses from "../Components/Containers/Home/HomeAllCourses/AllCourses";
+import AllCoaches from "../Components/Containers/Home/HomeAllCoaches/AllCoaches";
+import Home from "../Components/Containers/Home/HomeMain/Home";
 
 const ApplicationRoutes = () => {
   return (
@@ -29,8 +32,13 @@ const ApplicationRoutes = () => {
 <Route path="/VerifyCode" element={<VerifyCode/>} />
 <Route path="/verifyCodeStepOne" element={<VerifyCodeStepOne/>} />
 <Route element={<AppWrapper />}>
-<Route path="/test" element={<Test/>} />
-{/*<Route path="/wallet" element={<Test/>} />
+<Route path="/home" element={<Home/>} />
+<Route path="/allCourses" element={<AllCourses/>} />
+<Route path="/allCoaches" element={<AllCoaches/>} />
+<Route path="/test" element={<Test/>} /> 
+
+{/* <Route path="/test" element={<Test/>} />
+<Route path="/wallet" element={<Test/>} />
 <Route path="/shop" element={<Test/>} />
 
 <Route path="/home" element={<Test/>} /> 

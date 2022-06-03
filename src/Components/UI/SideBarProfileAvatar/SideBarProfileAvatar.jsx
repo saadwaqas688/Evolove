@@ -1,7 +1,7 @@
 
 import BoxCom from "../BoxCom/BoxCom";
 import { AvatarName, AvatarWrapper,MainWrapper} from "./SideBarProfileAvatar.style";
-import ProfileImage from"../../../assets/images/homeOnBoarding/homeAvatarImg.png"
+import ProfileImage from"../../../assets/images/homeOnBoarding/profileImg.png"
   const SideBarProfileAvatar = () => {
     return (
         <MainWrapper>

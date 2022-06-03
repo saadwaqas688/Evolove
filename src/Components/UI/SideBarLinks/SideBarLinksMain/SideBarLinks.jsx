@@ -22,7 +22,7 @@ const SideBarLinks = () => {
 
   const { pathname } = useLocation();
   return (
-    <>
+    <BoxCom sx={{background:Colors.dark}}>
         <BoxCom sx={{textAlign:"center",marginTop:"20px"}}>
         <EvoloveIcon/>
         </BoxCom>
@@ -78,7 +78,7 @@ const SideBarLinks = () => {
               </ListItemButton>
               
           </List>
-    </>
+    </BoxCom>
   );
 };
 
