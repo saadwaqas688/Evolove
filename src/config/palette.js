@@ -15,6 +15,8 @@ export const Colors = {
     border: "#DDDFE1",
     inverse: "#2F3D4A",
     shaft: "#333",
+    pink:"#E63369",
+    
     ///////////////
     // Grays
     ///////////////
