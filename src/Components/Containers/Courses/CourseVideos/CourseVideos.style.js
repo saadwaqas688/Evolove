@@ -18,7 +18,7 @@ textAlign:"center"
 export const CourseBox = styled(BoxCom)(({ theme }) => ({
     background:"#1A1A1C" ,
     border:"1px solid #676F85",
-    height:"417px",
+    height:"40rem",
     width:"55%",
     borderRadius:"19.85px",
     [theme.breakpoints.down("md")]: {
@@ -27,7 +27,7 @@ export const CourseBox = styled(BoxCom)(({ theme }) => ({
     }));
     export const CourseVideoAccordianHeading = styled(Typography)(({ theme }) => ({
         font:"Poppins",
-        width:"92px",
+    width: "100%" ,
         height:"28px",
         paddingLeft: "20px" ,
         color:Colors.white,
