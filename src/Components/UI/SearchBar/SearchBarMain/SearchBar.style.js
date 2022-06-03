@@ -9,6 +9,9 @@ export const SearchField = styled(  TextfieldComp )(({ width }) => ({
 
    export const SearchBarWrapper = styled(  BoxCom )(({ theme}) => ({
        marginTop:"20px",
+       display:"flex",
+       alignItems:"center",
+       justifyContent:"center",
     width:"65%",
     [theme.breakpoints.down("lg")]: {
         marginTop:"0px",

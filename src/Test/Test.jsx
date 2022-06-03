@@ -7,13 +7,14 @@ import TopCoachesHome from "../Components/Containers/Auth/HomeOnBoarding/TopCoac
 import HomeCoachcom from '../Components/Containers/Home/HomeCoachCom/HomeCoachCom'
 import Home from '../Components/Containers/Home/HomeMain/Home'
 import AllCourses from '../Components/Containers/Home/HomeAllCourses/AllCourses'
+import FilterIcon from '../assets/icons/FilterIcon'
 
 
 const Test = () => {
   return (
     <div>
       {/* <AppWrapper/> */}
-   <Home/>
+        <Home/>
    {/* <AllCourses/> */}
       {/* <TopCoachesHome/> */}
       {/* <PopularCoursesHome/> */}
