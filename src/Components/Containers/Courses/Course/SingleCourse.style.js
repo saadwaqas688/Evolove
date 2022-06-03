@@ -19,15 +19,16 @@ export const ExploreCourseHeading = styled('div')(({ theme }) => ({
 fontFamily: '"Poppins", "sans-serif"',
 color:Colors.light,
 marginTop:"20px",
-[theme.breakpoints.down("md")]: {
+[theme.breakpoints.down("lg")]: {
 textAlign:"center"
 },
 }));
 export const ExploreCourseText = styled('div')(({ theme }) => ({
 fontFamily: '"Poppins", "sans-serif"',
 color:Colors.white,
-justifyContent:"space-between",alignItems:"center",
-[theme.breakpoints.down("md")]: {
+justifyContent:"space-between",
+alignItems:"center",
+[theme.breakpoints.down("lg")]: {
 textAlign:"center"
 },
 }));
@@ -37,7 +38,7 @@ export const ExploreCoursePriceHeading = styled("div")(({ theme }) => ({
   fontFamily: '"Poppins", "sans-serif"',
   color:Colors.light,
   marginTop:"20px",
-  [theme.breakpoints.down("md")]: {
+  [theme.breakpoints.down("lg")]: {
   textAlign:"center"
   },
   }));
@@ -47,11 +48,11 @@ export const ExploreCoursePriceHeading = styled("div")(({ theme }) => ({
   padding:"0 23px",
   display: 'flex', background: Colors.pink,
   justifyContent:"space-between",alignItems:"center",
-  [theme.breakpoints.down("md")]: {
+  [theme.breakpoints.down("lg")]: {
   textAlign:"center"
   },
   }));
-  export const PriceButton = styled("button")(() => ({
+  export const PriceButton = styled("button")(({ theme }) => ({
     
     marginTop:"20px",
     width: "183px",
@@ -59,6 +60,8 @@ export const ExploreCoursePriceHeading = styled("div")(({ theme }) => ({
     background:Colors.pink,
     color:Colors.white,
     borderRadius:"32.53px",
-    
+    [theme.breakpoints.down("lg")]: {
+      textAlign:"center"
+      },
   }));
 

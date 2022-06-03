@@ -10,25 +10,28 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import { Colors } from "../../../../config/palette";
 import Button from '@mui/material/Button';
+
 // import {  ExploreCourseHeading } from './SingleCourse.style';
-import { CourseVideoHeading } from './CourseVideos.style';
+import { CourseBox, CourseVideoHeading } from './CourseVideos.style';
+import ControlledAccordions from "./CourseVideoAccordian";
 
 const CourseVideo = () => {
     return (
-        <Box  style={{ background:"red" ,border:"1px solid white",height:"100px"}}>
+        <CourseBox >
             
             <Grid container  >
-                
-                    <CourseVideoHeading>
+            <Grid item xs={12} sm={6} md={6} lg={12}>
+                 <CourseVideoHeading>
                     Curriculum
                  </CourseVideoHeading>
-              
-
-                
-                
+               
+             </Grid>
+                    
+            <ControlledAccordions/>          
+       
             </Grid>
-            {/* <Divider sx={{background:"white",paddingLeft:"20px"}}/> */}
-        </Box>
+
+        </CourseBox>
     );
 };
 export default CourseVideo;
