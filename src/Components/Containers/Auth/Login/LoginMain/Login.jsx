@@ -83,7 +83,7 @@ function Login() {
                   marginTop: "30px",
                 }}
               >
-                <Button variant="contained">Login</Button>
+                <Button variant="contained" href="/home">Login</Button>
               </GridItem>
             </Grid>
           </FormContainer>
