@@ -13,19 +13,19 @@ const PopularCoursesHome = () => {
        Popular Courses
       </Typography>
     <Grid container spacing={2} sx={{ paddingTop: "50px",paddingBottom:"50px"}}>
-    <Grid item xs={12}  md={2.4} style={{display:'flex',alignItems:"center",justifyContent:'center',flexDirection:"column"}}>
+    <Grid item xs={12}  md={2.4} >
     <HomeCourseCard/>
       </Grid>
-      <Grid item xs={12}  md={2.4} style={{display:'flex',alignItems:"center",justifyContent:'center',flexDirection:"column"}}>
+      <Grid item xs={12}  md={2.4} >
     <HomeCourseCard/>
       </Grid>
-      <Grid item xs={12}  md={2.4} style={{display:'flex',alignItems:"center",justifyContent:'center',flexDirection:"column"}}>
+      <Grid item xs={12}  md={2.4} >
     <HomeCourseCard/>
       </Grid>
-      <Grid item xs={12}  md={2.4} style={{display:'flex',alignItems:"center",justifyContent:'center',flexDirection:"column"}}>
+      <Grid item xs={12}  md={2.4} >
     <HomeCourseCard/>
       </Grid>
-      <Grid item xs={12}  md={2.4} style={{display:'flex',alignItems:"center",justifyContent:'center',flexDirection:"column"}}>
+      <Grid item xs={12}  md={2.4} >
     <HomeCourseCard/>
       </Grid>
     
