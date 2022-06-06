@@ -13,7 +13,7 @@ import Button from '@mui/material/Button';
 
 // import {  ExploreCourseHeading } from './SingleCourse.style';
 import { CourseBox, CourseVideoHeading } from './CourseVideos.style';
-import ControlledAccordions from "./CourseVideoAccordian";
+import CourseAccordions from "./CourseVideoAccordian";
 
 const CourseVideo = () => {
     return (
@@ -21,13 +21,13 @@ const CourseVideo = () => {
             
             <Grid container  >
             <Grid item xs={12} sm={6} md={6} lg={12}>
-                 <CourseVideoHeading>
+                 {/* <CourseVideoHeading>
                     Curriculum
-                 </CourseVideoHeading>
+                 </CourseVideoHeading> */}
                
              </Grid>
                     
-            <ControlledAccordions/>          
+            <CourseAccordions/>          
        
             </Grid>
 

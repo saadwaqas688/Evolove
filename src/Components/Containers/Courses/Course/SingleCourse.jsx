@@ -17,7 +17,7 @@ const SingleCourse = () => {
                 Courses
             </Typography>
             <Grid container spacing={6} sx={{ paddingBottom: "50px", paddingLeft: { md: "20px", sm: "0px" } }}>
-                <Grid item xs={12} md={7} style={{ display: 'flex', justifyContent: 'flex-start', flexDirection: "column"}}>
+                <Grid item xs={12} lg={6} style={{ display: 'flex', justifyContent: 'flex-start', flexDirection: "column"}}>
                     <ExploreCourseVideo src="https://www.youtube.com/embed/cWDJoK8zw58"
                     />
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
@@ -44,7 +44,7 @@ const SingleCourse = () => {
                     </div>
 
                 </Grid>
-                <Grid item xs={12} md={5} >
+                <Grid item xs={12} lg={6} >
                     <ExploreCoursePriceText  >
                         <Typography color="white">
                             Price

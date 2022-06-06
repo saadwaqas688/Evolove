@@ -1,6 +1,8 @@
 import { styled } from "@mui/material";
 import { Colors } from "../../../../config/palette";
-
+import {
+  Typography,
+} from "@mui/material";
 export const ExploreCourseVideo = styled("iframe")(({ iframe, theme }) => ({
     src: `url(${iframe})`,
     marginTop:"45px",
@@ -46,10 +48,12 @@ export const ExploreCoursePriceHeading = styled("div")(({ theme }) => ({
   borderRadius:"5px",
   height:"65.54px",
   padding:"0 23px",
+  marginTop:"20px",
   display: 'flex', background: Colors.pink,
   justifyContent:"space-between",alignItems:"center",
   [theme.breakpoints.down("lg")]: {
-  textAlign:"center"
+  textAlign:"center",
+  height:"50px"
   },
   }));
   export const PriceButton = styled("button")(({ theme }) => ({
@@ -61,7 +65,10 @@ export const ExploreCoursePriceHeading = styled("div")(({ theme }) => ({
     color:Colors.white,
     borderRadius:"32.53px",
     [theme.breakpoints.down("lg")]: {
-      textAlign:"center"
+      textAlign:"center",
+      width: "100%",
+      height:"50px"
+
       },
   }));
 
