@@ -1,4 +1,4 @@
-import { CourseImage } from "./HomeCourseCard.style";
+import { CardFooter, CourseImage, CourseNameContainer, HeartIconContainer, IconContainer, NameContainer, ShareIconContainer } from "./HomeCourseCard.style";
  import cardImage from "../../../../assets/images/homeOnBoarding/courseCard.png";
 import BoxCom from "../../../UI/BoxCom/BoxCom";
 import { Typography } from "@mui/material";
@@ -12,29 +12,27 @@ import { HeartIcon } from "../../../../assets/icons/HeartIcon";
   <BoxCom sx={{background:Colors.dark,borderRadius:"16px"}}>
 
     <CourseImage src={cardImage} alt="Paris" />
-    <BoxCom  sx={{display:"flex",marginTop:"-25px",justifyContent:"flex-end",marginRight:"12px"}}>
-
-    <BoxCom sx={{paddingTop:"5px",paddingLeft:"8px",paddingRight:"8px",borderRadius:"20px",background:Colors.dark}}>
+    <IconContainer >
+    <ShareIconContainer>
    <ShareIcon />
-    </BoxCom>
-   <BoxCom sx={{paddingTop:"5px",paddingLeft:"8px",paddingRight:"8px",marginLeft:"10px",borderRadius:"40px",background:Colors.dark}}>
+    </ShareIconContainer>
+   <HeartIconContainer >
     <HeartIcon/>
-   </BoxCom>
-    </BoxCom>
+   </HeartIconContainer>
+    </IconContainer>
     <BoxCom >
-    <Typography variant="body1" sx={{color:Colors.darkGrey,marginLeft:"12px",marginTop:"10px",fontSize:"11px",   fontFamily: '"Poppins", "sans-serif"'
-}}>
+    <NameContainer variant="body1" >
      Dr.John Kevin
-    </Typography>
-    <Typography variant="body1" sx={{color:"white",marginLeft:"12px",marginTop:"10px",fontSize:"13px",fontFamily: '"Poppins", "sans-serif"'}}>
+    </NameContainer>
+    <CourseNameContainer variant="body1">
      Master of Spirituality
-    </Typography>
-    <BoxCom sx={{marginTop:"10px",paddingBottom:"10px",paddingRight:"10px",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+    </CourseNameContainer>
+    <CardFooter >
     <Typography variant="body1" sx={{color:"#0AB27D",marginLeft:"12px"}}>
      $59.99
     </Typography>
     <Button variant="contained" size="small" sx={{width:"80px",height:"25px",fontSize:"10px"}} >Buy Now</Button>
-    </BoxCom>
+    </CardFooter>
     </BoxCom>
 
   </BoxCom>

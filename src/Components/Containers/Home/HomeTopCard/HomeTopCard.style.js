@@ -1,18 +1,24 @@
 import { styled} from "@mui/material";
-import { Colors } from "../../../../config/palette";
 import BoxCom from "../../../UI/BoxCom/BoxCom";
 
-  export const CardContainer = styled(BoxCom)(({ theme,src }) => ({
-    fontFamily: '"Poppins", "sans-serif"',
-    color:Colors.darkGrey,
-    borderRadius:"16px",
-    border:"1px solid",
+  export const CardContainer = styled(BoxCom)(({ theme }) => ({
+    borderRadius:"26px",
+    border:"1px transparent",
     height:"139px",
     width:"55%",
     [theme.breakpoints.down("lg")]: {
         width:"100%",
-        height:"200px",
+        height:"auto",
       },
 
   }));
   
+
+  export const CourseImage = styled("img")(({ src, theme }) => ({
+    src: `url(${src})`,
+    width: "100%", 
+    height:"100%",
+    [theme.breakpoints.down("lg")]: {
+      height:'auto',
+    },
+  }));

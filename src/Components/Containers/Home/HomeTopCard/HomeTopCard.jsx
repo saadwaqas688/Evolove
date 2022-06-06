@@ -1,9 +1,13 @@
-import { CardContainer } from "./HomeTopCard.style";
+import { CardContainer, CourseImage } from "./HomeTopCard.style";
+import cardImage from "../../../../assets/images/homeOnBoarding/HomeTopCardImage.png";
+
   
   const HomeTopCard = () => {
     return (
 
-  <CardContainer />
+  <CardContainer >
+    <CourseImage src={cardImage} alt="Paris" />
+    </CardContainer>
 
   );
   };

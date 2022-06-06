@@ -1,50 +1,7 @@
-import { Card, CardMedia, styled} from "@mui/material";
+import { styled} from "@mui/material";
 import { Colors } from "../../../../config/palette";
 import BoxCom from "../../../UI/BoxCom/BoxCom";
-  // export const CourseCard = styled(BoxCom)(({ theme,src }) => ({
-  //   fontFamily: '"Poppins", "sans-serif"',
-  //   color:Colors.darkGrey,
-  //   borderRadius:"16px",
-  //   border:"1px solid",
-  //   height:"218px",
-  //   width:"100%",
-  //   [theme.breakpoints.down("lg")]: {
-  //       width:"100%",
-  //       height:"200px",
-  //     },
 
-  // }));
-
-  export const CourseCard = styled(Card)(({ theme }) => ({
-
-    // minWidth: "3%",
-    minHeight:"100px",
-    borderRadius:"16px",
-    [theme.breakpoints.down("md")]: {
-      minHeight:"300px",
-      // borderRadius:"30px",
-
-
-        // width:"100%",
-        // height:"200px",
-      },
-      [theme.breakpoints.down("sm")]: {
-        // borderRadius:"40px",
-  
-  
-          // width:"100%",
-          // height:"200px",
-        },
-
-  }));
-
-  export const CourseCardMedia = styled(CardMedia)(({ theme }) => ({
-    objectFit:"fill",
-    // height:"115px",
-
-
-  }));
-  
   
   export const CourseImage = styled("img")(({ src, theme }) => ({
     src: `url(${src})`,
@@ -56,4 +13,59 @@ import BoxCom from "../../../UI/BoxCom/BoxCom";
       marginTop:"0px",
       height:'auto',
     },
+  }));
+
+
+  export const IconContainer = styled(BoxCom)(() => ({
+    display:"flex",
+    marginTop:"-25px",
+    justifyContent:"flex-end",
+    marginRight:"12px"
+  }));
+
+  export const ShareIconContainer = styled(BoxCom)(() => ({
+    paddingTop:"5px",
+    paddingLeft:"8px",
+    paddingRight:"8px",
+    borderRadius:"20px",
+    background:Colors.dark,
+  }));
+
+  export const HeartIconContainer = styled(BoxCom)(() => ({
+    paddingTop:"5px",
+    paddingLeft:"8px",
+    paddingRight:"8px",
+    marginLeft:"10px",
+    borderRadius:"40px",
+    background:Colors.dark,
+  }));
+
+
+  export const NameContainer = styled(BoxCom)(() => ({
+    color:Colors.darkGrey,
+    marginLeft:"12px",
+    marginTop:"10px",
+    fontSize:"11px",  
+    fontFamily: '"Poppins", "sans-serif"',
+  
+  }));
+
+
+  export const CourseNameContainer = styled(BoxCom)(() => ({
+    color:"white",
+    marginLeft:"12px",
+    marginTop:"10px",
+    fontSize:"13px",
+    fontFamily: '"Poppins", "sans-serif"',
+  
+  }));
+
+  export const CardFooter = styled(BoxCom)(() => ({
+    marginTop:"10px",
+    paddingBottom:"10px",
+    paddingRight:"10px",
+    display:"flex",
+    justifyContent:"space-between",
+    alignItems:"center"
+  
   }));
