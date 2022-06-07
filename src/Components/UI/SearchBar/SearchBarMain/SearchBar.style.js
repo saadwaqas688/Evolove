@@ -14,7 +14,7 @@ export const SearchField = styled(  TextfieldComp )(({ width }) => ({
        display:"flex",
        alignItems:"center",
        justifyContent:"center",
-    width:"65%",
+    width:"80%",
     [theme.breakpoints.down("lg")]: {
         marginTop:"0px",
         width:"100%",

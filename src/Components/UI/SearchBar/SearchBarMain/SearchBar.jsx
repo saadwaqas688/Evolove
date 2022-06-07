@@ -89,7 +89,7 @@ function checkSelectedTab(buttonLabel){
                 >
                   <BoxCom
                     sx={{
-                      width: { xs: "200px", sm: "280px" },
+                      width: { xs: "200px", sm: "260px" },
                       height: {xs:"360px",sm:"320px"},
                       padding: "20px",
                     }}
