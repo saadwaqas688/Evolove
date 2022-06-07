@@ -1,68 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import FilterIcon from "../../../../assets/icons/FilterIcon";
-import SearchMainContainer from "../../../Containers/Search/SearchMainContainer/SearchMainContainer";
 import BoxCom from "../../BoxCom/BoxCom";
-import { PopoverWrappwer, PopupButtons, SearchBarWrapper, SearchField } from "./SearchBar.style";
-import { useLocation } from "react-router";
-import { useNavigate } from "react-router-dom";
+import { PopoverWrappwer, PopupButtons } from "./SearchBarPopup.style";
 import Typography from "@mui/material/Typography";
 import PopupState, { bindTrigger, bindPopover } from "material-ui-popup-state";
 import Button from "../../Button/Button";
 import { Colors } from "../../../../config/palette";
 import { Grid } from "@mui/material";
 
-const SearchBar = () => {
-
-  const [searchText, setSearchText] = useState("");
-  const [status, setStatus] = useState("");
-  const [type, setType] = useState("");
-  const [sortBy, setSortBy] = useState("");
-
-
-  const { pathname } = useLocation();
-  let navigate = useNavigate();
-  function onPressEnter() {
-    navigate("/search");
-  }
-
-  function handleFilter(buttonType,data){
-    if(buttonType==="type"){
-      setType(data)
-    }else if(buttonType==="status"){
-      setStatus(data)
-    }else{
-      setSortBy(data)
-    }
-  }
-
-function checkSelectedTab(buttonLabel){
-  if(status===buttonLabel || type===buttonLabel || sortBy===buttonLabel){
-    return {background:Colors.light,color:Colors.dark,"&:hover": { backgroundColor:Colors.light,borderColor:"#6978A0" }}
-  }else{
-    return {background:"transparent",color:Colors.light,"&:hover": { backgroundColor:"transparent",borderColor:"#6978A0" }}
-  }
-}
+const SearchBarPopup = ({checkSelectedTab,handleFilter}) => {
 
   return (
-    <>
-      <SearchBarWrapper>
-        <SearchField
-          color="#6978A0"
-          width="100%"
-          value={searchText}
-          onChange={(e) => setSearchText(e.target.value)}
-          placeholder="search items"
-          name="searchField"
-          icon={searchText.length > 0 ? false : true}
-          placeholderColor="#6978A0"
-          onKeyDown={(e) => {
-            if (e.key === "Enter" || e.key === "NumpadEnter") {
-              e.preventDefault();
-              onPressEnter(e);
-            }
-          }}
-        />
-        {pathname === "/search" && (
+
           <PopupState variant="popover" popupId="demo-popup-popover" >
             {(popupState) => (
               <div>
@@ -215,14 +164,7 @@ function checkSelectedTab(buttonLabel){
               </div>
             )}
           </PopupState>
-        )}
-      </SearchBarWrapper>
-
-      {pathname === "/search" && (
-        <SearchMainContainer setSearchText={setSearchText} />
-      )}
-    </>
   );
 };
 
-export default SearchBar;
+export default SearchBarPopup;

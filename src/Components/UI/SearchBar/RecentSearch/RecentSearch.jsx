@@ -3,10 +3,10 @@ import React from 'react'
 import { ClockIcon } from '../../../../assets/icons/ClockIcon'
 import { RecentSearchIcon } from '../../../../assets/icons/RecentSearchIcon'
 import { Colors } from '../../../../config/palette'
-import BoxCom from '../../../UI/BoxCom/BoxCom'
-import { Wrapper } from './SearchMainContainer.style'
+import BoxCom from '../../BoxCom/BoxCom'
+import { Wrapper } from './RecentSearch.style'
 
-const SearchMainContainer = ({setSearchText}) => {
+const RecentSearch = ({setSearchText}) => {
     function handleClick(event) {
         setSearchText(event.currentTarget.textContent)
       }
@@ -46,4 +46,4 @@ const SearchMainContainer = ({setSearchText}) => {
   )
 }
 
-export default SearchMainContainer
+export default RecentSearch

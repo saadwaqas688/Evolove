@@ -17,7 +17,7 @@ import AppWrapper from "../Components/UI/AppWrapper/AppWrapperMain/AppWrapper";
 import AllCourses from "../Components/Containers/Home/HomeAllCourses/AllCourses";
 import AllCoaches from "../Components/Containers/Home/HomeAllCoaches/AllCoaches";
 import Home from "../Components/Containers/Home/HomeMain/Home";
-import SearchMainContainer from "../Components/Containers/Search/SearchMainContainer/SearchMainContainer";
+import SearchContainer from "../Components/UI/SearchBar/SearchBarMain/SearchContainer";
 
 const ApplicationRoutes = () => {
   return (

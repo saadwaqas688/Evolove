@@ -14,7 +14,7 @@ import SideBarProfileAvatar from "../../SideBarProfileAvatar/SideBarProfileAvata
 import { Colors } from "../../../../config/palette";
 import SideBarCategoriesAccordion from "../../SideBarCategoriesAccordion/SideBarCategoriesAccordion";
 import BoxCom from "../../BoxCom/BoxCom";
-import SearchBar from "../../SearchBar/SearchBarMain/SearchBar";
+import SearchBar from "../../SearchBar/SearchBarMain/SearchContainer";
 import { Outlet } from "react-router-dom";
 
 const AppWrapper = ({children}) => {
