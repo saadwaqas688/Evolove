@@ -14,7 +14,7 @@ const Test = () => {
   return (
     <div>
       {/* <AppWrapper/> */}
-        <Home/>
+        {/* <Home/> */}
    {/* <AllCourses/> */}
       {/* <TopCoachesHome/> */}
       {/* <PopularCoursesHome/> */}
