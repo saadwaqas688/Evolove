@@ -8,17 +8,18 @@ import HomeCoachcom from '../Components/Containers/Home/HomeCoachCom/HomeCoachCo
 import Home from '../Components/Containers/Home/HomeMain/Home'
 import AllCourses from '../Components/Containers/Home/HomeAllCourses/AllCourses'
 import FilterIcon from '../assets/icons/FilterIcon'
+import ShopCourse from '../Components/Containers/Shop/Shop'
 
 
 const Test = () => {
   return (
     <div>
       {/* <AppWrapper/> */}
-        <Home/>
+        {/* <Home/> */}
    {/* <AllCourses/> */}
       {/* <TopCoachesHome/> */}
       {/* <PopularCoursesHome/> */}
-      
+      <ShopCourse/>
       
     </div>
   )
