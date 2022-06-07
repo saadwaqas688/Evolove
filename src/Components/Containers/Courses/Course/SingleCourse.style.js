@@ -38,7 +38,7 @@ textAlign:"center"
 // course price
 export const ExploreCoursePriceHeading = styled("div")(({ theme }) => ({
   fontFamily: '"Poppins", "sans-serif"',
-  color:Colors.light,
+  color:Colors.darkGrey,
   marginTop:"20px",
   [theme.breakpoints.down("lg")]: {
   textAlign:"center"
@@ -52,8 +52,10 @@ export const ExploreCoursePriceHeading = styled("div")(({ theme }) => ({
   display: 'flex', background: Colors.pink,
   justifyContent:"space-between",alignItems:"center",
   [theme.breakpoints.down("lg")]: {
-  textAlign:"center",
-  height:"50px"
+   textAlign:"center",
+  marginLeft:"12%",
+  height:"15%",
+  width:"60%"
   },
   }));
   export const PriceButton = styled("button")(({ theme }) => ({
@@ -66,9 +68,12 @@ export const ExploreCoursePriceHeading = styled("div")(({ theme }) => ({
     borderRadius:"32.53px",
     [theme.breakpoints.down("lg")]: {
       textAlign:"center",
-      width: "100%",
-      height:"50px"
+      width: "70%",
+      height:"15%",
+      marginBottom:"10px",
+      marginLeft:"12%",
 
       },
+      
   }));
 

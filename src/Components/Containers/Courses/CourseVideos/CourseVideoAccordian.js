@@ -19,7 +19,7 @@ export default function CourseAccordions() {
     };
 
   return (
-    <BoxCom sx={{ width: "100%"  ,padding:"40px" ,borderRadius:"20px"}}>
+    <BoxCom sx={{width:"100%",paddingBottom:"20px", borderRadius:"20px",border: "0.25px solid #676F85"}}>
        <CourseVideoAccordianHeading >
        Curriculum      
        </CourseVideoAccordianHeading>
@@ -27,14 +27,14 @@ export default function CourseAccordions() {
       <CourseVideoAccordianHeading >
         Intro to the Course
       </CourseVideoAccordianHeading>
-      <Accordion sx={{ background: Colors.dark, border: "#1A1A1C" }} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+      <Accordion sx={{ background: Colors.dark, border: "0.25px solid #676F85"}} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon sx={{ color: Colors.light }} />}
           aria-controls="panel1bh-content"
           id="panel1bh-header"
         >
           <CourseVideoAccordianTypography >
-            General settings
+          Welcome Video          
           </CourseVideoAccordianTypography>
 
         </AccordionSummary>
@@ -47,7 +47,7 @@ export default function CourseAccordions() {
           1:45       
           </CourseVideoAccordianTypography>
           </CourseVideoAccordianAlign>
-          <Divider sx={{ background: "#676F85", opacity: 0.7 }} />
+          <Divider sx={{ background: "#676F85", opacity: 0.7 ,marginRight:"40px" ,marginLeft:"40px"}} />
           <CourseVideoAccordianAlign  >
           <CourseVideoAccordianTypography >
             Coach Intrduction
@@ -56,7 +56,7 @@ export default function CourseAccordions() {
           1:45       
           </CourseVideoAccordianTypography>
           </CourseVideoAccordianAlign  >
-          <Divider sx={{ background: "#676F85", opacity: 0.7 }} />
+          <Divider sx={{ background: "#676F85", opacity: 0.7 ,marginRight:"40px" ,marginLeft:"40px"}} />
           <CourseVideoAccordianAlign  >
           <CourseVideoAccordianTypography >
             Talk about course curriculum
@@ -65,7 +65,7 @@ export default function CourseAccordions() {
           1:45       
           </CourseVideoAccordianTypography>
           </CourseVideoAccordianAlign  >
-          <Divider sx={{ background: "#676F85", opacity: 0.7 }} />
+          <Divider sx={{ background: "#676F85", opacity: 0.7 ,marginRight:"40px" ,marginLeft:"40px"}} />
           <CourseVideoAccordianAlign  >
           <CourseVideoAccordianTypography >
             How you can get more from this course
@@ -74,7 +74,7 @@ export default function CourseAccordions() {
           1:45       
           </CourseVideoAccordianTypography>
           </CourseVideoAccordianAlign  >
-          <Divider sx={{ background: "#676F85", opacity: 0.7 }} />
+          <Divider sx={{ background: "#676F85", opacity: 0.7 ,marginRight:"40px" ,marginLeft:"40px"}} />
           <CourseVideoAccordianAlign  >
           <CourseVideoAccordianTypography >
             Let’s get started
@@ -85,7 +85,7 @@ export default function CourseAccordions() {
           </CourseVideoAccordianAlign  >
         </AccordionDetails>
       </Accordion>
-      <Accordion sx={{ background: Colors.dark }} expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
+      <Accordion sx={{ background: Colors.dark , border: "0.25px solid #676F85"}} expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon sx={{ color: Colors.light }} />}
           aria-controls="panel2bh-content"
@@ -106,7 +106,7 @@ export default function CourseAccordions() {
           1:45       
           </CourseVideoAccordianTypography>
           </CourseVideoAccordianAlign  >
-          <Divider sx={{ background: "#676F85", opacity: 0.7}} />
+          <Divider sx={{ background: "#676F85", opacity: 0.7,marginRight:"40px" ,marginLeft:"40px"}} />
           <CourseVideoAccordianAlign  >
           <CourseVideoAccordianTypography >
             Coach Intrduction
@@ -115,7 +115,7 @@ export default function CourseAccordions() {
           1:45       
           </CourseVideoAccordianTypography>
           </CourseVideoAccordianAlign  >
-          <Divider sx={{ background: "#676F85", paddingLeft: "20px", opacity: 0.7 }} />
+          <Divider sx={{ background: "#676F85", paddingLeft: "20px", opacity: 0.7 ,marginRight:"40px" ,marginLeft:"40px"}} />
           <CourseVideoAccordianAlign  >
           <CourseVideoAccordianTypography >
             Talk about course curriculum
@@ -124,7 +124,7 @@ export default function CourseAccordions() {
           1:45       
           </CourseVideoAccordianTypography>
           </CourseVideoAccordianAlign  >
-          <Divider sx={{ background: "#676F85", paddingLeft: "20px", opacity: 0.7 }} />
+          <Divider sx={{ background: "#676F85", paddingLeft: "20px", opacity: 0.7 ,marginRight:"40px" ,marginLeft:"40px"}} />
           <CourseVideoAccordianAlign  >
           <CourseVideoAccordianTypography >
             How you can get more from this course
@@ -133,7 +133,7 @@ export default function CourseAccordions() {
           1:45       
           </CourseVideoAccordianTypography>
           </CourseVideoAccordianAlign  >
-          <Divider sx={{ background: "#676F85", paddingLeft: "20px", opacity: 0.7 }} />
+          <Divider sx={{ background: "#676F85", paddingLeft: "20px", opacity: 0.7,marginRight:"40px" ,marginLeft:"40px" }} />
           <CourseVideoAccordianAlign  >
           <CourseVideoAccordianTypography >
             Let’s get started
@@ -144,7 +144,7 @@ export default function CourseAccordions() {
           </CourseVideoAccordianAlign>
         </AccordionDetails>
       </Accordion>
-      <Accordion sx={{ background: Colors.dark}} expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
+      <Accordion sx={{ background: Colors.dark, border: "0.25px solid #676F85"}} expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon sx={{ color: Colors.light }} />}
           aria-controls="panel3bh-content"
@@ -165,7 +165,7 @@ export default function CourseAccordions() {
           1:45       
           </CourseVideoAccordianTypography>
           </CourseVideoAccordianAlign>
-          <Divider sx={{ background: "#676F85", paddingLeft: "20px", opacity: 0.7 }} />
+          <Divider sx={{ background: "#676F85", paddingLeft: "20px", opacity: 0.7 ,marginRight:"40px" ,marginLeft:"40px"}} />
           <CourseVideoAccordianAlign>
           <CourseVideoAccordianTypography >
             Mindfullness
@@ -174,7 +174,7 @@ export default function CourseAccordions() {
           1:45       
           </CourseVideoAccordianTypography>
           </CourseVideoAccordianAlign>
-          <Divider sx={{ background: "#676F85", paddingLeft: "20px" , opacity: 0.7}} />
+          <Divider sx={{ background: "#676F85", paddingLeft: "20px" , opacity: 0.7,marginRight:"40px" ,marginLeft:"40px"}} />
           <CourseVideoAccordianAlign>
           <CourseVideoAccordianTypography >
             Mindfullness
@@ -183,7 +183,7 @@ export default function CourseAccordions() {
           1:45       
           </CourseVideoAccordianTypography>
           </CourseVideoAccordianAlign>
-          <Divider sx={{ background: "#676F85", paddingLeft: "20px" , opacity: 0.7}} />
+          <Divider sx={{ background: "#676F85", paddingLeft: "20px" , opacity: 0.7,marginRight:"40px" ,marginLeft:"40px"}} />
           <CourseVideoAccordianAlign>
           <CourseVideoAccordianTypography >
             Mindfullness
@@ -192,7 +192,7 @@ export default function CourseAccordions() {
           1:45       
           </CourseVideoAccordianTypography>
           </CourseVideoAccordianAlign>
-          <Divider sx={{ background: "#676F85", paddingLeft: "20px" , opacity: 0.7}} />
+          <Divider sx={{ background: "#676F85", paddingLeft: "20px" , opacity: 0.7,marginRight:"40px" ,marginLeft:"40px"}} />
           <CourseVideoAccordianAlign>
           <CourseVideoAccordianTypography >
             Mindfullness
@@ -203,7 +203,7 @@ export default function CourseAccordions() {
           </CourseVideoAccordianAlign>
         </AccordionDetails>
       </Accordion>
-      <Accordion sx={{ background: Colors.dark}} expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
+      <Accordion sx={{ background: Colors.dark, border: "0.25px solid #676F85"}} expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon sx={{ color: Colors.light }} />}
           aria-controls="panel3bh-content"
@@ -224,7 +224,7 @@ export default function CourseAccordions() {
           1:45       
           </CourseVideoAccordianTypography>
           </CourseVideoAccordianAlign>
-          <Divider sx={{ background: "#676F85", opacity: 0.7 }} />
+          <Divider sx={{ background: "#676F85", opacity: 0.7,marginRight:"40px" ,marginLeft:"40px" }} />
           <CourseVideoAccordianAlign>
           <CourseVideoAccordianTypography >
             Mindfullness
@@ -234,18 +234,7 @@ export default function CourseAccordions() {
           </CourseVideoAccordianTypography>
           </CourseVideoAccordianAlign>
 
-          <Divider sx={{ background: "#676F85", opacity: 0.7 }} />
-          <CourseVideoAccordianAlign>
-
-          <CourseVideoAccordianTypography >
-            Mindfullness
-          </CourseVideoAccordianTypography>
-          <CourseVideoAccordianTypography >
-          1:45       
-          </CourseVideoAccordianTypography>
-          </CourseVideoAccordianAlign>
-
-          <Divider sx={{ background: "#676F85", opacity: 0.7 }} />
+          <Divider sx={{ background: "#676F85", opacity: 0.7,marginRight:"40px" ,marginLeft:"40px" }} />
           <CourseVideoAccordianAlign>
 
           <CourseVideoAccordianTypography >
@@ -256,7 +245,18 @@ export default function CourseAccordions() {
           </CourseVideoAccordianTypography>
           </CourseVideoAccordianAlign>
 
-          <Divider sx={{ background: "#676F85", opacity: 0.7}} />
+          <Divider sx={{ background: "#676F85", opacity: 0.7 ,marginRight:"40px" ,marginLeft:"40px"}} />
+          <CourseVideoAccordianAlign>
+
+          <CourseVideoAccordianTypography >
+            Mindfullness
+          </CourseVideoAccordianTypography>
+          <CourseVideoAccordianTypography >
+          1:45       
+          </CourseVideoAccordianTypography>
+          </CourseVideoAccordianAlign>
+
+          <Divider sx={{ background: "#676F85", opacity: 0.7,marginRight:"40px" ,marginLeft:"40px"}} />
           <CourseVideoAccordianAlign>
 
           <CourseVideoAccordianTypography >

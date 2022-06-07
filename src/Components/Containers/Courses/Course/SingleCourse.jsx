@@ -23,11 +23,11 @@ const SingleCourse = () => {
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
 
                         <div style={{ display: "flex", flexDirection: "column" }}>
-                            <Typography style={{ paddingTop: "20px" ,color:"white" }}>
+                            <Typography style={{ paddingTop: "20px" ,color:"#8D98AF" }}>
                                 DR.John Kevin
                             </Typography>
 
-                            <Typography style={{ paddingTop: "20px" ,color:"white" }}>
+                            <Typography style={{ paddingTop: "10px" ,color:"white" }}>
                                 Mastery of Spirituality
                             </Typography>
                         </div>
@@ -46,10 +46,10 @@ const SingleCourse = () => {
                 </Grid>
                 <Grid item xs={12} lg={6} >
                     <ExploreCoursePriceText  >
-                        <Typography color="white">
+                        <Typography sx={{color:"white", fontSize:"15px",fontFamily: "Poppins" ,fontWeight:'400px'}}>
                             Price
                         </Typography>
-                        <Typography color="white">
+                        <Typography sx={{color:"white", fontSize:"15px",fontFamily: "Poppins" ,fontWeight:'400px'}}>
                             $59.99
                         </Typography>
                     </ExploreCoursePriceText>

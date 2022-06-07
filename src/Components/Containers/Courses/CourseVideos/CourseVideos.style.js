@@ -46,6 +46,8 @@ export const CourseBox = styled(BoxCom)(({ theme }) => ({
              width: 'auto',
              color: Colors.light,
              padding: "10px",
+             marginLeft:"28px",
+             marginRight:"28px",
              opacity: 0.7,
             [theme.breakpoints.down("lg")]: {
            
