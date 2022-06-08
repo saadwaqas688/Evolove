@@ -26,17 +26,18 @@ export default function CourseAccordions() {
             Curriculum
           </CourseVideoAccordianHeading>
 
-          <CourseVideoAccordianHeading >
+          {/* <CourseVideoAccordianHeading >
             Intro to the Course
-          </CourseVideoAccordianHeading>
+          </CourseVideoAccordianHeading> */}
           <Accordion sx={{ background: Colors.dark, border: "0.25px solid #676F85" }} disableGutters={true} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon sx={{ color: Colors.light }} />}
               aria-controls="panel1bh-content"
               id="panel1bh-header"
             >
+               
               <CourseVideoAccordianTypography >
-                Welcome Video
+             Intro to the Course
               </CourseVideoAccordianTypography>
 
             </AccordionSummary>
