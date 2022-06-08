@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import {
-  Box,
   Divider,
-  Stack,
   Toolbar,
   useMediaQuery,
   useTheme,
@@ -58,34 +56,6 @@ const AppWrapper = ({children}) => {
             </DrawerComp>
             </>
 }
-      {/* <Stack direction="row" justifyContent="space-between">
-      <Box
-        flex={1}
-        sx={{ display: { xs: "none", md: "block" } }}
-      >
-        <SideBarLinks/>
-
-
-        <Box position="fixed"></Box>
-      </Box>
-      <Box
-        flex={4}
-      >
-           <BoxCom sx={{background:Colors.secondary,minHeight:"100vh"}}>
-          <SearchBar/>
-          </BoxCom>
-      </Box>
-      <Box
-        flex={2}
-        sx={{ display: { xs: "none", md: "block" }}}
-      >
-        <SideBarProfileAvatar/>
-            <Divider sx={{background:"#464646",margin:"6px"}}/>
-            <SideBarAccordion />
-            <Divider sx={{background:"#464646",margin:"6px"}}/>
-            <SideBarCategoriesAccordion/>
-      </Box>
-    </Stack> */}
 
         </>
   );
