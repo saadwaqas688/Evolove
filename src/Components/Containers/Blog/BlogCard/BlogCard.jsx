@@ -9,7 +9,7 @@ import { BlogsHeading, BlogsImage, BlogsText,Tag, TagHeadingWrappper } from "./B
 const BlogCard = () => {
   return (
     <Grid item  xs={12} sm={6}   lg={4} style={{display:'flex',justifyContent:'flex-start',flexDirection:"column"}}>
-          <Link to="/singleBlog" style={{textDecoration:"none"}}>
+          <Link to="/blogs/singleBlog" style={{textDecoration:"none"}}>
 
     <BlogsImage src={ExploreBlogImage} alt="Paris" />
     <TagHeadingWrappper >

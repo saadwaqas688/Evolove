@@ -40,7 +40,7 @@ const ApplicationRoutes = () => {
 <Route path="/test" element={<Test/>} /> 
 <Route path="/search" element={<Test/>} /> 
 <Route path="/blogs" element={<AllBlogs/>} /> 
-<Route path="/Singleblog" element={<SingleBlog/>} /> 
+<Route path="/blogs/singleBlog" element={<SingleBlog/>} /> 
 
 </Route>
 
