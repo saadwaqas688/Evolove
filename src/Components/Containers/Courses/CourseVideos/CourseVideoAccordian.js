@@ -5,7 +5,7 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import BoxCom from '../../../UI/BoxCom/BoxCom';
-import { CourseVideoAccordianAlign, CourseVideoAccordianHeading, CourseVideoAccordianTypography } from './CourseVideos.style';
+// import { CourseVideoAccordianAlign, CourseVideoAccordianHeading, CourseVideoAccordianTypography } from './CourseVideos.style';
 import { Colors } from '../../../../config/palette';
 import { Divider } from '@mui/material';
 import { borderRadius } from '@mui/system';
