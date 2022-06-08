@@ -19,6 +19,7 @@ import SingleCourseContainer from "../Components/Containers/Courses/SingleCourse
 import { Search } from "../Components/UI/SearchBar/Search/search";
 import ShopMain from "../Components/Containers/Shop/ShopMain/ShopMain";
 import AllTickets from "../Components/Containers/Shop/AllTickets/AllTickets";
+import Favorite from "../Components/Containers/Favorite/FavoriteMain/Favorite";
 const ApplicationRoutes = () => {
   return (
     <>
@@ -43,6 +44,8 @@ const ApplicationRoutes = () => {
             <Route path="/singleCourse" element={<SingleCourseContainer />} />
             <Route path="/shop" element={<ShopMain />} />
             <Route path="/shop/tickets" element={<AllTickets />} />
+            <Route path="/favorite" element={<Favorite />} />
+
 
 
           </Route>
