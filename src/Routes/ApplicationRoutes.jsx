@@ -18,6 +18,7 @@ import SingleBlog from "../Components/Containers/Blog/SingleBlog/SingleBlog";
 import SingleCourseContainer from "../Components/Containers/Courses/SingleCourseMain/SingleCourseContainer";
 import { Search } from "../Components/UI/SearchBar/Search/search";
 import ShopMain from "../Components/Containers/Shop/ShopMain/ShopMain";
+import AllTickets from "../Components/Containers/Shop/AllTickets/AllTickets";
 const ApplicationRoutes = () => {
   return (
     <>
@@ -41,6 +42,8 @@ const ApplicationRoutes = () => {
             <Route path="/blogs/singleBlog" element={<SingleBlog />} />
             <Route path="/singleCourse" element={<SingleCourseContainer />} />
             <Route path="/shop" element={<ShopMain />} />
+            <Route path="/shop/tickets" element={<AllTickets />} />
+
 
           </Route>
         </Routes>
