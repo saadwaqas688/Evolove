@@ -11,7 +11,7 @@ import {  Container } from "@mui/material";
 
 import TextFieldWrapper from '../Components/UI/TextField/TextFieldWrapper';
 import SingleCourse from '../Components/Containers/Courses/Course/SingleCourse';
-import CourseVideo from '../Components/Containers/Courses/CourseVideos/CourseVideos';
+import CourseAccordions from '../Components/Containers/Courses/CourseVideos/CourseVideoAccordian'
 // import SingleCourse from '../Components/Containers/Courses/SingleCourse';
 const Test = () => {
   return (
@@ -31,12 +31,13 @@ const Test = () => {
        /> */}
        {/* <Container style={{display:"flex",padding:'0px'}}> */}
        <SingleCourse/>
-       <CourseVideo/>
+       {/* <CourseVideo/> */}
+       {/* <CourseAccordions/>   */}
            {/* <CoursePrice/> */}
 
   {/* </Container>  */}
           
- <h1>test</h1>
+ 
     </div>
   )
 }

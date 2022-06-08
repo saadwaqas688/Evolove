@@ -45,32 +45,34 @@ export const ExploreCoursePriceHeading = styled("div")(({ theme }) => ({
   },
   }));
   export const ExploreCoursePriceText = styled('div')(({ theme }) => ({
-  borderRadius:"5px",
+  borderRadius:"11.57px",
   height:"65.54px",
   padding:"0 23px",
-  marginTop:"20px",
+  marginTop:"2.7rem",
   display: 'flex', background: Colors.pink,
   justifyContent:"space-between",alignItems:"center",
   [theme.breakpoints.down("lg")]: {
    textAlign:"center",
   marginLeft:"12%",
-  height:"15%",
+  height:"12%",
   width:"60%"
   },
   }));
   export const PriceButton = styled("button")(({ theme }) => ({
-    
-    marginTop:"20px",
-    width: "183px",
-    height:"54px" ,
+    fontWeight:"38rem",
+    marginTop:"1.5rem",
+    width: "11.5rem",
+    height:"3.5rem" ,
+    fontSize:"18.26px",
     background:Colors.pink,
     color:Colors.white,
-    borderRadius:"32.53px",
+    borderRadius:"2.5rem",
+    border:"none",
     [theme.breakpoints.down("lg")]: {
       textAlign:"center",
       width: "70%",
-      height:"15%",
-      marginBottom:"10px",
+      height:"12%",
+      marginBottom:"10rem",
       marginLeft:"12%",
 
       },
