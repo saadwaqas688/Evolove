@@ -15,7 +15,7 @@ const RecentSearch = ({setSearchText}) => {
              <Typography variant='body1' color={Colors.light} sx={{fontSize:"18px",marginTop:"30px"}}>
              Recent Search
       </Typography>
-      <BoxCom onClick={handleClick} sx={{display:"flex",alignItems:"center",justifyContent:"space-between",marginTop:"20px"}}>
+      <BoxCom onClick={handleClick} sx={{display:"flex",alignItems:"center",justifyContent:"space-between",marginTop:"20px",cursor: "pointer"}}>
           <BoxCom  sx={{display:"flex"}}>
       <ClockIcon/>
       <Typography variant='body1' color="#6978A0"  sx={{marginLeft:"15px"}}>
@@ -24,7 +24,7 @@ const RecentSearch = ({setSearchText}) => {
           </BoxCom>
       <RecentSearchIcon/>
       </BoxCom>
-      <BoxCom  onClick={handleClick} sx={{display:"flex",alignItems:"center",justifyContent:"space-between",marginTop:"20px"}}>
+      <BoxCom  onClick={handleClick} sx={{display:"flex",alignItems:"center",justifyContent:"space-between",marginTop:"20px",cursor: "pointer"}}>
           <BoxCom  sx={{display:"flex"}}>
       <ClockIcon/>
       <Typography variant='body1' color="#6978A0" sx={{marginLeft:"15px"}}>
@@ -33,7 +33,7 @@ const RecentSearch = ({setSearchText}) => {
           </BoxCom>
       <RecentSearchIcon/>
       </BoxCom>
-      <BoxCom onClick={handleClick} sx={{display:"flex",alignItems:"center",justifyContent:"space-between",marginTop:"20px"}}>
+      <BoxCom onClick={handleClick} sx={{display:"flex",alignItems:"center",justifyContent:"space-between",marginTop:"20px",cursor: "pointer"}}>
           <BoxCom  sx={{display:"flex"}}>
       <ClockIcon/>
       <Typography variant='body1' color="#6978A0" sx={{marginLeft:"15px"}}>
