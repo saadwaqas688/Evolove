@@ -19,6 +19,7 @@ import AllCoaches from "../Components/Containers/Home/HomeAllCoaches/AllCoaches"
 import Home from "../Components/Containers/Home/HomeMain/Home";
 import AllBlogs from "../Components/Containers/Blog/BlogMain/AllBlogs";
 import SingleBlog from "../Components/Containers/Blog/SingleBlog/SingleBlog";
+import SingleCourseContainer from "../Components/Containers/Courses/SingleCourseMain/SingleCourseContainer";
 
 const ApplicationRoutes = () => {
   return (
@@ -41,6 +42,9 @@ const ApplicationRoutes = () => {
 <Route path="/search" element={<Test/>} /> 
 <Route path="/blogs" element={<AllBlogs/>} /> 
 <Route path="/blogs/singleBlog" element={<SingleBlog/>} /> 
+<Route path="/singleCourse" element={<SingleCourseContainer/>} /> 
+
+
 
 </Route>
 

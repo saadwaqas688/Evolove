@@ -1,7 +1,7 @@
 import { CardFooter, CourseImage, CourseNameContainer, HeartIconContainer, IconContainer, NameContainer, ShareIconContainer } from "./HomeCourseCard.style";
  import cardImage from "../../../../assets/images/homeOnBoarding/courseCard.png";
 import BoxCom from "../../../UI/BoxCom/BoxCom";
-import { Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import Button from "../../../UI/Button/Button";
 import { Colors } from "../../../../config/palette";
 import { ShareIcon } from "../../../../assets/icons/ShareIcon";
@@ -9,8 +9,9 @@ import { HeartIcon } from "../../../../assets/icons/HeartIcon";
   
   const HomeCourseCard = () => {
     return (
-  <BoxCom sx={{background:Colors.dark,borderRadius:"16px"}}>
+      <Grid item xs={12} sm={6} md={6} lg={3}>
 
+  <BoxCom sx={{background:Colors.dark,borderRadius:"16px"}}>
     <CourseImage src={cardImage} alt="Paris" />
     <IconContainer >
     <ShareIconContainer>
@@ -36,6 +37,7 @@ import { HeartIcon } from "../../../../assets/icons/HeartIcon";
     </BoxCom>
 
   </BoxCom>
+  </Grid>
 
 
   );
