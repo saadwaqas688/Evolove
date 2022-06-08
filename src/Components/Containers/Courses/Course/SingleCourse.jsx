@@ -7,9 +7,7 @@ import IconButton from '@mui/material/IconButton';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import { Colors } from "../../../../config/palette";
-import Button from '@mui/material/Button';
 import { ExploreCourseVideo, ExploreCoursePriceText, ExploreCoursePriceHeading, PriceButton } from './SingleCourse.style';
-
 const SingleCourse = () => {
     return (
         <Paper elevation={0} square={true} style={{ background: Colors.secondary }}>

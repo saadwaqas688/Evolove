@@ -1,8 +1,5 @@
 import { styled } from "@mui/material";
 import { Colors } from "../../../../config/palette";
-import {
-  Typography,
-} from "@mui/material";
 export const ExploreCourseVideo = styled("iframe")(({ iframe, theme }) => ({
     src: `url(${iframe})`,
     marginTop:"45px",
