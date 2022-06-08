@@ -1,11 +1,9 @@
 import React from 'react'
-import SingleCourse from '../Components/Containers/Courses/Course/SingleCourse'
-import CourseVideo from '../Components/Containers/Courses/CourseVideos/CourseVideos'
-import ShopMain from '../Components/Containers/Shop/ShopMain/ShopMain'
+import AllTickets from "../Components/Containers/Shop/AllTickets/AllTickets.jsx"
 const Test = () => {
   return (
-    <div>        
-    <ShopMain/>
+    <div>      
+      <AllTickets/>
     </div>
   )
 }
