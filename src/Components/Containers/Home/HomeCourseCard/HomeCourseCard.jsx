@@ -7,9 +7,9 @@ import { Colors } from "../../../../config/palette";
 import { ShareIcon } from "../../../../assets/icons/ShareIcon";
 import { HeartIcon } from "../../../../assets/icons/HeartIcon";
   
-  const HomeCourseCard = () => {
+  const HomeCourseCard = ({size}) => {
     return (
-      <Grid item xs={12} sm={6} md={6} lg={3}>
+      <Grid item xs={12} sm={size?.sm} md={size?.md} lg={size?.lg}>
 
   <BoxCom sx={{background:Colors.dark,borderRadius:"16px"}}>
     <CourseImage src={cardImage} alt="Paris" />

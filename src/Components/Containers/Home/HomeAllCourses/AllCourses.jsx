@@ -11,6 +11,7 @@ import {
 import HomeTopCard from "../HomeTopCard/HomeTopCard";
 
 const AllCourses = () => {
+  const size={xs:"12", sm:"6" ,md:"6", lg:"3"}
   return (
     <div>
       <BoxCom sx={{ marginTop: "60px" }}>
@@ -23,18 +24,18 @@ const AllCourses = () => {
         </MainContainer>
       </BoxCom>
       <Grid container spacing={2}>
-          <HomeCourseCard />
-          <HomeCourseCard />
-          <HomeCourseCard />
-          <HomeCourseCard />
-          <HomeCourseCard />
-          <HomeCourseCard />
-          <HomeCourseCard />
-          <HomeCourseCard />
-          <HomeCourseCard />
-          <HomeCourseCard />
-          <HomeCourseCard />
-          <HomeCourseCard />
+      <HomeCourseCard size={size}/>
+          <HomeCourseCard size={size}/>
+          <HomeCourseCard size={size}/>
+          <HomeCourseCard size={size}/>
+          <HomeCourseCard size={size}/>
+          <HomeCourseCard size={size}/>
+          <HomeCourseCard size={size}/>
+          <HomeCourseCard size={size}/>
+          <HomeCourseCard size={size}/>
+          <HomeCourseCard size={size}/>
+          <HomeCourseCard size={size}/>
+          <HomeCourseCard size={size}/>
                  
       </Grid>
     </div>
