@@ -5,7 +5,7 @@ import BoxCom from "../../../UI/BoxCom/BoxCom";
     borderRadius:"26px",
     border:"1px transparent",
     height:"139px",
-    width:"55%",
+    width:"45%",
     [theme.breakpoints.down("lg")]: {
         width:"100%",
         height:"auto",

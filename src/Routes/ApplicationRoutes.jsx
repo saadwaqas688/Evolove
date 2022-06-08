@@ -17,6 +17,8 @@ import AppWrapper from "../Components/UI/AppWrapper/AppWrapperMain/AppWrapper";
 import AllCourses from "../Components/Containers/Home/HomeAllCourses/AllCourses";
 import AllCoaches from "../Components/Containers/Home/HomeAllCoaches/AllCoaches";
 import Home from "../Components/Containers/Home/HomeMain/Home";
+import AllBlogs from "../Components/Containers/Blog/BlogMain/AllBlogs";
+import SingleBlog from "../Components/Containers/Blog/SingleBlog/SingleBlog";
 
 const ApplicationRoutes = () => {
   return (
@@ -36,19 +38,9 @@ const ApplicationRoutes = () => {
 <Route path="/allCourses" element={<AllCourses/>} />
 <Route path="/allCoaches" element={<AllCoaches/>} />
 <Route path="/test" element={<Test/>} /> 
-
-{/* <Route path="/test" element={<Test/>} />
-<Route path="/wallet" element={<Test/>} />
-<Route path="/shop" element={<Test/>} />
-
-<Route path="/home" element={<Test/>} /> 
-
- <Route path="/blogs" element={<Test/>} />
-<Route path="/todo" element={<Test/>} />
-<Route path="/favorite" element={<Test/>} />
-<Route path="/moonCalender" element={<Test/>} />
-<Route path="/categories/consciousbusiness" element={<Test/>} />
-<Route path="/categories/naturalmedicine" element={<Test/>} /> */}
+<Route path="/search" element={<Test/>} /> 
+<Route path="/blogs" element={<AllBlogs/>} /> 
+<Route path="/Singleblog" element={<SingleBlog/>} /> 
 
 </Route>
 

@@ -8,6 +8,7 @@ import { Search } from '@mui/icons-material';
 import SearchIcon from '../assets/icons/SearchIcon';
 import {  Container } from "@mui/material";
 
+
 import TextFieldWrapper from '../Components/UI/TextField/TextFieldWrapper';
 import SingleCourse from '../Components/Containers/Courses/Course/SingleCourse';
 import CourseVideo from '../Components/Containers/Courses/CourseVideos/CourseVideos';
@@ -35,6 +36,7 @@ const Test = () => {
 
   {/* </Container>  */}
           
+ <h1>test</h1>
     </div>
   )
 }
