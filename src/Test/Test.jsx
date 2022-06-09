@@ -1,9 +1,9 @@
 import React from 'react'
-import Favorite from '../Components/Containers/Favorite/FavoriteMain/Favorite.jsx'
+import WalletWithDrawSuccess from '../Components/Containers/Wallet/WalletWithDrawSuccess/WalletWithDrawSuccess.jsx'
 const Test = () => {
   return (
     <div>   
-      <Favorite/>   
+      <WalletWithDrawSuccess/>   
     </div>
   )
 }
