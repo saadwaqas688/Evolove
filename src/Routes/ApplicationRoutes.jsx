@@ -23,6 +23,7 @@ import Favorite from "../Components/Containers/Favorite/FavoriteMain/Favorite";
 import Wallet from "../Components/Containers/Wallet/WalletMain/Wallet";
 import WalletWithDrawSuccess from "../Components/Containers/Wallet/WalletWithDrawSuccess/WalletWithDrawSuccess";
 import WalletWithDraw from "../Components/Containers/Wallet/WalletWithDraw/WalletWithDraw";
+import UserProfile from "../Components/Containers/Profile/UserProfile/UserProfile";
 const ApplicationRoutes = () => {
   return (
     <>
@@ -51,6 +52,8 @@ const ApplicationRoutes = () => {
             <Route path="/wallet" element={<Wallet />} />
             <Route path="/walletWithDrawSuccess" element={<WalletWithDrawSuccess />} />
             <Route path="/walletWithDraw" element={<WalletWithDraw />} />
+            <Route path="/profile" element={<UserProfile />} />
+
 
 
 

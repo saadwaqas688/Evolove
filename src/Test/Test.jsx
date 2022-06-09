@@ -1,9 +1,9 @@
 import React from 'react'
-import WalletWithDrawSuccess from '../Components/Containers/Wallet/WalletWithDrawSuccess/WalletWithDrawSuccess.jsx'
+import UserProfile from '../Components/Containers/Profile/UserProfile/UserProfile.jsx'
 const Test = () => {
   return (
     <div>   
-      <WalletWithDrawSuccess/>   
+      <UserProfile/>   
     </div>
   )
 }

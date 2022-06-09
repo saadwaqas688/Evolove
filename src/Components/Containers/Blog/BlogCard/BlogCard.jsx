@@ -6,7 +6,7 @@ import ExploreBlogImage from"../../../../assets/images/homeOnBoarding/HomeBlogIm
 import BoxCom from "../../../UI/BoxCom/BoxCom";
 import { BlogsHeading, BlogsImage, BlogsText,Tag, TagHeadingWrappper } from "./BlogCard.style";
 
-const BlogCard = () => {
+const BlogCard = ({tag}) => {
   return (
     <Grid item  xs={12} sm={6}   lg={4} style={{display:'flex',justifyContent:'flex-start',flexDirection:"column"}}>
           <Link to="/blogs/singleBlog" style={{textDecoration:"none"}}>
@@ -16,15 +16,18 @@ const BlogCard = () => {
     <BlogsHeading>
     Benefits of Meditation
     </BlogsHeading>
+    {
+    tag &&
     <BoxCom>
     <Tag >
       Free
     </Tag>
     </BoxCom>
+    }
     </TagHeadingWrappper>
 
     <BlogsText>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Lorem ipsum dolor sit ametihyedoih consect adipiscing elit.
      Duis neque molestie elementum, id ut condimentum quis. 
      Vitae nisi, sem facilisis sed fringilla. Nunc, aliquam 
      nunc cras 01-01-2022
