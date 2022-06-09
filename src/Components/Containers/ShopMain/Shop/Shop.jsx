@@ -6,7 +6,7 @@ import {
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import { Colors } from "../../../../config/palette";
-import ShopImage from '../../../../assets/images/homeOnBoarding/courseCard.png';
+import ShopImage from '../../../../assets/images/homeOnBoarding/productImage1.png';
 import { ExploreShopPriceText, ExploreCourseImage, PriceButton, ExploreShopPriceHeading, AvatarWrapper, MainDiv, MainInnerDiv, ShareButton, FavoriteButton, TypographyPrice, TypographyDescription, TypographyName, TypographyToicName, EbookButton, TypographyPublisher, ShopPublisherDescription, TypographyPublisherReview, ShopReviewerDescription, TypographyPublisherName } from "./Shop.style";
 import ShopPublisher from "../ShopPublisher/ShopPublisher";
 import ShopReviewerCom from "../ShopCom/ShopReviewerCom";
