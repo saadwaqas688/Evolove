@@ -1,5 +1,5 @@
 import { styled, Avatar, Typography } from "@mui/material";
-import { Colors } from "../../../config/palette";
+import { Colors } from "../../../../config/palette";
 import IconButton from '@mui/material/IconButton';
 
 export const ExploreCourseImage = styled("img")(({ src, theme }) => ({
@@ -102,7 +102,10 @@ export const EbookButton = styled("button")(({ theme }) => ({
 export const MainDiv = styled("div")(({ theme }) => ({
   display: "flex",
   justifyContent: "space-between",
-  alignItems: "center"
+  alignItems: "center",
+  [theme.breakpoints.down("lg")]:{
+    textAlign:"center"
+  }
 }));
 
 export const MainInnerDiv = styled("div")(({ theme }) => ({
@@ -137,13 +140,15 @@ export const TypographyDescription = styled(Typography)(({ theme }) => ({
   fontFamily: '"Poppins", "sans-serif"',
   [theme.breakpoints.down("lg")]: {
     textAlign: "center",
-
-
   },
 }));
 export const TypographyName = styled(Typography)(({ theme }) => ({
+  display:"flex",
   paddingTop: "20px",
-  color: "#8D98AF"
+  color: "#8D98AF",
+  [theme.breakpoints.down("lg")]:{
+    textAlign: "center",
+  }
 }));
 export const TypographyToicName = styled(Typography)(({ theme }) => ({
   paddingTop: "10px",
@@ -164,21 +169,34 @@ export const TypographyPublisher = styled(Typography)(({ theme }) => ({
   },
 }));
 export const ShopPublisherDescription = styled("div")(({ theme }) => ({
-  fontFamily: '"Poppins", "sans-serif"',
+  fontFamily: "Poppins",
   color: Colors.darkGrey,
   marginTop: "20px",
+  fontWeight:"400px",
+  fontSize:"14px",
   [theme.breakpoints.down("lg")]: {
     textAlign: "center"
   },
 }));
+export const ShopReviewerDescription = styled("div")(({ theme }) => ({
+  fontFamily: "Poppins",
+  color: Colors.darkGrey,
+  marginTop: "20px",
+  fontWeight:"300px",
+  fontSize:"14px",
+  [theme.breakpoints.down("lg")]: {
+    textAlign: "center"
+  },
+}));
+
 export const TypographyPublisherReview = styled(Typography)(({ theme }) => ({
   color: Colors.white,
   paddingTop: "20px",
   fontWeight:"400px",
   fontSize: "18px",
   marginBottom:"10px",
-  lineHeight: "27px",
-  fontFamily: '"Poppins", "sans-serif"',
+  lineHeight: "27.36px",
+  fontFamily: "Poppins",
   [theme.breakpoints.down("lg")]: {
     textAlign: "center",
 

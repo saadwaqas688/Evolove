@@ -8,7 +8,7 @@ import HomeCoachcom from '../Components/Containers/Home/HomeCoachCom/HomeCoachCo
 import Home from '../Components/Containers/Home/HomeMain/Home'
 import AllCourses from '../Components/Containers/Home/HomeAllCourses/AllCourses'
 import FilterIcon from '../assets/icons/FilterIcon'
-import ShopCourse from '../Components/Containers/Shop/Shop'
+import ShopCourse from '../Components/Containers/ShopMain/Shop/Shop';
 
 
 const Test = () => {
