@@ -20,6 +20,9 @@ import { Search } from "../Components/UI/SearchBar/Search/search";
 import ShopMain from "../Components/Containers/Shop/ShopMain/ShopMain";
 import AllTickets from "../Components/Containers/Shop/AllTickets/AllTickets";
 import Favorite from "../Components/Containers/Favorite/FavoriteMain/Favorite";
+import Wallet from "../Components/Containers/Wallet/WalletMain/Wallet";
+import WalletWithDrawSuccess from "../Components/Containers/Wallet/WalletWithDrawSuccess/WalletWithDrawSuccess";
+import WalletWithDraw from "../Components/Containers/Wallet/WalletWithDraw/WalletWithDraw";
 const ApplicationRoutes = () => {
   return (
     <>
@@ -45,6 +48,12 @@ const ApplicationRoutes = () => {
             <Route path="/shop" element={<ShopMain />} />
             <Route path="/shop/tickets" element={<AllTickets />} />
             <Route path="/favorite" element={<Favorite />} />
+            <Route path="/wallet" element={<Wallet />} />
+            <Route path="/walletWithDrawSuccess" element={<WalletWithDrawSuccess />} />
+            <Route path="/walletWithDraw" element={<WalletWithDraw />} />
+
+
+
 
 
 
