@@ -1,11 +1,4 @@
 import React from 'react'
-<<<<<<< HEAD
-import Favorite from '../Components/Containers/Favorite/FavoriteMain/Favorite.jsx'
-const Test = () => {
-  return (
-    <div>   
-      <Favorite/>   
-=======
 import PopularCoursesHome from '../Components/Containers/Auth/HomeOnBoarding/PopularCoursesHome/PopularCoursesHomeMain/PopularCoursesHomeMain'
 import HomeCourseCard from '../Components/Containers/Home/HomeCourseCard/HomeCourseCard'
 import HomeTopCard from '../Components/Containers/Home/HomeTopCard/HomeTopCard'
@@ -45,7 +38,6 @@ const Test = () => {
   {/* </Container>  */}
           
  
->>>>>>> hayat-Evolove
     </div>
   )
 }
