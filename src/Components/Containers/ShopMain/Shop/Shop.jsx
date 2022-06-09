@@ -25,14 +25,14 @@ const ShopCourse = () => {
 
                         <MainInnerDiv >
                             <TypographyName >
-                            <TypographyPublisherName >Publisher :</TypographyPublisherName>  Esther Howard 
+                                <TypographyPublisherName >Publisher :</TypographyPublisherName>  Esther Howard
                             </TypographyName>
 
                             <TypographyToicName >
                                 Mastery of Spirituality
                             </TypographyToicName>
                         </MainInnerDiv>
-                       
+
                         <div>
                             <ShareButton aria-label="add to favorites" >
                                 <ShareIcon />
@@ -45,27 +45,27 @@ const ShopCourse = () => {
                     </MainDiv>
                     <EbookButton >Ebook</EbookButton>
                     <TypographyPublisher>
-                    About Publisher
+                        About Publisher
                     </TypographyPublisher>
-                 <ShopPublisher/>
-                 <ShopPublisherDescription>
+                    <ShopPublisher />
+                    <ShopPublisherDescription>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis neque molestie
                         elementum, id ut condimentum quis. Vitae nisi, sem facilisis sed fringilla. Nunc,
-                        aliquam nunc cras Lorem ipsum dolor sit amet, 
+                        aliquam nunc cras Lorem ipsum dolor sit amet,
                     </ShopPublisherDescription>
                     <TypographyPublisherReview>
-                    Reviews
+                        Reviews
                     </TypographyPublisherReview>
-                    <ShopReviewerCom/>
+                    <ShopReviewerCom />
                     <ShopReviewerDescription>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis neque molestie elementum,
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis neque molestie elementum,
                     </ShopReviewerDescription>
-                    <br/>
-                    <ShopReviewerCom/>
+                    <br />
+                    <ShopReviewerCom />
                     <ShopReviewerDescription>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis neque molestie elementum,
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis neque molestie elementum,
                     </ShopReviewerDescription>
-                    
+
                 </Grid>
                 <Grid item xs={12} lg={6} >
                     <ExploreShopPriceText  >
