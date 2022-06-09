@@ -9,30 +9,21 @@ export const ActivityContainer = styled(BoxCom)(({ theme }) => ({
   width:"100%",
   marginTop:"15px",
   borderRadius:"6px",
-// [theme.breakpoints.down("lg")]: {
-//   textAlign:"center"
-//   },
 }));
 
-export const Activity = styled(Typography)(({ theme }) => ({
+export const Activity = styled(Typography)(() => ({
   fontFamily: '"Poppins", "sans-serif"',
   paddingTop:"8px",
   paddingRight:"8px",
   paddingLeft:"8px",
   fontSize:"12px",
   color:Colors.light,
-// [theme.breakpoints.down("lg")]: {
-//   textAlign:"center"
-//   },
 }));
-export const ActivityDate = styled(Typography)(({ theme }) => ({
+export const ActivityDate = styled(Typography)(( ) => ({
   display:'flex',
   justifyContent:"flex-end",
   paddingBottom:"8px",
   paddingRight:"8px",
   fontSize:"12px",
   color:Colors.light,
-// [theme.breakpoints.down("lg")]: {
-//   textAlign:"center"
-//   },
 }));

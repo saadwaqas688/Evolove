@@ -1,5 +1,4 @@
 import React from "react";
-import SuccessIcon from "../../../../assets/icons/SuccessIcon";
 import BoxCom from "../../../UI/BoxCom/BoxCom";
 import {
   Heading,
