@@ -42,8 +42,8 @@ anchor==="left"?
         ( 
         <BoxCom onClick={() => setOpenDrawer(!openDrawer)} sx={{display:'flex',alignItems:"center",justifyContent:"center",marginLeft:"20px"}}>
         <BellIcon/>
-        <Typography   sx={{color:Colors.light,fontSize:"12px",fontFamily: '"Poppins", "sans-serif"',marginLeft:"5px"}}>
-         Notifications
+        <Typography   sx={{color:Colors.light,fontSize:"12px",fontFamily: '"Poppins", "sans-serif"',marginLeft:"20px"}}>
+         Categories
         </Typography>
         </BoxCom>
         )

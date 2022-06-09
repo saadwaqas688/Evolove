@@ -150,9 +150,22 @@ export const TypographyName = styled(Typography)(({ theme }) => ({
     textAlign: "center",
   }
 }));
+
+export const TypographyPublisherName = styled(Typography)(({ theme }) => ({
+  color:'#ffff', 
+  paddingRight:"5px",
+  [theme.breakpoints.down("lg")]:{
+    textAlign: "center",
+  }
+}));
 export const TypographyToicName = styled(Typography)(({ theme }) => ({
   paddingTop: "10px",
-  color: "white"
+  color: "white" ,
+  [theme.breakpoints.down("lg")]: {
+    textAlign: "left",
+
+
+  },
 }));
 export const TypographyPublisher = styled(Typography)(({ theme }) => ({
   color: Colors.white,

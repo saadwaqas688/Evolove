@@ -7,7 +7,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import { Colors } from "../../../../config/palette";
 import ShopImage from '../../../../assets/images/homeOnBoarding/courseCard.png';
-import { ExploreShopPriceText, ExploreCourseImage, PriceButton, ExploreShopPriceHeading, AvatarWrapper, MainDiv, MainInnerDiv, ShareButton, FavoriteButton, TypographyPrice, TypographyDescription, TypographyName, TypographyToicName, EbookButton, TypographyPublisher, ShopPublisherDescription, TypographyPublisherReview, ShopReviewerDescription } from "./Shop.style";
+import { ExploreShopPriceText, ExploreCourseImage, PriceButton, ExploreShopPriceHeading, AvatarWrapper, MainDiv, MainInnerDiv, ShareButton, FavoriteButton, TypographyPrice, TypographyDescription, TypographyName, TypographyToicName, EbookButton, TypographyPublisher, ShopPublisherDescription, TypographyPublisherReview, ShopReviewerDescription, TypographyPublisherName } from "./Shop.style";
 import ShopPublisher from "../ShopPublisher/ShopPublisher";
 import ShopReviewerCom from "../ShopCom/ShopReviewerCom";
 const ShopCourse = () => {
@@ -25,7 +25,7 @@ const ShopCourse = () => {
 
                         <MainInnerDiv >
                             <TypographyName >
-                            <Typography style={{color:'#ffff', paddingRight:"5px"}}>Publisher :</Typography>  Esther Howard 
+                            <TypographyPublisherName >Publisher :</TypographyPublisherName>  Esther Howard 
                             </TypographyName>
 
                             <TypographyToicName >
