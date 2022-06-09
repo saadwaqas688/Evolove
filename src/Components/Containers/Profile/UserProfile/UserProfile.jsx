@@ -9,6 +9,7 @@ import HomeCourseCard from "../../Home/HomeCourseCard/HomeCourseCard";
 import ProfileImage from"../../../../assets/images/homeOnBoarding/profileImg.png"
 import SettingIcon from "../../../../assets/icons/SettingIcon";
 import BlogCard from "../../Blog/BlogCard/BlogCard";
+import { Link } from "react-router-dom";
 
 const UserProfile = () => {
   const [filter, setFilter] = useState("courses");
@@ -35,12 +36,14 @@ const UserProfile = () => {
         <AvatarName > 
          Jerome Bell
         </AvatarName >
+        <Link to="/profile/setting" style={{textDecoration:"none"}}>
         <BoxCom sx={{display:"flex",marginTop:{xs:"18px",sm:"0px"},marginBottom:{xs:"18px",sm:"0px"}}}>
         <SettingIcon/>
         <SettingText>
            Profile Settings
         </SettingText>
         </BoxCom>
+        </Link>
         </NameAndIconWrapper>
         </MainWrapper>   
       <FilterWrapper>
