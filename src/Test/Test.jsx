@@ -1,9 +1,9 @@
 import React from 'react'
-import UserProfile from '../Components/Containers/Profile/UserProfile/UserProfile.jsx'
+import ProfileSwitchIcon from '../assets/icons/ProfileSwitchIcon.jsx'
 const Test = () => {
   return (
     <div>   
-      <UserProfile/>   
+      <ProfileSwitchIcon/>
     </div>
   )
 }

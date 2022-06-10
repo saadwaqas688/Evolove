@@ -14,11 +14,13 @@ import SideBarCategoriesAccordion from "../../SideBarCategoriesAccordion/SideBar
 import BoxCom from "../../BoxCom/BoxCom";
 import SearchBar from "../../SearchBar/SearchBarMain/SearchContainer";
 import { Outlet } from "react-router-dom";
+import { useLocation } from "react-router";
+import CoachProfileLink from "../CoachProfileLink/CoachProfileLink";
 
 const AppWrapper = ({children}) => {
   const [openDrawerLeft, setOpenDrawerLeft] = useState(false);
   const [openDrawerRight, setOpenDrawerRight] = useState(false);
-
+  const { pathname } = useLocation();
   const theme = useTheme();
    const isMatch = useMediaQuery(theme.breakpoints.up("md"));
   return (
@@ -30,6 +32,12 @@ const AppWrapper = ({children}) => {
             </DrawerComp>
             <DrawerComp anchor="right" width="268px"  type="temporary" isOpen={false} openDrawer={openDrawerRight} setOpenDrawer={setOpenDrawerRight}>
             <SideBarProfileAvatar/>
+            {    (pathname==="/coachProfile" || pathname==="/profile")  &&
+      <>
+      <Divider sx={{background:"#464646",margin:"6px"}}/>
+      <CoachProfileLink  pathname={pathname}/>
+      </>
+      }
             <Divider sx={{background:"#464646",margin:"6px"}}/>
             <SideBarAccordion />
             <Divider sx={{background:"#464646",margin:"6px"}}/>
@@ -49,6 +57,13 @@ const AppWrapper = ({children}) => {
             </DrawerComp>
             <DrawerComp anchor="right" width="268px" type="persistent" isOpen={true} >
             <SideBarProfileAvatar/>
+      {    (pathname==="/coachProfile" || pathname==="/profile")  &&
+      <>
+      <Divider sx={{background:"#464646",margin:"6px"}}/>
+      <CoachProfileLink  pathname={pathname}/>
+
+      </>
+      }
             <Divider sx={{background:"#464646",margin:"6px"}}/>
             <SideBarAccordion />
             <Divider sx={{background:"#464646",margin:"6px"}}/>
