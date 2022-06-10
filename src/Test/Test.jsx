@@ -1,9 +1,9 @@
 import React from 'react'
-import EditProfile from '../Components/Containers/Profile/EditProfile/EditProfile.jsx'
+import UserProfile from '../Components/Containers/Profile/UserProfile/UserProfile.jsx'
 const Test = () => {
   return (
     <div>   
-      <EditProfile/>   
+      <UserProfile/>   
     </div>
   )
 }

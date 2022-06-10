@@ -1,6 +1,7 @@
 import { Avatar, styled, Typography} from "@mui/material";
 import { Colors } from "../../../../config/palette";  
 import BoxCom from "../../../UI/BoxCom/BoxCom";
+import Button from "../../../UI/Button/Button";
 
   export const Heading = styled(Typography)(({ theme }) => ({
     fontFamily: '"Poppins", "sans-serif"',
@@ -91,3 +92,29 @@ export const MainWrapper = styled(BoxCom)(( {theme}) => ({
 
 
   }));
+
+
+  export const ProfileButton = styled(Button)(() => ({
+    textTransform:"none",
+    fontSize:"16px",
+    marginLeft:"2px",
+    height:"35px",
+    fontWeight:"normal"
+    }));
+
+
+    export const ButtonForSmallScreen = styled(BoxCom)(({theme}) => ({
+      display:"none",
+      flexDirection:"column",
+      [theme.breakpoints.down("sm")]: {
+      display:"flex"
+      },
+      }));
+
+      export const ButtonForDesktop = styled(BoxCom)(({theme}) => ({
+        display:"flex",
+        flexDirection:"column",
+        [theme.breakpoints.down("sm")]: {
+          display:"none",
+        },
+        }));

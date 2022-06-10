@@ -55,6 +55,8 @@ const ApplicationRoutes = () => {
             <Route path="/walletWithDraw" element={<WalletWithDraw />} />
             <Route path="/profile" element={<UserProfile />} />
             <Route path="/profile/setting" element={<EditProfile />} />
+            <Route path="/coachProfile" element={<UserProfile />} />
+
 
 
 
