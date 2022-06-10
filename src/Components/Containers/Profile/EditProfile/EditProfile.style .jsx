@@ -71,9 +71,9 @@ export const ChangePasswordText = styled(Typography)(( {theme}) => ({
   marginLeft:"10px",
 }));
 
-export const ProfileSettingHeader = styled(BoxCom)(({ theme }) => ({
+export const ProfileSettingHeader = styled(BoxCom)(({ theme,width }) => ({
   marginTop: "36px",
-  width:"450px",
+  width:width,
       [theme.breakpoints.down("sm")]: {
         width:"100%",
         display:"flex",

@@ -24,17 +24,21 @@ import SettingIcon from "../../../../assets/icons/SettingIcon";
 import BlogCard from "../../Blog/BlogCard/BlogCard";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router";
+import { getBasePath } from "../../../../Utils/utils";
 
 const UserProfile = () => {
   const [filter, setFilter] = useState("products");
   const [status, setStatus] = useState("Active");
 
+  let { pathname } = useLocation();
+  pathname=getBasePath(pathname)  
+
   const size = { sm: "6", md: "6", lg: "3" };
-  const { pathname } = useLocation();
-  console.log("location",useLocation())
   function selectFilter(selectedTab) {
     setFilter(selectedTab);
   }
+
+
 
   return (
     <BoxCom sx={{ marginTop: "36px", paddingRight: { lg: "60px", md: "0px" } }}>
@@ -70,7 +74,7 @@ const UserProfile = () => {
         )}
         <NameAndIconWrapper>
           <AvatarName>Jerome Bell</AvatarName>
-          <Link to="/profile/setting" style={{ textDecoration: "none" }}>
+          <Link to={`/${pathname}/setting`} style={{ textDecoration: "none" }}>
             <BoxCom
               sx={{
                 display: "flex",
