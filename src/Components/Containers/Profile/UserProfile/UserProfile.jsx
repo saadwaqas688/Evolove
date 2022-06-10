@@ -31,6 +31,7 @@ const UserProfile = () => {
 
   const size = { sm: "6", md: "6", lg: "3" };
   const { pathname } = useLocation();
+  console.log("location",useLocation())
   function selectFilter(selectedTab) {
     setFilter(selectedTab);
   }
@@ -51,6 +52,7 @@ const UserProfile = () => {
             <ButtonForDesktop>
               <ProfileButton
                 variant="contained"
+                href="/coachProfile/salesBoard"
                 sx={{ width: "80%", marginLeft: "auto", marginRight: "0px" }}
               >
                 Sales Board
@@ -81,7 +83,7 @@ const UserProfile = () => {
             </BoxCom>
             {pathname === "/coachProfile" && (
               <ButtonForSmallScreen>
-                <ProfileButton variant="contained" sx={{ width: "100%" }}>
+                <ProfileButton variant="contained" href="/coachProfile/salesBoard" sx={{ width: "100%" }}>
                   Sales Board
                 </ProfileButton>
                 <ProfileButton

@@ -1,9 +1,9 @@
 import React from 'react'
-import ProfileSwitchIcon from '../assets/icons/ProfileSwitchIcon.jsx'
+import SalesBoard from '../Components/Containers/Profile/SalesBoard/SalesBoard.jsx'
 const Test = () => {
   return (
     <div>   
-      <ProfileSwitchIcon/>
+      <SalesBoard/>
     </div>
   )
 }

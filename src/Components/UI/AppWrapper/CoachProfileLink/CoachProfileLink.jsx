@@ -11,8 +11,8 @@ const CoachProfileLink = ( {pathname}) => {
         <TextWrapper>
         CoachProfile
          </TextWrapper>
-         <Link to={pathname==="/coachProfile"?"/profile":"/coachProfile"} style={{ textDecoration: "none" }}>
-      <ProfileSwitchIcon position={pathname==="/coachProfile"?"right":"left"}/>
+         <Link to={pathname==="coachProfile"?"/profile":"/coachProfile"} style={{ textDecoration: "none" }}>
+      <ProfileSwitchIcon position={pathname==="coachProfile"?"right":"left"}/>
       </Link>
       </MainWrapper>
   );

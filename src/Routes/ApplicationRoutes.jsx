@@ -25,6 +25,7 @@ import WalletWithDrawSuccess from "../Components/Containers/Wallet/WalletWithDra
 import WalletWithDraw from "../Components/Containers/Wallet/WalletWithDraw/WalletWithDraw";
 import UserProfile from "../Components/Containers/Profile/UserProfile/UserProfile";
 import EditProfile from "../Components/Containers/Profile/EditProfile/EditProfile";
+import SalesBoard from "../Components/Containers/Profile/SalesBoard/SalesBoard";
 const ApplicationRoutes = () => {
   return (
     <>
@@ -56,6 +57,8 @@ const ApplicationRoutes = () => {
             <Route path="/profile" element={<UserProfile />} />
             <Route path="/profile/setting" element={<EditProfile />} />
             <Route path="/coachProfile" element={<UserProfile />} />
+            <Route path="/coachProfile/salesBoard" element={<SalesBoard />} />
+
 
 
 
