@@ -44,7 +44,7 @@ const UserProfile = () => {
     <BoxCom sx={{ marginTop: "36px", paddingRight: { lg: "60px", md: "0px" } }}>
       <Heading>Profile</Heading>
       <MainWrapper>
-        {pathname === "/coachProfile" ? (
+        {pathname === "coachProfile" ? (
           <BoxCom
             sx={{
               display: "flex",
@@ -85,7 +85,7 @@ const UserProfile = () => {
               <SettingIcon />
               <SettingText>Profile Settings</SettingText>
             </BoxCom>
-            {pathname === "/coachProfile" && (
+            {pathname === "coachProfile" && (
               <ButtonForSmallScreen>
                 <ProfileButton variant="contained" href="/coachProfile/salesBoard" sx={{ width: "100%" }}>
                   Sales Board
@@ -101,7 +101,7 @@ const UserProfile = () => {
           </Link>
         </NameAndIconWrapper>
       </MainWrapper>
-      {pathname === "/coachProfile" ? (
+      {pathname === "coachProfile" ? (
         <FilterWrapper>
           <Filter
             onClick={() => {
@@ -153,10 +153,10 @@ const UserProfile = () => {
           </Filter>
         </FilterWrapper>
       )}
-      {(filter === "courses" || pathname === "/coachProfile") && (
+      {(filter === "courses" || pathname === "coachProfile") && (
         <>
           <Count>
-            {pathname === "/coachProfile" ? `${status} 3 Courses` : "Courses 3"}
+            {pathname === "coachProfile" ? `${status} 3 Courses` : "Courses 3"}
           </Count>
           <Grid container spacing={2} sx={{ paddingTop: "20px" }}>
             <HomeCourseCard size={size} />
@@ -166,19 +166,19 @@ const UserProfile = () => {
           </Grid>
         </>
       )}
-      {(filter === "blogs" || pathname === "/coachProfile") && (
+      {(filter === "blogs" || pathname === "coachProfile") && (
         <>
           <Count>
-            {pathname === "/coachProfile" ? `${status} 3 Blogs` : "Blogs 3"}
+            {pathname === "coachProfile" ? `${status} 3 Blogs` : "Blogs 3"}
           </Count>
           <Grid container spacing={8} sx={{ paddingTop: "20px" }}>
-            <BlogCard tag={pathname === "/coachProfile" ? true : false} />
-            <BlogCard tag={pathname === "/coachProfile" ? true : false} />
-            <BlogCard tag={pathname === "/coachProfile" ? true : false} />
+            <BlogCard tag={pathname === "coachProfile" ? true : false} />
+            <BlogCard tag={pathname === "coachProfile" ? true : false} />
+            <BlogCard tag={pathname === "coachProfile" ? true : false} />
           </Grid>
         </>
       )}
-      {(filter === "products" || pathname === "/coachProfile") && (
+      {(filter === "products" || pathname === "coachProfile") && (
         <>
           <Count>
             {pathname === "/coachProfile"
