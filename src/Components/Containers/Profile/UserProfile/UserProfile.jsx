@@ -85,6 +85,7 @@ const UserProfile = () => {
               <SettingIcon />
               <SettingText>Profile Settings</SettingText>
             </BoxCom>
+            </Link>
             {pathname === "coachProfile" && (
               <ButtonForSmallScreen>
                 <ProfileButton variant="contained" href="/coachProfile/salesBoard" sx={{ width: "100%" }}>
@@ -98,7 +99,6 @@ const UserProfile = () => {
                 </ProfileButton>
               </ButtonForSmallScreen>
             )}
-          </Link>
         </NameAndIconWrapper>
       </MainWrapper>
       {pathname === "coachProfile" ? (
