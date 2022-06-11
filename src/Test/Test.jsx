@@ -1,7 +1,11 @@
 import React from 'react'
+import PasswordResetSuccess from '../Components/Containers/Auth/PasswordResetSuccess/PasswordResetSuccess'
 const Test = () => {
   return (
-    <div>   
+    <div>  
+      <PasswordResetSuccess/> 
+
+
     </div>
   )
 }

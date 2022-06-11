@@ -6,7 +6,6 @@ import ContactUs from "../Components/Containers/Auth/ContactUs/ContactUsMain/Con
 import SignUp from "../Components/Containers/Auth/SignUp/SignUpMain/SignUp";
 import Login from "../Components/Containers/Auth/Login/LoginMain/Login";
 import ForgetPassword from "../Components/Containers/Auth/ForgetPassword/ForgetPasswordMain/ForgetPassword";
-import VerifyCode from "../Components/Containers/Auth/VerifyCode/VerifyCodeMain/VerifyCode";
 import VerifyCodeStepOne from "../Components/Containers/Auth/VerifyCodeStepOne/VerifyCodeStepOneMain/VerifyCodeStepOne";
 import Test from "../Test/Test";
 import AppWrapper from "../Components/UI/AppWrapper/AppWrapperMain/AppWrapper";
@@ -26,24 +25,29 @@ import WalletWithDraw from "../Components/Containers/Wallet/WalletWithDraw/Walle
 import UserProfile from "../Components/Containers/Profile/UserProfile/UserProfile";
 import EditProfile from "../Components/Containers/Profile/EditProfile/EditProfile";
 import SalesBoard from "../Components/Containers/Profile/SalesBoard/SalesBoard";
+import CheckEmail from "../Components/Containers/Auth/ChekEmail/CheckEmail";
+import PasswordResetSuccess from "../Components/Containers/Auth/PasswordResetSuccess/PasswordResetSuccess";
+import NewPassword from "../Components/Containers/Auth/NewPassword/NewPassword";
 const ApplicationRoutes = () => {
   return (
     <>
       <BrowserRouter>
         <Routes>
+        <Route path="/test" element={<Test />} />
           <Route path="/" element={<HomeOnBoarding />} />
           <Route path="/aboutUs" element={<AboutUs />} />
           <Route path="/contactUs" element={<ContactUs />} />
           <Route path="/signUp" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
           <Route path="/forgotPassword" element={<ForgetPassword />} />
-          <Route path="/VerifyCode" element={<VerifyCode />} />
+          <Route path="/VerifyCode" element={<CheckEmail />} />
           <Route path="/verifyCodeStepOne" element={<VerifyCodeStepOne />} />
+          <Route path="/PasswordResetSuccess" element={<PasswordResetSuccess />} />
+          <Route path="/newPassword" element={<NewPassword />} />
           <Route element={<AppWrapper />}>
             <Route path="/home" element={<Home />} />
             <Route path="/allCourses" element={<AllCourses />} />
             <Route path="/allCoaches" element={<AllCoaches />} />
-            <Route path="/test" element={<Test />} />
             <Route path="/search" element={<Search />} />
             <Route path="/blogs" element={<AllBlogs />} />
             <Route path="/blogs/singleBlog" element={<SingleBlog />} />
