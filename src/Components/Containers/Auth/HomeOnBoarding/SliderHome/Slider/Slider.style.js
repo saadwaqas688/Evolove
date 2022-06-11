@@ -34,10 +34,10 @@ import { Colors } from "../../../../../../config/palette";
     [theme.breakpoints.down("sm")]: {
       width: "100%", 
       height:"auto",
-      paddingBottom:"0px",
       marginTop:"-30px",
-      paddingLeft:"0px",
-      paddingRight:"0px",
+      paddingLeft:"10px",
+      paddingRight:"10px",
+      paddingBottom:"10px",
 
       },
  
