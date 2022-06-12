@@ -8,10 +8,17 @@ import {
   SubHeadingParagraphContainer,
 } from "./Subscription.style ";
 import SubscriptionCard from "../SubscriptionCard/SubscriptionCard";
+import AddCard from "../AddCard/AddCard";
+
 
 const Subscription = () => {
+  const [showForm, setShowForm] = React.useState(false);
+
   const small = useMediaQuery("(max-width:390px)");
-  return (<>
+  return (
+    <>
+   {showForm ? <AddCard setShowForm={setShowForm}/> :
+       <>
       <Heading small={small}>Subscription</Heading>
       <SubHeading small={small}>Subscribe for get access to all courses</SubHeading>
       <SubHeadingParagraphContainer small={small}>
@@ -22,12 +29,12 @@ const Subscription = () => {
       </SubHeadingParagraphContainer>
       <MainContainer small={small}>
             <Grid container>
-        <SubscriptionCard />
+        <SubscriptionCard setShowForm={setShowForm} />
             </Grid>
             </MainContainer>
-
-
-      </>
+        </>
+  }
+  </>
   );
 };
 

@@ -1,9 +1,9 @@
 import React from 'react'
-import SubscriptionSuccess from '../Components/Containers/Subscription/SubscriptionSuccess/SubscriptionSuccess'
+import AddCard from '../Components/Containers/Subscription/AddCard/AddCard'
 const Test = () => {
   return (
     <div>  
-<SubscriptionSuccess/>
+<AddCard/>
     </div>
   )
 }

@@ -29,6 +29,7 @@ export const Details = styled(Typography)(({theme}) => ({
   fontFamily: '"Poppins", "sans-serif"',
   color:"#E7AFC0",
   fontSize:"16px",
+  cursor:"pointer",
   [theme.breakpoints.down("sm")]: {
     fontSize:"10px",
       },

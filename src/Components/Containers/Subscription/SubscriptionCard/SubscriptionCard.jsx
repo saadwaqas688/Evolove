@@ -4,7 +4,7 @@ import {Grid} from "@mui/material";
 import {  Details, FieldLabel, SalesCategory,FieldWrapper,ProfileButton } from "./SubscriptionCard.style ";
 import SubscriptionCardIcon from "../../../../assets/icons/SubscriptionCardIcon";
 
-const SubscriptionCard = ({category,count,amount}) => {
+const SubscriptionCard = ({setShowForm}) => {
 
   return (
                 <>
@@ -42,7 +42,7 @@ const SubscriptionCard = ({category,count,amount}) => {
               <Grid  border={true} sx={{marginTop:"70px"}} item xs={12}  md={8} lg={10}>
               <BoxCom sx={{display:'flex',justifyContent:"space-between"}}>
             <FieldLabel>Added Card</FieldLabel>
-            <Details>Change/Add New</Details>
+            <Details onClick={()=>setShowForm(true)}>Change/Add New</Details>
             </BoxCom>
             <FieldWrapper height={"69px"} border={true}>
                 <SalesCategory >
