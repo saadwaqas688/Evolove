@@ -28,12 +28,12 @@ import SalesBoard from "../Components/Containers/Profile/SalesBoard/SalesBoard";
 import CheckEmail from "../Components/Containers/Auth/ChekEmail/CheckEmail";
 import PasswordResetSuccess from "../Components/Containers/Auth/PasswordResetSuccess/PasswordResetSuccess";
 import NewPassword from "../Components/Containers/Auth/NewPassword/NewPassword";
+import Subscription from "../Components/Containers/Subscription/SubscriptionMain/Subscription";
 const ApplicationRoutes = () => {
   return (
     <>
       <BrowserRouter>
         <Routes>
-        <Route path="/test" element={<Test />} />
           <Route path="/" element={<HomeOnBoarding />} />
           <Route path="/aboutUs" element={<AboutUs />} />
           <Route path="/contactUs" element={<ContactUs />} />
@@ -63,6 +63,10 @@ const ApplicationRoutes = () => {
             <Route path="/coachProfile/setting" element={<EditProfile />} />
             <Route path="/coachProfile" element={<UserProfile />} />
             <Route path="/coachProfile/salesBoard" element={<SalesBoard />} />
+            <Route path="/subscription" element={<Subscription />} />
+
+            <Route path="/test" element={<Test />} />
+
 
 
 

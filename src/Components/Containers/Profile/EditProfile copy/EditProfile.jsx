@@ -5,12 +5,11 @@ import BankAcountIcon from "../../../../assets/icons/BankAcountIcon";
 import BoxCom from "../../../UI/BoxCom/BoxCom";
 import TextfieldComp from "../../../UI/TextFieldCom/Textfield";
 import ProfileImage from"../../../../assets/images/homeOnBoarding/profileImg.png"
-import { AvatarContainer, AvatarWrapper, ChangePasswordText, EditProfileText, FieldLabel, HeaderIconTextWrapper, Heading, IconAndTextContainer, MainContainer, ProfileButton, ProfileSettingHeader, SubHeading } from "./EditProfile.style ";
+import { AvatarContainer, AvatarWrapper, ChangePasswordText, EditProfileText, FieldLabel, HeaderIconTextWrapper, Heading, IconAndTextContainer, MainContainer, ProfileButton, ProfileSettingHeader, SubHeading,Details } from "./EditProfile.style ";
 import CameraIcon from "../../../../assets/icons/CameraIcon";
 import { Colors } from "../../../../config/palette";
 import { useLocation } from "react-router";
 import {getBasePath} from  "../../../../Utils/utils"
-import AddBank from "../AddBank/AddBank";
 
 const EditProfile = () => {
   const [name, setName] = React.useState("");
@@ -19,33 +18,19 @@ const EditProfile = () => {
   const [oldPassword, setOldPassword] = React.useState("");
   const [newPassword, setNewPassword] = React.useState("");
   const [confirmPassword, setConfirmPassword] = React.useState("");
-  const [showNewBankForm, setShowNewBankForm] = React.useState(false);
-
+  const [bankDetails, setBankDetails] = React.useState("Account Number : 8379834******");
   let { pathname } = useLocation();
      pathname=getBasePath(pathname)  
-
-     function handleEditProfile(){
-     setSelected("editProfile")
-     setShowNewBankForm(false)
-
-     }
-
-     function handleChangePassword(){
-      setSelected("changePassword")
-      setShowNewBankForm(false)
- 
-      }
-
   return (
   <><ProfileSettingHeader width={pathname==="coachProfile"?"80%":"450px"}>
       <Heading>Profile Settings</Heading>
           <SubHeading>Account Setting</SubHeading>
           <HeaderIconTextWrapper >
-          <IconAndTextContainer onClick={handleEditProfile}> 
+          <IconAndTextContainer onClick={()=>setSelected("editProfile")}> 
           <EditProfileIcon color={selected==="editProfile"?Colors.info:Colors.light}/>
           <EditProfileText sx={{color:selected==="editProfile"?Colors.info:Colors.light}}>Edit Profile</EditProfileText>
           </IconAndTextContainer>
-          <IconAndTextContainer  onClick={handleChangePassword}> 
+          <IconAndTextContainer  onClick={()=>setSelected("changePassword")}> 
           <ChangePasswordIcon color={selected==="changePassword"?Colors.info:Colors.light}/>
           <ChangePasswordText sx={{color:selected==="changePassword"?Colors.info:Colors.light}}>Change Password</ChangePasswordText>
           </IconAndTextContainer>
@@ -66,7 +51,7 @@ const EditProfile = () => {
           }
   </ProfileSettingHeader>
             <MainContainer >
-            <SubHeading>{selected==="editProfile"?"Personal Information":selected==="changePassword"?"Change Password":""}</SubHeading>
+            <SubHeading>{selected==="editProfile"?"Personal Information": selected==="bankAccount"?"Bank Account":"Change Password"}</SubHeading>
         { selected==="editProfile" &&
             <>
          <BoxCom sx={{marginTop:"20px"}}>
@@ -142,12 +127,27 @@ const EditProfile = () => {
         }
                 { selected==="bankAccount" &&
             <>
-            <AddBank showNewBankForm={showNewBankForm} setShowNewBankForm={setShowNewBankForm}/>
+         <BoxCom sx={{marginTop:"40px"}}>
+         <BoxCom sx={{display:'flex',justifyContent:"space-between",width:"100%"}}>
+          <FieldLabel>Added Bank</FieldLabel>
+          <Details>Edit Details</Details>
+          </BoxCom>
+          <TextfieldComp
+                  height="50px"
+                  width="100%"
+                  autoComplete="false"
+                  onChange={(e) => setBankDetails(e.target.value)}
+                  name="bankDetails"
+                  value={bankDetails}
+                  justifyproperty="flex-start"
+                  alignproperty="null"
+                  iconPosition="end"
+                  icon={true}
+                />
+          </BoxCom>
           </>
-        }{
-          selected!=="bankAccount" &&                                 
-           <ProfileButton variant="contained"  >Save Changes</ProfileButton>
         }
+          <ProfileButton variant="contained"  >Save Changes</ProfileButton>
     </MainContainer>
     </>
   );

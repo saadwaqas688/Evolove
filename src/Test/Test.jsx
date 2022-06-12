@@ -1,10 +1,9 @@
 import React from 'react'
-import PasswordResetSuccess from '../Components/Containers/Auth/PasswordResetSuccess/PasswordResetSuccess'
+import Subscription from '../Components/Containers/Subscription/SubscriptionMain/Subscription'
 const Test = () => {
   return (
     <div>  
-      <PasswordResetSuccess/> 
-
+<Subscription/>
 
     </div>
   )
