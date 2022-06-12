@@ -29,6 +29,7 @@ import CheckEmail from "../Components/Containers/Auth/ChekEmail/CheckEmail";
 import PasswordResetSuccess from "../Components/Containers/Auth/PasswordResetSuccess/PasswordResetSuccess";
 import NewPassword from "../Components/Containers/Auth/NewPassword/NewPassword";
 import Subscription from "../Components/Containers/Subscription/SubscriptionMain/Subscription";
+import SubscriptionSuccess from "../Components/Containers/Subscription/SubscriptionSuccess/SubscriptionSuccess";
 const ApplicationRoutes = () => {
   return (
     <>
@@ -64,7 +65,7 @@ const ApplicationRoutes = () => {
             <Route path="/coachProfile" element={<UserProfile />} />
             <Route path="/coachProfile/salesBoard" element={<SalesBoard />} />
             <Route path="/subscription" element={<Subscription />} />
-
+            <Route path="/subscriptionSuccess" element={<SubscriptionSuccess />} />
             <Route path="/test" element={<Test />} />
 
 

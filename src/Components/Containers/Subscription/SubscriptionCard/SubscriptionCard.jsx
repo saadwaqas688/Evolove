@@ -65,7 +65,7 @@ const SubscriptionCard = ({category,count,amount}) => {
               </Grid>
 
               <Grid   sx={{marginTop:"70px"}} item xs={12}  md={8} lg={10}>
-              <ProfileButton variant="contained"  >Pay Now</ProfileButton>
+              <ProfileButton variant="contained" href="/subscriptionSuccess" >Pay Now</ProfileButton>
               </Grid>
               
                 </>
