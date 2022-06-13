@@ -1,6 +1,6 @@
 import { Avatar, styled, Typography } from "@mui/material";
-import { Colors } from "../../../../config/palette";
-import BoxCom from "../../../UI/BoxCom/BoxCom";
+import { Colors } from "../../../../../config/palette";
+import BoxCom from "../../../../UI/BoxCom/BoxCom";
 
 
 export const ShopAvatarOccupation = styled(Typography)(({ theme }) => ({

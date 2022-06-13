@@ -1,7 +1,7 @@
-import BoxCom from "../../../UI/BoxCom/BoxCom";
-import TopCoachesImage from '../../../../assets/images/homeOnBoarding/homeAvatarImg.png';
-import { ShopAvatarWrapper, AvatarWrapper, ShopAvatarName } from "./ShopReviewerCom.style";
-const ShopReviewerCom = () => {
+import BoxCom from "../../../../UI/BoxCom/BoxCom";
+import TopCoachesImage from '../../../../../assets/images/homeOnBoarding/homeAvatarImg.png';
+import { ShopAvatarWrapper, AvatarWrapper, ShopAvatarName } from "./ReviewerCom.style";
+const ReviewerCom = () => {
   return (
     <BoxCom>
       <ShopAvatarWrapper style={{ display: 'flex', justifyContent: "flex-start" }}>
@@ -19,5 +19,5 @@ const ShopReviewerCom = () => {
   );
 };
 
-export default ShopReviewerCom;
+export default ReviewerCom;
 

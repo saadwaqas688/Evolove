@@ -1,7 +1,7 @@
-import BoxCom from "../../../UI/BoxCom/BoxCom";
-import { AvatarWrapper, ShopAvatarName, ShopAvatarOccupation, ShopAvatarWrapper } from "./ShopPublisher.style.js";
-import TopCoachesImage from "../../../../assets/images/homeOnBoarding/homeAvatarImg.png"
-  const ShopPublisher = () => {
+import BoxCom from "../../../../UI/BoxCom/BoxCom";
+import { AvatarWrapper, ShopAvatarName, ShopAvatarOccupation, ShopAvatarWrapper } from "./Publisher.style.js";
+import TopCoachesImage from "../../../../../assets/images/homeOnBoarding/homeAvatarImg.png"
+  const Publisher = () => {
     return (
       <BoxCom>
         <ShopAvatarWrapper style={{display:'flex',justifyContent:"flex-start"}}>
@@ -20,6 +20,6 @@ import TopCoachesImage from "../../../../assets/images/homeOnBoarding/homeAvatar
     );
   };
   
-  export default ShopPublisher;
+  export default Publisher;
   
   

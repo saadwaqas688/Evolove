@@ -1,6 +1,7 @@
 import { styled, Avatar, Typography } from "@mui/material";
-import { Colors } from "../../../../config/palette";
+import { Colors } from "../../../../../config/palette";
 import IconButton from '@mui/material/IconButton';
+import BoxCom from "../../../../UI/BoxCom/BoxCom";
 
 export const ExploreCourseImage = styled("img")(({ src, theme }) => ({
   src: `url(${src})`,
@@ -215,4 +216,28 @@ export const TypographyPublisherReview = styled(Typography)(({ theme }) => ({
 
 
   },
+}));
+
+
+export const IconContainer = styled(BoxCom)(() => ({
+  display:"flex",
+  justifyContent:"flex-end",
+  marginRight:"12px"
+}));
+
+export const ShareIconContainer = styled(BoxCom)(() => ({
+  paddingTop:"5px",
+  paddingLeft:"8px",
+  paddingRight:"8px",
+  borderRadius:"20px",
+  background:Colors.dark,
+}));
+
+export const HeartIconContainer = styled(BoxCom)(() => ({
+  paddingTop:"5px",
+  paddingLeft:"8px",
+  paddingRight:"8px",
+  marginLeft:"10px",
+  borderRadius:"40px",
+  background:Colors.dark,
 }));

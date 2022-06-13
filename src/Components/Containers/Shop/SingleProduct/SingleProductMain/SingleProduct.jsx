@@ -5,12 +5,12 @@ import {
 } from "@mui/material";
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
-import { Colors } from "../../../../config/palette";
-import ShopImage from '../../../../assets/images/homeOnBoarding/productImage1.png';
-import { ExploreShopPriceText, ExploreCourseImage, PriceButton, ExploreShopPriceHeading, AvatarWrapper, MainDiv, MainInnerDiv, ShareButton, FavoriteButton, TypographyPrice, TypographyDescription, TypographyName, TypographyToicName, EbookButton, TypographyPublisher, ShopPublisherDescription, TypographyPublisherReview, ShopReviewerDescription, TypographyPublisherName } from "./Shop.style";
-import ShopPublisher from "../ShopPublisher/ShopPublisher";
-import ShopReviewerCom from "../ShopCom/ShopReviewerCom";
-const ShopCourse = () => {
+import ShopImage from '../../../../../assets/images/homeOnBoarding/productImage1.png';
+import { ExploreShopPriceText, ExploreCourseImage, PriceButton, ExploreShopPriceHeading, MainDiv, MainInnerDiv, ShareButton, FavoriteButton, TypographyPrice, TypographyDescription, TypographyName, TypographyToicName, EbookButton, TypographyPublisher, ShopPublisherDescription, TypographyPublisherReview, ShopReviewerDescription, TypographyPublisherName } from "./SingleProduct.style";
+import Publisher from "../PublisherCom/Publisher";
+import ReviewerCom from "../ReviewCom/ReviewerCom";
+import { Colors } from "../../../../../config/palette";
+const SingleProduct = () => {
     return (
         <Paper elevation={0} square={true} style={{ background: Colors.secondary }}>
             <Typography sx={{ color: Colors.white, paddingTop: "40px", fontSize: "20px", fontFamily: '"Poppins", "sans-serif"', paddingLeft: "20px" }}>
@@ -47,7 +47,7 @@ const ShopCourse = () => {
                     <TypographyPublisher>
                         About Publisher
                     </TypographyPublisher>
-                    <ShopPublisher />
+                    <Publisher />
                     <ShopPublisherDescription>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis neque molestie
                         elementum, id ut condimentum quis. Vitae nisi, sem facilisis sed fringilla. Nunc,
@@ -56,12 +56,12 @@ const ShopCourse = () => {
                     <TypographyPublisherReview>
                         Reviews
                     </TypographyPublisherReview>
-                    <ShopReviewerCom />
+                    <ReviewerCom />
                     <ShopReviewerDescription>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis neque molestie elementum,
                     </ShopReviewerDescription>
                     <br />
-                    <ShopReviewerCom />
+                    <ReviewerCom />
                     <ShopReviewerDescription>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis neque molestie elementum,
                     </ShopReviewerDescription>
@@ -92,5 +92,5 @@ const ShopCourse = () => {
         </Paper>
     );
 };
-export default ShopCourse;
+export default SingleProduct;
 
