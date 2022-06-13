@@ -1,9 +1,9 @@
 import React from 'react'
-import SingleProduct from '../Components/Containers/Shop/SingleProduct/SingleProductMain/SingleProduct'
+import AddCard from '../Components/Containers/Subscription/AddCard/AddCard'
 const Test = () => {
   return (
-    <div>
-      <SingleProduct/>
+    <div>  
+<AddCard/>
     </div>
   )
 }

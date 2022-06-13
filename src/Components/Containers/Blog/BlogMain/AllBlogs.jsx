@@ -9,15 +9,16 @@ const AllBlogs = () => {
       <PageTitle>Blogs</PageTitle>
 
       <Grid container spacing={6} sx={{ paddingRight: { lg: "35px" } }}>
-        <BlogCard />
-        <BlogCard />
-        <BlogCard />
-        <BlogCard />
-        <BlogCard />
-        <BlogCard />
-        <BlogCard />
-        <BlogCard />
-        <BlogCard />
+        <BlogCard tag={true}/>
+        <BlogCard tag={true}/>
+        <BlogCard tag={true}/>
+        <BlogCard tag={true}/>
+        <BlogCard tag={true}/>
+        <BlogCard tag={true}/>
+        <BlogCard tag={true}/>
+        <BlogCard tag={true}/>
+        <BlogCard tag={true}/>
+     
       </Grid>
     </Paper>
   );

@@ -3,11 +3,9 @@ import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-
 import { CourseBox, CourseVideoAccordianAlign, CourseVideoAccordianHeading, CourseVideoAccordianTypography } from './CourseVideosAccordian.style';
 import { Colors } from '../../../../config/palette';
 import { Divider, Grid } from '@mui/material';
-
 export default function CourseAccordions() {
   const [expanded, setExpanded] = React.useState(false);
 

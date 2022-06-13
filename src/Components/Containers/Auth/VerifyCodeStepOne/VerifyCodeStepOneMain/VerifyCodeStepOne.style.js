@@ -26,7 +26,6 @@ export const FormContainer = styled(Box)(({ theme }) => ({
  paddingTop: "50px",
  paddingBottom:"50px",
   width: "50%",
-  height:550, 
  [theme.breakpoints.down("md")]: {
   width: "100%", 
  },
@@ -85,13 +84,16 @@ export const SubHeading = styled(Typography)(({ theme }) => ({
   },
   }));
 
+  export const LinkContainer = styled(Typography)(({theme}) => ({
+   paddingBottom:"150px",
+   color:Colors.darkGrey,
+   fontSize:"20px",
+   fontFamily: '"Poppins", "sans-serif"',
+   fontWeight:"bold",
+   width:"50%",
+   textAlign:"center",
+   [theme.breakpoints.down("sm")]: {
+      width: '96%',
 
-//   <TextfieldComp
-//   height="80px"
-//   width="70%"
-//   autoComplete="false"
-//   placeholder="Email"
-//   onChange={(e) => setName(e.target.value)}
-//   name="name2"
-//   value={name}
-// />
+     },
+ }));

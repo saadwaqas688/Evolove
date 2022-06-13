@@ -1,11 +1,12 @@
 import { Box, Container, Grid} from "@mui/material";
 import React from "react";
+import { Colors } from "../../../../../config/palette";
 import Button from "../../../../UI/Button/Button";
 import NavBar from "../../../../UI/NavBar/NavBarMain/NavBar";
 
 
 
-import {FormContainer, GridItem, Heading, PaperContainer, SubHeading, VerificationCodeField } from "./VerifyCodeStepOne.style";
+import {FormContainer, GridItem, Heading, LinkContainer, PaperContainer, SubHeading, VerificationCodeField } from "./VerifyCodeStepOne.style";
 
 
 function VerifyCodeStepOne() {
@@ -33,13 +34,6 @@ function VerifyCodeStepOne() {
          <SubHeading variant="body2">
          Enter the verification code we just send you to your email address         
          </SubHeading> 
-         {/* <Box sx={{display:"flex",alignItems:"center",justifyContent:{md:"center",sm:"space-evenly"},marginTop:"50px",width:{md:"500px",sm:"80%",xs:"300px"}}}>
-         <VerificationCodeField name="first" value={first} onChange={handleChange}/>
-         <VerificationCodeField name="second" value={second}onChange={handleChange} />
-         <VerificationCodeField  name="third" value={third} onChange={handleChange}/>
-         <VerificationCodeField name="fourth" value={fourth} onChange={handleChange} />
-         <VerificationCodeField name="fifth" value={fifth} onChange={handleChange}/>
-         </Box> */}
          <FormContainer>  
             <Grid container spacing={0} >
             <GridItem item  xs={4} sm={2.4} > 
@@ -62,18 +56,22 @@ function VerifyCodeStepOne() {
             <GridItem item xs={4} sm={2.4} > 
             <VerificationCodeField name="fifth" value={fifth} onChange={handleChange}/>
             </GridItem>
-                  <GridItem item xs={12} > 
-                   <Heading >
-                     Logo Left
-                    </Heading>
-                  </GridItem>
                   <GridItem item xs={12} sx={{display:"flex",alignItems:"center",justifyContent:"center",marginTop:"50px"}}> 
-                  <Button variant="contained" >
-                    Sign up
+                  <Button variant="contained" href="/newPassword" sx={{textTransform:"none",fontSize:"16px"}} >
+                    Verify
                     </Button>
                   </GridItem>
                      </Grid>
            </FormContainer>
+           <LinkContainer >
+           Didn’t get any code ?&nbsp;
+            <a
+              href="/forgotPassword"
+              style={{ color: Colors.info, textDecoration: "none" }}
+            >
+              Resend
+            </a>
+          </LinkContainer>
   </PaperContainer>
   </Container> 
   </Box>

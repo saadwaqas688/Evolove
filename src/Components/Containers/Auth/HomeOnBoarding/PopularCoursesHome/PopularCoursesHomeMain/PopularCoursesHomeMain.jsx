@@ -7,7 +7,7 @@ import { Colors } from "../../../../../../config/palette";
 import HomeCourseCard from "../../../../Home/HomeCourseCard/HomeCourseCard";
 
 const PopularCoursesHome = () => {
- const size={sm:"12",md:"2.4",lg:"2.4"}
+ const size={sm:"6",md:"2.4",lg:"2.4"}
   return (
     <Paper elevation={0} square={true} style={{background:Colors.secondary}}>
         <Typography sx={{color:Colors.light,textAlign:"center" ,paddingTop:"50px", fontSize: "32.69px",fontWeight:'bold',  fontFamily: '"Poppins", "sans-serif"',}}>

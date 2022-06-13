@@ -2,8 +2,8 @@ import { Lens } from "@mui/icons-material";
 import { Radio, Slide, Box } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 import { Colors } from "../../../../../../config/palette";
-import { PromotionsContainer, SlideImage } from "./Slider.style";
-import SliderImage from"../../../../../../assets/images/homeOnBoarding/homeTop.png"
+import { IconContainer, PromotionsContainer, SliderContainer } from "./Slider.style";
+import HomeSliderIcon from "../../../../../../assets/icons/HomeSliderIcon";
 
 
 
@@ -44,7 +44,7 @@ export default function Slider() {
               flexDirection: "column",
               justifyContent: "center",
               alignItems: "center",
-              marginRight: "20px",
+              marginTop:"40px",
             }}>
       <Slide
         direction={show ? "left" : "right"}
@@ -56,9 +56,11 @@ export default function Slider() {
         }}
       >  
         
-        <Box display="flex" justifyContent="center" alignItems="center">
-          <SlideImage src={SliderImage}/>
-        </Box>
+        <SliderContainer >
+          <IconContainer >
+            <HomeSliderIcon/>
+          </IconContainer>
+        </SliderContainer>
       </Slide>
       <Box display="flex" justifyContent="center" alignItems="center">
       <Radio
