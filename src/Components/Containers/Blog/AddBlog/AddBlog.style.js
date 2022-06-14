@@ -374,7 +374,7 @@ export const ContinueButton = styled(Typography)(({ theme }) => ({
   [theme.breakpoints.down("lg")]: {
     height: "40px",
     marginLeft: "5px",
-    marginBottom:"10px"
+    marginBottom: "10px"
   }
 
 }))
