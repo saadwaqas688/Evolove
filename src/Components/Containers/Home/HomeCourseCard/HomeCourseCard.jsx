@@ -32,7 +32,7 @@ import { HeartIcon } from "../../../../assets/icons/HeartIcon";
     <Typography variant="body1" sx={{color:"#0AB27D",marginLeft:"12px"}}>
      $59.99
     </Typography>
-    <Button variant="contained" size="small" sx={{width:"80px",height:"25px",fontSize:"10px"}} >Buy Now</Button>
+    <Button variant="contained" size="small" href="/subscription" sx={{width:"80px",height:"25px",fontSize:"10px"}} >Subscribe</Button>
     </CardFooter>
     </BoxCom>
 

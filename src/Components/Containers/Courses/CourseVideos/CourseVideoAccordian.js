@@ -3,13 +3,9 @@ import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-
-import BoxCom from '../../../UI/BoxCom/BoxCom';
 import { CourseBox, CourseVideoAccordianAlign, CourseVideoAccordianHeading, CourseVideoAccordianTypography } from './CourseVideosAccordian.style';
 import { Colors } from '../../../../config/palette';
 import { Divider, Grid } from '@mui/material';
-import { borderRadius } from '@mui/system';
-
 export default function CourseAccordions() {
   const [expanded, setExpanded] = React.useState(false);
 
@@ -25,10 +21,6 @@ export default function CourseAccordions() {
           <CourseVideoAccordianHeading >
             Curriculum
           </CourseVideoAccordianHeading>
-
-          {/* <CourseVideoAccordianHeading >
-            Intro to the Course
-          </CourseVideoAccordianHeading> */}
           <Accordion sx={{ background: Colors.dark, border: "0.25px solid #676F85" }} disableGutters={true} expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon sx={{ color: Colors.light }} />}

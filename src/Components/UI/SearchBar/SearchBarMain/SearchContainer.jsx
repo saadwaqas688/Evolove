@@ -49,6 +49,7 @@ function checkSelectedTab(buttonLabel){
           placeholder="search items"
           name="searchField"
           icon={searchText.length > 0 ? false : true}
+          iconPosition="start"
           placeholderColor="#6978A0"
           onKeyDown={(e) => {
             if (e.key === "Enter" || e.key === "NumpadEnter") {

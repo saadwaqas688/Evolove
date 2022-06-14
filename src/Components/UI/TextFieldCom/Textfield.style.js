@@ -2,12 +2,12 @@ import { styled } from "@mui/system";
 import { Colors } from "../../../config/palette";
 import PaperWrapper from "../Paper/PaperWrapper";
 
-export const Wrapper = styled("label")(({ theme, width,height }) => ({
+export const Wrapper = styled("label")(({ theme, width,height,direction,justifyproperty,alignproperty }) => ({
   fontFamily: '"Poppins", "sans-serif"',
   display: "flex",
-  justifyContent:"center",
-  alignItems:'center',
-  flexDirection: "column",
+  justifyContent:justifyproperty,
+  alignItems:alignproperty,
+  flexDirection: direction,
   width,
   height,
   gap: theme.spacing(1),
