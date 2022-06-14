@@ -2,10 +2,12 @@ import BoxCom from "../../../UI/BoxCom/BoxCom";
 import { Grid, Typography } from "@mui/material";
 import { Colors } from "../../../../config/palette";
 import { CardFooter,FooterText, NameContainer, ProductImage } from "./ProductCard.style";
+import { Link } from "react-router-dom";
   
   const ProductCard = ({size,image}) => {
     return (
       <Grid item xs={12} sm={size?.sm} md={size?.md} lg={size?.lg}>
+            <Link to="/singleProduct" style={{textDecoration:"none"}}>
 
   <BoxCom sx={{background:Colors.dark,borderRadius:"16px" ,height:{lg:"218px",md:"auto"}}}>
     <ProductImage src={image} alt="Paris" />
@@ -25,6 +27,7 @@ import { CardFooter,FooterText, NameContainer, ProductImage } from "./ProductCar
     </BoxCom>
 
   </BoxCom>
+  </Link>
   </Grid>
 
 

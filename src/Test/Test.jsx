@@ -1,9 +1,9 @@
 import React from 'react'
-import Favorite from '../Components/Containers/Favorite/FavoriteMain/Favorite.jsx'
+import AddCard from '../Components/Containers/Subscription/AddCard/AddCard'
 const Test = () => {
   return (
-    <div>   
-      <Favorite/>   
+    <div>  
+<AddCard/>
     </div>
   )
 }
