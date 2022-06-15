@@ -7,7 +7,8 @@ import { ReadIcon } from "../../../../assets/icons/ReadIcon";
 import { ReadIcon2 } from "../../../../assets/icons/ReadIcon2";
 import { ReadIcon3 } from "../../../../assets/icons/ReadIcon3";
 import { Calender } from "./Calender";
-import { NewSubmissionTypography, TodoDiv1, TodoDiv2, TodoDiv3, AddTodoButton, TodoTypography } from "./Todo.style";
+import { NewSubmissionTypography, TodoDiv1, TodoDiv2, TodoDiv3, AddTodoButton,AddTodoBox, TodoTypography } from "./Todo.style";
+// import { AddTodoBox } from '../Todo/Todo.style';
 const AddTodo = () => {
     return (
         <Paper elevation={0} square={true} style={{ background: Colors.secondary }}>

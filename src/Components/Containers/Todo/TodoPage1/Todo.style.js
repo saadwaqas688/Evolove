@@ -34,7 +34,7 @@ export const TodoDiv3 = styled('div')(() => ({
   marginTop: "10px"
 }))
 // Add Todo Button
-export const AddTodoButton = styled(Typography)(({ theme }) => ({
+export const AddTodoButton = styled('button')(({ theme }) => ({
   width: "95%",
   background: Colors.info,
   marginTop: "80px",
@@ -46,9 +46,8 @@ export const AddTodoButton = styled(Typography)(({ theme }) => ({
   border: "none",
   borderRadius: "36.5227px",
   [theme.breakpoints.down("lg")]: {
-    height: "40px",
-    marginLeft: "5px",
-    marginBottom: "10px"
+     height: "40px",
+    width:"100%"
   }
 
 }))
