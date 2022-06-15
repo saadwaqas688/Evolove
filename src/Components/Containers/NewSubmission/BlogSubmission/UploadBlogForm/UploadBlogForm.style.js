@@ -1,4 +1,4 @@
-import {styled,Typography } from "@mui/material";
+import {Grid, styled,Typography } from "@mui/material";
 import { Colors } from "../../../../../config/palette";
 import BoxCom from "../../../../UI/BoxCom/BoxCom";
 import Button from "../../../../UI/Button/Button";
@@ -36,7 +36,7 @@ export const AddBlogImage = styled("img")(({ src, theme }) => ({
 export const AddBlogTypography = styled(Typography)(({ theme }) => ({
   color: Colors.light,
   fontSize: "12px",
-  width: "95%",
+  width: "100%",
   fontFamily: "Poppins",
   paddingTop: "20px",
   lineHeight: "20px",
@@ -55,7 +55,7 @@ export const AddBlogImageBox = styled(BoxCom)(({ theme }) => ({
   flexDirection: 'column',
   background: "#1A1A1C",
   height: "11rem",
-  width: "23rem",
+  width: "100%",
   borderRadius: "8px",
   border: "0.25px solid #676F85",
   [theme.breakpoints.down("lg")]: {
@@ -80,13 +80,7 @@ export const WriteTypography = styled(Typography)(() => ({
   fontSize: "14.8px",
   fontFamily: "Poppins"
 }))
-//New Submission
-export const NewSubmissionTypography = styled(Typography)(() => ({
-  color: Colors.white,
-  marginTop: "10px",
-  fontSize: "14.8px",
-  fontFamily: "Poppins"
-}))
+
 
 //  Write your blog Main 
 export const BlogDiv = styled("div")(() => ({
@@ -131,25 +125,7 @@ export const FeatureImageTypography = styled(Typography)(({ theme }) => ({
   }
 
 }))
-// ContinueButton
-export const ContinueButton = styled(Typography)(({ theme }) => ({
-  width: "95%",
-  background: Colors.info,
-  marginTop: "20px",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  color: Colors.light,
-  height: "59px",
-  border: "none",
-  borderRadius: "36.5227px",
-  [theme.breakpoints.down("lg")]: {
-    height: "40px",
-    marginLeft: "5px",
-    marginBottom: "10px"
-  }
 
-}))
 
 export const ProfileButton = styled(Button)(() => ({
   width:"100%",
@@ -159,3 +135,25 @@ export const ProfileButton = styled(Button)(() => ({
   marginLeft:"2px"
   
   }));
+
+
+  export const SubHeading = styled(Typography)(( ) => ({
+    marginTop:"40px",
+  fontFamily: '"Poppins", "sans-serif"',
+  color:Colors.light,
+  fontSize:"14px",
+}));
+
+
+        export const LeftSideGrid = styled(Grid)(( {theme}) => ({
+            [theme.breakpoints.down("sm")]: {
+              fontSize:"12px",
+                },
+            }));
+
+            export const RightSideGrid = styled(Grid)(( {theme,marginLeft}) => ({
+                marginLeft:marginLeft ,
+                [theme.breakpoints.down("lg")]: {
+                    marginLeft:"0px" ,
+                    },
+                }));
