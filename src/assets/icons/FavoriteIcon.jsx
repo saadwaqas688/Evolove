@@ -10,3 +10,5 @@ const FavoriteIcon = ({color}) => {
 }
 
 export default FavoriteIcon
+
+
