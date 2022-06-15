@@ -27,7 +27,7 @@ import { useLocation } from "react-router";
 import { getBasePath } from "../../../../Utils/utils";
 
 const UserProfile = () => {
-  const [filter, setFilter] = useState("products");
+  const [filter, setFilter] = useState("courses");
   const [status, setStatus] = useState("Active");
 
   let { pathname } = useLocation();
@@ -63,7 +63,7 @@ const UserProfile = () => {
               </ProfileButton>
               <ProfileButton
                 variant="contained"
-                href="/newSubmission"
+                href="/coachProfile/newSubmission"
                 sx={{ marginTop: "20px", width: "100%" }}
               >
                 New Submission

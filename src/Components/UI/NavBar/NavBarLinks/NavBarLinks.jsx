@@ -7,9 +7,11 @@ import {
 } from "@mui/material";
 import {useLocation} from 'react-router';
 import { Colors } from "../../../../config/palette";
+import { getBasePath } from "../../../../Utils/utils";
 const NavBarLinks = () => {
 
-  const { pathname } = useLocation();
+  let { pathname } = useLocation();
+  pathname=getBasePath(pathname)
   return (
     <React.Fragment>
 

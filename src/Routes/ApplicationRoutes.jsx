@@ -50,9 +50,9 @@ const ApplicationRoutes = () => {
           <Route path="/newPassword" element={<NewPassword />} />
           <Route element={<AppWrapper />}>
             <Route path="/home" element={<Home />} />
-            <Route path="/allCourses" element={<AllCourses />} />
-            <Route path="/allCoaches" element={<AllCoaches />} />
-            <Route path="/search" element={<Search />} />
+            <Route path="/home/allCourses" element={<AllCourses />} />
+            <Route path="/home/allCoaches" element={<AllCoaches />} />
+            <Route path="/home/search" element={<Search />} />
             <Route path="/blogs" element={<AllBlogs />} />
             <Route path="/blogs/singleBlog" element={<SingleBlog />} />
             <Route path="/singleCourse" element={<SingleCourseContainer />} />
@@ -69,10 +69,12 @@ const ApplicationRoutes = () => {
             <Route path="/coachProfile/salesBoard" element={<SalesBoard />} />
             <Route path="/subscription" element={<Subscription />} />
             <Route path="/subscriptionSuccess" element={<SubscriptionSuccess />} />
-            <Route path="/singleProduct" element={<SingleProduct />} />
+            <Route path="/shop/singleProduct" element={<SingleProduct />} />
+            <Route path="/home/categories/:category" element={<AllCourses />} />
 
-            <Route path="/test" element={<Test />} />
-            <Route path="/newSubmission" element={<NewSubmission />} />
+
+            <Route path="/test" element={<Test />} />\
+            <Route path="/coachProfile/newSubmission" element={<NewSubmission />} />
             <Route path="/newSubmissionSuccess" element={<NewSubmissionSuccess />} />
 
             

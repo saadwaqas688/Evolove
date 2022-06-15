@@ -10,38 +10,41 @@ import { Colors } from "../../../config/palette";
 const SideBarCategoriesLinks = () => {
 
   const { pathname } = useLocation();
+  console.log(pathname)
+   
+
   return (
     <>
         <List sx={{display:"flex",alignItems:"center",flexDirection:"column",justifyContent:"center"}}>
-              <ListItemButton  component="a" href="/categories/psychology"   >
-                  <ListItemTextContainer sx={{color:pathname==='/categories/psychology'?'#E63369':Colors.grey}} primary="Psychology" disableTypography/>
+              <ListItemButton  component="a" href="/home/categories/Psychology"   >
+                  <ListItemTextContainer sx={{color:pathname==='/home/categories/Psychology'?'#E63369':Colors.grey}} primary="Psychology" disableTypography/>
               </ListItemButton>
-              <ListItemButton  component="a" href="/categories/spirituality"   >
-                  <ListItemTextContainer sx={{color:pathname==='/categories/spirituality'?'#E63369':Colors.grey}} primary="Spirituality" disableTypography/>
+              <ListItemButton  component="a" href="/home/categories/Spirituality"   >
+                  <ListItemTextContainer sx={{color:pathname==='/home/categories/Spirituality'?'#E63369':Colors.grey}} primary="Spirituality" disableTypography/>
               </ListItemButton>
-              <ListItemButton  component="a" href="/categories/education"   >
-                  <ListItemTextContainer sx={{color:pathname==='/categories/education'?'#E63369':Colors.grey}} primary="Education" disableTypography/>
+              <ListItemButton  component="a" href="/home/categories/Education"   >
+                  <ListItemTextContainer sx={{color:pathname==='/home/categories/Education'?'#E63369':Colors.grey}} primary="Education" disableTypography/>
               </ListItemButton>
-              <ListItemButton  component="a" href="/categories/awareness"   >
-                  <ListItemTextContainer sx={{color:pathname==='/categories/awareness'?'#E63369':Colors.grey}} primary="Awareness" disableTypography/>
+              <ListItemButton  component="a" href="/home/categories/Awareness"   >
+                  <ListItemTextContainer sx={{color:pathname==='/home/categories/Awareness'?'#E63369':Colors.grey}} primary="Awareness" disableTypography/>
               </ListItemButton>
-              <ListItemButton  component="a" href="/categories/music"   >
-                  <ListItemTextContainer sx={{color:pathname==='/categories/music'?'#E63369':Colors.grey}} primary="Music" disableTypography/>
+              <ListItemButton  component="a" href="/home/categories/Music"   >
+                  <ListItemTextContainer sx={{color:pathname==='/home/categories/Music'?'#E63369':Colors.grey}} primary="Music" disableTypography/>
               </ListItemButton>
-              <ListItemButton  component="a" href="/categories/naturalmedicine"   >
-                  <ListItemTextContainer sx={{color:pathname==='/categories/naturalmedicine'?'#E63369':Colors.grey}} primary="Natural Medicine" disableTypography/>
+              <ListItemButton  component="a" href="/home/categories/Natural Medicine"   >
+                  <ListItemTextContainer sx={{color:pathname==='/home/categories/Natural%20Medicine'?'#E63369':Colors.grey}} primary="Natural Medicine" disableTypography/>
               </ListItemButton>
-              <ListItemButton  component="a" href="/categories/consciousbusiness"   >
-                  <ListItemTextContainer sx={{color:pathname==='/categories/consciousbusiness'?'#E63369':Colors.grey}} primary="Conscious business" disableTypography/>
+              <ListItemButton  component="a" href="/home/categories/Conscious Business"   >
+                  <ListItemTextContainer sx={{color:pathname==='/home/categories/Conscious%20Business'?'#E63369':Colors.grey}} primary="Conscious business" disableTypography/>
               </ListItemButton>
-              <ListItemButton  component="a" href="/categories/yoga"   >
-                  <ListItemTextContainer sx={{color:pathname==='/categories/yoga'?'#E63369':Colors.grey}} primary="Yoga" disableTypography/>
+              <ListItemButton  component="a" href="/home/categories/Yoga"   >
+                  <ListItemTextContainer sx={{color:pathname==='/home/categories/Yoga'?'#E63369':Colors.grey}} primary="Yoga" disableTypography/>
               </ListItemButton>
-              <ListItemButton  component="a" href="/categories/meditation"   >
-                  <ListItemTextContainer sx={{color:pathname==='/meditation'?'#E63369':Colors.grey}} primary="Meditation" disableTypography/>
+              <ListItemButton  component="a" href="/home/categories/Meditation"   >
+                  <ListItemTextContainer sx={{color:pathname==='/home/categories/Meditation'?'#E63369':Colors.grey}} primary="Meditation" disableTypography/>
               </ListItemButton>
-              <ListItemButton  component="a" href="/categories/others"   >
-                  <ListItemTextContainer sx={{color:pathname==='/categories/others'?'#E63369':Colors.grey}} primary="Others" disableTypography/>
+              <ListItemButton  component="a" href="/home/categories/Others"   >
+                  <ListItemTextContainer sx={{color:pathname==='/home/categories/Others'?'#E63369':Colors.grey}} primary="Others" disableTypography/>
               </ListItemButton>
           </List>
     </>

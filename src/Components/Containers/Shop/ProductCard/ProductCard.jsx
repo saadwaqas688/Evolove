@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
   const ProductCard = ({size,image}) => {
     return (
       <Grid item xs={12} sm={size?.sm} md={size?.md} lg={size?.lg}>
-            <Link to="/singleProduct" style={{textDecoration:"none"}}>
+            <Link to="/shop/singleProduct" style={{textDecoration:"none"}}>
 
   <BoxCom sx={{background:Colors.dark,borderRadius:"16px" ,height:{lg:"218px",md:"auto"}}}>
     <ProductImage src={image} alt="Paris" />

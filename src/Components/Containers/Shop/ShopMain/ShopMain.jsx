@@ -10,7 +10,7 @@ const ShopMain = () => {
       Shop
     </ShopHeading>
     <ProductContainer heading={"Recent Viewed Products"}/>
-    <ProductContainer heading={"Tickets"}/>
+    <ProductContainer heading={"Tickets"} link={true}/>
     <ProductContainer heading={"New Products"}/>
     <ProductContainer heading={"Popular Products"}/>
      </BoxCom>

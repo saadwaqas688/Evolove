@@ -11,7 +11,7 @@ const AddBank = ({showNewBankForm,setShowNewBankForm}) => {
   const [branchCode, setBranchCode] = React.useState("");
   const [zipCode, setZipCode] = React.useState("");
   const [bankDetails, setBankDetails] = React.useState("Account Number : 8379834******");
-  const [check, setCheck] = React.useState(false);
+  const [check, setCheck] = React.useState(true);
 
   return (
   

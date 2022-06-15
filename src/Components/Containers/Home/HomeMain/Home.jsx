@@ -18,7 +18,7 @@ const Home = () => {
     </PopularCourseHeading>
     <LinkContainer >
             <a
-              href="/allCourses"
+              href="/home/allCourses"
               style={{ color: "#9E8B91", textDecoration: "none" }}
             >
               See All
@@ -34,7 +34,7 @@ const Home = () => {
     </PopularCourseHeading>
     <LinkContainer >
             <a
-              href="/allCoaches"
+              href="/home/allCoaches"
               style={{ color: "#9E8B91", textDecoration: "none" }}
             >
               See All

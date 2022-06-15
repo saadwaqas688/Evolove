@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { Colors } from "../../../../config/palette";
 import SearchBarPopup from "../SearchBarPopup/SearchBarPopup";
 import RecentSearch from "../RecentSearch/RecentSearch";
+import { getBasePath } from "../../../../Utils/utils";
 
 const SearchContainer = () => {
 
@@ -14,10 +15,12 @@ const SearchContainer = () => {
   const [sortBy, setSortBy] = useState("");
 
 
-  const { pathname } = useLocation();
+  let { pathname } = useLocation();
+  pathname=getBasePath(pathname)  
+
   let navigate = useNavigate();
   function onPressEnter() {
-    navigate("/search");
+    navigate("/home/search");
   }
 
   function handleFilter(buttonType,data){
@@ -58,12 +61,12 @@ function checkSelectedTab(buttonLabel){
             }
           }}
         />
-        {pathname === "/search" && (
+        {pathname === "home/search" && (
         <SearchBarPopup checkSelectedTab={checkSelectedTab} handleFilter={handleFilter}/>
         )}
       </SearchBarWrapper>
 
-      {pathname === "/search" && (
+      {pathname === "home/search" && (
         <RecentSearch setSearchText={setSearchText} />
       )}
     </>

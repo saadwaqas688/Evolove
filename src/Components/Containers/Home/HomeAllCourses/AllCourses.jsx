@@ -9,22 +9,37 @@ import {
   PopularCourseHeading,
 } from "./AllCourses.style";
 import HomeTopCard from "../HomeTopCard/HomeTopCard";
+import { useParams } from "react-router-dom";
+
+
 
 const AllCourses = () => {
   const size={xs:"12", sm:"6" ,md:"6", lg:"3"}
+
+   const { category } = useParams();
   return (
     <div>
       <BoxCom sx={{ marginTop: "60px" }}>
         <HomeTopCard />
         <MainContainer>
           <BoxCom sx={{ marginTop: "33px" }}>
-            <PopularCourseHeading>Popular Courses</PopularCourseHeading>
+            <PopularCourseHeading>{category?`${category} courses` :"Popular Courses"}</PopularCourseHeading>
           </BoxCom>
-          <LinkContainer>13 Courses</LinkContainer>
+          <LinkContainer>{category?"3 Courses" :"13 Courses"}</LinkContainer>
         </MainContainer>
       </BoxCom>
-      <Grid container spacing={2}>
-      <HomeCourseCard size={size}/>
+
+  {    
+          category   ?
+         <Grid container spacing={2}>
+          <HomeCourseCard size={size}/>
+          <HomeCourseCard size={size}/>
+          <HomeCourseCard size={size}/>
+
+                 
+      </Grid>  :
+          <Grid container spacing={2}>
+          <HomeCourseCard size={size}/>
           <HomeCourseCard size={size}/>
           <HomeCourseCard size={size}/>
           <HomeCourseCard size={size}/>
@@ -37,7 +52,7 @@ const AllCourses = () => {
           <HomeCourseCard size={size}/>
           <HomeCourseCard size={size}/>
                  
-      </Grid>
+      </Grid>}
     </div>
   );
 };
