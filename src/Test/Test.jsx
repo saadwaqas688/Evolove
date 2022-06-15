@@ -1,11 +1,9 @@
 import React from 'react'
-import Favorite from '../Components/Containers/Favorite/FavoriteMain/Favorite.jsx'
-import AddBlog from '../Components/Containers/Blog/AddBlog/AddBlog';
+import NewSubmission from '../Components/Containers/NewSubmission/NewSubmissionMain/NewSubmission'
 const Test = () => {
   return (
-    <div>   
-      {/* <Favorite/>    */}
-      <AddBlog/>
+    <div>  
+<NewSubmission/>
     </div>
   )
 }
