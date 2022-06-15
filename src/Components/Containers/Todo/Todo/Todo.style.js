@@ -1,7 +1,5 @@
-import { Button, styled, Avatar, Typography } from "@mui/material";
-import { Colors } from "../../../config/palette";
-import IconButton from '@mui/material/IconButton';
-import BoxCom from '../../UI/BoxCom/BoxCom';
+import { styled, Typography } from "@mui/material";
+import { Colors } from "../../../../config/palette";
 
 
 
@@ -12,21 +10,27 @@ export const NewSubmissionTypography = styled(Typography)(() => ({
   fontSize: "14.8px",
   fontFamily: "Poppins"
 }))
-
+//TodoTypography
+export const TodoTypography = styled(Typography)(() => ({
+  color: "white",
+  fontFamily: "Poppins",
+  fontSize: "17px",
+  marginLeft: "10px"
+}))
 
 //TodoDiv1
 export const TodoDiv1 = styled('div')(() => ({
   display: "flex",
-   marginTop: "30px"
+  marginTop: "30px"
 }))
 //TodoDiv2
 export const TodoDiv2 = styled('div')(() => ({
   display: "flex",
-   marginTop: "10px"
+  marginTop: "10px"
 }))
 //TodoDiv3
 export const TodoDiv3 = styled('div')(() => ({
-  display: "flex", 
+  display: "flex",
   marginTop: "10px"
 }))
 // Add Todo Button
@@ -51,19 +55,19 @@ export const AddTodoButton = styled(Typography)(({ theme }) => ({
 
 
 //New Submission
-export const AddTodoBox = styled(Typography)(({theme}) => ({
-  marginTop:"15px",
-    display: "flex",
-    justifyContent: 'center',
-    alignItems: "center",
-    flexDirection: 'column',
-    background: "#1A1A1C",
-    height: "19rem",
-    width: "23rem",
-    borderRadius: "8px",
-    border: "0.25px solid #676F85",
-    [theme.breakpoints.down("lg")]: {
-      width: "auto",
-      height: "18rem"
-    },
-  }))
+export const AddTodoBox = styled(Typography)(({ theme }) => ({
+  marginTop: "15px",
+  display: "flex",
+  justifyContent: 'center',
+  alignItems: "center",
+  flexDirection: 'column',
+  background: "#1A1A1C",
+  height: "19rem",
+  width: "23rem",
+  borderRadius: "8px",
+  border: "0.25px solid #676F85",
+  [theme.breakpoints.down("lg")]: {
+    width: "auto",
+    height: "18rem"
+  },
+}))
