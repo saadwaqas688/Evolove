@@ -1,14 +1,11 @@
 import React from "react";
 import { BlogSubmitForm } from "../BlogSubmission/BlogSubmiForm/BlogSubmitForm";
-// import { UploadBlogForm } from "../BlogSubmission/UploadBlogForm/UploadBlogForm";
+import UploadBlogForm from "../BlogSubmission/UploadBlogForm/UploadBlogForm";
 import CourseVideoAndImageUpload from "../CourseSubmission/CourseVideoAndImageUpload/CourseVideoAndImageUpload";
 import CreateCourseMoudle from "../CourseSubmission/CreateCourseModule/CreateCourseModule";
 import NewSubmissionCategoryForm from "../NewSubmissionCategoryForm/NewSubmissionCategoryForm";
 import ProductSubmitForm from "../ProductSubmission /ProductSubmitForm";
-import {
-  Heading,
-  MainContainer,
-} from "./NewSubmission.style";
+import { Heading, MainContainer } from "./NewSubmission.style";
 
 const NewSubmission = () => {
   const [selectedCategory, setSelectedCategory] = React.useState("Course");
@@ -42,11 +39,13 @@ const NewSubmission = () => {
         />
       )}
       {step === 2 && selectedCategory === "Blog" ? (
-        <BlogSubmitForm />
+        <UploadBlogForm  step={step} setStep={setStep}/>
       ) : step === 2 && selectedCategory === "Product" ? (
         <ProductSubmitForm />
       ) : step === 2 && selectedCategory === "Course" ? (
         <CourseVideoAndImageUpload setStep={setStep} step={step} />
+      ) : step === 3 && selectedCategory === "Blog" ? (
+        <BlogSubmitForm setStep={setStep} step={step} />
       ) : step === 3 && selectedCategory === "Blog" ? (
         <BlogSubmitForm />
       ) : step === 3 && selectedCategory === "Course" ? (

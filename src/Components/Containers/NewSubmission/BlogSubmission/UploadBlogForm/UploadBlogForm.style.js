@@ -1,22 +1,8 @@
-import { Button, styled,Typography } from "@mui/material";
-import { Colors } from "../../../../config/palette";
-import BoxCom from '../../../UI/BoxCom/BoxCom';
+import {styled,Typography } from "@mui/material";
+import { Colors } from "../../../../../config/palette";
+import BoxCom from "../../../../UI/BoxCom/BoxCom";
+import Button from "../../../../UI/Button/Button";
 
-export const ExploreCourseText = styled('div')(({ theme }) => ({
-  fontFamily: '"Poppins", "sans-serif"',
-  color: Colors.white,
-  justifyContent: "space-between",
-  alignItems: "center",
-  [theme.breakpoints.down("lg")]: {
-    textAlign: "center"
-  },
-}));
-
-
-
-
-
-// box
 export const BlogBox = styled(BoxCom)(({ theme }) => ({
   background: "#1A1A1C",
   height: "32rem",
@@ -48,8 +34,8 @@ export const AddBlogImage = styled("img")(({ src, theme }) => ({
 //AddBlogTypography
 
 export const AddBlogTypography = styled(Typography)(({ theme }) => ({
-  color: Colors.white,
-  fontSize: "14.8px",
+  color: Colors.light,
+  fontSize: "12px",
   width: "95%",
   fontFamily: "Poppins",
   paddingTop: "20px",
@@ -78,22 +64,6 @@ export const AddBlogImageBox = styled(BoxCom)(({ theme }) => ({
     height: "10rem"
   },
 }));
-// UplaodBloag Image
-export const UploadBlogImage = styled("img")(({ src }) => ({
-  src: `url(${src})`,
-  width: "2rem",
-  height: "2rem",
-
-}));
-
-//ImageUplad Buttom
-
-export const AddImageUploadButton = styled(Button)(() => ({
-  background: Colors.dark,
-  color: "#6978A0"
-}));
-
-
 
 // Add image text
 export const AddImageTypography = styled(Typography)(() => ({
@@ -122,7 +92,7 @@ export const NewSubmissionTypography = styled(Typography)(() => ({
 export const BlogDiv = styled("div")(() => ({
   display: "flex",
   justifyContent: "space-between",
-  marginTop: "40px"
+  marginTop: "20px"
 }));
 
 //Write your blog here
@@ -135,6 +105,7 @@ export const BlogTypography = styled(Typography)(() => ({
 //add image MainTypography
 export const MainTypography = styled(Typography)(() => ({
   display: 'flex',
+  alignItems:"center",
   marginBottom: "0.5rem",
 
 
@@ -179,3 +150,12 @@ export const ContinueButton = styled(Typography)(({ theme }) => ({
   }
 
 }))
+
+export const ProfileButton = styled(Button)(() => ({
+  width:"100%",
+  marginTop:"100px",
+  textTransform:"none",
+  fontSize:"16px",
+  marginLeft:"2px"
+  
+  }));
