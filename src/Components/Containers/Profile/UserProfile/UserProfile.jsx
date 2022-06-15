@@ -63,6 +63,7 @@ const UserProfile = () => {
               </ProfileButton>
               <ProfileButton
                 variant="contained"
+                href="/newSubmission"
                 sx={{ marginTop: "20px", width: "100%" }}
               >
                 New Submission

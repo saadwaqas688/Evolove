@@ -42,7 +42,7 @@ export const BlogSubmitForm = () => {
                 />
           </BoxCom>
 
-          <ProfileButton variant="contained" href="/subscriptionSuccess" sx={{marginTop:"200px"}}  >Submit</ProfileButton>
+          <ProfileButton variant="contained" href="/newSubmissionSuccess" sx={{marginTop:"200px"}}  >Submit</ProfileButton>
           </RightSideGrid>
             </Grid>
   )

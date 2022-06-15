@@ -31,6 +31,8 @@ import NewPassword from "../Components/Containers/Auth/NewPassword/NewPassword";
 import Subscription from "../Components/Containers/Subscription/SubscriptionMain/Subscription";
 import SubscriptionSuccess from "../Components/Containers/Subscription/SubscriptionSuccess/SubscriptionSuccess";
 import SingleProduct from "../Components/Containers/Shop/SingleProduct/SingleProductMain/SingleProduct";
+import NewSubmissionSuccess from "../Components/Containers/NewSubmission/NewSubmissionSuccess/NewSubmissionSuccess";
+import NewSubmission from "../Components/Containers/NewSubmission/NewSubmissionMain/NewSubmission";
 const ApplicationRoutes = () => {
   return (
     <>
@@ -70,8 +72,10 @@ const ApplicationRoutes = () => {
             <Route path="/singleProduct" element={<SingleProduct />} />
 
             <Route path="/test" element={<Test />} />
+            <Route path="/newSubmission" element={<NewSubmission />} />
+            <Route path="/newSubmissionSuccess" element={<NewSubmissionSuccess />} />
 
-
+            
 
 
 

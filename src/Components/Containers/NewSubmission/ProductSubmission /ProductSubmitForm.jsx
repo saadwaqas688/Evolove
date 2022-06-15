@@ -45,7 +45,7 @@ const ProductSubmitForm = ( ) => {
 
           <ProfileButton
             variant="contained"
-            href="/subscriptionSuccess"
+            href="/newSubmissionSuccess"
             sx={{ marginTop: "200px" }}
           >
             Submit

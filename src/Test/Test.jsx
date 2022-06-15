@@ -1,9 +1,9 @@
 import React from 'react'
-import NewSubmission from '../Components/Containers/NewSubmission/NewSubmissionMain/NewSubmission'
+import NewSubmissionSuccess from '../Components/Containers/NewSubmission/NewSubmissionSuccess/NewSubmissionSuccess'
 const Test = () => {
   return (
     <div>  
-<NewSubmission/>
+<NewSubmissionSuccess/>
     </div>
   )
 }
