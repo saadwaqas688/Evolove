@@ -1,7 +1,6 @@
 import {
     Grid,
     Paper,
-    Typography,
 } from "@mui/material";
 
 import { Colors } from "../../../../config/palette";
@@ -11,7 +10,6 @@ import UploadBlogdImage from '../../../../assets/images/homeOnBoarding/camera.pn
 
 import { BlogBox, AddBlogImage, AddBlogTypography, AddBlogImageBox, UploadBlogImage, AddImageUploadButton, AddImageTypography, UploadTypography, NewSubmissionTypography, BlogDiv, BlogTypography, MainTypography, WriteTypography, FeatureImageTypography, ContinueButton } from "./AddBlog.style.js";
 import CameraIcon from "../../../../assets/icons/cameraIcon";
-import Button from "../../../UI/Button/Button";
 const AddBlog = () => {
     return (
         <Paper elevation={0} square={true} style={{ background: Colors.secondary }}>
