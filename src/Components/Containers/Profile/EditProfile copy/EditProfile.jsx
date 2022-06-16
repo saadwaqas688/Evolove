@@ -142,6 +142,7 @@ const EditProfile = () => {
                   justifyproperty="flex-start"
                   alignproperty="null"
                   iconPosition="end"
+                  iconType="password"
                   icon={true}
                 />
           </BoxCom>

@@ -1,6 +1,8 @@
 import { Box } from "@mui/material";
 import PropTypes from "prop-types";
 import React from "react";
+import CalendarIcon from "../../../assets/icons/CalendarIcon";
+import { ClockIcon } from "../../../assets/icons/ClockIcon";
 import PasswordIcon from "../../../assets/icons/PasswordIcon";
 import SearchIcon from "../../../assets/icons/SearchIcon";
 import { Colors } from "../../../config/palette";
@@ -31,6 +33,7 @@ const TextfieldComp = ({
   justifyproperty,
   alignproperty,
   iconPosition,
+  iconType,
   ...inputProps
 }) => {
   return (
@@ -69,10 +72,19 @@ const TextfieldComp = ({
                 placeholder={placeholder}
                 placeholderColor={placeholderColor}
               />
-              { (icon && iconPosition==="end" ) &&
+              { (icon && iconPosition==="end" && iconType==="password" )?
              (  <Box sx={{ marginRight: "10px", marginTop: "6px" }}>
                 <PasswordIcon/>
-                </Box>)
+                </Box>):
+                 (icon && iconPosition==="end" && iconType==="calendar" )?
+                 (  <Box sx={{ marginRight: "10px", marginTop: "6px" }}>
+                 <CalendarIcon/>
+                 </Box>):
+                  (icon && iconPosition==="end" && iconType==="clock" )?
+                  (  <Box sx={{ marginRight: "10px", marginTop: "6px" }}>
+                  <ClockIcon/>
+                  </Box>):
+                  <></>
                 }
             </>
           )}
@@ -103,6 +115,7 @@ TextfieldComp.propTypes = {
   justifyproperty: PropTypes.string,
   alignproperty: PropTypes.string,
   iconPosition: PropTypes.string,
+  iconType:PropTypes.string,
 };
 
 TextfieldComp.defaultProps = {
@@ -122,4 +135,5 @@ TextfieldComp.defaultProps = {
   alignproperty: "center",
   direction: "column",
   iconPosition:"",
+  iconType:"",
 };
