@@ -1,6 +1,4 @@
 import React from "react";
-import { ClockIcon } from "../../../../assets/icons/ClockIcon";
-import TaskCompletedIcon from "../../../../assets/icons/TaskCompletedIcon";
 import { TaskDeleteIcon } from "../../../../assets/icons/TaskDeleteIcon";
 import { TaskEditIcon } from "../../../../assets/icons/TaskEditIcon";
 import TaskShareIcon from "../../../../assets/icons/TaskShareIcon";
