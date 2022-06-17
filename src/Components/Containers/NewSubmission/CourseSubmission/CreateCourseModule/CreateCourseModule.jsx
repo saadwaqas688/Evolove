@@ -5,7 +5,7 @@ import { CreateIcon } from "../../../../../assets/icons/CreateIcon";
 import DeleteIconSmall from "../../../../../assets/icons/DeleteIconSmall";
 import BoxCom from "../../../../UI/BoxCom/BoxCom";
 import TextfieldComp from "../../../../UI/TextFieldCom/Textfield";
-import { SubHeading2 } from "./CreateCourseModule.style";
+import { CricullumIntroWrapper, SubHeading2, SubHeading3, SubHeading4, TimeTypography } from "./CreateCourseModule.style";
 import { Count } from "./CreateCourseModule.style";
 import { CardText, FieldLabel,  FieldWrapper,LeftSideGrid, ProfileButton, RightSideGrid, SubHeading } from "./CreateCourseModule.style";
 
@@ -71,8 +71,31 @@ const CreateCourseModule = ({selectedCategory,title,category,description,setSele
             <RightSideGrid item xs={12} sm={6} md={12} lg={6} >
             <SubHeading2>Curriculum</SubHeading2>
             <BoxCom sx={{marginTop:"30px"}}>
-            <FieldWrapper height={"200px"} sx={{borderRadius:"30px"}}  >
-                </FieldWrapper>
+            <CricullumIntroWrapper height={"190px"} sx={{borderRadius:"30px"}}  >
+           
+            <SubHeading3> Intro to the course</SubHeading3>
+              <BoxCom sx={{display:"flex",justifyContent:"space-between",borderBottom:"1px solid grey",marginTop:"6px"}}>
+            <SubHeading4 sx={{marginBottom:"10px"}}> Welcome Video</SubHeading4>
+            <TimeTypography>1:45</TimeTypography>
+              </BoxCom>
+              <BoxCom sx={{display:"flex",justifyContent:"space-between",marginTop:"10px"}}>
+            <SubHeading4 sx={{marginTop:"3px"}}> Coach Introduction</SubHeading4>
+            <TimeTypography>2:15</TimeTypography>
+              </BoxCom>
+              <BoxCom sx={{display:"flex",justifyContent:"space-between",marginTop:"10px"}}>
+            <SubHeading4> Talk about course curriculum</SubHeading4>
+            <TimeTypography>2:15</TimeTypography>
+              </BoxCom>
+              <BoxCom sx={{display:"flex",justifyContent:"space-between",marginTop:"10px"}}>
+            <SubHeading4>How you can get more from this course</SubHeading4>
+            <TimeTypography>1:15</TimeTypography>
+              </BoxCom>
+              <BoxCom sx={{display:"flex",justifyContent:"space-between",marginTop:"10px"}}>
+            <SubHeading4>Let's get started</SubHeading4>
+            <TimeTypography>1:15</TimeTypography>
+              </BoxCom>
+
+                </CricullumIntroWrapper>
           </BoxCom>
           <ProfileButton variant="contained" onClick={()=>setStep(step+1)} >Continue</ProfileButton>
           </RightSideGrid>

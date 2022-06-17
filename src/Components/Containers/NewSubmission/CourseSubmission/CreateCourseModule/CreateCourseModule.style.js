@@ -89,3 +89,39 @@ export const FieldWrapper = styled(BoxCom)(({ theme ,height ,border}) => ({
                   padding:"2px",
                   paddingBottom:"4px"
                   }));
+
+
+
+                  export const SubHeading3 = styled(Typography)(( ) => ({
+                  fontFamily: '"Poppins", "sans-serif"',
+                  color:Colors.light,
+                  fontSize:"13.5px",
+                  marginTop:"10px"
+                  }));
+
+                  export const SubHeading4 = styled(Typography)(( ) => ({
+                    fontFamily: '"Poppins", "sans-serif"',
+                    color:"#9C9C9C",
+                    fontSize:"10.4px",
+                    }));
+
+                    export const TimeTypography = styled(Typography)(( ) => ({
+                      fontFamily: '"Poppins", "sans-serif"',
+                      color:"#9C9C9C",
+                      fontSize:"10.4px",
+                      }));
+
+
+                      export const CricullumIntroWrapper = styled(BoxCom)(({ theme ,height ,border}) => ({
+                        display:"flex",
+                        flexDirection:"column",
+                        background:Colors.dark,
+                        borderRadius:"10px",
+                        height:height,
+                        marginTop:"10px",
+                        cursor:"pointer",
+                        paddingLeft:"20px",
+                        paddingRight:"20px",
+                        border:border && ` 1px solid ${Colors.info}  `,
+                        }));
+                    
