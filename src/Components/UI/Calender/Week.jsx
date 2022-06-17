@@ -14,6 +14,7 @@ const Week = ({
   selections,
   weekIndex,
   first,
+  selectedDay,
 }) => {
   const [rangeTypeTest, setRangeTypeTest] = React.useState("");
   const [isCurrent, setIsCurrent] = React.useState(false);
@@ -35,36 +36,35 @@ const Week = ({
       //   (selections.end && isSameDay(dateToRender, selections.end))
     );
 
-    if (selections.end) {
-      if (
-        isBefore(dateToRender, selections.start) ||
-        isAfter(dateToRender, selections.end)
-      ) {
-        setRangeTypeTest("");
-      } else {
-        setRangeTypeTest("middle");
-        const [startWeek, endWeek] = [
-          startOfWeek(dateToRender),
-          endOfWeek(dateToRender),
-        ];
-        if (isSameDay(dateToRender, startWeek)) {
-          setRangeTypeTest("start");
-        }
-        if (isSameDay(dateToRender, endWeek)) {
-          setRangeTypeTest("end");
-        }
-        if (isSameDay(dateToRender, selections.start)) {
-          setRangeTypeTest("start");
-        }
+    // if (selections.end) {
+    //   if (
+    //     isBefore(dateToRender, selections.start) ||
+    //     isAfter(dateToRender, selections.end)
+    //   ) {
+    //     setRangeTypeTest("");
+    //   } else {
+    //     setRangeTypeTest("middle");
+    //     const [startWeek, endWeek] = [
+    //       startOfWeek(dateToRender),
+    //       endOfWeek(dateToRender),
+    //     ];
+    //     if (isSameDay(dateToRender, startWeek)) {
+    //       setRangeTypeTest("start");
+    //     }
+    //     if (isSameDay(dateToRender, endWeek)) {
+    //       setRangeTypeTest("end");
+    //     }
+    //     if (isSameDay(dateToRender, selections.start)) {
+    //       setRangeTypeTest("start");
+    //     }
 
-        if (isSameDay(dateToRender, selections.end)) {
-          setRangeTypeTest("end");
-        }
-      }
-    } else {
+    //     if (isSameDay(dateToRender, selections.end)) {
+    //       setRangeTypeTest("end");
+    //     }
+    //   }
+    // } else {
       setRangeTypeTest("");
     }
-  };
 
   // console.log("rangeTypeTest",rangeTypeTest)
 
@@ -76,6 +76,7 @@ const Week = ({
       date={dateToRender.getDate()}
       isActive={dateToRender.getMonth() === month}
       onClick={clickDateHandler}
+      selectedDay={selectedDay}
     />
   );
 };

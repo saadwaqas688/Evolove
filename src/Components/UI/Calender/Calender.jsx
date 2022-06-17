@@ -30,13 +30,13 @@ const Calender = ( ) => {
   //   states
   const [month, setMonth] = React.useState(currentDate.getMonth());
   const [year, setYear] = React.useState(currentDate.getFullYear());
+  const [selectedDay,setSelectedDay]=React.useState(currentDate.getDate())
   const first = getFirstDayOfMonth(currentDate.getDate(), month, year);
   const firstDay = sub(first, { days: first.getDay() });
   const [selections, setSelections] = React.useState({
     start: currentDate,
     end:null
   });
-
 
   //   handlers
   const prevMonthHandler = (e) => {
@@ -57,7 +57,7 @@ const Calender = ( ) => {
 
   const clickDateHandler = (e) => {
     const selectedDate = new Date(e.currentTarget.getAttribute("id"));
-    console.log('selectedDate',selectedDate)
+    setSelectedDay(selectedDate.getDate())
     let temp = { ...selections };
     const {start}=temp;
     //  temp={start:selectedDate,end:null}
@@ -83,6 +83,7 @@ const Calender = ( ) => {
     setMonth(selectedDate.getMonth());
   };
 
+  console.log("selectedDay",selectedDay)
   return (
     <Wrapper >
       <MonthSelector>
@@ -117,6 +118,7 @@ const Calender = ( ) => {
                   selections={selections}
                   weekIndex={weekIndex}
                   first={firstDay}
+                  selectedDay={selectedDay}
                 />
               );
             })}

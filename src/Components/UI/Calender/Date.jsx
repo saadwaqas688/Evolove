@@ -4,58 +4,19 @@ import {
   PassiveDate,
   CurrentDate,
   DateContent,
-  StyledRangedDateStart,
-  StyledRangedDateEnd,
-  StyledRangedDateMiddle,
+  MoonDate,
 } from "./Date.style";
-const Date = ({ rangeType, isCurrent, isActive, date, ...props }) => {
-  switch ("default") {
-    case "start":
-      return (
-        <React.Fragment>
-          {isActive ? (
-            <StyledRangedDateStart {...props}>
-              {isCurrent && <CurrentDate>&nbsp;</CurrentDate>}
-              <DateContent>{date}</DateContent>
-            </StyledRangedDateStart>
-          ) : (
-            <PassiveDate {...props}>{date}</PassiveDate>
-          )}
-        </React.Fragment>
-      );
-    case "end":
-      return (
-        <React.Fragment>
-          {isActive ? (
-            <StyledRangedDateEnd {...props}>
-              {isCurrent && <CurrentDate>&nbsp;</CurrentDate>}
-              <DateContent>{date}</DateContent>
-            </StyledRangedDateEnd>
-          ) : (
-            <PassiveDate {...props}>{date}</PassiveDate>
-          )}
-        </React.Fragment>
-      );
-    case "middle":
-      return (
-        <React.Fragment>
-          {isActive ? (
-            <StyledRangedDateMiddle {...props}>
-              {isCurrent && <CurrentDate>&nbsp;</CurrentDate>}
-              <DateContent>{date}</DateContent>
-            </StyledRangedDateMiddle>
-          ) : (
-            <PassiveDate {...props}>{date}</PassiveDate>
-          )}
-        </React.Fragment>
-      );
-    default:
+const Date = ({ rangeType, isCurrent, isActive, date,selectedDay, ...props }) => {
+  console.log('date',date)
       return (
         <React.Fragment>
           {
           isActive ? (
             <StyledDate {...props}>
-              {isCurrent && <CurrentDate>&nbsp;</CurrentDate>}
+              {selectedDay==date && <CurrentDate>&nbsp;</CurrentDate>}
+              {date =="14" && <MoonDate color="yellow">&nbsp;</MoonDate>}
+              {date =="16" && <MoonDate color="green">&nbsp;</MoonDate>}
+
               <DateContent>{date}</DateContent>
             </StyledDate>
           ) : 
@@ -65,7 +26,6 @@ const Date = ({ rangeType, isCurrent, isActive, date, ...props }) => {
         </React.Fragment>
       );
   }
-};
 
 export default Date;
 

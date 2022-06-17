@@ -80,3 +80,18 @@ export const DateContent = styled("span")(({ theme }) => ({
   position: "relative",
   zIndex: 1000,
 }));
+
+
+export const MoonDate = styled("div")(({ theme,color }) => ({
+  position: "absolute",
+  zIndex: 500,
+  top: "50%",
+  left: "50%",
+  transform: "translateX(-50%) translateY(-50%)",
+  border:`2px solid ${color}`,
+  borderRadius: "50px",
+  paddingLeft:"9px",
+  paddingRight:"9px",
+  paddingTop:"3px",
+  paddingBottom:"3px",
+}));

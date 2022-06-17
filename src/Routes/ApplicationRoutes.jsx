@@ -33,6 +33,8 @@ import SubscriptionSuccess from "../Components/Containers/Subscription/Subscript
 import SingleProduct from "../Components/Containers/Shop/SingleProduct/SingleProductMain/SingleProduct";
 import NewSubmissionSuccess from "../Components/Containers/NewSubmission/NewSubmissionSuccess/NewSubmissionSuccess";
 import NewSubmission from "../Components/Containers/NewSubmission/NewSubmissionMain/NewSubmission";
+import MoonCalendar from "../Components/Containers/MoonCalendar/MoonCalendar";
+import Todo from "../Components/Containers/Todo/TodoMain/Todo";
 const ApplicationRoutes = () => {
   return (
     <>
@@ -73,9 +75,13 @@ const ApplicationRoutes = () => {
             <Route path="/home/categories/:category" element={<AllCourses />} />
 
 
-            <Route path="/test" element={<Test />} />\
+            <Route path="/test" element={<Test />} />
             <Route path="/coachProfile/newSubmission" element={<NewSubmission />} />
             <Route path="/newSubmissionSuccess" element={<NewSubmissionSuccess />} />
+            <Route path="/todo" element={<Todo/>} />
+            <Route path="/moonCalender" element={<MoonCalendar/>} />
+
+
 
             
 
