@@ -66,7 +66,7 @@ const MoonCalendar = ( ) => {
 
             <RightSideGrid item xs={12} sm={6} md={12} lg={6} marginLeft="5%">
             <BoxCom sx={{marginTop:"90px"}}>
-        <Calender />
+        <Calender isMoonCalander={true}/>
           </BoxCom>
           <BoxCom sx={{display:"flex",alignItems:'center'}}>
           <TaskIconAndTextWrapper >

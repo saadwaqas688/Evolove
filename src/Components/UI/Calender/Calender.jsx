@@ -24,7 +24,7 @@ const getFirstDayOfMonth = (date, month, year) => {
   return setDate(dt, 1);
 };
 
-const Calender = ( ) => {
+const Calender = ({isMoonCalander} ) => {
   const currentDate = new Date();
 
   //   states
@@ -107,7 +107,7 @@ const Calender = ( ) => {
       </Days>
       {[...new Array(5)].map((_, weekIndex) => {
         return (
-          <Week key={weekIndex}>
+          <Week key={weekIndex} >
             {[...new Array(7)].map((_, dateIndex) => {
               return (
                 <WeekEach
@@ -119,6 +119,7 @@ const Calender = ( ) => {
                   weekIndex={weekIndex}
                   first={firstDay}
                   selectedDay={selectedDay}
+                  isMoonCalander={isMoonCalander}
                 />
               );
             })}

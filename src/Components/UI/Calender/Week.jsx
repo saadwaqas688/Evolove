@@ -15,6 +15,7 @@ const Week = ({
   weekIndex,
   first,
   selectedDay,
+  isMoonCalander
 }) => {
   const [rangeTypeTest, setRangeTypeTest] = React.useState("");
   const [isCurrent, setIsCurrent] = React.useState(false);
@@ -77,6 +78,7 @@ const Week = ({
       isActive={dateToRender.getMonth() === month}
       onClick={clickDateHandler}
       selectedDay={selectedDay}
+      isMoonCalander={isMoonCalander}
     />
   );
 };

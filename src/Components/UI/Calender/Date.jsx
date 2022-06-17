@@ -5,8 +5,10 @@ import {
   CurrentDate,
   DateContent,
   MoonDate,
+  
+
 } from "./Date.style";
-const Date = ({ rangeType, isCurrent, isActive, date,selectedDay, ...props }) => {
+const Date = ({ rangeType, isCurrent, isActive, date,selectedDay,isMoonCalander, ...props }) => {
   console.log('date',date)
       return (
         <React.Fragment>
@@ -14,8 +16,8 @@ const Date = ({ rangeType, isCurrent, isActive, date,selectedDay, ...props }) =>
           isActive ? (
             <StyledDate {...props}>
               {selectedDay===date && <CurrentDate>&nbsp;</CurrentDate>}
-              {date ===14 && <MoonDate color="yellow">&nbsp;</MoonDate>}
-              {date ===16 && <MoonDate color="green">&nbsp;</MoonDate>}
+              {(isMoonCalander && date ===14) && <MoonDate color="yellow">&nbsp;</MoonDate>}
+              {(isMoonCalander && date ===16) && <MoonDate color="green">&nbsp;</MoonDate>}
 
               <DateContent>{date}</DateContent>
             </StyledDate>
