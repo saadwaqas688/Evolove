@@ -14,57 +14,12 @@ export const StyledDate = styled("button")(({ theme }) => ({
   justifyContent: "center",
 }));
 
-export const StyledRangedDateStart = styled(StyledDate)(({ theme }) => ({
-  "&::before": {
-    content: '""',
-    background: "blue",
-    opacity: 0.2,
-    position: "absolute",
-    height: "25px",
-    top: "50%",
-    transform: "translateY(-50%)",
-    left: "20%",
-    borderTopLeftRadius: "50%",
-    borderBottomLeftRadius: "50%",
-    right: 0,
-  },
-}));
 
-export const StyledRangedDateEnd = styled(StyledDate)(({ theme }) => ({
-  "&::before": {
-    content: '""',
-    background: "red",
-    opacity: 0.2,
-    position: "absolute",
-    height: "25px",
-    top: "50%",
-    transform: "translateY(-50%)",
-    left: 0,
-    right: "20%",
-    borderTopRightRadius: "50%",
-    borderBottomRightRadius: "50%",
-  },
-}));
-
-export const StyledRangedDateMiddle = styled(StyledDate)(({ theme }) => ({
-  "&::before": {
-    content: '""',
-    background: "green",
-    opacity: 0.2,
-    position: "absolute",
-    height: "25px",
-    top: "50%",
-    transform: "translateY(-50%)",
-    left: 0,
-    right: 0,
-  },
-}));
-
-export const PassiveDate = styled(StyledDate)(({ theme }) => ({
+export const PassiveDate = styled(StyledDate)(( ) => ({
   opacity: 0.3,
 }));
 
-export const CurrentDate = styled("div")(({ theme }) => ({
+export const CurrentDate = styled("div")(( ) => ({
   position: "absolute",
   zIndex: 500,
   top: "50%",
@@ -76,13 +31,13 @@ export const CurrentDate = styled("div")(({ theme }) => ({
   background: "#E63369",
 }));
 
-export const DateContent = styled("span")(({ theme }) => ({
+export const DateContent = styled("span")(( ) => ({
   position: "relative",
   zIndex: 1000,
 }));
 
 
-export const MoonDate = styled("div")(({ theme,color }) => ({
+export const MoonDate = styled("div")(({color }) => ({
   position: "absolute",
   zIndex: 500,
   top: "50%",
