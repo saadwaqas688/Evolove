@@ -13,9 +13,9 @@ const Date = ({ rangeType, isCurrent, isActive, date,selectedDay, ...props }) =>
           {
           isActive ? (
             <StyledDate {...props}>
-              {selectedDay==date && <CurrentDate>&nbsp;</CurrentDate>}
-              {date =="14" && <MoonDate color="yellow">&nbsp;</MoonDate>}
-              {date =="16" && <MoonDate color="green">&nbsp;</MoonDate>}
+              {selectedDay===date && <CurrentDate>&nbsp;</CurrentDate>}
+              {date ===14 && <MoonDate color="yellow">&nbsp;</MoonDate>}
+              {date ===16 && <MoonDate color="green">&nbsp;</MoonDate>}
 
               <DateContent>{date}</DateContent>
             </StyledDate>

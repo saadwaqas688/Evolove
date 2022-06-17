@@ -8,5 +8,5 @@ const TaskUncompledIcon = ({color}) => {
 
   )
 }
-
+ 
 export default TaskUncompledIcon

@@ -95,4 +95,31 @@ export const FieldWrapper = styled(BoxCom)(({ theme ,height ,border}) => ({
                   color:Colors.light,
                   fontSize:"11px",
                 }));
+
+
+                export const TaskIconAndTextWrapper = styled(BoxCom)(() => ({
+                  display:"flex",
+                  alignItems:"center",
+                  marginTop:"20px",
+                  cursor:"pointer"
+                 }));
+
+
+                 export const TaskTypography = styled(Typography)(() => ({
+                  marginLeft:"10px",
+                  fontFamily: '"Poppins", "sans-serif"',
+                  color:Colors.light,
+                  fontSize:"16px",
+                }));
                 
+
+                export const MoonImageContainer = styled("img")(({ src, theme }) => ({
+                  src: `url(${src})`,
+                  width: "30px", 
+                  height:"30px",
+                  borderRadius:"5px",
+                  // [theme.breakpoints.down("md")]: {
+                  //   width: "100%", 
+                  //   height:'auto',
+                  // },
+                }));
