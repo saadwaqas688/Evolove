@@ -1,9 +1,9 @@
 import { styled } from "@mui/system";
 import { Typography } from "@mui/material";
 
-export const Wrapper = styled("div")(({ theme }) => ({
+export const Wrapper = styled("div")(( ) => ({
   position: "relative",
-  width: "360px",
+  width: "100%",
   height: "270px",
   background: "#1A1A1C",
   borderRadius: "9px",
@@ -11,7 +11,6 @@ export const Wrapper = styled("div")(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-  // padding: "44px 58px 29px 61px",
   paddingTop:"20px",
   paddingBottom:"40px",
   paddingRight:"10px",

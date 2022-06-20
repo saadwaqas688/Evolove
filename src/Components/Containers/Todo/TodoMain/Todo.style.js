@@ -11,5 +11,6 @@ import {Grid, styled} from "@mui/material";
                 marginLeft:marginLeft ,
                 [theme.breakpoints.down("lg")]: {
                     marginLeft:"0px" ,
+                    marginRight:"10px"
                     },
                 }));
