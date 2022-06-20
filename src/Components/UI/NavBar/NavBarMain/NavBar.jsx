@@ -15,14 +15,12 @@ import {useLocation} from 'react-router';
 import { Colors } from "../../../../config/palette";
 import NavBarLinks from "../NavBarLinks/NavBarLinks";
 import { EvoloveIcon } from "../../../../assets/icons/EvoloveIcon";
-import { getBasePath } from "../../../../Utils/utils";
 
 const NavBar = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
   const theme = useTheme();
    const isMatch = useMediaQuery(theme.breakpoints.down("md"));
-   let { pathname } = useLocation();
-   pathname=getBasePath(pathname)
+   const { pathname } = useLocation();
   return (
       <AppBar sx={{ background: "#1A1A1C",position:'sticky',boxShadow:"none"}}>
         <Box >
