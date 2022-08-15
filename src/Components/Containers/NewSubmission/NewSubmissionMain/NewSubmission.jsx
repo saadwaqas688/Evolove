@@ -4,7 +4,7 @@ import UploadBlogForm from "../BlogSubmission/UploadBlogForm/UploadBlogForm";
 import CourseVideoAndImageUpload from "../CourseSubmission/CourseVideoAndImageUpload/CourseVideoAndImageUpload";
 import CreateCourseMoudle from "../CourseSubmission/CreateCourseModule/CreateCourseModule";
 import NewSubmissionCategoryForm from "../NewSubmissionCategoryForm/NewSubmissionCategoryForm";
-// import ProductSubmitForm from "../ProductSubmission /ProductSubmitForm";
+import ProductSubmitForm from "../ProductSubmission/ProductSubmitForm";
 import { Heading, MainContainer } from "./NewSubmission.style";
 
 const NewSubmission = () => {
@@ -41,8 +41,7 @@ const NewSubmission = () => {
       {step === 2 && selectedCategory === "Blog" ? (
         <UploadBlogForm  step={step} setStep={setStep}/>
       ) : step === 2 && selectedCategory === "Product" ? (
-        // <ProductSubmitForm />
-        <></>
+        <ProductSubmitForm />
       ) : step === 2 && selectedCategory === "Course" ? (
         <CourseVideoAndImageUpload setStep={setStep} step={step} />
       ) : step === 3 && selectedCategory === "Blog" ? (
