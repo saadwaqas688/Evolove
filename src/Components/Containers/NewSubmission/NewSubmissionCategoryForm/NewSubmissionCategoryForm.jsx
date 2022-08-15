@@ -1,11 +1,36 @@
 import { Grid } from "@mui/material";
+import { useField } from "formik";
 import React from "react";
 import BoxCom from "../../../UI/BoxCom/BoxCom";
 import TextfieldComp from "../../../UI/TextFieldCom/Textfield";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+
 import { CardText, FieldLabel,  FieldWrapper,LeftSideGrid, ProfileButton, RightSideGrid, SubHeading } from "./NewSubmissionCategoryForm.style";
 
 
 const NewSubmissionCategoryForm = ({selectedCategory,title,category,description,setSelectedCategory,setTitle,setCategory,setDescription,setStep,step}) => {
+  const FORM_VALIDATION = Yup.object().shape({
+    title: Yup.string().required("title is required"),
+  
+    category: Yup.string().required("category is required"),
+
+      description: Yup.string().required("description is required")
+   
+  });
+
+
+  const initialValues = {
+    title: "",
+    description:"",
+    category:"",
+  };
+
+  function submitHandler({title,category,description}){
+    setTitle(title)
+    setCategory(category)
+    setDescription(description)
+  }
   return (
          <Grid container  spacing={2} sx={{width:{md:"80%",lg:"100%"}}} >
             <LeftSideGrid item xs={12} sm={6} md={12} lg={4.5}>
@@ -30,20 +55,40 @@ const NewSubmissionCategoryForm = ({selectedCategory,title,category,description,
                 </FieldWrapper>
       
             </LeftSideGrid>
-
             <RightSideGrid item xs={12} sm={6} md={12} lg={5} marginLeft="15%">
             <SubHeading>Fill the information for course information</SubHeading>
+            <Formik
+      initialValues={initialValues}
+      validationSchema={FORM_VALIDATION}
+      onSubmit={(values) => {
+        submitHandler(values)
+        console.log(values);
+      }}
+    >
+      {(formik) => {
+        const { errors, touched, isValid, dirty,values,  handleChange, } = formik;
+        console.log("errors",errors)
+        console.log("touched",touched)
+        return (
+                  <>
+                  <Form>
+
+       
             <BoxCom sx={{marginTop:"30px"}}>
           <FieldLabel>{`${selectedCategory} title`}</FieldLabel>
           <TextfieldComp
                   height="60px"
                   width="100%"
                   autoComplete="false"
-                  onChange={(e) => setTitle(e.target.value)}
+                  // onChange={(e) => setTitle(e.target.value)}
+                  onChange={handleChange}
                   name="title"
-                  value={title}
+                  value={values.title}
                   justifyproperty="flex-start"
                   alignproperty="null"
+                  helperText={errors.title}
+                  error={errors.title && touched.title ? true
+                    : null}
                 />
           </BoxCom>
 
@@ -55,11 +100,16 @@ const NewSubmissionCategoryForm = ({selectedCategory,title,category,description,
                   height="60px"
                   width="100%"
                   autoComplete="false"
-                  onChange={(e) => setCategory(e.target.value)}
+                  // onChange={(e) => setCategory(e.target.value)}
+                  onChange={handleChange}
                   name="category"
-                  value={category}
+                  value={values.category}
                   justifyproperty="flex-start"
                   alignproperty="null"
+                  helperText={errors.category}
+                  error={errors.category && touched.category ? true
+                    : null}
+
                 />
           </BoxCom>
 
@@ -70,17 +120,28 @@ const NewSubmissionCategoryForm = ({selectedCategory,title,category,description,
           <TextfieldComp
                   width="100%"
                   autoComplete="false"
-                  onChange={(e) => setDescription(e.target.value)}
+                  // onChange={(e) => setDescription(e.target.value)}
+                  onChange={handleChange}
                   name="description"
-                  value={description}
+                  value={values.description}
                   justifyproperty="flex-start"
                   alignproperty="null"
                   multiLine={true} 
                   height="150px"
+                  // error={true}
+                  helperText={errors.description}
+                  error={errors.description && touched.description ? true
+                    : null}
                 />
           </BoxCom>}
-          <ProfileButton variant="contained" onClick={()=>setStep(step+1)} >Continue</ProfileButton>
-          </RightSideGrid>
+          <ProfileButton type="submit" variant="contained" onClick={()=>setStep(step+1)}  >Continue</ProfileButton>
+          </Form>
+          </>
+        );
+      }}
+    </Formik>
+              </RightSideGrid>
+
             </Grid>
     
   );

@@ -16,8 +16,32 @@ const NewSubmission = () => {
 
   const [description, setDescription] = React.useState("");
 
-  console.log(step);
-  console.log(selectedCategory);
+  const [image, setImage] = React.useState("");
+
+  const [previewImage, setPreviewImage] = React.useState("");
+
+  const [featureImage, setFeatureImage] = React.useState("");
+
+  const [previewFeatureImage, setPreviewFeatureImage] = React.useState("");
+
+  console.log("title", title);
+  console.log("category", category);
+  console.log("description", description);
+
+  const propsForUploadBlogForm = {
+    step,
+    setStep,
+    setPreviewImage,
+    previewImage,
+    image,
+    setImage,
+    description,
+    setDescription,
+    featureImage,
+    previewFeatureImage,
+    setFeatureImage,
+    setPreviewFeatureImage,
+  };
 
   return (
     <MainContainer>
@@ -39,7 +63,7 @@ const NewSubmission = () => {
         />
       )}
       {step === 2 && selectedCategory === "Blog" ? (
-        <UploadBlogForm  step={step} setStep={setStep}/>
+        <UploadBlogForm {...propsForUploadBlogForm} />
       ) : step === 2 && selectedCategory === "Product" ? (
         <ProductSubmitForm />
       ) : step === 2 && selectedCategory === "Course" ? (
