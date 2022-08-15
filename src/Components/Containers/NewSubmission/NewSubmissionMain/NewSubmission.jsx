@@ -4,7 +4,7 @@ import UploadBlogForm from "../BlogSubmission/UploadBlogForm/UploadBlogForm";
 import CourseVideoAndImageUpload from "../CourseSubmission/CourseVideoAndImageUpload/CourseVideoAndImageUpload";
 import CreateCourseMoudle from "../CourseSubmission/CreateCourseModule/CreateCourseModule";
 import NewSubmissionCategoryForm from "../NewSubmissionCategoryForm/NewSubmissionCategoryForm";
-import ProductSubmitForm from "../ProductSubmission /ProductSubmitForm";
+import ProductSubmitForm from "../ProductSubmission/ProductSubmitForm";
 import { Heading, MainContainer } from "./NewSubmission.style";
 
 const NewSubmission = () => {
