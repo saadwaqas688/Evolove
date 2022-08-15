@@ -17,16 +17,10 @@ import {
   PaperContainer,
 } from "./Login.style";
 import { Link } from "react-router-dom";
-import { postService } from "../../../../../services/services";
 
 function Login() {
   const [name, setName] = React.useState("");
   const [password, setPassword] = React.useState("");
-
-  async function handleClick(){
-    await postService("testWaqas",{subject:"testing for api integration"})
-
-  }
 
   return (
     <Box sx={{ background: "#131315" }}>
@@ -107,7 +101,6 @@ function Login() {
               Register Here
             </a>
           </LinkContainer>
-          <button onClick={handleClick}>Test api button</button>
         </PaperContainer>
       </Container>
     </Box>
