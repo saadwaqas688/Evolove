@@ -20,7 +20,6 @@
     "firebase": "^9.6.11",
     "formik": "^2.2.9",
     "yup": "^0.28.5"
-
   },
   "scripts": {
     "start": "react-scripts start",
