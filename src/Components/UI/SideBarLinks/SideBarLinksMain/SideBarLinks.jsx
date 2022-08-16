@@ -18,11 +18,25 @@ import {LogOutIcon} from "../../../../assets/icons/LogOutIcon";
 import { MoonCalanderIcon } from "../../../../assets/icons/MoonCalanderIcon";
 import {ListItemTextContainer,ListItemIconContainer} from "./SideBarLinks.style";
 import { getBasePath } from "../../../../Utils/utils";
+import { useNavigate } from 'react-router-dom';
+import { signOut } from 'firebase/auth';
+
+
 
 const SideBarLinks = () => {
+  const navigate = useNavigate()
 
   let { pathname } = useLocation();
   pathname=getBasePath(pathname)
+  const logoutHandler = () => {
+    try {
+      signOut()
+      navigate('/')
+    } catch (error) {
+      
+    }
+    navigate('/')
+  }
   return (
     <BoxCom sx={{background:Colors.dark}}>
         <BoxCom sx={{textAlign:"center",marginTop:"20px"}}>
@@ -72,7 +86,7 @@ const SideBarLinks = () => {
                   <ListItemTextContainer   disableTypography/>
                 </ListItemIconContainer>
               </ListItemButton>
-              <ListItemButton  component="a" href="/"   >
+              <ListItemButton  onClick={logoutHandler}   >
                 <ListItemIconContainer sx={{ color:Colors.grey,marginTop:"80px"}}>
                   <LogOutIcon/>
                   <ListItemTextContainer  primary="LogOut" disableTypography/>
