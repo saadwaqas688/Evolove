@@ -63,8 +63,7 @@ const UploadBlogForm = ({
     setFeatureImage(featureImage)
     setDescription(description);
     setImage(image);
-
-
+    setStep(step+1)
   }
   return (
     <Formik
@@ -75,10 +74,8 @@ const UploadBlogForm = ({
       }}
     >
       {(formik) => {
-        const { errors, touched, isValid, dirty, values, handleChange } =
+        const { errors, touched,values, handleChange } =
           formik;
-        console.log("errors", errors);
-        console.log("touched", touched);
         return (
           <>
             <Form>
@@ -97,27 +94,29 @@ const UploadBlogForm = ({
                       </label>
                     </ImageUploadField>
                   </BlogDiv>
-                  <BlogBox>
+                  <BlogBox >
                     <AddBlogTypography>
                       <TextfieldComp
                         width="100%"
                         autoComplete="false"
                         onChange={handleChange}
                         name="description"
-                        value={description}
+                        value={values.description}
                         justifyproperty="flex-start"
                         alignproperty="null"
                         multiLine={true}
-                        height="150px"
-                        helperText={errors.description}
-                        error={errors.description && touched.description ? true
-                          : null}
+                        height="250px"
+                        color="transparent"
+                        placeholder={errors.description?"Please add description!":"enter description"}
+                        placeholderColor={errors.description?"red":"#4d4d4d"}
                       />
                     </AddBlogTypography>
                     {errors.image?
                    <Alert severity="error" message="image is not added" />:
+                   previewImage?
 
-                    <AddBlogImage src={previewImage} />
+                    <AddBlogImage src={previewImage} />:
+                    <></>
                     }
                   </BlogBox>
                 </LeftSideGrid>
@@ -152,7 +151,7 @@ const UploadBlogForm = ({
 
 
 
-                  <ProfileButton variant="contained" type="submit" onClick={()=>setStep(step+1)}>
+                  <ProfileButton variant="contained" type="submit" >
 
                     Continue
                   </ProfileButton>

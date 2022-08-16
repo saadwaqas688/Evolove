@@ -66,3 +66,16 @@ export const FieldWrapper = styled(BoxCom)(({ theme ,height ,border}) => ({
                     marginLeft:"0px" ,
                     },
                 }));
+
+
+                export const AddBlogImage = styled("img")(({ src, theme }) => ({
+                  src: `url(${src})`,
+                  width: "100%",
+                  height: "215px",
+                  marginTop: "10px",
+                  borderRadius: "5px",
+                  [theme.breakpoints.down("lg")]: {
+                    width: "100%",
+                    height: '18rem',
+                  },
+                }));

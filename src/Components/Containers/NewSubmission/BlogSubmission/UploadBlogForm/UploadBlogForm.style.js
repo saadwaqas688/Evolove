@@ -3,14 +3,17 @@ import { Colors } from "../../../../../config/palette";
 import BoxCom from "../../../../UI/BoxCom/BoxCom";
 import Button from "../../../../UI/Button/Button";
 
-export const BlogBox = styled(BoxCom)(({ theme }) => ({
+export const BlogBox = styled(BoxCom)(({ theme}) => ({
   background: "#1A1A1C",
   height: "32rem",
-  paddingLeft: "10px",
+  // paddingLeft: "10px",
   // width:"50%",
   paddingBottom: "1.5rem",
   borderRadius: "8px",
   border: "0.25px solid #676F85",
+  // overflow:"scroll",
+  overflowX:"hidden",
+  overflowY:"scroll",
   [theme.breakpoints.down("lg")]: {
     width: "auto",
     padding: '5px',
@@ -21,7 +24,7 @@ export const BlogBox = styled(BoxCom)(({ theme }) => ({
 // image
 export const AddBlogImage = styled("img")(({ src, theme }) => ({
   src: `url(${src})`,
-  width: "95%",
+  width: "100%",
   height: "215px",
   marginTop: "10px",
   borderRadius: "5px",
@@ -38,7 +41,7 @@ export const AddBlogTypography = styled(Typography)(({ theme }) => ({
   fontSize: "12px",
   width: "100%",
   fontFamily: "Poppins",
-  paddingTop: "20px",
+  // paddingTop: "20px",
   lineHeight: "20px",
   [theme.breakpoints.down("lg")]: {
     textAlign: "left",

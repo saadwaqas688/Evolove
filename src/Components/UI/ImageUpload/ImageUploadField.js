@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useField, useFormikContext } from 'formik';
+import {useFormikContext } from 'formik';
 const ImageUploadField = ({
   name,
   children,
@@ -9,16 +9,9 @@ setPreviewImage
 }) => {
 
   const { setFieldValue } = useFormikContext();
-  const [field, mata] = useField(name);
 
 
-  // if (mata && mata.touched && mata.error) {
-  //   configTextfield.error = true;
-  //   configTextfield.helperText = mata.error;
-  //   console.log('mata.error',mata.error)
-  // }
-
-    const handleChange = async (evt) => {
+    const handleChange = (evt) => {
 
         setFieldValue(name, evt.target.files[0]);  
         setPreviewImage(URL.createObjectURL(evt.target.files[0]));
@@ -30,7 +23,8 @@ setPreviewImage
   return (
  <>
     <input
-   accept="image/*"
+       accept={id==="video"? "video/mp4,video/x-m4v,video/*":"image/*"}
+
    style={{ display: 'none'}}
   id={id}
   type="file"

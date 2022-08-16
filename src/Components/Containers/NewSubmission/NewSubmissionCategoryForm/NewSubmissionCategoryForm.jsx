@@ -1,16 +1,30 @@
 import { Grid } from "@mui/material";
-import { useField } from "formik";
 import React from "react";
 import BoxCom from "../../../UI/BoxCom/BoxCom";
 import TextfieldComp from "../../../UI/TextFieldCom/Textfield";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form} from "formik";
 import * as Yup from "yup";
 
 import { CardText, FieldLabel,  FieldWrapper,LeftSideGrid, ProfileButton, RightSideGrid, SubHeading } from "./NewSubmissionCategoryForm.style";
 
 
 const NewSubmissionCategoryForm = ({selectedCategory,title,category,description,setSelectedCategory,setTitle,setCategory,setDescription,setStep,step}) => {
-  const FORM_VALIDATION = Yup.object().shape({
+  let FORM_VALIDATION=""
+  let initialValues=""
+
+  if(selectedCategory==="Blog"){
+   FORM_VALIDATION = Yup.object().shape({
+    title: Yup.string().required("title is required"),
+  
+    category: Yup.string().required("category is required"),
+   
+  });
+  initialValues = {
+    title: "",
+    category:"",
+  };
+}else{
+  FORM_VALIDATION = Yup.object().shape({
     title: Yup.string().required("title is required"),
   
     category: Yup.string().required("category is required"),
@@ -18,18 +32,22 @@ const NewSubmissionCategoryForm = ({selectedCategory,title,category,description,
       description: Yup.string().required("description is required")
    
   });
-
-
-  const initialValues = {
+  initialValues = {
     title: "",
     description:"",
     category:"",
   };
 
+
+}
+
+
+
   function submitHandler({title,category,description}){
     setTitle(title)
     setCategory(category)
     setDescription(description)
+    setStep(step+1)
   }
   return (
          <Grid container  spacing={2} sx={{width:{md:"80%",lg:"100%"}}} >
@@ -134,7 +152,7 @@ const NewSubmissionCategoryForm = ({selectedCategory,title,category,description,
                     : null}
                 />
           </BoxCom>}
-          <ProfileButton type="submit" variant="contained" onClick={()=>setStep(step+1)}  >Continue</ProfileButton>
+          <ProfileButton type="submit" variant="contained" >Continue</ProfileButton>
           </Form>
           </>
         );
