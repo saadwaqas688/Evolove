@@ -40,3 +40,8 @@ export const FormContainer = styled(Box)(({ theme }) => ({
   flexDirection:"column",
 
  }));
+ export const ErrorText = styled("span")(({ theme }) => ({
+  color:"red",
+  display:'flex',
+  justifyContent:'center'
+   }));

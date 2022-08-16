@@ -1,5 +1,5 @@
 import { Box, Container, Grid } from "@mui/material";
-import React from "react";
+import React, {useState} from "react";
 import Button from "../../../../UI/Button/Button";
 import NavBar from "../../../../UI/NavBar/NavBarMain/NavBar";
 import TextfieldComp from "../../../../UI/TextFieldCom/Textfield";
@@ -26,10 +26,11 @@ import { signin } from "./../../../../../services/services";
 
 function Login() {
   const { enqueueSnackbar } = useSnackbar();
-  const [errorData, setErrorData] = React.useState("");
-  const [error, setError] = React.useState(false);
-
   const navigate = useNavigate();
+  const [errorData, setErrorData] = useState("");
+  const [error, setError] = useState(false);
+
+ 
   const validationSchema = yup.object({
     email: yup
       .string()
@@ -50,12 +51,12 @@ function Login() {
       const { email, password } = values;
       signin(email, password)
         .then((res) => {
-           setError(false)
-           enqueueSnackbar("Succesfully LoggedIn", {
+          setError(false);
+          enqueueSnackbar("Succesfully LoggedIn", {
             variant: "success",
             autoHideDuration: 4000,
           });
-          navigate('/home')
+          navigate("/home");
         })
         .catch((error) => {
           setError(true);
@@ -103,7 +104,7 @@ function Login() {
                     value={formik.values.password}
                     onChange={formik.handleChange}
                     error={
-                      formik.touched.email && Boolean(formik.errors.password)
+                      formik.touched.password && Boolean(formik.errors.password)
                     }
                     helperText={
                       formik.touched.password && formik.errors.password
@@ -131,9 +132,8 @@ function Login() {
                     Forgot Password ?
                   </Link>
                 </GridItem>
-                <div style={{width:"100%",}}>
-
-                {error ? <ErrorText>{errorData}</ErrorText> : null}
+                <div style={{ width: "100%" }}>
+                  {error ? <ErrorText>{errorData}</ErrorText> : null}
                 </div>
 
                 <GridItem

@@ -1,5 +1,5 @@
 import { Box, Container, Grid } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import Button from "../../../../UI/Button/Button";
 import Footer from "../../../../UI/Footer/FooterMain/Footer";
 import NavBar from "../../../../UI/NavBar/NavBarMain/NavBar";
@@ -12,34 +12,94 @@ import {
 } from "../../Login/LoginMain/Login.style";
 import googleImage from "../../../../../assets/images/homeOnBoarding/googleImage.png";
 import appleImage from "../../../../../assets/images/homeOnBoarding/appleImage.png";
-
-
-import { FormContainer, Heading, PaperContainer } from "./SignUp.style";
-import { signup } from './../../../../../services/services';
+import { useFormik } from "formik";
+import * as yup from "yup";
+import { useSnackbar } from "notistack";
+import {
+  FormContainer,
+  Heading,
+  PaperContainer,
+  ErrorText,
+} from "./SignUp.style";
+import { signup } from "./../../../../../services/services";
+import { useNavigate } from "react-router-dom";
 // import useAuth from './../../../../../Utils/useAuth';
 
 function SignUp() {
-  const [formData, setFormData] = React.useState({
-    fullName: "",
-    email: "",
-    phoneNumber: "",
-    password: "",
+  const { enqueueSnackbar } = useSnackbar();
+  const navigate = useNavigate();
+  const [errorData, setErrorData] = useState("");
+  const [error, setError] = useState(false);
+  // const [formData, setFormData] = React.useState({
+  //   fullName: "",
+  //   email: "",
+  //   phoneNumber: "",
+  //   password: "",
+  // });
+  // console.log("formdata", formData);
+  // const currentUser = useAuth()
+  // console.log('i am current user',currentUser)
+  // const { fullName, email, phoneNumber, password } = formData;
+  // const handleChange = (e) => {
+  //   setFormData({ ...formData, [e.target.name]: e.target.value });
+  // };
+  // const handleSignup = async () => {
+  //   try {
+  //     await signup(email, password)
+
+  //   } catch (error) {
+  //     alert(error)
+  //   }
+  // }
+
+  const validationSchema = yup.object({
+    name: yup.string().required("Username Required"),
+    email: yup
+      .string()
+      .email("Email format is incorrect")
+      .required("Email required!"),
+    phoneNumber: yup
+      .string()
+      .required("Phone number required!")
+      .matches(
+        /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/,
+        "Phone number is not valid"
+      ),
+
+    password: yup
+      .string("Enter your password")
+      .min(8, "Password should be of minimum 8 characters length")
+      .required("Password is required"),
   });
-  console.log("formdata", formData);
-// const currentUser = useAuth()
-// console.log('i am current user',currentUser)
-  const { fullName, email, phoneNumber, password } = formData;
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-  const handleSignup = async () => {
-    try {
-      await signup(email, password)
-      
-    } catch (error) {
-      alert(error)
-    }
-  }
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      email: "",
+      phoneNumber: "",
+      password: "",
+    },
+    validationSchema: validationSchema,
+    onSubmit: (values) => {
+      const { email, password, phoneNumber, name } = values;
+      signup(email, password)
+        .then((res) => {
+          setError(false);
+          enqueueSnackbar("Succesfully LoggedIn", {
+            variant: "success",
+            autoHideDuration: 4000,
+          });
+          navigate("/home");
+        })
+        .catch((error) => {
+          setError(true);
+          enqueueSnackbar(error.message, {
+            variant: "error",
+            autoHideDuration: 4000,
+          });
+          setErrorData(error.code);
+        });
+    },
+  });
   return (
     <Box sx={{ background: "#131315" }}>
       <NavBar />
@@ -48,57 +108,85 @@ function SignUp() {
           <Heading>SignUp</Heading>
 
           <FormContainer>
-            <Grid container spacing={1}>
-              <Grid item xs={12}>
-                <TextfieldComp
-                  height="60px"
-                  placeholder="Full Name"
-                  onChange={handleChange}
-                  name="fullName"
-                  value={fullName}
-                />
+            <form onSubmit={formik.handleSubmit}>
+              <Grid container spacing={1}>
+                <Grid item xs={12}>
+                  <TextfieldComp
+                    height="60px"
+                    placeholder="Full Name"
+                    onChange={formik.handleChange}
+                    error={formik.touched.name && Boolean(formik.errors.name)}
+                    helperText={formik.touched.name && formik.errors.name}
+                    name="name"
+                    id="name"
+                    value={formik.values.name}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextfieldComp
+                    height="60px"
+                    placeholder="Email"
+                    onChange={formik.handleChange}
+                    error={formik.touched.email && Boolean(formik.errors.email)}
+                    helperText={formik.touched.email && formik.errors.email}
+                    name="email"
+                    id="email"
+                    value={formik.values.email}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextfieldComp
+                    height="60px"
+                    placeholder="PhoneNumber"
+                    name="phoneNumber"
+                    onChange={formik.handleChange}
+                    error={
+                      formik.touched.phoneNumber &&
+                      Boolean(formik.errors.phoneNumber)
+                    }
+                    helperText={
+                      formik.touched.phoneNumber && formik.errors.phoneNumber
+                    }
+                    id="phoneNumber"
+                    value={formik.values.phoneNumber}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextfieldComp
+                    height="60px"
+                    type="password"
+                    placeholder="Password"
+                    name="password"
+                    id="password"
+                    value={formik.values.password}
+                    onChange={formik.handleChange}
+                    error={
+                      formik.touched.password && Boolean(formik.errors.password)
+                    }
+                    helperText={
+                      formik.touched.password && formik.errors.password
+                    }
+                  />
+                </Grid>
+                <div style={{ width: "100%" }}>
+                  {error ? <ErrorText>{errorData}</ErrorText> : null}
+                </div>
+                <Grid
+                  item
+                  xs={12}
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    marginTop: "30px",
+                  }}
+                >
+                  <Button variant="contained" type="submit">
+                    Sign up
+                  </Button>
+                </Grid>
               </Grid>
-              <Grid item xs={12}>
-                <TextfieldComp
-                  height="60px"
-                  placeholder="Email"
-                  onChange={handleChange}
-                  name="email"
-                  value={email}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextfieldComp
-                  height="60px"
-                  placeholder="PhoneNumber"
-                  onChange={handleChange}
-                  name="phoneNumber"
-                  value={phoneNumber}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextfieldComp
-                  height="60px"
-                  type="password"
-                  placeholder="Password"
-                  onChange={handleChange}
-                  name="password"
-                  value={password}
-                />
-              </Grid>
-              <Grid
-                item
-                xs={12}
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  marginTop: "30px",
-                }}
-              >
-                <Button variant="contained" onClick={handleSignup}>Sign up</Button>
-              </Grid>
-            </Grid>
+            </form>
           </FormContainer>
           <OrWithText>or with</OrWithText>
           <ImageContainerMain>

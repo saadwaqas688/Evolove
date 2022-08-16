@@ -14,28 +14,37 @@ import { TodoIcon } from "../../../../assets/icons/TodoIcon";
 import ShopIcon from "../../../../assets/icons/ShopIcon";
 import WalletIcon from "../../../../assets/icons/WalletIcon";
 import {LogOutIcon} from "../../../../assets/icons/LogOutIcon";
-
 import { MoonCalanderIcon } from "../../../../assets/icons/MoonCalanderIcon";
 import {ListItemTextContainer,ListItemIconContainer} from "./SideBarLinks.style";
 import { getBasePath } from "../../../../Utils/utils";
 import { useNavigate } from 'react-router-dom';
-import { signOut } from 'firebase/auth';
-
+import { useSnackbar } from "notistack";
+import {signout} from './../../../../services/services.js'
 
 
 const SideBarLinks = () => {
   const navigate = useNavigate()
-
+  const { enqueueSnackbar } = useSnackbar();
   let { pathname } = useLocation();
   pathname=getBasePath(pathname)
-  const logoutHandler = () => {
-    try {
-      signOut()
-      navigate('/')
-    } catch (error) {
+
+
+  const logoutHandler = async() => {
+    await signout()
+    .then((res) => {
+      enqueueSnackbar("Logout Succesfully", {
+        variant: "success",
+        autoHideDuration: 4000,
+      });
+      navigate("/");
+    })
+    .catch((error) => {
+      enqueueSnackbar(error.message, {
+        variant: "error",
+        autoHideDuration: 4000,
+      });
       
-    }
-    navigate('/')
+    });
   }
   return (
     <BoxCom sx={{background:Colors.dark}}>
