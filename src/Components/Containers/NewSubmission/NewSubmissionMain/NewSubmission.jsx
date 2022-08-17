@@ -1,5 +1,5 @@
 import { useSnackbar } from "notistack";
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { imagePostService, postService } from "../../../../services/services";
 import { BlogSubmitForm } from "../BlogSubmission/BlogSubmiForm/BlogSubmitForm";
@@ -11,53 +11,41 @@ import ProductSubmitForm from "../ProductSubmission/ProductSubmitForm";
 import { Heading, MainContainer } from "./NewSubmission.style";
 
 const NewSubmission = () => {
-  const [selectedCategory, setSelectedCategory] = React.useState("Course");
-  const [step, setStep] = React.useState(1);
-  const [title, setTitle] = React.useState("");
-
-  const [category, setCategory] = React.useState("");
-
-  const [description, setDescription] = React.useState("");
-
-  const [image, setImage] = React.useState("");
-
-  const [previewImage, setPreviewImage] = React.useState("");
-
-  const [featureImage, setFeatureImage] = React.useState("");
-
-  const [previewFeatureImage, setPreviewFeatureImage] = React.useState("");
-
-  const [video, setVideo] = React.useState("");
-
-  const [previewVideo, setPreviewVideo] = React.useState("");
-
-  const [price, setPrice] = React.useState("");
-
-  const [priceCategory, setPriceCategory] = React.useState("Fixed Price");
-
-  const [loading, setLoading] = React.useState(false);
+  const [newSubmissionState, setNewSubmissionState] = useState({
+    selectedCategory: "Course",
+    step: 1,
+    title: "",
+    category: "",
+    description: "",
+    image: "",
+    previewImage: "",
+    featureImage: "",
+    previewFeatureImage: "",
+    video: "",
+    previewVideo: "",
+    price: "",
+    priceCategory: "Fixed Price",
+    loading: false,
+  });
 
   const { enqueueSnackbar } = useSnackbar();
 
   let navigate = useNavigate();
 
-  const propsForUploadBlogForm = {
+  const {
+    selectedCategory,
     step,
-    setStep,
-    setPreviewImage,
-    previewImage,
-    image,
-    setImage,
+    title,
+    category,
     description,
-    setDescription,
+    image,
     featureImage,
-    previewFeatureImage,
-    setFeatureImage,
-    setPreviewFeatureImage,
-  };
+    video,
+    priceCategory,
+  } = newSubmissionState;
 
   async function submitApiCall(payload) {
-    setLoading(true);
+    setNewSubmissionState({ ...newSubmissionState, loading: true });
 
     if (selectedCategory === "Course") {
       const imageUrl = await imagePostService(image);
@@ -73,7 +61,7 @@ const NewSubmission = () => {
         category: category,
       };
 
-      const result = await postService("testWaqasCourse", data);
+      await postService("testWaqasCourse", data);
     } else if (selectedCategory === "Product") {
       const imageUrl = await imagePostService(payload.image);
 
@@ -86,7 +74,7 @@ const NewSubmission = () => {
         category: category,
       };
 
-      const result = await postService("testWaqasProduct", data);
+      await postService("testWaqasProduct", data);
     } else {
       const imageUrl = await imagePostService(image);
       const featureImageUrl = await imagePostService(featureImage);
@@ -101,9 +89,9 @@ const NewSubmission = () => {
         category: category,
       };
 
-      const result = await postService("testWaqasBlogs", data);
+      await postService("testWaqasBlogs", data);
     }
-    setLoading(false);
+    setNewSubmissionState({ ...newSubmissionState, loading: false });
     enqueueSnackbar("successfully created", {
       variant: "success",
       autoHideDuration: 4000,
@@ -112,80 +100,36 @@ const NewSubmission = () => {
     navigate("/newSubmissionSuccess");
   }
 
+  const propsForAll = {
+    newSubmissionState,
+    setNewSubmissionState,
+    submitApiCall,
+  };
+
+  function renderComponents() {
+    if (step === 1) {
+      return <NewSubmissionCategoryForm {...propsForAll} />;
+    } else if (step === 2 && selectedCategory === "Product") {
+      return <ProductSubmitForm {...propsForAll} />;
+    } else if (step === 2 && selectedCategory === "Course") {
+      return <CourseVideoAndImageUpload {...propsForAll} />;
+    } else if (step === 2 && selectedCategory === "Blog") {
+      return <UploadBlogForm {...propsForAll} />;
+    } else if (step === 3 && selectedCategory === "Blog") {
+      return <BlogSubmitForm {...propsForAll} />;
+    } else if (step === 3 && selectedCategory === "Course") {
+      return <CreateCourseMoudle {...propsForAll} />;
+    } else if (step === 4 && selectedCategory === "Course") {
+      return <BlogSubmitForm {...propsForAll} />;
+    } else {
+      return <></>;
+    }
+  }
+
   return (
     <MainContainer>
       <Heading>New Submission</Heading>
-      {/* <CreateCourseMoudle/> */}
-      {/* <CourseVideoAndImageUpload/> */}
-      {step === 1 && (
-        <NewSubmissionCategoryForm
-          setStep={setStep}
-          step={step}
-          selectedCategory={selectedCategory}
-          title={title}
-          category={category}
-          description={description}
-          setSelectedCategory={setSelectedCategory}
-          setTitle={setTitle}
-          setCategory={setCategory}
-          setDescription={setDescription}
-        />
-      )}
-      {step === 2 && selectedCategory === "Blog" ? (
-        <UploadBlogForm {...propsForUploadBlogForm} />
-      ) : step === 2 && selectedCategory === "Product" ? (
-        <ProductSubmitForm
-          submitApiCall={submitApiCall}
-          loading={loading}
-          setPreviewImage={setPreviewImage}
-          previewImage={previewImage}
-        />
-      ) : step === 2 && selectedCategory === "Course" ? (
-        <CourseVideoAndImageUpload
-          setStep={setStep}
-          step={step}
-          setImage={setImage}
-          setPreviewVideo={setPreviewVideo}
-          setVideo={setVideo}
-          video={video}
-          previewVideo={previewVideo}
-          previewImage={previewImage}
-          setPreviewImage={setPreviewImage}
-        />
-      ) : step === 3 && selectedCategory === "Blog" ? (
-        <BlogSubmitForm
-          setStep={setStep}
-          step={step}
-          loading={loading}
-          submitApiCall={submitApiCall}
-          price={price}
-          setPrice={setPrice}
-          priceCategory={priceCategory}
-          setPriceCategory={setPriceCategory}
-        />
-      ) : step === 3 && selectedCategory === "Blog" ? (
-        <BlogSubmitForm
-          price={price}
-          setPrice={setPrice}
-          priceCategory={priceCategory}
-          setPriceCategory={setPriceCategory}
-        />
-      ) : step === 3 && selectedCategory === "Course" ? (
-        <CreateCourseMoudle setStep={setStep} step={step} />
-      ) : step === 4 && selectedCategory === "Course" ? (
-        <BlogSubmitForm
-          setStep={setStep}
-          step={step}
-          loading={loading}
-          submitApiCall={submitApiCall}
-          price={price}
-          setPrice={setPrice}
-          priceCategory={priceCategory}
-          setPriceCategory={setPriceCategory}
-        />
-      ) : (
-        <></>
-      )}
+      {renderComponents()}
     </MainContainer>
   );
 };

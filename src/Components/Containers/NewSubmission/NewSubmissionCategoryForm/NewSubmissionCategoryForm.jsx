@@ -8,7 +8,9 @@ import * as Yup from "yup";
 import { CardText, FieldLabel,  FieldWrapper,LeftSideGrid, ProfileButton, RightSideGrid, SubHeading } from "./NewSubmissionCategoryForm.style";
 
 
-const NewSubmissionCategoryForm = ({selectedCategory,title,category,description,setSelectedCategory,setTitle,setCategory,setDescription,setStep,step}) => {
+const NewSubmissionCategoryForm = ({newSubmissionState,setNewSubmissionState}) => {
+  const {selectedCategory}=newSubmissionState
+
   let FORM_VALIDATION=""
   let initialValues=""
 
@@ -41,32 +43,32 @@ const NewSubmissionCategoryForm = ({selectedCategory,title,category,description,
 
 }
 
+function handleCategorySelector(category){
 
+  setNewSubmissionState({...newSubmissionState,selectedCategory:category})
+}
 
   function submitHandler({title,category,description}){
-    setTitle(title)
-    setCategory(category)
-    setDescription(description)
-    setStep(step+1)
+    setNewSubmissionState({...newSubmissionState,title,category,description,step:newSubmissionState.step+1})
   }
   return (
          <Grid container  spacing={2} sx={{width:{md:"80%",lg:"100%"}}} >
             <LeftSideGrid item xs={12} sm={6} md={12} lg={4.5}>
             <SubHeading>Select what type you want to submit</SubHeading>
 
-            <FieldWrapper height={"60px"}  border={selectedCategory==="Course"?true:false} onClick={()=>setSelectedCategory("Course")}> 
+            <FieldWrapper height={"60px"}  border={selectedCategory==="Course"?true:false} onClick={()=>handleCategorySelector("Course")}> 
                 <CardText >
                 Course
                 </CardText>
                 </FieldWrapper>
 
-                <FieldWrapper height={"60px"} border={selectedCategory==="Product"?true:false} onClick={()=>setSelectedCategory("Product")}>
+                <FieldWrapper height={"60px"} border={selectedCategory==="Product"?true:false} onClick={()=>handleCategorySelector("Product")}>
                 <CardText >
                  Product
                 </CardText>
                 </FieldWrapper>
 
-                <FieldWrapper height={"60px"} border={selectedCategory==="Blog"?true:false} onClick={()=>setSelectedCategory("Blog")}>
+                <FieldWrapper height={"60px"} border={selectedCategory==="Blog"?true:false} onClick={()=>handleCategorySelector("Blog")}>
                 <CardText >
                 Blog
                 </CardText>
@@ -84,7 +86,7 @@ const NewSubmissionCategoryForm = ({selectedCategory,title,category,description,
       }}
     >
       {(formik) => {
-        const { errors, touched, isValid, dirty,values,  handleChange, } = formik;
+        const { errors, touched,values,  handleChange, } = formik;
         console.log("errors",errors)
         console.log("touched",touched)
         return (
@@ -104,7 +106,7 @@ const NewSubmissionCategoryForm = ({selectedCategory,title,category,description,
                   value={values.title}
                   justifyproperty="flex-start"
                   alignproperty="null"
-                  helperText={errors.title}
+                  helperText={(touched.title && errors.title)?errors.title:""}
                   error={errors.title && touched.title ? true
                     : null}
                 />
@@ -124,7 +126,7 @@ const NewSubmissionCategoryForm = ({selectedCategory,title,category,description,
                   value={values.category}
                   justifyproperty="flex-start"
                   alignproperty="null"
-                  helperText={errors.category}
+                  helperText={(touched.category && errors.category)?errors.category:""}
                   error={errors.category && touched.category ? true
                     : null}
 
@@ -138,7 +140,6 @@ const NewSubmissionCategoryForm = ({selectedCategory,title,category,description,
           <TextfieldComp
                   width="100%"
                   autoComplete="false"
-                  // onChange={(e) => setDescription(e.target.value)}
                   onChange={handleChange}
                   name="description"
                   value={values.description}
@@ -146,8 +147,7 @@ const NewSubmissionCategoryForm = ({selectedCategory,title,category,description,
                   alignproperty="null"
                   multiLine={true} 
                   height="150px"
-                  // error={true}
-                  helperText={errors.description}
+                  helperText={(touched.description && errors.description)?errors.description:""}
                   error={errors.description && touched.description ? true
                     : null}
                 />

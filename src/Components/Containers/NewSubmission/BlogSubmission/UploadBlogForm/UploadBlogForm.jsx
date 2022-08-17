@@ -1,9 +1,8 @@
 import { Grid } from "@mui/material";
 import BlogCameraIcon from "../../../../../assets/icons/BlogCameraIcon";
 import { UploadHereIcon } from "../../../../../assets/icons/UploadHereIcon";
-import ShopImage from "../../../../../assets/images/homeOnBoarding/unsplash_Z3whZQGUPAE.png";
 import TextfieldComp from "../../../../UI/TextFieldCom/Textfield";
-import { Formik, Form, Field, ErrorMessage, useFormikContext } from "formik";
+import { Formik, Form,useFormikContext } from "formik";
 import * as Yup from "yup";
 import {
   AddBlogImage,
@@ -24,26 +23,13 @@ import ImageUploadField from "../../../../UI/ImageUpload/ImageUploadField";
 import Alert from "../../../../UI/Alert/Alert";
 
 const UploadBlogForm = ({
-  step,
-  setStep,
-  setPreviewImage,
-  previewImage,
-  image,
-  setImage,
-  description,
-  setDescription,
-  featureImage,
-  previewFeatureImage,
-  setFeatureImage,
-  setPreviewFeatureImage,
+  newSubmissionState,
+  setNewSubmissionState,
 }) => {
   const setFieldValue = useFormikContext();
   console.log("setFieldValue", setFieldValue);
 
   const FORM_VALIDATION = Yup.object().shape({
-    // title: Yup.string().required("title is required"),
-
-    // category: Yup.string().required("category is required"),
     image:Yup.mixed()
     .required("You need to provide a file"),
 
@@ -59,11 +45,19 @@ const UploadBlogForm = ({
     featureImage:""
   };
 
+  function handleSetPreviewImage(previewImage){
+
+    setNewSubmissionState({...newSubmissionState,previewImage})
+  }
+
+  function handleSetPreviewFeatureImage(previewFeatureImage){
+
+    setNewSubmissionState({...newSubmissionState,previewFeatureImage})
+  }
+
   function submitHandler({ image,featureImage, description }) {
-    setFeatureImage(featureImage)
-    setDescription(description);
-    setImage(image);
-    setStep(step+1)
+    setNewSubmissionState({...newSubmissionState,featureImage,image,description,step:newSubmissionState.step+1})
+
   }
   return (
     <Formik
@@ -85,7 +79,7 @@ const UploadBlogForm = ({
                   <BlogDiv>
                     <BlogTypography>Write blog here</BlogTypography>
 
-                    <ImageUploadField name="image" setPreviewImage={setPreviewImage}>
+                    <ImageUploadField name="image" setPreviewImage={handleSetPreviewImage}>
                       <label htmlFor="file">
                         <MainTypography>
                           <BlogCameraIcon />
@@ -107,15 +101,15 @@ const UploadBlogForm = ({
                         multiLine={true}
                         height="250px"
                         color="transparent"
-                        placeholder={errors.description?"Please add description!":"enter description"}
+                        placeholder={(touched.description && errors.description)?"Please add description!":"enter description"}
                         placeholderColor={errors.description?"red":"#4d4d4d"}
                       />
                     </AddBlogTypography>
-                    {errors.image?
+                    {(touched.image && errors.image)?
                    <Alert severity="error" message="image is not added" />:
-                   previewImage?
+                   newSubmissionState.previewImage?
 
-                    <AddBlogImage src={previewImage} />:
+                    <AddBlogImage src={newSubmissionState.previewImage} />:
                     <></>
                     }
                   </BlogBox>
@@ -127,13 +121,13 @@ const UploadBlogForm = ({
                   </SubHeading>
                   <FeatureImageTypography>Feature Image</FeatureImageTypography>
 
-                    <ImageUploadField name="featureImage" id="featureImage"setPreviewImage={setPreviewFeatureImage}>
+                    <ImageUploadField name="featureImage" id="featureImage" setPreviewImage={handleSetPreviewFeatureImage}>
                     <label htmlFor="featureImage">
 
                     {
-                      errors.featureImage?
+                      (touched.featureImage && errors.featureImage)?
                       <Alert severity="error" message="feature image is not added! please click here to add feature image" />:
-                      !previewFeatureImage?
+                      !newSubmissionState.previewFeatureImage?
                                       <AddBlogImageBox>
 
 
@@ -141,7 +135,7 @@ const UploadBlogForm = ({
                     </AddBlogImageBox>
 
                     :
-                  <AddBlogImage src={previewFeatureImage} />
+                  <AddBlogImage src={newSubmissionState.previewFeatureImage} />
                     }
                   </label>
 

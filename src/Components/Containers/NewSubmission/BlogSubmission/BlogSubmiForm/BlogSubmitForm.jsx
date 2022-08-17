@@ -7,7 +7,8 @@ import { Formik, Form} from "formik";
 import * as Yup from "yup";
 
 
-export const BlogSubmitForm = ({setPrice,priceCategory,setPriceCategory,submitApiCall,loading}) => {
+export const BlogSubmitForm = ({newSubmissionState,
+  setNewSubmissionState,submitApiCall}) => {
 
   const FORM_VALIDATION = Yup.object().shape({
     price: Yup.string().required("price is required"),
@@ -19,9 +20,15 @@ export const BlogSubmitForm = ({setPrice,priceCategory,setPriceCategory,submitAp
     price: "",
   };
 
+  function handleCategorySelector(priceCategory){
+
+    setNewSubmissionState({...newSubmissionState,priceCategory})
+  }
+
+  
   function submitHandler({price}){
 
-    const payload={price:price}
+    const payload={price}
     submitApiCall(payload)
   }
   return (
@@ -30,13 +37,13 @@ export const BlogSubmitForm = ({setPrice,priceCategory,setPriceCategory,submitAp
             <LeftSideGrid item xs={12} sm={6} md={12} lg={4.5}>
             <SubHeading>Choose your pricing type</SubHeading>
 
-            <FieldWrapper height={"56px"}  border={priceCategory==="Fixed Price"?true:false} onClick={()=>setPriceCategory("Fixed Price")}>
+            <FieldWrapper height={"56px"}  border={newSubmissionState.priceCategory==="Fixed Price"?true:false} onClick={()=>handleCategorySelector("Fixed Price")}>
                 <CardText >
                 Fixed Price
                 </CardText>
                 </FieldWrapper>
 
-                <FieldWrapper height={"56px"} border={priceCategory==="Evolove Subscription"?true:false}  onClick={()=>setPriceCategory("Evolove Subscription")}>
+                <FieldWrapper height={"56px"} border={newSubmissionState.priceCategory==="Evolove Subscription"?true:false}  onClick={()=>handleCategorySelector("Evolove Subscription")}>
                 <CardText >
                  Evolove Subscription
                 </CardText>
@@ -79,7 +86,7 @@ export const BlogSubmitForm = ({setPrice,priceCategory,setPriceCategory,submitAp
                 />
           </BoxCom>
 
-          <ProfileButton variant="contained" type="submit" sx={{marginTop:"200px"}} disabled={loading?true:false} >{loading?"please wait....":"Submit"}</ProfileButton>
+          <ProfileButton variant="contained" type="submit" sx={{marginTop:"200px"}} disabled={newSubmissionState.loading?true:false} >{newSubmissionState.loading?"please wait....":"Submit"}</ProfileButton>
           </Form>
           </>
         );

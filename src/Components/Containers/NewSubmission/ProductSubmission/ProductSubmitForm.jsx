@@ -18,15 +18,10 @@ import ImageUploadField from "../../../UI/ImageUpload/ImageUploadField";
 import Alert from "../../../UI/Alert/Alert";
 
 const ProductSubmitForm = ({
-  setPrice,
-  priceCategory,
-  setPriceCategory,
-  submitApiCall,
-  loading,
-  setPreviewImage,
-  previewImage
+  newSubmissionState,
+  setNewSubmissionState,
+  submitApiCall
 }) => {
-  const [productPrice, setProductPrice] = React.useState("$ 980");
   const FORM_VALIDATION = Yup.object().shape({
     price: Yup.string().required("price is required"),
     image:Yup.mixed()
@@ -38,10 +33,15 @@ const ProductSubmitForm = ({
     image:""
   };
 
+  function handleSetPreviewImage(previewImage){
+
+    setNewSubmissionState({...newSubmissionState,previewImage})
+  }
+
   function submitHandler({ price,image }) {
     const payload={
-      image:image,
-      price:price
+      image,
+      price
     }
     submitApiCall(payload);
   }
@@ -70,14 +70,14 @@ const ProductSubmitForm = ({
                   <FieldLabel sx={{ marginTop: "50px" }}>
                     Product Image
                   </FieldLabel>
-                  <ImageUploadField name="image" setPreviewImage={setPreviewImage}>
+                  <ImageUploadField name="image" setPreviewImage={handleSetPreviewImage}>
                       <label htmlFor="file">
                   <FieldWrapper height={"190px"} sx={{ borderRadius: "8px"}}>
                     {errors.image?
                       <Alert severity="error" message="image is not added! please click here to add image" />:
-                      !previewImage?
+                      !newSubmissionState.previewImage?
                     <UploadHereIcon />:
-                    <AddBlogImage src={previewImage} />
+                    <AddBlogImage src={newSubmissionState.previewImage} />
                     }
 
                   </FieldWrapper>
@@ -115,9 +115,9 @@ const ProductSubmitForm = ({
                     variant="contained"
                     type="submit"
                     sx={{ marginTop: "200px" }}
-                    disabled={loading ? true : false}
+                    disabled={newSubmissionState.loading ? true : false}
                   >
-                    {loading ? "please wait...." : "Submit"}
+                    {newSubmissionState.loading ? "please wait...." : "Submit"}
                   </ProfileButton>
                 </RightSideGrid>
               </Grid>

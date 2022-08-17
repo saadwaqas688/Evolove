@@ -16,15 +16,8 @@ import ImageUploadField from "../../../../UI/ImageUpload/ImageUploadField";
 import Alert from "../../../../UI/Alert/Alert";
 
 const CourseVideoAndImageUpload = ({
-  setStep,
-  step,
-  setPreviewVideo,
-  setPreviewImage,
-  previewImage,
-  setImage,
-  setVideo,
-  video,
-  previewVideo,
+  newSubmissionState,
+  setNewSubmissionState,
 }) => {
   const FORM_VALIDATION = Yup.object().shape({
     image: Yup.string().required("price is required"),
@@ -36,12 +29,21 @@ const CourseVideoAndImageUpload = ({
     video: "",
   };
 
-  function submitHandler({video, image}) {
-    setImage(image);
-    setVideo(video);
-    setStep(step + 1)
+  function handleSetPreviewImage(previewImage){
+
+    setNewSubmissionState({...newSubmissionState,previewImage})
+  }
+
+  function handleSetPreviewVideo(previewVideo){
+
+    setNewSubmissionState({...newSubmissionState,previewVideo})
+  }
+
+  function submitHandler({ image,video}) {
+    setNewSubmissionState({...newSubmissionState,video,image,step:newSubmissionState.step+1})
 
   }
+
   return (
     <Formik
       initialValues={initialValues}
@@ -53,8 +55,6 @@ const CourseVideoAndImageUpload = ({
     >
       {(formik) => {
         const { errors, touched} = formik;
-        console.log("errors", errors);
-        console.log("touched", touched);
         return (
           <>
             <Form>
@@ -73,18 +73,18 @@ const CourseVideoAndImageUpload = ({
 
                   <ImageUploadField
                     name="image"
-                    setPreviewImage={setPreviewImage}
+                    setPreviewImage={handleSetPreviewImage}
                   >
                     <label htmlFor="file">
                       <FieldWrapper
                         height={"177px"}
                         sx={{ borderRadius: "8px" }}
                       >
-                            {errors.image?
+                            {(touched.image && errors.image)?
                    <Alert severity="error" message="image is not added" />:
-                   previewImage?
+                   newSubmissionState.previewImage?
 
-                    <AddBlogImage src={previewImage} />:
+                    <AddBlogImage src={newSubmissionState.previewImage} />:
                     <UploadHereIcon />
 
                     }
@@ -98,17 +98,17 @@ const CourseVideoAndImageUpload = ({
 
                   <ImageUploadField
                     name="video"
-                    setPreviewImage={setPreviewVideo}
+                    setPreviewImage={handleSetPreviewVideo}
                     id="video"
                   >
                     <label htmlFor="video">
                       <FieldWrapper height={"177px"}>
-                      {errors.video?
-                   <Alert severity="error" message="image is not added" />:
-                   previewVideo?
+                      {(touched.video && errors.video)?
+                   <Alert severity="error" message="video is not added! please click here to add video" />:
+                   newSubmissionState.previewVideo?
 
                    <video
-                   src={previewVideo}
+                   src={newSubmissionState.previewVideo}
                    controls
                   style={{ width: "100%", height: "100%" }}
                 />:

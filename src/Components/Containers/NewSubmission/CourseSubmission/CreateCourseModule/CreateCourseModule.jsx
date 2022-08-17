@@ -10,7 +10,7 @@ import { Count } from "./CreateCourseModule.style";
 import { CardText, FieldLabel,  FieldWrapper,LeftSideGrid, ProfileButton, RightSideGrid, SubHeading } from "./CreateCourseModule.style";
 
 
-const CreateCourseModule = ({selectedCategory,title,category,description,setSelectedCategory,setTitle,setCategory,setDescription,setStep,step}) => {
+const CreateCourseModule = ({    newSubmissionState,setNewSubmissionState,selectedCategory,title,category,description,setSelectedCategory,setTitle,setCategory,setDescription,setStep,step}) => {
   return (
          <Grid container  spacing={8} sx={{width:{md:"80%",lg:"100%"}}} >
             <LeftSideGrid item xs={12} sm={6} md={12} lg={6}>
@@ -97,7 +97,7 @@ const CreateCourseModule = ({selectedCategory,title,category,description,setSele
 
                 </CricullumIntroWrapper>
           </BoxCom>
-          <ProfileButton variant="contained" onClick={()=>setStep(step+1)} >Continue</ProfileButton>
+          <ProfileButton variant="contained" onClick={()=>setNewSubmissionState({...newSubmissionState,step:newSubmissionState.step+1})} >Continue</ProfileButton>
           </RightSideGrid>
             </Grid>
     
