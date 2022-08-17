@@ -22,13 +22,15 @@ import HomeCourseCard from "../../Home/HomeCourseCard/HomeCourseCard";
 import ProfileImage from "../../../../assets/images/homeOnBoarding/profileImg.png";
 import SettingIcon from "../../../../assets/icons/SettingIcon";
 import BlogCard from "../../Blog/BlogCard/BlogCard";
-import { Link } from "react-router-dom";
+import { Link ,useNavigate} from "react-router-dom";
 import { useLocation } from "react-router";
 import { getBasePath } from "../../../../Utils/utils";
 
 const UserProfile = () => {
   const [filter, setFilter] = useState("courses");
   const [status, setStatus] = useState("Active");
+  let navigate = useNavigate();
+
 
   let { pathname } = useLocation();
   pathname=getBasePath(pathname)  
@@ -38,6 +40,9 @@ const UserProfile = () => {
     setFilter(selectedTab);
   }
 
+  function handleNavigation(path){
+    navigate(path)
+  }
 
 
   return (
@@ -56,14 +61,14 @@ const UserProfile = () => {
             <ButtonForDesktop>
               <ProfileButton
                 variant="contained"
-                href="/coachProfile/salesBoard"
+                onClick={()=>{handleNavigation("/coachProfile/salesBoard")}}
                 sx={{ width: "80%", marginLeft: "auto", marginRight: "0px" }}
               >
                 Sales Board
               </ProfileButton>
               <ProfileButton
                 variant="contained"
-                href="/coachProfile/newSubmission"
+                onClick={()=>{handleNavigation("/coachProfile/newSubmission")}}
                 sx={{ marginTop: "20px", width: "100%" }}
               >
                 New Submission
