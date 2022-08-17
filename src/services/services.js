@@ -1,5 +1,5 @@
 import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, updateDoc } from "firebase/firestore";
-import { deleteObject, ref } from "firebase/storage";
+import { deleteObject, getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { db, storage } from "../config/Firebase/firebase";
 
   export const getService = async (path) => {
@@ -55,3 +55,37 @@ import { db, storage } from "../config/Firebase/firebase";
           export   const getSubCollectionService = async(path,id,subCollection) => {
             return await getDocs(collection(db, path,id,subCollection));
             };
+
+
+
+
+            export   const imagePostService =  async (image) =>  {
+
+                    return new Promise(function(resolve, reject) {
+                      const name2 = new Date().getTime() + "" + image.name;
+                      const storageRef = ref(storage, "photos/" + name2);
+                      const uploadTask = uploadBytesResumable(storageRef, image);
+                      uploadTask.on('state_changed',
+                        function(snapshot) {
+                          var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+                          console.log('Upload is ' + progress + '% done')
+                        },
+                        (error) => {
+                          console.log('error', error)
+
+                          reject(error)
+
+                       },
+                        () => {
+                          getDownloadURL(uploadTask.snapshot.ref).then(
+                             (downloadURL) => {
+                              resolve(downloadURL)
+                             }
+    
+                            
+                          );
+                        }
+                      )
+                    })
+    
+            }
