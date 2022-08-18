@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import AboutUs from "../Components/Containers/Auth/AboutUs/AboutUsMain/AboutUsMain";
 import HomeOnBoarding from "../Components/Containers/Auth/HomeOnBoarding/HomeOnBoardingMain/HomeOnBoarding";
 import ContactUs from "../Components/Containers/Auth/ContactUs/ContactUsMain/ContactUsMain";
@@ -35,7 +35,16 @@ import NewSubmissionSuccess from "../Components/Containers/NewSubmission/NewSubm
 import NewSubmission from "../Components/Containers/NewSubmission/NewSubmissionMain/NewSubmission";
 import MoonCalendar from "../Components/Containers/MoonCalendar/MoonCalendar";
 import Todo from "../Components/Containers/Todo/TodoMain/Todo";
+import ProtectedRoutes from './ProtectedRoutes';
+import useAuth from './../Utils/useAuth';
+
+
 const ApplicationRoutes = () => {
+  const {loggedIn, checkingStatus} = useAuth() 
+  // const logged = localStorage.getItem('authentication')
+  // console.log('loggggggggggggg', logged)
+ 
+  
   return (
     <>
       <BrowserRouter>
@@ -48,9 +57,16 @@ const ApplicationRoutes = () => {
           <Route path="/forgotPassword" element={<ForgetPassword />} />
           <Route path="/VerifyCode" element={<CheckEmail />} />
           <Route path="/verifyCodeStepOne" element={<VerifyCodeStepOne />} />
-          <Route path="/PasswordResetSuccess" element={<PasswordResetSuccess />} />
+          <Route
+            path="/PasswordResetSuccess"
+            element={<PasswordResetSuccess />}
+          />
           <Route path="/newPassword" element={<NewPassword />} />
-          <Route element={<AppWrapper />}>
+
+      
+          {/* <Route  path ="/" element={<ProtectedRoutes/>}> */}
+          <Route  element={<AppWrapper />}>
+            {/* <Route path="/" element={<Navigate to="home"/>}/> */}
             <Route path="/home" element={<Home />} />
             <Route path="/home/allCourses" element={<AllCourses />} />
             <Route path="/home/allCoaches" element={<AllCoaches />} />
@@ -62,7 +78,7 @@ const ApplicationRoutes = () => {
             <Route path="/shop/tickets" element={<AllTickets />} />
             <Route path="/favorite" element={<Favorite />} />
             <Route path="/wallet" element={<Wallet />} />
-            <Route path="/walletWithDrawSuccess" element={<WalletWithDrawSuccess />} />
+            <Route path="/walletWithDrawSuccess" element={<WalletWithDrawSuccess />}/>
             <Route path="/walletWithDraw" element={<WalletWithDraw />} />
             <Route path="/profile" element={<UserProfile />} />
             <Route path="/profile/setting" element={<EditProfile />} />
@@ -73,27 +89,19 @@ const ApplicationRoutes = () => {
             <Route path="/subscriptionSuccess" element={<SubscriptionSuccess />} />
             <Route path="/shop/singleProduct" element={<SingleProduct />} />
             <Route path="/home/categories/:category" element={<AllCourses />} />
-
-
             <Route path="/test" element={<Test />} />
-            <Route path="/coachProfile/newSubmission" element={<NewSubmission />} />
-            <Route path="/newSubmissionSuccess" element={<NewSubmissionSuccess />} />
-            <Route path="/todo" element={<Todo/>} />
-            <Route path="/moonCalender" element={<MoonCalendar/>} />
-
-
-
-            
-
-
-
-
-
-
-
-
-
+            <Route
+              path="/coachProfile/newSubmission"
+              element={<NewSubmission />}
+            />
+            <Route
+              path="/newSubmissionSuccess"
+              element={<NewSubmissionSuccess />}
+            />
+            <Route path="/todo" element={<Todo />} />
+            <Route path="/moonCalender" element={<MoonCalendar />} />
           </Route>
+           {/* </Route> */}
         </Routes>
       </BrowserRouter>
     </>
