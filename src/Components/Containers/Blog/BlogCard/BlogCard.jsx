@@ -1,8 +1,7 @@
-import {
-  Grid,
-} from "@mui/material";
+import {Grid} from "@mui/material";
 import { Link } from "react-router-dom";
-import ExploreBlogImage from"../../../../assets/images/homeOnBoarding/HomeBlogImage.jpeg"
+// import ExploreBlogImage from"../../../../assets/images/homeOnBoarding/HomeBlogImage.jpeg"
+
 import BoxCom from "../../../UI/BoxCom/BoxCom";
 import { BlogsHeading, BlogsImage, BlogsText,Tag, TagHeadingWrappper } from "./BlogCard.style";
 
