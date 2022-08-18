@@ -4,7 +4,7 @@ import { Colors } from "../../../../config/palette";
 import { CardFooter,FooterText, NameContainer, ProductImage } from "./ProductCard.style";
 import { Link } from "react-router-dom";
   
-  const ProductCard = ({size,image}) => {
+  const ProductCard = ({size,image,title,price}) => {
     return (
       <Grid item xs={12} sm={size?.sm} md={size?.md} lg={size?.lg}>
             <Link to="/shop/singleProduct" style={{textDecoration:"none"}}>
@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
     <ProductImage src={image} alt="Paris" />
     <BoxCom >
     <NameContainer variant="body1" >
-     Master Meditation
+     {title}
     </NameContainer>
 
     <CardFooter >
@@ -21,7 +21,7 @@ import { Link } from "react-router-dom";
      Tickets
     </FooterText>
     <Typography variant="body1" sx={{color:"#0AB27D",marginLeft:"12px"}}>
-     $59.99
+     {price}
     </Typography>
     </CardFooter>
     </BoxCom>

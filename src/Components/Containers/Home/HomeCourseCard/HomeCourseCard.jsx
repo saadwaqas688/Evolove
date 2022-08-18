@@ -7,12 +7,12 @@ import { Colors } from "../../../../config/palette";
 import { ShareIcon } from "../../../../assets/icons/ShareIcon";
 import { HeartIcon } from "../../../../assets/icons/HeartIcon";
   
-  const HomeCourseCard = ({size}) => {
+  const HomeCourseCard = ({size,courseName,courseImage,coursePrice}) => {
     return (
       <Grid item xs={12} sm={size?.sm} md={size?.md} lg={size?.lg}>
 
   <BoxCom sx={{background:Colors.dark,borderRadius:"16px"}}>
-    <CourseImage src={cardImage} alt="Paris" />
+    <CourseImage src={courseImage} alt="Paris" />
     <IconContainer >
     <ShareIconContainer>
    <ShareIcon />
@@ -26,11 +26,11 @@ import { HeartIcon } from "../../../../assets/icons/HeartIcon";
      Dr.John Kevin
     </NameContainer>
     <CourseNameContainer variant="body1">
-     Master of Spirituality
+     {courseName}
     </CourseNameContainer>
     <CardFooter >
     <Typography variant="body1" sx={{color:"#0AB27D",marginLeft:"12px"}}>
-     $59.99
+     {coursePrice}
     </Typography>
     <Button variant="contained" size="small" href="/subscription" sx={{width:"80px",height:"25px",fontSize:"10px"}} >Subscribe</Button>
     </CardFooter>

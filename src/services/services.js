@@ -1,4 +1,4 @@
-import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, updateDoc } from "firebase/firestore";
+import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, setDoc, updateDoc } from "firebase/firestore";
 import { deleteObject, getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { db, storage } from "../config/Firebase/firebase";
 
@@ -89,3 +89,13 @@ import { db, storage } from "../config/Firebase/firebase";
                     })
     
             }
+
+
+            export const postServiceByCoustomId = async (path,data,id) => {
+      
+
+              return  await setDoc(doc(db, path, id), data);
+
+      
+         
+             };  

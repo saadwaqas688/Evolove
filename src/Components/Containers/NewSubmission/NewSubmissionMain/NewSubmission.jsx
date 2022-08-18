@@ -59,6 +59,7 @@ const NewSubmission = () => {
         description: description,
         pricetype: priceCategory,
         category: category,
+        coachId:"1234567890"
       };
 
       await postService("testWaqasCourse", data);
@@ -72,6 +73,7 @@ const NewSubmission = () => {
         description: description,
         pricetype: priceCategory,
         category: category,
+        coachId:"1234567890"
       };
 
       await postService("testWaqasProduct", data);
@@ -87,6 +89,7 @@ const NewSubmission = () => {
         description: description,
         pricetype: priceCategory,
         category: category,
+        coachId:"1234567890"
       };
 
       await postService("testWaqasBlogs", data);

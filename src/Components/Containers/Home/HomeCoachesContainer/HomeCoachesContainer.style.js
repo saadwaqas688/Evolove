@@ -20,6 +20,7 @@ export const LinkContainer = styled(Typography)(() => ({
    fontSize:"14px",
    fontFamily: '"Poppins", "sans-serif"',
    fontWeight:"bold",
+   cursor:"pointer"
  }));
 
 

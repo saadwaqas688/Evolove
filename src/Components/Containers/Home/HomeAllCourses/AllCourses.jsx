@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import HomeCourseCard from "../HomeCourseCard/HomeCourseCard";
 
 import { Grid } from "@mui/material";
@@ -10,13 +10,51 @@ import {
 } from "./AllCourses.style";
 import HomeTopCard from "../HomeTopCard/HomeTopCard";
 import { useParams } from "react-router-dom";
+import { getService } from "../../../../services/services";
+import Loader from "../../../UI/Loader/Loader";
 
 
 
 const AllCourses = () => {
+  const [courses, setCourses] = useState([]);
+  const [coursesCategoryWise, setCoursesCategoryWise] = useState([]);
+
+  const [loading, setLoading] = useState(false);
   const size={xs:"12", sm:"6" ,md:"6", lg:"3"}
 
    const { category } = useParams();
+
+   const getData = async () => {
+    setLoading(true);
+
+    let courseList = [];
+
+    const courseData = await getService("testWaqasCourse");
+
+
+    courseData.forEach((doc) => {
+      courseList.push({ id: doc.id, ...doc.data() });
+    });
+
+
+    setCourses(courseList)
+    setLoading(false);
+  };
+
+  useEffect(() => {
+  
+    getData();
+
+  }, []);
+
+  useEffect(()=>{
+    let tempData=[...courses]
+
+    tempData=tempData.filter((course)=>course.category===category)
+
+    setCoursesCategoryWise(tempData)
+
+  },[category,courses])
   return (
     <div>
       <BoxCom sx={{ marginTop: "60px" }}>
@@ -31,28 +69,36 @@ const AllCourses = () => {
 
   {    
           category   ?
-         <Grid container spacing={2}>
-          <HomeCourseCard size={size}/>
-          <HomeCourseCard size={size}/>
-          <HomeCourseCard size={size}/>
+          ( loading?<Loader/>:
 
-                 
-      </Grid>  :
           <Grid container spacing={2}>
-          <HomeCourseCard size={size}/>
-          <HomeCourseCard size={size}/>
-          <HomeCourseCard size={size}/>
-          <HomeCourseCard size={size}/>
-          <HomeCourseCard size={size}/>
-          <HomeCourseCard size={size}/>
-          <HomeCourseCard size={size}/>
-          <HomeCourseCard size={size}/>
-          <HomeCourseCard size={size}/>
-          <HomeCourseCard size={size}/>
-          <HomeCourseCard size={size}/>
-          <HomeCourseCard size={size}/>
+         { coursesCategoryWise?.map((course)=>{
+                
+                return (<HomeCourseCard 
+                    size={size}
+                    courseName={course.title}
+                    courseImage={course.image} 
+                    coursePrice={course.price} />)
+              })
+            }
                  
-      </Grid>}
+      </Grid>)
+      :
+              ( loading?<Loader/>:
+
+          <Grid container spacing={2}>
+         { courses?.map((course)=>{
+                
+                return (<HomeCourseCard 
+                    size={size}
+                    courseName={course.title}
+                    courseImage={course.image} 
+                    coursePrice={course.price} />)
+              })
+            }
+                 
+      </Grid>)
+      }
     </div>
   );
 };
