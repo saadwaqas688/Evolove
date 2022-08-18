@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Divider,
+  getFormControlUtilityClasses,
   Toolbar,
   useMediaQuery,
   useTheme,
@@ -17,6 +18,12 @@ import { Outlet } from "react-router-dom";
 import { useLocation } from "react-router";
 import CoachProfileLink from "../CoachProfileLink/CoachProfileLink";
 import { getBasePath } from "../../../../Utils/utils";
+   import { useSelector, useDispatch } from "react-redux";
+import { productsActions } from "../../../../redux/reducers/products";
+import { getService } from "../../../../services/services";
+import { coursesActions } from "../../../../redux/reducers/courses";
+import { blogsActions } from "../../../../redux/reducers/blogs";
+
 
 const AppWrapper = ({children}) => {
   const [openDrawerLeft, setOpenDrawerLeft] = useState(false);
@@ -25,6 +32,65 @@ const AppWrapper = ({children}) => {
   const theme = useTheme();
    const isMatch = useMediaQuery(theme.breakpoints.up("md"));
    console.log("basePath",getBasePath(pathname))
+
+   const dispatch = useDispatch();
+ 
+
+   const getProducts = async () => {
+
+  
+      let productsList = [];
+  
+      const courseData = await getService("testWaqasProduct");
+  
+  
+      courseData.forEach((doc) => {
+            productsList.push({ id: doc.id, ...doc.data() });
+      });
+   
+      dispatch(productsActions.setProducts(productsList));
+
+    };
+
+    const getBlogs = async () => {
+  
+      let blogList = [];
+  
+      const blogData = await getService("testWaqasBlogs");
+  
+  
+      blogData.forEach((doc) => {
+            blogList.push({ id: doc.id, ...doc.data() });
+      });
+   
+      dispatch(blogsActions.setBlogs(blogList));
+    };
+
+
+    const getCourses = async () => {
+
+      let courseList = [];
+  
+      const courseData = await getService("testWaqasCourse");
+  
+  
+      courseData.forEach((doc) => {
+        courseList.push({ id: doc.id, ...doc.data() });
+      });
+   
+      dispatch(coursesActions.setCourses(courseList));
+
+    };
+  
+    useEffect(() => {
+    
+      getProducts();
+      getBlogs()
+      getCourses()
+  
+    }, []);
+
+
   return (
       <>
      {  !isMatch &&    <BoxCom>
