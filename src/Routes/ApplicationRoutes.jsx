@@ -72,7 +72,7 @@ const ApplicationRoutes = () => {
             <Route path="/home/allCoaches" element={<AllCoaches />} />
             <Route path="/home/search" element={<Search />} />
             <Route path="/blogs" element={<AllBlogs />} />
-            <Route path="/blogs/singleBlog" element={<SingleBlog />} />
+            <Route path="/blogs/:blogId" element={<SingleBlog />} />
             <Route path="/singleCourse" element={<SingleCourseContainer />} />
             <Route path="/shop" element={<ShopMain />} />
             <Route path="/shop/tickets" element={<AllTickets />} />

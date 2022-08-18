@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { SearchBarWrapper, SearchField } from "./SearchContainer.style";
 import { useLocation } from "react-router";
 import { useNavigate } from "react-router-dom";
@@ -38,6 +38,9 @@ function checkSelectedTab(buttonLabel){
     return {background:"transparent",color:Colors.light,"&:hover": { backgroundColor:"transparent",borderColor:"#6978A0" }}
   }
 }
+useEffect(()=>{
+  alert("i am search")
+},[])
 
   return (
     <>

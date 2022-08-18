@@ -6,11 +6,20 @@ import {
   getDoc,
   getDocs,
   updateDoc,
+  setDoc,
 } from "firebase/firestore";
-import { deleteObject, ref } from "firebase/storage";
+import {
+  deleteObject,
+  ref,
+  uploadBytesResumable,
+  getDownloadURL,
+} from "firebase/storage";
 import { db, storage, auth } from "../config/Firebase/firebase";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword ,signOut } from "firebase/auth";
- 
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+} from "firebase/auth";
 
 export const getService = async (path) => {
   return await getDocs(collection(db, path));
@@ -30,16 +39,16 @@ export const postService = async (path, data) => {
   return await addDoc(collection(db, path), data);
 };
 
-export const signup = async (email, password) =>{
-return await createUserWithEmailAndPassword(auth, email, password)
-}
+export const signup = async (email, password) => {
+  return await createUserWithEmailAndPassword(auth, email, password);
+};
 
 export const signout = async () => {
-  return await signOut(auth)
-}
+  return await signOut(auth);
+};
 export const signin = async (email, password) => {
-  return await signInWithEmailAndPassword(auth, email, password)
-}
+  return await signInWithEmailAndPassword(auth, email, password);
+};
 
 export const deleteAsset = (assetUrl) => {
   const deleteRef = ref(storage, assetUrl);
@@ -60,4 +69,33 @@ export const getServiceById = async (path, id) => {
 
 export const getSubCollectionService = async (path, id, subCollection) => {
   return await getDocs(collection(db, path, id, subCollection));
+};
+
+export const imagePostService = async (image) => {
+  return new Promise(function (resolve, reject) {
+    const name2 = new Date().getTime() + "" + image.name;
+    const storageRef = ref(storage, "photos/" + name2);
+    const uploadTask = uploadBytesResumable(storageRef, image);
+    uploadTask.on(
+      "state_changed",
+      function (snapshot) {
+        var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        console.log("Upload is " + progress + "% done");
+      },
+      (error) => {
+        console.log("error", error);
+
+        reject(error);
+      },
+      () => {
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          resolve(downloadURL);
+        });
+      }
+    );
+  });
+};
+
+export const postServiceByCoustomId = async (path, data, id) => {
+  return await setDoc(doc(db, path, id), data);
 };

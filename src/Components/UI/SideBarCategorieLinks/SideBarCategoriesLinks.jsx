@@ -6,17 +6,33 @@ import {
 import {useLocation} from 'react-router';
 import {ListItemTextContainer} from "./SideBarCategoriesLinks.style";
 import { Colors } from "../../../config/palette";
+import { Link, useNavigate } from "react-router-dom";
 
 const SideBarCategoriesLinks = () => {
+    const categories=["yoga","awareness","education","music"]
+    let navigate = useNavigate();
 
   const { pathname } = useLocation();
   console.log(pathname)
    
+  function handleNavigation(path) {
+    navigate(path);
+  }
 
   return (
     <>
         <List sx={{display:"flex",alignItems:"center",flexDirection:"column",justifyContent:"center"}}>
-              <ListItemButton  component="a" href="/home/categories/Psychology"   >
+       {  categories.map((category)=>{
+            return(
+
+              <ListItemButton  onClick={()=>handleNavigation(`/home/categories/${category}`)}  >
+                  <ListItemTextContainer sx={{color:pathname===`/home/categories/${category}`?'#E63369':Colors.grey}} primary={category} disableTypography/>
+              </ListItemButton>
+            )
+        })
+        }
+
+              {/* <ListItemButton  component="a" href="/home/categories/Psychology"   >
                   <ListItemTextContainer sx={{color:pathname==='/home/categories/Psychology'?'#E63369':Colors.grey}} primary="Psychology" disableTypography/>
               </ListItemButton>
               <ListItemButton  component="a" href="/home/categories/Spirituality"   >
@@ -45,7 +61,7 @@ const SideBarCategoriesLinks = () => {
               </ListItemButton>
               <ListItemButton  component="a" href="/home/categories/Others"   >
                   <ListItemTextContainer sx={{color:pathname==='/home/categories/Others'?'#E63369':Colors.grey}} primary="Others" disableTypography/>
-              </ListItemButton>
+              </ListItemButton> */}
           </List>
     </>
   );
