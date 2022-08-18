@@ -1,10 +1,5 @@
 import React, { useState } from "react";
-import {
-  Divider,
-  Toolbar,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
+import { Divider, Toolbar, useMediaQuery, useTheme } from "@mui/material";
 import DrawerComp from "../../../UI/NavBar/NavBarDrawer/Drawer";
 import SideBarAccordion from "../../SideBarAccordion/SideBarAccordion";
 import SideBarLinks from "../../SideBarLinks/SideBarLinksMain/SideBarLinks";
@@ -17,64 +12,108 @@ import { Outlet } from "react-router-dom";
 import { useLocation } from "react-router";
 import CoachProfileLink from "../CoachProfileLink/CoachProfileLink";
 import { getBasePath } from "../../../../Utils/utils";
+import { useNavigate } from "react-router-dom";
 
-const AppWrapper = ({children}) => {
+const AppWrapper = ({ children }) => {
+      const navigate = useNavigate();
   const [openDrawerLeft, setOpenDrawerLeft] = useState(false);
   const [openDrawerRight, setOpenDrawerRight] = useState(false);
   const { pathname } = useLocation();
   const theme = useTheme();
-   const isMatch = useMediaQuery(theme.breakpoints.up("md"));
-   console.log("basePath",getBasePath(pathname))
+  const isMatch = useMediaQuery(theme.breakpoints.up("md"));
+  console.log("basePath", getBasePath(pathname));
+  React.useEffect(()=>{
+      if(typeof window !== 'undefined'){
+        const session = JSON.parse(localStorage.getItem('authentication'));
+        console.log('session', session)
+        if(!session)(
+          navigate('/')
+        )
+      }
+    },[])
   return (
-      <>
-     {  !isMatch &&    <BoxCom>
-        <Toolbar>
-            <DrawerComp anchor="left"  width="211px" type="temporary" isOpen={false} openDrawer={openDrawerLeft} setOpenDrawer={setOpenDrawerLeft}>
-            <SideBarLinks/>
+    <>
+      {!isMatch && (
+        <BoxCom>
+          <Toolbar>
+            <DrawerComp
+              anchor="left"
+              width="211px"
+              type="temporary"
+              isOpen={false}
+              openDrawer={openDrawerLeft}
+              setOpenDrawer={setOpenDrawerLeft}
+            >
+              <SideBarLinks />
             </DrawerComp>
-            <DrawerComp anchor="right" width="268px"  type="temporary" isOpen={false} openDrawer={openDrawerRight} setOpenDrawer={setOpenDrawerRight}>
-            <SideBarProfileAvatar/>
-            {    (getBasePath(pathname)==="coachProfile" || getBasePath(pathname)==="profile")  &&
-      <>
-      <Divider sx={{background:"#464646",margin:"6px"}}/>
-      <CoachProfileLink  pathname={getBasePath(pathname)}/>
-      </>
-      }
-            <Divider sx={{background:"#464646",margin:"6px"}}/>
-            <SideBarAccordion />
-            <Divider sx={{background:"#464646",margin:"6px"}}/>
-            <SideBarCategoriesAccordion/>
+            <DrawerComp
+              anchor="right"
+              width="268px"
+              type="temporary"
+              isOpen={false}
+              openDrawer={openDrawerRight}
+              setOpenDrawer={setOpenDrawerRight}
+            >
+              <SideBarProfileAvatar />
+              {(getBasePath(pathname) === "coachProfile" ||
+                getBasePath(pathname) === "profile") && (
+                <>
+                  <Divider sx={{ background: "#464646", margin: "6px" }} />
+                  <CoachProfileLink pathname={getBasePath(pathname)} />
+                </>
+              )}
+              <Divider sx={{ background: "#464646", margin: "6px" }} />
+              <SideBarAccordion />
+              <Divider sx={{ background: "#464646", margin: "6px" }} />
+              <SideBarCategoriesAccordion />
             </DrawerComp>
-        </Toolbar>
+          </Toolbar>
         </BoxCom>
-}
+      )}
 
-<BoxCom sx={{background:Colors.secondary,minHeight:"100vh",marginRight:{xs:"10px",md:"290px"},marginLeft:{xs:"10px",md:"285px"}}}>
-          <SearchBar/>
-          <Outlet />
-          </BoxCom>
-     {  isMatch  && <>
-            <DrawerComp  anchor="left" width="211px" type="persistent" isOpen={true}>
-            <SideBarLinks/>
-            </DrawerComp>
-            <DrawerComp anchor="right" width="268px" type="persistent" isOpen={true} >
-            <SideBarProfileAvatar/>
-      {    (getBasePath(pathname)==="coachProfile" || getBasePath(pathname)==="profile")  &&
-      <>
-      <Divider sx={{background:"#464646",margin:"6px"}}/>
-      <CoachProfileLink  pathname={getBasePath(pathname)}/>
-
-      </>
-      }
-            <Divider sx={{background:"#464646",margin:"6px"}}/>
+      <BoxCom
+        sx={{
+          background: Colors.secondary,
+          minHeight: "100vh",
+          marginRight: { xs: "10px", md: "290px" },
+          marginLeft: { xs: "10px", md: "285px" },
+        }}
+      >
+        <SearchBar />
+        <Outlet />
+      </BoxCom>
+      {isMatch && (
+        <>
+          <DrawerComp
+            anchor="left"
+            width="211px"
+            type="persistent"
+            isOpen={true}
+          >
+            <SideBarLinks />
+          </DrawerComp>
+          <DrawerComp
+            anchor="right"
+            width="268px"
+            type="persistent"
+            isOpen={true}
+          >
+            <SideBarProfileAvatar />
+            {(getBasePath(pathname) === "coachProfile" ||
+              getBasePath(pathname) === "profile") && (
+              <>
+                <Divider sx={{ background: "#464646", margin: "6px" }} />
+                <CoachProfileLink pathname={getBasePath(pathname)} />
+              </>
+            )}
+            <Divider sx={{ background: "#464646", margin: "6px" }} />
             <SideBarAccordion />
-            <Divider sx={{background:"#464646",margin:"6px"}}/>
-            <SideBarCategoriesAccordion/>
-            </DrawerComp>
-            </>
-}
-
+            <Divider sx={{ background: "#464646", margin: "6px" }} />
+            <SideBarCategoriesAccordion />
+          </DrawerComp>
         </>
+      )}
+    </>
   );
 };
 

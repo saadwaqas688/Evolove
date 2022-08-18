@@ -36,6 +36,7 @@ const SideBarLinks = () => {
         variant: "success",
         autoHideDuration: 4000,
       });
+      localStorage.removeItem('authentication');
       navigate("/");
     })
     .catch((error) => {

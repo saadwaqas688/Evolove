@@ -30,7 +30,7 @@ function Login() {
   const [errorData, setErrorData] = useState("");
   const [error, setError] = useState(false);
 
- 
+  
   const validationSchema = yup.object({
     email: yup
       .string()
@@ -56,6 +56,7 @@ function Login() {
             variant: "success",
             autoHideDuration: 4000,
           });
+          localStorage.setItem("authentication", "true");
           navigate("/home");
         })
         .catch((error) => {
