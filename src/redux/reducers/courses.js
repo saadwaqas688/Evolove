@@ -3,6 +3,7 @@ const initialState = {
   courses:[],
   coursesLoading:false,
   coursesError:false,
+  filteredCourses:[]
 };
 
 const courses = createSlice({
@@ -23,6 +24,10 @@ const courses = createSlice({
     setCoursesError: (state) => {
       state.coursesLoading = false;
       state.coursesError=true;
+      return state;
+    },
+    setFilteredCourses: (state,action) => {
+      state.filteredCourses = action.payload;
       return state;
     },
   },
