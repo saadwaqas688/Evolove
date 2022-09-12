@@ -4,9 +4,13 @@ import NavBar from "../../../UI/NavBar/NavBarMain/NavBar";
 import React from "react";
 import {FormContainer, GridItem, Heading, PaperContainer, SubHeading } from "./CheckEmail.style";
 import CheckEmailIcon from "../../../../assets/icons/CheckEmailIcon";
+import { useNavigate } from "react-router-dom";
+
 
 
 function CheckEmail() {
+
+  const navigate = useNavigate();
 
   return (
     
@@ -28,9 +32,10 @@ function CheckEmail() {
                   <CheckEmailIcon/>
                   </GridItem>
                   <GridItem item xs={12} sx={{display:"flex",alignItems:"center",justifyContent:"center",marginTop:"50px"}}> 
-                  <Button variant="contained" href="/verifyCodeStepOne" sx={{textTransform:"none",fontSize:"16px"}} >
-                    Verify Code
+                  <Button variant="contained" onClick={() => navigate("/login")} sx={{textTransform:"none",fontSize:"16px"}} >
+                    Back To Login Page
                     </Button>
+                    
                   </GridItem>
                      </Grid>
            </FormContainer>
