@@ -23,6 +23,7 @@ import {
 import { useSnackbar } from "notistack";
 import { Link } from "react-router-dom";
 import { signin } from "./../../../../../services/services";
+import { auth } from "../../../../../config/Firebase/firebase";
 
 function Login() {
   const { enqueueSnackbar } = useSnackbar();
@@ -57,6 +58,8 @@ function Login() {
             autoHideDuration: 4000,
           });
           localStorage.setItem("authentication", "true");
+          localStorage.setItem("userData", JSON.stringify(auth.currentUser));
+
           navigate("/home");
         })
         .catch((error) => {
