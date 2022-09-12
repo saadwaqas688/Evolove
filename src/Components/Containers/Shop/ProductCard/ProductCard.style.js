@@ -7,11 +7,13 @@ import BoxCom from "../../../UI/BoxCom/BoxCom";
     src: `url(${src})`,
     width: "100%", 
     height:"125px",
-    borderTopRightRadius:"16px",
-    borderTopLeftRadius:"16px",
+    // borderTopRightRadius:"16px",
+    // borderTopLeftRadius:"16px",
+    borderRadius:"16px",
+    objectFit: "cover",
     [theme.breakpoints.down("lg")]: {
       width: "100%", 
-      height:"auto"
+      // height:"auto"
     },
   }));
 

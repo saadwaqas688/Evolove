@@ -3,6 +3,7 @@ const initialState = {
   products:[],
   productsLoading:false,
   productsError:false,
+  filteredProducts:[]
 };
 
 const products = createSlice({
@@ -23,6 +24,10 @@ const products = createSlice({
     setProductsError: (state) => {
       state.productsLoading = false;
       state.productsError=true;
+      return state;
+    },
+    setFilteredProducts: (state,action) => {
+      state.filteredProducts = action.payload;
       return state;
     },
   },

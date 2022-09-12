@@ -3,6 +3,7 @@ import { authReducer } from "./reducers/auth";
 import { productsReducer } from "./reducers/products";
 import { blogsReducer } from "./reducers/blogs";
 import { coursesReducer } from "./reducers/courses";
+import { recentSearchesReducer } from "./reducers/recentSearches";
 
 
 export default configureStore({
@@ -11,5 +12,7 @@ export default configureStore({
     products: productsReducer,
     courses: coursesReducer,
     blogs: blogsReducer,
+    recentSearches: recentSearchesReducer,
+
   },
 });

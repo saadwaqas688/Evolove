@@ -6,12 +6,14 @@ import BoxCom from "../../../UI/BoxCom/BoxCom";
   export const CourseImage = styled("img")(({ src, theme }) => ({
     src: `url(${src})`,
     width: "100%", 
-    height:"auto",
+    height:"125px",
+    objectFit: "cover",
+    borderRadius:"16px",
     [theme.breakpoints.down("md")]: {
       width: "100%", 
       marginLeft:"0px",
       marginTop:"0px",
-      height:'auto',
+      // height:'auto',
     },
   }));
 

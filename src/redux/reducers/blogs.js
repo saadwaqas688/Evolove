@@ -3,6 +3,7 @@ const initialState = {
   blogs:[],
   blogsLoading:false,
   blogError:false,
+  filteredBlogs:[]
 };
 
 const blogs = createSlice({
@@ -23,6 +24,10 @@ const blogs = createSlice({
     setBlogError: (state) => {
       state.blogsLoading = false;
       state.blogError=true;
+      return state;
+    },
+    setFilteredBlogs: (state,action) => {
+      state.filteredBlogs = action.payload;
       return state;
     },
   },

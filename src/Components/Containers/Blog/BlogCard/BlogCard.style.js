@@ -5,11 +5,12 @@ import BoxCom from "../../../UI/BoxCom/BoxCom";
 export const BlogsImage = styled("img")(({ src, theme }) => ({
     src: `url(${src})`,
     width: "100%", 
-    height:"auto",
+    height:"125px",
     borderRadius:"20px",
+    objectFit: "cover",
     [theme.breakpoints.down("md")]: {
       width: "100%", 
-      height:'auto',
+      // height:'auto',
     },
   }));
   

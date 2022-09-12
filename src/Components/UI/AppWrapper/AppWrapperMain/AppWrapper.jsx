@@ -21,9 +21,10 @@ import { getBasePath } from "../../../../Utils/utils";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { productsActions } from "../../../../redux/reducers/products";
-import { getService } from "../../../../services/services";
+import { getService, getServiceById } from "../../../../services/services";
 import { coursesActions } from "../../../../redux/reducers/courses";
 import { blogsActions } from "../../../../redux/reducers/blogs";
+import { authActions } from "../../../../redux/reducers/auth";
 
 const AppWrapper = ({ children }) => {
   const navigate = useNavigate();
@@ -81,7 +82,30 @@ const AppWrapper = ({ children }) => {
     dispatch(coursesActions.setCourses(courseList));
   };
 
+  const getUserData = async () => {
+    let userData=localStorage.getItem("userData")
+
+    if(userData){
+      userData=JSON.parse(userData)
+      const docSnap = await getServiceById("Users",userData.uid);
+
+      if (docSnap.exists()) {
+  
+        dispatch(authActions.setUserData(docSnap.data()));
+
+    
+      } else {
+    
+      }
+  
+
+  
+    }
+
+  };
+
   useEffect(() => {
+    getUserData()
     getProducts();
     getBlogs();
     getCourses();
