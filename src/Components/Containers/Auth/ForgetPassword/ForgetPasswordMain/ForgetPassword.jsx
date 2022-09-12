@@ -33,12 +33,12 @@ function ForgetPassword() {
   });
 
 
-
+console.log("auth",auth)
 
   async function submitHandler(values) {
 
 
-      const resetPassword = async () => {
+      const resetPassword = async (email) => {
           setLoading(true);
           await sendPasswordResetEmail(auth, email)
             .then(() => {
@@ -51,6 +51,7 @@ function ForgetPassword() {
   
             })
             .catch(e => {
+              console.log("error in reset passwr",e)
               setLoading(false);
               enqueueSnackbar('Error occoured ! ', {
                 variant: "error",
