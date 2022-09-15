@@ -4,16 +4,24 @@ import { Colors } from "../../../../config/palette";
 import ProductCard from "../ProductCard/ProductCard";
 import {
   Heading,
-  LinkContainer,
   MainContainer,
 } from "./ProductContainer.style";
-import productImage from "../../../../assets/images/homeOnBoarding/productImage1.png";
+import Button from "@mui/material/Button";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
-const ProductContainer = ({ heading, link, tickestList, productList }) => {
+const ProductContainer = ({
+  heading,
+  link,
+  tickestList,
+  productList,
+  limitedProductList,
+  limitedTicketList,
+}) => {
   const size = { xs: "12", sm: "6", md: "6", lg: "3" };
   const [showALL, setShowAll] = useState(false);
 
-
+  console.log("hello", tickestList);
   const seeAllHandler = () => {
     setShowAll(!showALL);
   };
@@ -22,25 +30,35 @@ const ProductContainer = ({ heading, link, tickestList, productList }) => {
     <Paper elevation={0} square={true} style={{ background: Colors.secondary }}>
       <MainContainer>
         {heading && <Heading>{heading}</Heading>}
-        <button onClick={seeAllHandler}>See All</button>
-        {/* {link && (
-          <LinkContainer>
-            <a
-              href="/shop/tickets"
-              style={{ color: "#9E8B91", textDecoration: "none" }}
-            >
-              See All
-            </a>
-          </LinkContainer>
-        )} */}
+        {
+          limitedProductList?.length  > 3 ? 
+         <Button
+         variant="text"
+         color={showALL ? "success" : "info"}
+         endIcon={
+           showALL ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />
+         }
+         onClick={seeAllHandler}
+       >
+         {showALL ? "see less" : "see all"}
+       </Button> : limitedTicketList?.length  > 3 ? 
+         <Button
+         variant="text"
+         color={showALL ? "success" : "info"}
+         endIcon={
+           showALL ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />
+         }
+         onClick={seeAllHandler}
+       >
+         {showALL ? "see less" : "see all"}
+       </Button> :''
+        }
+       
       </MainContainer>
       <Grid container spacing={4} sx={{ paddingTop: "20px" }}>
-        {
-          showALL ? 
-            <h1 style={{color:"white"}}>full data</h1>
-           : <>
-            {
-            tickestList?.map((ticket) => {
+        {showALL ? (
+          <>
+            {tickestList?.map((ticket) => {
               return (
                 <ProductCard
                   size={size}
@@ -51,22 +69,44 @@ const ProductContainer = ({ heading, link, tickestList, productList }) => {
                 />
               );
             })}
-            {
-               productList?.map((product) => {
-                return (
-                  <ProductCard
-                    size={size}
-                    title={product.Title}
-                    name={product.CoachName}
-                    price ={product.Price}
-                    image={product.Image}
-                  />
-                );
-              })
-            }
+            {productList?.map((product) => {
+              return (
+                <ProductCard
+                  size={size}
+                  title={product.Title}
+                  name={product.CoachName}
+                  price={product.Price}
+                  image={product.Image}
+                />
+              );
+            })}
           </>
-         
-        }
+        ) : (
+          <>
+            {limitedTicketList?.map((ticket) => {
+              return (
+                <ProductCard
+                  size={size}
+                  title={ticket.descriptionName}
+                  name={ticket.eventName}
+                  price={ticket.evetPrice}
+                  image={ticket.image}
+                />
+              );
+            })}
+            {limitedProductList?.map((product) => {
+              return (
+                <ProductCard
+                  size={size}
+                  title={product.Title}
+                  name={product.CoachName}
+                  price={product.Price}
+                  image={product.Image}
+                />
+              );
+            })}
+          </>
+        )}
 
         {/* <ProductCard size={size} image={productImage}  }/> */}
         {/* <ProductCard size={size} image={productImage} />
