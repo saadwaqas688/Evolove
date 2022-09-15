@@ -11,13 +11,13 @@ import { Colors } from "../../../../config/palette";
       },
   }));
 
-  export const LinkContainer = styled(Typography)(() => ({
-    marginTop:"28px",
-    color:"#9E8B91",
-     fontSize:"14px",
-     fontFamily: '"Poppins", "sans-serif"',
-     fontWeight:"bold",
-   }));
+  // export const LinkContainer = styled(Typography)(() => ({
+  //   marginTop:"28px",
+  //   color:"#9E8B91",
+  //    fontSize:"14px",
+  //    fontFamily: '"Poppins", "sans-serif"',
+  //    fontWeight:"bold",
+  //  }));
   
   
    export const MainContainer = styled(Typography)(({ theme }) => ({
