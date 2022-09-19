@@ -3,7 +3,9 @@ const initialState = {
   products:[],
   productsLoading:false,
   productsError:false,
-  filteredProducts:[]
+  filteredProducts:[],
+  categoryName: '',
+  showFilteredData: false
 };
 
 const products = createSlice({
@@ -30,6 +32,15 @@ const products = createSlice({
       state.filteredProducts = action.payload;
       return state;
     },
+    setFilteredCategoryName: (state,action) => {
+      
+      const {name, showCard} = action.payload;
+      state.categoryName = name;
+      state.showFilteredData = showCard;
+      return state;
+    },
+  
+
   },
 });
 

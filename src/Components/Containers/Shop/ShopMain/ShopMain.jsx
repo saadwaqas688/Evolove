@@ -4,13 +4,25 @@ import ProductContainer from "../ProductContainer/ProductContainer";
 import { ShopHeading } from "./ShopMain.style";
 import { getService } from "./../../../../services/services.js";
 import Loader from "../../../UI/Loader/Loader";
+import FilteredCourse from "./../../../UI/FilteredCards/FilteredCards";
+import { useSelector, useDispatch } from "react-redux";
+import { productsActions } from "./../../../../redux/reducers/products.js";
 
 const ShopMain = () => {
+  const dispatch = useDispatch();
   const [tickestList, setTicketList] = useState([]);
   const [productList, setProductList] = useState([]);
   const [limitedProductList, setLimitedProductList] = useState([]);
   const [limitedTicketList, setLimitedTicketList] = useState([]);
   const [showLoader, setShowLoader] = useState(true);
+  const [categoryFilter, setCategoryFilter] = useState([]);
+  const [allCategories, setAllCategories] = useState([]);
+  const [productType, setProductType] = useState("");
+  const [loading, setLoading] = useState(true);
+
+  const { categoryName, showFilteredData } = useSelector(
+    (state) => state.products
+  );
 
   const getProducts = async () => {
     let productArray = [];
@@ -40,31 +52,68 @@ const ShopMain = () => {
       })
       .catch((error) => console.log(error));
   };
+  const getProduct = async () => {
+    // setLoading(true);
+    let courseList = [];
+    const courseData = await getService("Product");
+    courseData.forEach((doc) => {
+      courseList.push({ id: doc.id, ...doc.data() });
+    });
+
+    setAllCategories(courseList);
+
+    // setLoading(false);
+  };
+  useEffect(() => {
+    let tempData = [...allCategories];
+    tempData = tempData.filter((course) => course.Category === categoryName);
+    setCategoryFilter(tempData);
+
+    tempData.filter((item) => {
+      setProductType(item.Type);
+    });
+    setLoading(false);
+  }, [categoryName, allCategories]);
+
   useEffect(() => {
     getTicket();
     getProducts();
+    getProduct();
+    dispatch(productsActions.setFilteredCategoryName({ showCard: false }));
   }, []);
 
   return (
     <BoxCom sx={{ marginTop: "36px", paddingRight: { lg: "20px", md: "0px" } }}>
-      <ShopHeading>Shop</ShopHeading>
-      {showLoader ? (
-        <Loader />
+      {showFilteredData ? (
+        <FilteredCourse
+          categoryName={categoryName}
+          specificCategory={categoryFilter}
+          productType={productType}
+          loading={loading}
+        />
       ) : (
         <>
-          <ProductContainer
-            heading={"Products"}
-            productList={productList}
-            limitedProductList={limitedProductList}
-          />
-          <ProductContainer
-            heading={"Tickets"}
-            link={true}
-            tickestList={tickestList}
-            limitedTicketList={limitedTicketList}
-          />
+          <ShopHeading>Shop</ShopHeading>
+          {showLoader ? (
+            <Loader />
+          ) : (
+            <>
+              <ProductContainer
+                heading={"Products"}
+                productList={productList}
+                limitedProductList={limitedProductList}
+              />
+              <ProductContainer
+                heading={"Tickets"}
+                link={true}
+                tickestList={tickestList}
+                limitedTicketList={limitedTicketList}
+              />
+            </>
+          )}
         </>
       )}
+
       {/* <ProductContainer heading={"New Products"}/> */}
       {/* <ProductContainer heading={"Popular Products"}/> */}
     </BoxCom>

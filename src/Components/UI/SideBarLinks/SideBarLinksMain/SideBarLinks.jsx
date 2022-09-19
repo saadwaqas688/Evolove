@@ -12,6 +12,7 @@ import ShopIcon from "../../../../assets/icons/ShopIcon";
 import WalletIcon from "../../../../assets/icons/WalletIcon";
 import { LogOutIcon } from "../../../../assets/icons/LogOutIcon";
 import { MoonCalanderIcon } from "../../../../assets/icons/MoonCalanderIcon";
+import { productsActions } from "./../../../../redux/reducers/products.js";
 import {
   ListItemTextContainer,
   ListItemIconContainer,
@@ -21,9 +22,11 @@ import { useNavigate } from "react-router-dom";
 import { useSnackbar } from "notistack";
 import { signout } from "./../../../../services/services.js";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 const SideBarLinks = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const { enqueueSnackbar } = useSnackbar();
   let { pathname } = useLocation();
   pathname = getBasePath(pathname);
@@ -83,14 +86,24 @@ const SideBarLinks = () => {
           </ListItemButton>
         </Link>
         <Link to="/shop" style={{ textDecoration: "none" }}>
-          <ListItemButton>
-            <ListItemIconContainer
-              sx={{ color: pathname === "shop" ? "#E63369" : Colors.grey }}
-            >
-              <ShopIcon color={pathname === "shop" ? "#E63369" : Colors.grey} />
-              <ListItemTextContainer primary="Shop" disableTypography />
-            </ListItemIconContainer>
-          </ListItemButton>
+          <div
+            onClick={() =>
+              dispatch(
+                productsActions.setFilteredCategoryName({ showCard: false })
+              )
+            }
+          >
+            <ListItemButton>
+              <ListItemIconContainer
+                sx={{ color: pathname === "shop" ? "#E63369" : Colors.grey }}
+              >
+                <ShopIcon
+                  color={pathname === "shop" ? "#E63369" : Colors.grey}
+                />
+                <ListItemTextContainer primary="Shop" disableTypography />
+              </ListItemIconContainer>
+            </ListItemButton>
+          </div>
         </Link>
         <Link to="/todo" style={{ textDecoration: "none" }}>
           <ListItemButton>

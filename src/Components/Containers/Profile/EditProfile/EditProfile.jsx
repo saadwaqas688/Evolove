@@ -129,6 +129,7 @@ const EditProfile = () => {
         }
 
         let payload={...userData,FullName:name,ProfileImage:image}
+        
        await updateService("Users",userData.id,payload)
        enqueueSnackbar('profile updated successfully', {
          variant: "success",

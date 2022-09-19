@@ -20,8 +20,6 @@ const ProductContainer = ({
 }) => {
   const size = { xs: "12", sm: "6", md: "6", lg: "3" };
   const [showALL, setShowAll] = useState(false);
-
-  console.log("hello", tickestList);
   const seeAllHandler = () => {
     setShowAll(!showALL);
   };

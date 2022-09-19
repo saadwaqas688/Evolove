@@ -1,68 +1,81 @@
-import React from "react";
-import {
-  List,
-  ListItemButton,
-} from "@mui/material";
-import {useLocation} from 'react-router';
-import {ListItemTextContainer} from "./SideBarCategoriesLinks.style";
+import React, { useEffect, useState } from "react";
+import { List, ListItemButton } from "@mui/material";
+import { useLocation } from "react-router";
+import { ListItemTextContainer } from "./SideBarCategoriesLinks.style";
 import { Colors } from "../../../config/palette";
-import { Link, useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
+import { getService } from "./../../../services/services.js";
+import { useDispatch } from "react-redux";
+import { productsActions } from "./../../../redux/reducers/products.js";
 
 const SideBarCategoriesLinks = () => {
-    const categories=["yoga","awareness","education","music"]
-    let navigate = useNavigate();
-
+  //   const categories = ["yoga", "awareness", "education", "music"];
+  // let navigate = useNavigate();
+  const dispatch = useDispatch();
   const { pathname } = useLocation();
-  console.log(pathname)
-   
-  function handleNavigation(path) {
-    navigate(path);
+  const [categoriesData, setCategoriesData] = useState([]);
+  const [categories, setCategories] = useState([]);
+
+  const getCategories = async () => {
+    let allCategories = [];
+    const categories = await getService("category");
+
+    //   console.log('rough carte', categories);
+    categories.forEach((doc) => {
+      allCategories.push({ ...doc.data() });
+    });
+    //   console.log('categories', allCategories);
+    setCategoriesData(allCategories);
+  };
+
+  function handleNavigation(name) {
+    // navigate(`/home/categories/${name}`);
+
+    dispatch(productsActions.setFilteredCategoryName({name: name, showCard: true}));
   }
 
+  const categoriesHandler = (payload) => {
+    payload.forEach((item) => {
+      item.Categories.map((categoryList) => {
+        return categoryList.Categories;
+      });
+      setCategories(item.Categories);
+      //  console.log(item.Categories);
+    });
+  };
+  useEffect(() => {
+    categoriesHandler(categoriesData);
+  }, [categoriesData]);
+  useEffect(() => {
+    getCategories();
+  }, []);
   return (
     <>
-        <List sx={{display:"flex",alignItems:"center",flexDirection:"column",justifyContent:"center"}}>
-       {  categories.map((category)=>{
-            return(
-
-              <ListItemButton  onClick={()=>handleNavigation(`/home/categories/${category}`)}  >
-                  <ListItemTextContainer sx={{color:pathname===`/home/categories/${category}`?'#E63369':Colors.grey}} primary={category} disableTypography/>
-              </ListItemButton>
-            )
-        })
-        }
-
-              {/* <ListItemButton  component="a" href="/home/categories/Psychology"   >
-                  <ListItemTextContainer sx={{color:pathname==='/home/categories/Psychology'?'#E63369':Colors.grey}} primary="Psychology" disableTypography/>
-              </ListItemButton>
-              <ListItemButton  component="a" href="/home/categories/Spirituality"   >
-                  <ListItemTextContainer sx={{color:pathname==='/home/categories/Spirituality'?'#E63369':Colors.grey}} primary="Spirituality" disableTypography/>
-              </ListItemButton>
-              <ListItemButton  component="a" href="/home/categories/Education"   >
-                  <ListItemTextContainer sx={{color:pathname==='/home/categories/Education'?'#E63369':Colors.grey}} primary="Education" disableTypography/>
-              </ListItemButton>
-              <ListItemButton  component="a" href="/home/categories/Awareness"   >
-                  <ListItemTextContainer sx={{color:pathname==='/home/categories/Awareness'?'#E63369':Colors.grey}} primary="Awareness" disableTypography/>
-              </ListItemButton>
-              <ListItemButton  component="a" href="/home/categories/Music"   >
-                  <ListItemTextContainer sx={{color:pathname==='/home/categories/Music'?'#E63369':Colors.grey}} primary="Music" disableTypography/>
-              </ListItemButton>
-              <ListItemButton  component="a" href="/home/categories/Natural Medicine"   >
-                  <ListItemTextContainer sx={{color:pathname==='/home/categories/Natural%20Medicine'?'#E63369':Colors.grey}} primary="Natural Medicine" disableTypography/>
-              </ListItemButton>
-              <ListItemButton  component="a" href="/home/categories/Conscious Business"   >
-                  <ListItemTextContainer sx={{color:pathname==='/home/categories/Conscious%20Business'?'#E63369':Colors.grey}} primary="Conscious business" disableTypography/>
-              </ListItemButton>
-              <ListItemButton  component="a" href="/home/categories/Yoga"   >
-                  <ListItemTextContainer sx={{color:pathname==='/home/categories/Yoga'?'#E63369':Colors.grey}} primary="Yoga" disableTypography/>
-              </ListItemButton>
-              <ListItemButton  component="a" href="/home/categories/Meditation"   >
-                  <ListItemTextContainer sx={{color:pathname==='/home/categories/Meditation'?'#E63369':Colors.grey}} primary="Meditation" disableTypography/>
-              </ListItemButton>
-              <ListItemButton  component="a" href="/home/categories/Others"   >
-                  <ListItemTextContainer sx={{color:pathname==='/home/categories/Others'?'#E63369':Colors.grey}} primary="Others" disableTypography/>
-              </ListItemButton> */}
-          </List>
+      <List
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          flexDirection: "column",
+          justifyContent: "center",
+        }}
+      >
+        {categories.map((category) => {
+          return (
+            <ListItemButton onClick={() => handleNavigation(category.name)}>
+              <ListItemTextContainer
+                sx={{
+                  color:
+                    pathname === `/home/categories/${category.name}`
+                      ? "#E63369"
+                      : Colors.grey,
+                }}
+                primary={category.name}
+                disableTypography
+              />
+            </ListItemButton>
+          );
+        })}
+      </List>
     </>
   );
 };

@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import HomeTopCard from "../HomeTopCard/HomeTopCard";
-import CoursesContainer from "../HomeCourseContainer/HomeCourseContainer";
-import { HomeCoachesContainer } from "../HomeCoachesContainer/HomeCoachesContainer";
 import BoxCom from "../../../UI/BoxCom/BoxCom";
 import {
   LinkContainer,

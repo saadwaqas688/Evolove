@@ -33,7 +33,6 @@ const AppWrapper = ({ children }) => {
   const { pathname } = useLocation();
   const theme = useTheme();
 
-  console.log("basePath", getBasePath(pathname));
   React.useEffect(() => {
     if (typeof window !== "undefined") {
       const session = JSON.parse(localStorage.getItem("authentication"));
@@ -42,7 +41,6 @@ const AppWrapper = ({ children }) => {
     }
   }, []);
   const isMatch = useMediaQuery(theme.breakpoints.up("md"));
-  console.log("basePath", getBasePath(pathname));
 
   const dispatch = useDispatch();
 
@@ -83,29 +81,21 @@ const AppWrapper = ({ children }) => {
   };
 
   const getUserData = async () => {
-    let userData=localStorage.getItem("userData")
+    let userData = localStorage.getItem("userData");
 
-    if(userData){
-      userData=JSON.parse(userData)
-      const docSnap = await getServiceById("Users",userData.uid);
+    if (userData) {
+      userData = JSON.parse(userData);
+      const docSnap = await getServiceById("Users", userData.uid);
 
       if (docSnap.exists()) {
-  
         dispatch(authActions.setUserData(docSnap.data()));
-
-    
       } else {
-    
       }
-  
-
-  
     }
-
   };
 
   useEffect(() => {
-    getUserData()
+    getUserData();
     getProducts();
     getBlogs();
     getCourses();

@@ -8,6 +8,7 @@ import {
   ProductImage,
 } from "./ProductCard.style";
 import { Link } from "react-router-dom";
+import defultImage from './../../../../assets/images/homeOnBoarding/defaultProduct.jpg'
 
 const ProductCard = ({ size, image, title,name,price }) => {
   return (
@@ -20,7 +21,7 @@ const ProductCard = ({ size, image, title,name,price }) => {
             height: { lg: "218px", md: "auto" },
           }}
         >
-          <ProductImage src={image} alt="Paris" />
+          <ProductImage src={!image? defultImage : image} alt="Product image" />
           <BoxCom>
             <NameContainer variant="body1">{title}</NameContainer>
 
@@ -30,7 +31,7 @@ const ProductCard = ({ size, image, title,name,price }) => {
               variant="body1"
               sx={{ color: "#0AB27D", marginLeft: "12px" }}
             >
-              ${price}
+              zł{price}
             </Typography>
             </CardFooter>
           </BoxCom>
