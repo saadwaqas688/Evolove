@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Grid, Paper, Typography } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
-import ShopImage from "../../../../../assets/images/homeOnBoarding/productImage1.png";
-import Loader from './../../../../UI/Loader/Loader'
+import Loader from "./../../../../UI/Loader/Loader";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   ExploreShopPriceText,
   ExploreCourseImage,
@@ -21,18 +21,25 @@ import {
   EbookButton,
   TypographyPublisher,
   ShopPublisherDescription,
-  TypographyPublisherReview,
-  ShopReviewerDescription,
+  //   TypographyPublisherReview,
+  //   ShopReviewerDescription,
   TypographyPublisherName,
 } from "./SingleProduct.style";
 import Publisher from "../PublisherCom/Publisher";
-import ReviewerCom from "../ReviewCom/ReviewerCom";
+// import ReviewerCom from "../ReviewCom/ReviewerCom";
 import { Colors } from "../../../../../config/palette";
-import { getService } from "./../../../../../services/services.js";
+import {
+  getService,
+  updateService,
+  getServiceById,
+} from "./../../../../../services/services.js";
+
 const SingleProduct = () => {
+  const navigate = useNavigate();
   const { id: productId } = useParams();
   const [showLoader, setShowLoader] = useState(true);
   const [productList, setProductList] = useState([]);
+  const [favColor, setFavColor] = useState(false);
 
   const getProduct = async () => {
     let productArray = [];
@@ -42,74 +49,110 @@ const SingleProduct = () => {
           productArray.push({ id: doc.id, ...doc.data() });
         });
         setShowLoader(false);
-        // const limitedProduct = productArray.slice(0, 4);
         const filterProduct = productArray.filter((el) => el.id === productId);
-        console.log("filterProduct", filterProduct);
         setProductList(filterProduct);
       })
       .catch((error) => console.log(error));
   };
+  const checkStatus = async () => {
+    const uid = await JSON.parse(localStorage.getItem("userData"));
+    let user = await getServiceById("Users", uid.uid);
+    let user1 = user.data();
+    let arr = [...user1.FavoriteProducts];
+    let check = arr.some((el) => el.includes(productId));
+    if (check) {
+      setFavColor(true);
+    } else {
+      setFavColor(false);
+    }
+    return check;
+  };
+  const favoriteButtonHandler = async () => {
+    let check = await checkStatus();
+    const uid = await JSON.parse(localStorage.getItem("userData"));
+    let user = await getServiceById("Users", uid.uid);
+    let user1 = user.data();
+    let arr = [...user1.FavoriteProducts];
+    if (check) {
+      let index = arr.indexOf(productId);
+      arr.splice(index, 1);
+      let payload = { ...user1, FavoriteProducts: arr };
+      await updateService("Users", uid.uid, payload);
+      setFavColor(false);
+    } else {
+      arr.push(productId);
+      let payload = { ...user1, FavoriteProducts: arr };
+      await updateService("Users", uid.uid, payload);
+      setFavColor(true);
+    }
+  };
+
   useEffect(() => {
     getProduct();
-    setShowLoader(true)
+    setShowLoader(true);
+    checkStatus();
   }, []);
   return (
     <Paper elevation={0} square={true} style={{ background: Colors.secondary }}>
-        {
-            showLoader ? <Loader/> : 
-            
-            <>
-            {productList.map((product) => {
-        return (
-          <>
-            <Typography
-              sx={{
-                color: Colors.white,
-                paddingTop: "40px",
-                fontSize: "20px",
-                fontFamily: '"Poppins", "sans-serif"',
-                paddingLeft: "20px",
-              }}
-            >
-              {product.Type}
-            </Typography>
-            <Grid container spacing={6}>
-              <Grid item xs={12} lg={6}>
-                <ExploreCourseImage src={product.Image} />
+      {showLoader ? (
+        <Loader />
+      ) : (
+        <>
+          {productList.map((product) => {
+            return (
+              <>
+                <Typography
+                  sx={{
+                    color: Colors.white,
+                    paddingTop: "40px",
+                    fontSize: "20px",
+                    fontFamily: '"Poppins", "sans-serif"',
+                    paddingLeft: "20px",
+                  }}
+                >
+                  {product.Type}
+                </Typography>
+                <Grid container spacing={6}>
+                  <Grid item xs={12} lg={6}>
+                    <ExploreCourseImage src={product.Image} />
 
-                <MainDiv>
-                  <MainInnerDiv>
-                    <TypographyName>
-                      <TypographyPublisherName>
-                        Publisher :
-                      </TypographyPublisherName>{" "}
-                      {product.CoachName}
-                    </TypographyName>
+                    <MainDiv>
+                      <MainInnerDiv>
+                        <TypographyName>
+                          <TypographyPublisherName>
+                            Publisher :
+                          </TypographyPublisherName>{" "}
+                          {product.CoachName}
+                        </TypographyName>
 
-                    <TypographyToicName>{product.Title}</TypographyToicName>
-                  </MainInnerDiv>
+                        <TypographyToicName>{product.Title}</TypographyToicName>
+                      </MainInnerDiv>
 
-                  <div>
-                    <ShareButton aria-label="add to favorites">
-                      <ShareIcon />
-                    </ShareButton>
-                    <FavoriteButton aria-label="share" style={{}}>
-                      <FavoriteIcon />
-                    </FavoriteButton>
-                  </div>
-                </MainDiv>
-                <EbookButton>Ebook</EbookButton>
-             
-                      <TypographyPublisher>About Publisher</TypographyPublisher>
-                      <Publisher
-                        image={product.Details[1].publisherImage}
-                        name={product.Details[1].publisherName}
-                        title={product.Details[1].title}
-                      />
-                      <ShopPublisherDescription>
-                        {product.Details[1].content}
-                      </ShopPublisherDescription>
-                      {/* <TypographyPublisherReview>
+                      <div>
+                        {/* <ShareButton aria-label="add to favorites">
+                          <ShareIcon />
+                        </ShareButton> */}
+                        <FavoriteButton
+                          favColor={favColor}
+                          aria-label="share"
+                          onClick={favoriteButtonHandler}
+                        >
+                          <FavoriteIcon />
+                        </FavoriteButton>
+                      </div>
+                    </MainDiv>
+                    <EbookButton>Ebook</EbookButton>
+
+                    <TypographyPublisher>About Publisher</TypographyPublisher>
+                    <Publisher
+                      image={product.Details[1].publisherImage}
+                      name={product.Details[1].publisherName}
+                      title={product.Details[1].title}
+                    />
+                    <ShopPublisherDescription>
+                      {product.Details[1].content}
+                    </ShopPublisherDescription>
+                    {/* <TypographyPublisherReview>
                         Reviews
                       </TypographyPublisherReview>
                       <ReviewerCom />
@@ -123,27 +166,27 @@ const SingleProduct = () => {
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                         Duis neque molestie elementum,
                       </ShopReviewerDescription> */}
-                   
-              </Grid>
-              <Grid item xs={12} lg={6}>
-                <ExploreShopPriceText>
-                  <TypographyPrice>Price</TypographyPrice>
-                  <TypographyPrice>zł {product.Price}</TypographyPrice>
-                </ExploreShopPriceText>
+                  </Grid>
+                  <Grid item xs={12} lg={6}>
+                    <ExploreShopPriceText>
+                      <TypographyPrice>Price</TypographyPrice>
+                      <TypographyPrice>zł {product.Price}</TypographyPrice>
+                    </ExploreShopPriceText>
 
-                <TypographyDescription>Description</TypographyDescription>
-                <ExploreShopPriceHeading>
-                  {product.Details[0].content}
-                </ExploreShopPriceHeading>
-                <PriceButton>Buy Now</PriceButton>
-              </Grid>
-            </Grid>
-          </>
-        );
-      })}
-            </>
-        }
-      
+                    <TypographyDescription>Description</TypographyDescription>
+                    <ExploreShopPriceHeading>
+                      {product.Details[0].content}
+                    </ExploreShopPriceHeading>
+                    <PriceButton onClick={() => navigate("/payment")}>
+                      Buy Now
+                    </PriceButton>
+                  </Grid>
+                </Grid>
+              </>
+            );
+          })}
+        </>
+      )}
     </Paper>
   );
 };

@@ -37,6 +37,7 @@ import MoonCalendar from "../Components/Containers/MoonCalendar/MoonCalendar";
 import Todo from "../Components/Containers/Todo/TodoMain/Todo";
 import ProtectedRoutes from './ProtectedRoutes';
 import useAuth from './../Utils/useAuth';
+import Payment from './../Components/Containers/Payments/Payment.js'
 
 
 const ApplicationRoutes = () => {
@@ -89,7 +90,9 @@ const ApplicationRoutes = () => {
             <Route path="/subscriptionSuccess" element={<SubscriptionSuccess />} />
             <Route path="/shop/:id" element={<SingleProduct />} />
             <Route path="/home/categories/:category" element={<AllCourses />} />
+            <Route path="/payment" element={<Payment/>}/>
             <Route path="/test" element={<Test />} />
+
             <Route
               path="/coachProfile/newSubmission"
               element={<NewSubmission />}

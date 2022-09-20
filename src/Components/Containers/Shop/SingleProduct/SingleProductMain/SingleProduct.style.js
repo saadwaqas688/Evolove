@@ -72,6 +72,7 @@ export const PriceButton = styled("button")(({ theme }) => ({
   borderRadius: "2.5rem",
   lineHeight:"27px",
   border: "none",
+  cursor: 'pointer',
   [theme.breakpoints.down("lg")]: {
     textAlign: "center",
     width: "70%",
@@ -121,8 +122,8 @@ export const ShareButton = styled(IconButton)(({ theme }) => ({
   marginRight: "5px"
 }));
 
-export const FavoriteButton = styled(IconButton)(({ theme }) => ({
-  color: Colors.darkGrey,
+export const FavoriteButton = styled(IconButton)(({ theme, favColor }) => ({
+  color: favColor? '#E63369': Colors.darkGrey,
   background: "#2A2A3F",
   boxShadow: "0px 3.39814px 6.79629px rgba(0, 0, 0, 0.05)"
 }));

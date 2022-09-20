@@ -4,7 +4,7 @@ import EditProfileIcon from "../../../../assets/icons/EditProfileIcon";
 import BankAcountIcon from "../../../../assets/icons/BankAcountIcon";
 import BoxCom from "../../../UI/BoxCom/BoxCom";
 import TextfieldComp from "../../../UI/TextFieldCom/Textfield";
-import defaultImage from"../../../../assets/images/homeOnBoarding/defaultProfileImage.jpg"
+import defaultImage from "../../../../assets/images/homeOnBoarding/defaultProfileImage.jpg";
 import {
   AvatarContainer,
   AvatarWrapper,
@@ -30,16 +30,13 @@ import * as Yup from "yup";
 import { auth } from "../../../../config/Firebase/firebase";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
-import { sendPasswordResetEmail } from "firebase/auth"
-import { Link } from "react-router-dom";
+import { sendPasswordResetEmail } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { useSnackbar } from "notistack";
 import { imagePostService, updateService } from "../../../../services/services";
 
-
 const EditProfile = () => {
   const userData = useSelector((state) => state.auth.userData);
-
   const [name, setName] = React.useState(userData.FullName);
   const [email, setEmail] = React.useState("");
   const [selected, setSelected] = React.useState("editProfile");
@@ -49,13 +46,8 @@ const EditProfile = () => {
 
   const { enqueueSnackbar } = useSnackbar();
   const navigate = useNavigate();
-
-  console.log("userData",userData)
-
   let FORM_VALIDATION = "";
   let initialValues = "";
-
-
   if (selected === "editProfile") {
     FORM_VALIDATION = Yup.object().shape({
       name: Yup.string().required("name is required"),
@@ -63,8 +55,8 @@ const EditProfile = () => {
     });
 
     initialValues = {
-      image:userData.ProfileImage,
-      name:name,
+      image: userData.ProfileImage,
+      name: name,
     };
   } else {
     FORM_VALIDATION = Yup.object().shape({
@@ -72,7 +64,7 @@ const EditProfile = () => {
     });
 
     initialValues = {
-      email:"",
+      email: "",
     };
   }
 
@@ -89,76 +81,66 @@ const EditProfile = () => {
     setShowNewBankForm(false);
   }
 
-  
- 
-
   async function submitHandler(values) {
-
-    if(selected==="changePassword"){
-
+    if (selected === "changePassword") {
       const resetPassword = async () => {
-          setLoading(true);
-          await sendPasswordResetEmail(auth, email)
-            .then(() => {
-              setLoading(false);
-              enqueueSnackbar('Reset Password link send to your Email.', {
-                variant: "success",
-                autoHideDuration: 4000,
-              });
-              navigate("/verifyCode");
-  
-            })
-            .catch(e => {
-              setLoading(false);
-              enqueueSnackbar('Error occoured ! ', {
-                variant: "error",
-                autoHideDuration: 4000,
-              });          });
-        }
-        resetPassword(values.email)
-    }else if(selected==="editProfile"){
-      try{
         setLoading(true);
-        let image=userData.ProfileImage
-        let name=userData.FullName
-        if(previewImage){
+        await sendPasswordResetEmail(auth, email)
+          .then(() => {
+            setLoading(false);
+            enqueueSnackbar("Reset Password link send to your Email.", {
+              variant: "success",
+              autoHideDuration: 4000,
+            });
+            navigate("/verifyCode");
+          })
+          .catch((e) => {
+            setLoading(false);
+            enqueueSnackbar("Error occoured ! ", {
+              variant: "error",
+              autoHideDuration: 4000,
+            });
+          });
+      };
+      resetPassword(values.email);
+    } else if (selected === "editProfile") {
+      try {
+        setLoading(true);
+        let image = userData.ProfileImage;
+        let name = userData.FullName;
+        if (previewImage) {
           image = await imagePostService(values.image);
         }
-        if(values.name){
-          name=values.name
+        if (values.name) {
+          name = values.name;
         }
 
-        let payload={...userData,FullName:name,ProfileImage:image}
-        
-       await updateService("Users",userData.id,payload)
-       enqueueSnackbar('profile updated successfully', {
-         variant: "success",
-         autoHideDuration: 4000,
-       }); 
-       setLoading(false);
+        let payload = { ...userData, FullName: name, ProfileImage: image };
 
-      }catch(error){
+        await updateService("Users", userData.id, payload);
+        enqueueSnackbar("profile updated successfully", {
+          variant: "success",
+          autoHideDuration: 4000,
+        });
         setLoading(false);
-        enqueueSnackbar('Error occoured ! ', {
+      } catch (error) {
+        setLoading(false);
+        enqueueSnackbar("Error occoured ! ", {
           variant: "error",
           autoHideDuration: 4000,
-        }); 
+        });
       }
-
-    }else{
-      console.log("values of BankAcount",values)
+    } else {
+      console.log("values of BankAcount", values);
     }
+  }
 
-    }
+  useEffect(() => {
+    setName(userData.FullName);
 
-  useEffect(()=>{
-    setName(userData.FullName)
+    setEmail(userData.Email);
+  }, [userData]);
 
-    setEmail(userData.Email)
-
-  },[userData])
-
- 
   return (
     <Formik
       initialValues={initialValues}
@@ -169,7 +151,7 @@ const EditProfile = () => {
     >
       {(formik) => {
         const { errors, touched, values, handleChange } = formik;
-        console.log("values in formil",values)
+        console.log("values in formil", values);
         return (
           <>
             <Form>
@@ -248,7 +230,16 @@ const EditProfile = () => {
                       }
                     >
                       <label htmlFor="file">
-                        <AvatarWrapper alt="Remy Sharp" src={previewImage?previewImage:userData.ProfileImage?userData.ProfileImage:defaultImage} />
+                        <AvatarWrapper
+                          alt="Remy Sharp"
+                          src={
+                            previewImage
+                              ? previewImage
+                              : userData.ProfileImage
+                              ? userData.ProfileImage
+                              : defaultImage
+                          }
+                        />
                       </label>
                     </ImageUploadField>
 
@@ -281,15 +272,18 @@ const EditProfile = () => {
                         height="50px"
                         width="100%"
                         autoComplete="false"
-                        onChange={(e)=>{handleChange(e);setName("")}}
+                        onChange={(e) => {
+                          handleChange(e);
+                          setName("");
+                        }}
                         name="name"
-                        value={values.name?values.name:name}
+                        value={values.name ? values.name : name}
                         justifyproperty="flex-start"
                         alignproperty="null"
                         helperText={
-                          (touched.name && errors.name) ? errors.name : ""
+                          touched.name && errors.name ? errors.name : ""
                         }
-                        error={(errors.name && touched.name) ? true : null}
+                        error={errors.name && touched.name ? true : null}
                       />
                     </BoxCom>
                     <BoxCom sx={{ paddingTop: "35px" }}>
@@ -299,36 +293,33 @@ const EditProfile = () => {
                         width="100%"
                         autoComplete="false"
                         name="email"
-                        value={values.email?values.email:email}
+                        value={values.email ? values.email : email}
                         justifyproperty="flex-start"
                         alignproperty="null"
                         disabled={true}
-
                       />
                     </BoxCom>
                   </>
                 )}
-                {
-                  selected === "changePassword" && (
-                    <BoxCom sx={{ paddingTop: "35px" }}>
-                      <FieldLabel>Email</FieldLabel>
-                      <TextfieldComp
-                        height="50px"
-                        width="100%"
-                        autoComplete="false"
-                        onChange={(e)=>{handleChange(e)}}
-                        name="email"
-                        value={values.email}
-                        justifyproperty="flex-start"
-                        alignproperty="null"
-                        helperText={
-                          errors.email ? errors.email : ""
-                        }
-                        error={errors.email ? true : null}
-                      />
-                    </BoxCom>
-                  )
-                }
+                {selected === "changePassword" && (
+                  <BoxCom sx={{ paddingTop: "35px" }}>
+                    <FieldLabel>Email</FieldLabel>
+                    <TextfieldComp
+                      height="50px"
+                      width="100%"
+                      autoComplete="false"
+                      onChange={(e) => {
+                        handleChange(e);
+                      }}
+                      name="email"
+                      value={values.email}
+                      justifyproperty="flex-start"
+                      alignproperty="null"
+                      helperText={errors.email ? errors.email : ""}
+                      error={errors.email ? true : null}
+                    />
+                  </BoxCom>
+                )}
 
                 {selected === "bankAccount" && (
                   <>
@@ -340,7 +331,11 @@ const EditProfile = () => {
                 )}
                 {selected !== "bankAccount" && (
                   <ProfileButton type="submit" variant="contained">
-                   {loading?"please wait ....":selected==="changePassword" ? "SEND" :"Save Changes"}
+                    {loading
+                      ? "please wait ...."
+                      : selected === "changePassword"
+                      ? "SEND"
+                      : "Save Changes"}
                   </ProfileButton>
                 )}
               </MainContainer>
