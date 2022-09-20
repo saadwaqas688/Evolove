@@ -10,10 +10,10 @@ import {
 import { Link } from "react-router-dom";
 import defultImage from './../../../../assets/images/homeOnBoarding/defaultProduct.jpg'
 
-const ProductCard = ({ size, image, title,name,price }) => {
+const ProductCard = ({ size, image, title,name,price, id }) => {
   return (
     <Grid item xs={12} sm={size?.sm} md={size?.md} lg={size?.lg}>
-      <Link to="/shop/singleProduct" style={{ textDecoration: "none" }}>
+      <Link to={`/shop/${id}`} style={{ textDecoration: "none" }}>
         <BoxCom
           sx={{
             background: Colors.dark,

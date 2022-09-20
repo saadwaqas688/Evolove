@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Grid } from "@mui/material";
 import BoxCom from "../../../UI/BoxCom/BoxCom";
-import { LinkContainer, MainContainer, PopularCourseHeading } from "./AllCoaches.style";
+import {
+  LinkContainer,
+  MainContainer,
+  PopularCourseHeading,
+} from "./AllCoaches.style";
 import HomeTopCard from "../HomeTopCard/HomeTopCard";
 import HomeCoachcom from "../HomeCoachCom/HomeCoachCom";
 import { getService } from "../../../../services/services";
 const AllCoaches = () => {
-
   const [coaches, setCoaches] = useState([]);
 
   const [loading, setLoading] = useState(false);
@@ -18,28 +21,24 @@ const AllCoaches = () => {
 
     const usersData = await getService("Users");
 
-
     usersData.forEach((doc) => {
-      if(doc.data().Coach===false)
-      tempData.push({ id: doc.id, ...doc.data() });
+      if (doc.data().Coach === false)
+        tempData.push({ id: doc.id, ...doc.data() });
     });
-    
 
-
-    setCoaches(tempData)
+    setCoaches(tempData);
     setLoading(false);
   };
 
   useEffect(() => {
-      getCoaches()
-
+    getCoaches();
   }, []);
 
   return (
     <div>
-    <BoxCom sx={{ marginTop: "60px" }}>
+      <BoxCom sx={{ marginTop: "60px" }}>
         <HomeTopCard />
-        <MainContainer >
+        <MainContainer>
           <BoxCom sx={{ marginTop: "33px" }}>
             <PopularCourseHeading>Top Coaches</PopularCourseHeading>
           </BoxCom>
@@ -47,21 +46,14 @@ const AllCoaches = () => {
         </MainContainer>
       </BoxCom>
       <Grid container spacing={2}>
-      <Grid container spacing={2}>
-
-{ coaches?.map((coach)=>{
-            
-            return (<HomeCoachcom 
-                 name={coach.FullName}
-                image={coach.ProfileImage} 
-                
-                />)
-          })
-        }
-              </Grid>
-  </Grid>
-  
-
+        <Grid container spacing={2}>
+          {coaches?.map((coach) => {
+            return (
+              <HomeCoachcom name={coach.FullName} image={coach.ProfileImage} />
+            );
+          })}
+        </Grid>
+      </Grid>
     </div>
   );
 };

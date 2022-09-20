@@ -87,7 +87,7 @@ const ApplicationRoutes = () => {
             <Route path="/coachProfile/salesBoard" element={<SalesBoard />} />
             <Route path="/subscription" element={<Subscription />} />
             <Route path="/subscriptionSuccess" element={<SubscriptionSuccess />} />
-            <Route path="/shop/singleProduct" element={<SingleProduct />} />
+            <Route path="/shop/:id" element={<SingleProduct />} />
             <Route path="/home/categories/:category" element={<AllCourses />} />
             <Route path="/test" element={<Test />} />
             <Route

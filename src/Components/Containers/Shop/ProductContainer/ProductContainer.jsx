@@ -89,6 +89,7 @@ const ProductContainer = ({
                   name={ticket.eventName}
                   price={ticket.evetPrice}
                   image={ticket.image}
+                  
                 />
               );
             })}
@@ -100,6 +101,7 @@ const ProductContainer = ({
                   name={product.CoachName}
                   price={product.Price}
                   image={product.Image}
+                  id={product.id}
                 />
               );
             })}

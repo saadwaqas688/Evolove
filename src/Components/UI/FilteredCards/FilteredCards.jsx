@@ -39,6 +39,7 @@ const FilteredCards = ({categoryName, specificCategory, productType, loading}) =
                 name={course.CoachName}
                 price={course.Price}
                 image={course.Image}
+                id={course.id}
               />
             );
           })}

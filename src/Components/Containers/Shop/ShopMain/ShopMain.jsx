@@ -69,7 +69,7 @@ const ShopMain = () => {
     tempData = tempData.filter((course) => course.Category === categoryName);
     setCategoryFilter(tempData);
 
-    tempData.filter((item) => {
+    tempData.forEach((item) => {
       setProductType(item.Type);
     });
     setLoading(false);
@@ -113,9 +113,6 @@ const ShopMain = () => {
           )}
         </>
       )}
-
-      {/* <ProductContainer heading={"New Products"}/> */}
-      {/* <ProductContainer heading={"Popular Products"}/> */}
     </BoxCom>
   );
 };
