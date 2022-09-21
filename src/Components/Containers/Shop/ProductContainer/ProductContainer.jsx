@@ -59,6 +59,7 @@ const ProductContainer = ({
             {tickestList?.map((ticket) => {
               return (
                 <ProductCard
+                heading ={heading}
                   size={size}
                   title={ticket.descriptionName}
                   name={ticket.eventName}
@@ -70,6 +71,7 @@ const ProductContainer = ({
             {productList?.map((product) => {
               return (
                 <ProductCard
+                heading ={heading}
                   size={size}
                   title={product.Title}
                   name={product.CoachName}
@@ -84,6 +86,7 @@ const ProductContainer = ({
             {limitedTicketList?.map((ticket) => {
               return (
                 <ProductCard
+                heading = {heading}
                   size={size}
                   title={ticket.descriptionName}
                   name={ticket.eventName}
@@ -96,6 +99,7 @@ const ProductContainer = ({
             {limitedProductList?.map((product) => {
               return (
                 <ProductCard
+                heading ={heading}
                   size={size}
                   title={product.Title}
                   name={product.CoachName}

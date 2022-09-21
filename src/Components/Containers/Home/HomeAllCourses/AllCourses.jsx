@@ -9,7 +9,7 @@ import {
   MainContainer,
   PopularCourseHeading,
 } from "./AllCourses.style";
-import HomeTopCard from "../HomeTopCard/HomeTopCard";
+import HomeTopCard from "../../../UI/HomeTopCard/HomeTopCard";
 import { useParams } from "react-router-dom";
 import { getService } from "../../../../services/services";
 import Loader from "../../../UI/Loader/Loader";

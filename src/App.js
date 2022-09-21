@@ -10,9 +10,7 @@ function App() {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         console.log(user.uid);
-      } else {
-        alert("User is signed out");
-      }
+      } 
     });
   }, []);
   return (

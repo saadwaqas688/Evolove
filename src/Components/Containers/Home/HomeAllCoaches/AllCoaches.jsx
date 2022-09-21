@@ -6,7 +6,7 @@ import {
   MainContainer,
   PopularCourseHeading,
 } from "./AllCoaches.style";
-import HomeTopCard from "../HomeTopCard/HomeTopCard";
+import HomeTopCard from "./../../../UI/HomeTopCard/HomeTopCard";
 import HomeCoachcom from "../HomeCoachCom/HomeCoachCom";
 import { getService } from "../../../../services/services";
 const AllCoaches = () => {

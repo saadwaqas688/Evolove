@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import HomeTopCard from "../HomeTopCard/HomeTopCard";
+import HomeTopCard from "../../../UI/HomeTopCard/HomeTopCard";
 import BoxCom from "../../../UI/BoxCom/BoxCom";
 import {
   LinkContainer,

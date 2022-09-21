@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Grid, Paper, Typography } from "@mui/material";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import ShareIcon from "@mui/icons-material/Share";
+// import ShareIcon from "@mui/icons-material/Share";
 import Loader from "./../../../../UI/Loader/Loader";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -12,7 +12,7 @@ import {
   ExploreShopPriceHeading,
   MainDiv,
   MainInnerDiv,
-  ShareButton,
+  // ShareButton,
   FavoriteButton,
   TypographyPrice,
   TypographyDescription,
@@ -28,6 +28,7 @@ import {
 import Publisher from "../PublisherCom/Publisher";
 // import ReviewerCom from "../ReviewCom/ReviewerCom";
 import { Colors } from "../../../../../config/palette";
+import { useSnackbar } from "notistack";
 import {
   getService,
   updateService,
@@ -36,6 +37,7 @@ import {
 
 const SingleProduct = () => {
   const navigate = useNavigate();
+  const { enqueueSnackbar } = useSnackbar();
   const { id: productId } = useParams();
   const [showLoader, setShowLoader] = useState(true);
   const [productList, setProductList] = useState([]);
@@ -54,6 +56,7 @@ const SingleProduct = () => {
       })
       .catch((error) => console.log(error));
   };
+  
   const checkStatus = async () => {
     const uid = await JSON.parse(localStorage.getItem("userData"));
     let user = await getServiceById("Users", uid.uid);
@@ -79,11 +82,19 @@ const SingleProduct = () => {
       let payload = { ...user1, FavoriteProducts: arr };
       await updateService("Users", uid.uid, payload);
       setFavColor(false);
+      enqueueSnackbar('Rmoved from My favorite', {
+        variant: "info",
+        autoHideDuration: 4000,
+      });
     } else {
       arr.push(productId);
       let payload = { ...user1, FavoriteProducts: arr };
       await updateService("Users", uid.uid, payload);
       setFavColor(true);
+      enqueueSnackbar('Added to My favorite', {
+        variant: "success",
+        autoHideDuration: 4000,
+      });
     }
   };
 

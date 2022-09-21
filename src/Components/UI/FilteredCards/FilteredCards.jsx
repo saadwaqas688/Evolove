@@ -7,9 +7,9 @@ import {
   MainContainer,
   PopularCourseHeading,
 } from "./FilteredCrads.style.js";
-import HomeTopCard from "./../../Containers/Home/HomeTopCard/HomeTopCard";
 import PropTypes from "prop-types";
-import Loader from './../../UI/Loader/Loader'
+import Loader from './../../UI/Loader/Loader';
+import Alert from './../Alert/Alert'
 
 const FilteredCards = ({categoryName, specificCategory, productType, loading}) => {
 
@@ -17,7 +17,7 @@ const FilteredCards = ({categoryName, specificCategory, productType, loading}) =
   return (
     <div>
       <BoxCom sx={{ marginTop: "60px" }}>
-        <HomeTopCard />
+        {/* <HomeTopCard /> */}
         <MainContainer>
           <BoxCom sx={{ marginTop: "33px" }}>
             <PopularCourseHeading>
@@ -27,24 +27,29 @@ const FilteredCards = ({categoryName, specificCategory, productType, loading}) =
           <LinkContainer>{`${specificCategory.length}  ${productType}`}</LinkContainer>
         </MainContainer>
       </BoxCom>
-      {loading ? (
-        <Loader />
-      ) : (
-        <Grid container spacing={2}>
-          {specificCategory?.map((course) => {
-            return (
-              <ProductCard
-                size={size}
-                title={course.Title}
-                name={course.CoachName}
-                price={course.Price}
-                image={course.Image}
-                id={course.id}
-              />
-            );
-          })}
-        </Grid>
-       )} 
+      {
+        specificCategory.length === 0 ?   <Alert title = {`No ${productType} found against ${categoryName}!`}  /> :
+        loading ? (
+          <Loader />
+        ) : (
+          <Grid container spacing={2}>
+            {specificCategory?.map((course) => {
+              return (
+                <ProductCard
+                  size={size}
+                  title={course.Title}
+                  name={course.CoachName}
+                  price={course.Price}
+                  image={course.Image}
+                  id={course.id}
+                />
+              );
+            })}
+          </Grid>
+         )
+      }
+    
+      
       
     </div>
   );

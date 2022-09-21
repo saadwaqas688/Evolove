@@ -7,6 +7,7 @@ import Loader from "../../../UI/Loader/Loader";
 import FilteredCourse from "./../../../UI/FilteredCards/FilteredCards";
 import { useSelector, useDispatch } from "react-redux";
 import { productsActions } from "./../../../../redux/reducers/products.js";
+import TopBanner from './../../../UI/HomeTopCard/HomeTopCard'
 
 const ShopMain = () => {
   const dispatch = useDispatch();
@@ -19,6 +20,9 @@ const ShopMain = () => {
   const [allCategories, setAllCategories] = useState([]);
   const [productType, setProductType] = useState("");
   const [loading, setLoading] = useState(true);
+  const [bannerTagline, setBannerTagline] = useState('');
+  const [bannerImage, setBannerImage] = useState('');
+  
 
   const { categoryName, showFilteredData } = useSelector(
     (state) => state.products
@@ -64,33 +68,52 @@ const ShopMain = () => {
 
     // setLoading(false);
   };
-  useEffect(() => {
+  const getBanners = async() => {
+    const courseData = await getService("Advertisment");
+    const bannersArray = []
+    courseData.forEach((doc) => {
+      bannersArray.push({ ...doc.data() });
+    });
+    const _shopBanner = bannersArray.filter((el) => el.screenData === 'Shop')
+    _shopBanner.forEach((el) => {
+      setBannerTagline(el.tagline)
+      setBannerImage(el.bannerUrl)
+    })
+    
+  }
+  const categoryProduct = () => {
     let tempData = [...allCategories];
     tempData = tempData.filter((course) => course.Category === categoryName);
     setCategoryFilter(tempData);
-
     tempData.forEach((item) => {
       setProductType(item.Type);
     });
     setLoading(false);
+  }
+  useEffect(() => {
+    categoryProduct()
   }, [categoryName, allCategories]);
 
   useEffect(() => {
     getTicket();
     getProducts();
     getProduct();
+    getBanners();
     dispatch(productsActions.setFilteredCategoryName({ showCard: false }));
   }, []);
 
   return (
     <BoxCom sx={{ marginTop: "36px", paddingRight: { lg: "20px", md: "0px" } }}>
       {showFilteredData ? (
+        <>
+        <TopBanner tagline={bannerTagline} image={bannerImage}/>
         <FilteredCourse
           categoryName={categoryName}
           specificCategory={categoryFilter}
           productType={productType}
           loading={loading}
         />
+        </>
       ) : (
         <>
           <ShopHeading>Shop</ShopHeading>

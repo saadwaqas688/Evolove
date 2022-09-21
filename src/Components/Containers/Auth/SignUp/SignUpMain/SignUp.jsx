@@ -21,9 +21,11 @@ import {
   PaperContainer,
   ErrorText,
 } from "./SignUp.style";
-import { postServiceByCoustomId, signup } from "./../../../../../services/services";
+import {
+  postServiceByCoustomId,
+  signup,
+} from "./../../../../../services/services";
 import { useNavigate } from "react-router-dom";
-// import useAuth from './../../../../../Utils/useAuth';
 
 function SignUp() {
   const { enqueueSnackbar } = useSnackbar();
@@ -31,78 +33,40 @@ function SignUp() {
   const [errorData, setErrorData] = useState("");
   const [error, setError] = useState(false);
 
-  const userModel={
-  About:"",
-  ArticlesEarnings:0,
-  BankDetails:[],
-  Coach:false,
-  Contact:"",
-  CourseEarnings:0,
-  EbooksEarnings:0,
-  Email:"",
-  FavoriteProducts:[],
-  FavoriteTickets:[],
-  Favorites:[],
-  FullName:"",
-  ProfileImage:"",
-  PurchasedBlogs:[],
-  PurchasedCourse:[],
-  PurchasedProducts:[],
-  SoldArticles:0,
-  SoldCourses:0,
-  SoldEbooks:0,
-  SubscribeCoach:[],
-  TotalEarnings:0,
-  WalletRecentActivity:[],
-  id:""
-
-
-
-
-
-
-
-
-
-
-
-
-  }
-  // const [formData, setFormData] = React.useState({
-  //   fullName: "",
-  //   email: "",
-  //   phoneNumber: "",
-  //   password: "",
-  // });
-  // console.log("formdata", formData);
-  // const currentUser = useAuth()
-  // console.log('i am current user',currentUser)
-  // const { fullName, email, phoneNumber, password } = formData;
-  // const handleChange = (e) => {
-  //   setFormData({ ...formData, [e.target.name]: e.target.value });
-  // };
-  // const handleSignup = async () => {
-  //   try {
-  //     await signup(email, password)
-
-  //   } catch (error) {
-  //     alert(error)
-  //   }
-  // }
-
-  
-
-
-    const saveUserData = async (path,data,id) => {
+  const userModel = {
+    About: "",
+    ArticlesEarnings: 0,
+    BankDetails: [],
+    Coach: false,
+    Contact: "",
+    CourseEarnings: 0,
+    EbooksEarnings: 0,
+    Email: "",
+    FavoriteProducts: [],
+    FavoriteTickets: [],
+    Favorites: [],
+    FullName: "",
+    ProfileImage: "",
+    PurchasedBlogs: [],
+    PurchasedCourse: [],
+    PurchasedProducts: [],
+    SoldArticles: 0,
+    SoldCourses: 0,
+    SoldEbooks: 0,
+    SubscribeCoach: [],
+    TotalEarnings: 0,
+    WalletRecentActivity: [],
+    id: "",
+  };
+  const saveUserData = async (path, data, id) => {
     try {
-      await postServiceByCoustomId(path,data,id)
+      await postServiceByCoustomId(path, data, id);
       enqueueSnackbar("Succesfully LoggedIn", {
         variant: "success",
         autoHideDuration: 4000,
       });
       navigate("/home");
       setError(false);
-
     } catch (error) {
       setError(true);
       enqueueSnackbar(error.message, {
@@ -110,8 +74,7 @@ function SignUp() {
         autoHideDuration: 4000,
       });
     }
-  }
-
+  };
 
   const validationSchema = yup.object({
     name: yup.string().required("Username Required"),
@@ -144,11 +107,11 @@ function SignUp() {
       const { email, password, phoneNumber, name } = values;
       signup(email, password)
         .then((res) => {
-          userModel.FullName=name
-          userModel.Contact=phoneNumber
-          userModel.Email=email
-          userModel.id=res.user.uid
-          saveUserData("Users",userModel,res.user.uid)
+          userModel.FullName = name;
+          userModel.Contact = phoneNumber;
+          userModel.Email = email;
+          userModel.id = res.user.uid;
+          saveUserData("Users", userModel, res.user.uid);
         })
         .catch((error) => {
           setError(true);

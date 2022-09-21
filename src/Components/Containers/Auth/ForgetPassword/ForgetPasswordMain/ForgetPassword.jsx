@@ -32,9 +32,6 @@ function ForgetPassword() {
     email: Yup.string().email().required("email is required"),
   });
 
-
-console.log("auth",auth)
-
   async function submitHandler(values) {
 
 
@@ -51,7 +48,6 @@ console.log("auth",auth)
   
             })
             .catch(e => {
-              console.log("error in reset passwr",e)
               setLoading(false);
               enqueueSnackbar('Error occoured ! ', {
                 variant: "error",
@@ -71,8 +67,7 @@ console.log("auth",auth)
     }}
   >
     {(formik) => {
-      const { errors, touched, values, handleChange } = formik;
-      console.log("values in formil",values)
+      const { errors, values, handleChange } = formik;
       return (
         <>
           <Form>
