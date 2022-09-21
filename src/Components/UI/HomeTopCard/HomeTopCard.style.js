@@ -15,11 +15,10 @@ export const CardContainer = styled(BoxCom)(({ theme }) => ({
 
 export const CourseImage = styled("div")(({ src, theme }) => ({
   backgroundImage: `url(${src})`,
-  backgroundColor: 'green',
   backgroundRepeat: 'no-repeat',
   borderRadius: "26px",
   // backgroundSize: 'cover',
-  backgroundPosition: "center",
+  backgroundPosition: "left center",
   
   width: "100%",
   height: "100%",
